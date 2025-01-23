@@ -1,0 +1,138 @@
+---
+title: "Mikroserwisy "
+--- 
+
+Komunikacja sieciowa, relacyjne bazy danych, rozwiązania chmurowe i big data znacząco zmieniły sposób budowania systemów informatycznych i wykonywnia na niach pracy. 
+
+Porównaj to jak "narzędzia" do  realizacji przekazu (gazeta, radio, telewizja, internet, komunikatory, media społecznościowe) zmieniły interakcje międzyludzkie i struktury społeczne.
+
+> Każde nowe informatyczne medium zmieniło stosunek ludzi do informatyki.  
+
+Koncepcja mikrousługi (mikroserwisu) jest bardzo popularnym sposobem budowania systemów informatycznych jak i koncepcją przy tworzeniu oprogramowania czy realizacji firmy w duchu Data-Driven. 
+Koncepcja ta pozwala zachować wydajność (rób jedną rzecz ale dobrze), elastyczność i jasną postać całej struktury.
+
+Chociaż istnieją inne sposoby architektury projektów oprogramowania, „mikroserwisy” są często używane nie bez powodu. 
+Idea mikroserwisów tkwi w nazwie: oprogramowanie jest reprezentowane jako wiele małych usług, które działają indywidualnie.
+Patrząc na ogólną architekturę, każda mikrousługa znajduje się w małej czarnej skrzynce z jasno zdefiniowanymi wejściami i wyjściami.
+Możesz porównać tego typu zachowanie do "czystej funkcji" w programowaniu funkcyjnym.
+
+W celu umożliwienia komunikacji różnych mikroserwisów często wybieranym rozwiązaniem jest wykorzystanie `Application Programming Interfaces` **API**  .
+
+## Komunikacja przez API
+
+Centralnym elementem architektury mikrousług jest wykorzystanie interfejsów API. 
+API to część, która pozwala na połączenie dwóch mikroserwisów. 
+Interfejsy API są bardzo podobne do stron internetowych.
+Podobnie jak strona internetowa, serwer wysyła do Ciebie kod reprezentujący stronę internetową. Twoja przeglądarka internetowa interpretuje ten kod i wyświetla stronę internetową.
+
+Weźmy przypadek biznesowy z modelem ML jako usługą.
+Załóżmy, że pracujesz dla firmy sprzedającej mieszkania w Bostonie.
+Chcesz zwiększać sprzedaż i oferować naszym klientom lepszą jakość usług dzięki nowej aplikacji mobilnej, z której może korzystać nawet 1 000 000 osób jednocześnie.
+Możemy to osiągnąć, udostępniając prognozę wartości domu, gdy użytkownik prosi o wycenę przez Internet.
+
+### Czym jest serwowanie modelu ML
+
+- Szkolenie dobrego modelu ML to TYLKO pierwsza część całego procesu:
+Musisz udostępnić swój model użytkownikom końcowym.
+Robisz to, zapewniając dostęp do modelu na swoim serwerze.
+
+- Aby udostępnić model potrzebujesz: modelu, interpretera, danych wsadowych.
+- Ważne metryki
+
+1. czas oczekiwania,
+2. koszty,
+3. liczba zapytać w jednostce czasu
+
+> Udostępnianie danych między dwoma lub więcej systemami zawsze było podstawowym wymogiem tworzenia oprogramowania – DevOps vs. MLOps.
+
+Gdy wywołasz interfejs API, otrzyma on Twoje żądanie. 
+Żądanie wyzwala kod do uruchomienia na serwerze i generuje odpowiedź odesłaną do Ciebie.
+Jeśli coś pójdzie nie tak, możesz nie otrzymać żadnej odpowiedzi lub otrzymać kod błędu jako kod stanu HTTP.
+
+> Klient-Serwer: Klient (system A) przesyła żądanie przez HTTP do adresu URL hostowanego przez system B, który zwraca odpowiedź.
+Identycznie działa np przeglądarka internetowa.
+Żądanie jest kierowane do serwera WWW, który zwraca tekstową stronę HTML.
+
+> Bezstanowe: Żądanie klienta powinno zawierać wszystkie informacje niezbędne do udzielenia pełnej odpowiedzi.
+
+Interfejsy API można wywoływać za pomocą wielu różnych narzędzi. 
+Czasami możesz nawet użyć przeglądarki internetowej. 
+Narzędzia takie jak CURL wykonują zadanie w wierszu poleceń. 
+Możesz używać narzędzi, takich jak Postman, do wywoływania interfejsów API za pomocą interfejsu użytkownika.
+
+> Cała komunikacja jest objęta ustalonymi zasadami i praktykami, które są nazywane protokołem HTTP.
+
+### Zapytanie - Request
+
+1.  Adres URL (np. _http://mydomain:8000/getapi?&val1=43&val2=3_) zawiera: 
+
+        - domenę, 
+        - port, 
+        - dodatkowe ścieżki, 
+        - zapytanie
+2.  Metody HTTP:
+
+        - GET, 
+        - POST
+3.  Nagłówki HTTP zawierają:
+
+        - informacje o autoryzacji, 
+        - cookies metadata
+
+Cała informacja zawarta jest w _Content-Type: application/json, text ... Accept: application/json, Authorization: Basic abase64string, Tokens_ 
+4.  Ciało zapytania
+
+Najczęściej wybieranym formatem dla wymiany informacji między serwisami jest format `JavaScript Object Notation`  (JSON).
+Przypomina on pythonowy obiekt słownika - "klucz": "wartość".
+
+```json
+{
+"RAD": 1,
+"PTRATIO": 15.3, "INDUS": 2.31, "B": 396.9,
+"ZN": 18,
+"DIS": 4.09, "CRIM": 0.00632, "RM": 6.575, 
+"AGE": 65.2, "CHAS": 0, "NOX": 0.538, 
+"TAX": 296, "LSTAT": 4.98
+}
+```
+
+### Odpowiedź - Response
+
+1. Treść odpowiedzi przekazywana jest razem z nagłówkiem oraz statusem: 
+```bash
+200 OK
+Content-Encoding: gzip
+Content-Type: text/html; charset=utf-8
+Date: Mon, 18 Jul 2016 16:06:00 GMT Server: Apache
+Path=/;
+```
+
+2. np.: "_Content-Type" => "application/json; charset=utf-8", "Server" => "Genie/Julia/1.8.5_"
+
+3. Treść (ciało) odpowiedzi: 
+```json
+{":input":{"RAD":1,"PTRATIO":15.3,"INDUS":2.31,.....}}, {":prediction":[29.919737211857683]}
+```
+4. HTTP status code:
+
+- 200 OK  - prawidłowe wykonanie zapytania,
+- 40X Access Denied
+- 50X Internal server error
+
+> Wyszukaj informacje czym jest `REST API`. 
+
+
+> Wiedza: 
+> 
+> - Zna możliwości i obszary zastosowania procesowania danych w czasie rzeczywistym
+> - Umie wybrać strukturę IT dla danego problemu biznesowego
+> - Rozumie potrzeby biznesowe podejmowania decyzji w bardzo krótkim czasie
+
+> Umiejętności:
+>
+> - Rozróżnia typy danych strukturyzowanych jak i niestrukturyzowanych
+
+> Kompetencje: 
+>
+> - Utrwala umiejętność samodzielnego uzupełniania wiedzy teoretycznej jak i praktycznej w zakresie programowania, modelowania, nowych technologii informatycznych z wykorzystaniem analizy w czasie rzeczywistym. 
+ 

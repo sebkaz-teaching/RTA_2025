@@ -1,0 +1,301 @@
+---
+title: "Wykład 2"
+---
+
+
+## Batch vs Stream Processing
+
+Oczekiwania vs Rzeczywistość
+
+<img alt="Batch Processing" src="img/batch00.png" class="center" />
+
+
+Kiedy podjąć decyzję biznesową ?
+
+
+<img alt="Batch Processing" src="img/batch0.png" class="center" />
+
+
+### Rodzaj danych
+
+1. Batch = Duże, historyczne zbiory
+2. Stream = Strumień danych, on line, przesyłane w trybie ciągłym
+
+### Czas uruchomienia przetwarzania
+
+1. Batch = minuty, godziny, dni (patrz Hurtownie danych)
+2. Stream = Real-time/near-real-time
+
+### Ponowne przetwarzanie
+
+1. Batch = możliwe i stosowane bardzo czesto
+2. Stream = ,,niemożliwe''
+
+
+<img alt="Batch Processing" src="img/batch1.png" class="center" />
+
+
+### ETL
+
+Extract, Transform, Load is a basic pattern for data processing,
+commonly known in data warehousing. It's all about *extracting* data from
+a source, *transforming* the data (business rules) and at the end *writing/loading*
+everything to a target (Hadoop, Relational Database, Data Warehouse etc.)
+
+
+### Hadoop Map-Reduce
+
+Gdy mówimy o skali (nie o języku Scala), najczęściej przychodzi nam na myśl przeglądarka Google.
+Przeszukuje ona ogromne zbiory danychz dużą prędkością. 
+Sama nazwa Goolge wskasuje na skalę (colowo przyjęto błędną nazwę w zapisie `googol` co oznacza 1 i 100 zer).
+
+> Sprawdź czy do końca zajęć uda Ci się zapisać liczbę googol na kartce.
+
+Powinno być dla Ciebie jasne, że żadne tradycyjne systemy, np relacyjne systemy baz danych, ani programowanie imperatywne nie są w stanie obłużyć przeszukiwania takiej ilości danych. 
+Problemy te doprowadziły do budowy rozproszonych systemów plików `Google File System`, `MapReduce` (paradygmat programowania równoległego), czy `Bigtable` (skalowalna pamięć masowa ustrukturyzowanych danych znajdujących się na GFS).  
+
+<img alt="Batch Processing" src="img/batch3.png" class="center" />
+
+> Znajdź prosty algorytm map reduce w dowolnym języku programowania i uruchom go.
+
+<img alt="Batch Processing" src="img/batch4.png" class="center" />
+
+Jak poprawić ?
+
+### APACHE SPARK
+
+<img alt="Batch Processing" src="img/batch5.png" class="center" />
+
+<br/>
+<img alt="Batch Processing" src="img/batch6.png" class="center" />
+
+
+## Strumienie danych
+
+Strumieniowanie możesz kojarzyć z serwisów przesyłających video w trybie online. Gdy oglądasz swój ulubiony serial (tak jak teraz na zajęciach) serwis odpowiadający za strumieniowanie w nieprzerwany sposób przesyła do ciebie kolejne "porcje" video. 
+Identycznie koncepcja ta realizowana jest w przypadku danych strumieniowych. Format przesyłanych porcji nie musi być plikiem video, wszystko zależy od celu realizowanego biznesowo. Np. ciągły pomiar z różnego rodzaju czujników w farbykach, elektrowniach itp. 
+Warto odnotować, że masz do czynienia z ciągłym strumieniem danych, które przetwarzać musisz w czasie rzeczywistym. Nie możesz czekać do zatrzymania linii produkcyjnych w celu wykonania analizy, wszystkie pojawiające się problemy chcesz rejestrować natychmiast i jak najszybciej na nie reagować.
+
+> Analiza strumieni danych to ciągłe przetwarzanie i analiza dużych zbiorów danych w ruchu.
+
+Porównuj to do wsakazanych powyżej elementów Big Data. Przetwarzanie Batchowe jest przeciwieństwem do przetwarzania strumieniowego. Najpierw zbierasz duże ilości danych a potem realizujesz analizy. Możesz oczywiście zawsze pobrać video w całości zanim je obejrzysz, ale czy miałoby to sens? 
+Istnieją przypadki gdy takie podejście nie stanowi problemu, ale już tu widzisz, że przetwarzanie strumieniowe może przynieść dla biznesu dodatkowe wartości dodane, których trudno oczekiwać przy wsadowym przetwarzaniu.
+
+[ciekawe informacje](https://aws.amazon.com/streaming-data/)
+
+
+### Źródła danych przesyłanych strumieniowo obejmują:
+
+- czujniki sprzętu, 
+- strumienie kliknięć,
+- śledzenie lokalizacji
+- interackcja z użytkownikiem: co robią użytkownicy Twojej witryny?
+- kanały mediów społecznościowych, 
+- notowania giełdowe, 
+- aktywność w aplikacjach
+- inne. 
+
+Firmy wykorzystują analitykę strumieniową do odkrywania i interpretowania wzorców, tworzenia wizualizacji, przekazywania spostrzeżeń i alertów oraz uruchamiania procesów w czasie rzeczywistym lub zbliżonym do rzeczywistego.
+
+
+### Przykładowe biznesowe zastosowania
+
+1. Dane z sensorów IoT i detekcja anomalii
+
+2. Stock Trading (problemy regresyjne) - czas reagowania na zmiany i czas zakupy i sprzedaży akcji. 
+
+3. Clickstream for websites (problem klasyfikacji) - śledzenie i analiza gości na stronie serwisu internetowego - personalizacja strony i treści. 
+
+[8 najlepszych przykładów analizy w czasie rzeczywistym](https://www.linkedin.com/pulse/8-best-examples-real-time-data-analytics-bernard-marr/)
+
+[Biznesowe zastosowania](https://www.forbes.com/sites/forbestechcouncil/2021/10/26/how-to-build-a-strong-business-case-for-streaming-analytics/?sh=eee8eaa465d0)
+
+
+> **Przedsiębiorstwo to organizacja, która generuje i odpowiada na ciągły strumień zdarzeń**.
+
+
+**Analityka strumieniowa** (ang. _stream analytics_) nazywana jest również przetwarzaniem strumieniowym zdarzeń (ang. _event stream processing_) - przetwarzanie dużej ilości danych już na etapie ich generowania. 
+
+
+Niezależnie od zastosowanej technologi wszystkie dane powstają jako ciągły strumień zdarzeń (działania użytkowników na stronie www, logi systemowe, pomiary z sensorów).
+
+
+## Czas w analizie danych w czasie rzeczywistym
+
+W przypadku przetwarzania wsadowego przetwarzamy dane historyczne i czas uruchomienia procesu przetwarzania nie ma nic wspólnego 
+z czasem występowania analizowanych zdarzeń. 
+
+Dla danych strumieniowych mamy dwie koncepcje czasu:
+
+1. czas zdarzenia (`event time`) - czas w którym zdarzenie się wydarzyło.
+2. czas przetwarzania (`processing time`) - czas w którym system przetwarza zdarzenie.
+
+W przypadku idealnej sytuacji: 
+
+<img alt="Batch Processing" src="img/rys2_1.png" class="center" />
+
+W rzeczywistości przetwarzanie danych zawsze odbywa się z pewnym opóźnieniem, co reprezentowane jest przez punkty pojawiające się poniżej funkcji dla sytuacji idealnej (poniżej diagonalnej).
+
+<img alt="Batch Processing" src="img/rys2_2.png" class="center" />
+
+W aplikacjach przetwarzania strumieniowego istotne okazują się różnice miedzy czasem powstania zdarzenia i jego procesowania. 
+Do najczęstszych przyczyn opóźnienia wyszczególnia się przesyłanie danych przez sieć czy brak komunikacji między urządzeniem a siecią. 
+Prostym przykładem jest tu przejazd samochodem przez tunel i śledzenie położenia przez aplikację GPS. 
+
+Możesz oczywiście zliczać ilość takich pominiętych zdarzeń i uruchomić alarm w sytuacji gdy takich odrzutów będzie za dużo. 
+Drugim (chyba częściej) wykorzystywanym sposobem jest zastosowanie korekty z wykorzystaniem tzw. _watermarkingu_.
+
+Proces przetwarzania zdarzeń w czasie rzeczywistym można przedstawić w postaci funkcji schodkowej, reprezentowanej na rysunku:</br>
+<img alt="Batch Processing" src="img/rys2_3.png" class="center" />
+
+Jak można zauważyć nie wszystkie zdarzenia wnoszą wkład do analizy i przetwarzania. 
+Realizację procesu przetwarzania wraz z uwzględnieniem dodatkowego czasu na pojawienie się zdarzeń (watermark) można przedstawić 
+jako proces obejmujący wszystkie zdarzenia powyżej przerywanej linii. 
+Dodatkowy czas pozwolił na przetworzenie dodatkowych zdarzeń, natomiast nadal mogą zdarzyć się punkty, które nie będą brane pod uwagę.
+</br>
+<img alt="Batch Processing" src="img/rys2_4.png" class="center" />
+
+
+Przedstawione na wykresach sytuacje jawnie wskazują dlaczego pojęcie czasu jest istotnym czynnikiem i wymaga ścisłego określenia już na poziomie definiowania potrzeb biznesowych.
+Przypisywanie znaczników czasu do danych (zdarzeń) to trudne zadanie. 
+
+## okna czasowe 
+
+**Okno rozłączne** (ang. _tumbling window_) czyli okno o stałej długości. 
+Jego cechą charakterystyczną jest to, iż każde zdarzenie należy tylko do jednego okna. </br>
+<img alt="Batch Processing" src="img/rys2_5.png" class="center" />
+
+**Okno przesuwne** (ang. _sliding window_) obejmuje wszystkie zdarzenia następujące w określonej długości między sobą. 
+</br>
+<img alt="Batch Processing" src="img/rys2_6.png" class="center" />
+
+**Okno skokowe** (ang. _hopping window_) tak jak okno rozłączne ma stałą długość, ale pozwala się w nim na zachodzenie jednych okien na inne. Stosowane zazwyczaj do wygładzenia danych.
+</br>
+<img alt="Batch Processing" src="img/rys2_7.png" class="center" />
+
+Komunikacja sieciowa, relacyjne bazy danych, rozwiązania chmurowe i big data znacząco zmieniły sposób budowania systemów informatycznych i wykonywnia na niach pracy. 
+
+Porównaj to jak "narzędzia" do  realizacji przekazu (gazeta, radio, telewizja, internet, komunikatory, media społecznościowe) zmieniły interakcje międzyludzkie i struktury społeczne.
+
+> Każde nowe informatyczne medium zmieniło stosunek ludzi do informatyki.  
+
+Koncepcja mikrousługi (mikroserwisu) jest bardzo popularnym sposobem budowania systemów informatycznych jak i koncepcją przy tworzeniu oprogramowania czy realizacji firmy w duchu Data-Driven. 
+Koncepcja ta pozwala zachować wydajność (rób jedną rzecz ale dobrze), elastyczność i jasną postać całej struktury.
+
+Chociaż istnieją inne sposoby architektury projektów oprogramowania, „mikroserwisy” są często używane nie bez powodu. 
+Idea mikroserwisów tkwi w nazwie: oprogramowanie jest reprezentowane jako wiele małych usług, które działają indywidualnie.
+Patrząc na ogólną architekturę, każda mikrousługa znajduje się w małej czarnej skrzynce z jasno zdefiniowanymi wejściami i wyjściami.
+Możesz porównać tego typu zachowanie do "czystej funkcji" w programowaniu funkcyjnym.
+
+W celu umożliwienia komunikacji różnych mikroserwisów często wybieranym rozwiązaniem jest wykorzystanie `Application Programming Interfaces` **API**  .
+
+### Komunikacja przez API
+
+Centralnym elementem architektury mikrousług jest wykorzystanie interfejsów API. 
+API to część, która pozwala na połączenie dwóch mikroserwisów. 
+Interfejsy API są bardzo podobne do stron internetowych.
+Podobnie jak strona internetowa, serwer wysyła do Ciebie kod reprezentujący stronę internetową. Twoja przeglądarka internetowa interpretuje ten kod i wyświetla stronę internetową.
+
+Weźmy przypadek biznesowy z modelem ML jako usługą.
+Załóżmy, że pracujesz dla firmy sprzedającej mieszkania w Bostonie.
+Chcesz zwiększać sprzedaż i oferować naszym klientom lepszą jakość usług dzięki nowej aplikacji mobilnej, z której może korzystać nawet 1 000 000 osób jednocześnie.
+Możemy to osiągnąć, udostępniając prognozę wartości domu, gdy użytkownik prosi o wycenę przez Internet.
+
+#### Czym jest serwowanie modelu ML
+
+- Szkolenie dobrego modelu ML to TYLKO pierwsza część całego procesu:
+Musisz udostępnić swój model użytkownikom końcowym.
+Robisz to, zapewniając dostęp do modelu na swoim serwerze.
+
+- Aby udostępnić model potrzebujesz: modelu, interpretera, danych wsadowych.
+- Ważne metryki
+
+1. czas oczekiwania,
+2. koszty,
+3. liczba zapytać w jednostce czasu
+
+> Udostępnianie danych między dwoma lub więcej systemami zawsze było podstawowym wymogiem tworzenia oprogramowania – DevOps vs. MLOps.
+
+Gdy wywołasz interfejs API, otrzyma on Twoje żądanie. 
+Żądanie wyzwala kod do uruchomienia na serwerze i generuje odpowiedź odesłaną do Ciebie.
+Jeśli coś pójdzie nie tak, możesz nie otrzymać żadnej odpowiedzi lub otrzymać kod błędu jako kod stanu HTTP.
+
+> Klient-Serwer: Klient (system A) przesyła żądanie przez HTTP do adresu URL hostowanego przez system B, który zwraca odpowiedź.
+Identycznie działa np przeglądarka internetowa.
+Żądanie jest kierowane do serwera WWW, który zwraca tekstową stronę HTML.
+
+> Bezstanowe: Żądanie klienta powinno zawierać wszystkie informacje niezbędne do udzielenia pełnej odpowiedzi.
+
+Interfejsy API można wywoływać za pomocą wielu różnych narzędzi. 
+Czasami możesz nawet użyć przeglądarki internetowej. 
+Narzędzia takie jak CURL wykonują zadanie w wierszu poleceń. 
+Możesz używać narzędzi, takich jak Postman, do wywoływania interfejsów API za pomocą interfejsu użytkownika.
+
+> Cała komunikacja jest objęta ustalonymi zasadami i praktykami, które są nazywane protokołem HTTP.
+
+#### Zapytanie - Request
+
+1.  Adres URL (np. _http://mydomain:8000/getapi?&val1=43&val2=3_) zawiera: 
+        - domenę, 
+        - port, 
+        - dodatkowe ścieżki, 
+        - zapytanie
+2.  Metody HTTP:
+        - GET, 
+        - POST
+3.  Nagłówki HTTP zawierają:
+        - informacje o autoryzacji, 
+        - cookies metadata
+Cała informacja zawarta jest w _Content-Type: application/json, text ... Accept: application/json, Authorization: Basic abase64string, Tokens_ 
+4.  Ciało zapytania
+
+Najczęściej wybieranym formatem dla wymiany informacji między serwisami jest format `JavaScript Object Notation`  (JSON).
+Przypomina on pythonowy obiekt słownika - "klucz": "wartość".
+
+```json
+{
+"RAD": 1,
+"PTRATIO": 15.3, "INDUS": 2.31, "B": 396.9,
+"ZN": 18,
+"DIS": 4.09, "CRIM": 0.00632, "RM": 6.575, "AGE": 65.2, "CHAS": 0, "NOX": 0.538, "TAX": 296, "LSTAT": 4.98
+}
+```
+
+#### Odpowiedź - Response
+
+1. Treść odpowiedzi przekazywana jest razem z nagłówkiem oraz statusem: 
+```bash
+200 OK
+Content-Encoding: gzip
+Content-Type: text/html; charset=utf-8
+Date: Mon, 18 Jul 2016 16:06:00 GMT Server: Apache
+Path=/;
+```
+
+2. np.: "_Content-Type" => "application/json; charset=utf-8", "Server" => "Genie/Julia/1.8.5_"
+
+3. Treść (ciało) odpowiedzi: 
+```json
+{":input":{"RAD":1,"PTRATIO":15.3,"INDUS":2.31,.....}}, {":prediction":[29.919737211857683]}
+```
+4. HTTP status code:
+• 200 OK  - prawidłowe wykonanie zapytania,
+• 40X Access Denied
+• 50X Internal server error
+
+> Wyszukaj informacje czym jest `REST API`. 
+
+
+> Wiedza: 
+> 
+> - Zna możliwości i obszary zastosowania procesowania danych w czasie rzeczywistym
+> - Rozumie potrzeby biznesowe podejmowania decyzji w bardzo krótkim czasie
+
+> Umiejętności:
+>
+> - Rozumie ograniczenia wynikające z czasu przetwarzania przez urządzenia oraz systemy informatyczne
+
+> Kompetencje: 
+>
+> - Utrwala umiejętność samodzielnego uzupełniania wiedzy teoretycznej jak i praktycznej w zakresie programowania, modelowania, nowych technologii informatycznych z wykorzystaniem analizy w czasie rzeczywistym. 
+> - Formułuje problem analityczny wraz z jego informatycznym rozwiązaniem

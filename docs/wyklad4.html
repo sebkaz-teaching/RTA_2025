@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.353">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Analiza danych w czasie rzeczywistym – wyklad4</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Analiza danych w czasie rzeczywistym</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html" rel="" target="">
+ <span class="menu-text">222890-D</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./indexS.html" rel="" target="">
+ <span class="menu-text">222890-S</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./wyklad1.html" rel="" target="">
+ <span class="menu-text">Wykład 1</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./wyklad2.html" rel="" target="">
+ <span class="menu-text">Wykład 2</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./wyklad3.html" rel="" target="">
+ <span class="menu-text">Wykład 3</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./wyklad4.html" rel="" target="" aria-current="page">
+ <span class="menu-text">Wykład 4</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./sylabus.html" rel="" target="">
+ <span class="menu-text">Sylabus</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./info.html" rel="" target="">
+ <span class="menu-text">Narzędzia</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./ksiazki.html" rel="" target="">
+ <span class="menu-text">Książki</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools ms-auto">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#architektury-strumieniowania-danych" id="toc-architektury-strumieniowania-danych" class="nav-link active" data-scroll-target="#architektury-strumieniowania-danych">Architektury strumieniowania danych</a>
+  <ul class="collapse">
+  <li><a href="#architektura-lambda" id="toc-architektura-lambda" class="nav-link" data-scroll-target="#architektura-lambda">Architektura lambda</a></li>
+  <li><a href="#architektura-kappa" id="toc-architektura-kappa" class="nav-link" data-scroll-target="#architektura-kappa">Architektura kappa</a></li>
+  <li><a href="#plusy" id="toc-plusy" class="nav-link" data-scroll-target="#plusy">Plusy</a></li>
+  <li><a href="#trudności" id="toc-trudności" class="nav-link" data-scroll-target="#trudności">Trudności</a></li>
+  <li><a href="#jak-wypada-porównanie-lambda-i-kappa" id="toc-jak-wypada-porównanie-lambda-i-kappa" class="nav-link" data-scroll-target="#jak-wypada-porównanie-lambda-i-kappa">Jak wypada porównanie Lambda i Kappa?</a></li>
+  </ul></li>
+  <li><a href="#publikujsubskrybuj" id="toc-publikujsubskrybuj" class="nav-link" data-scroll-target="#publikujsubskrybuj">Publikuj/Subskrybuj</a></li>
+  <li><a href="#apache-kafka" id="toc-apache-kafka" class="nav-link" data-scroll-target="#apache-kafka">Apache Kafka</a>
+  <ul class="collapse">
+  <li><a href="#kolejkowy-system-przesyłania-wiadomości" id="toc-kolejkowy-system-przesyłania-wiadomości" class="nav-link" data-scroll-target="#kolejkowy-system-przesyłania-wiadomości">Kolejkowy system przesyłania wiadomości</a></li>
+  <li><a href="#architektura-kafki" id="toc-architektura-kafki" class="nav-link" data-scroll-target="#architektura-kafki">Architektura Kafki</a></li>
+  <li><a href="#brokerzy" id="toc-brokerzy" class="nav-link" data-scroll-target="#brokerzy">Brokerzy</a></li>
+  <li><a href="#producenci" id="toc-producenci" class="nav-link" data-scroll-target="#producenci">Producenci</a></li>
+  <li><a href="#konsumenci-i-grupy-konsumentów" id="toc-konsumenci-i-grupy-konsumentów" class="nav-link" data-scroll-target="#konsumenci-i-grupy-konsumentów">Konsumenci i grupy konsumentów</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+<section id="architektury-strumieniowania-danych" class="level2">
+<h2 class="anchored" data-anchor-id="architektury-strumieniowania-danych">Architektury strumieniowania danych</h2>
+<p>Architektura przesyłania strumieniowego to określony zestaw technologii, które współpracują ze sobą w celu obsługi przetwarzania strumieniowego, co jest praktyką podejmowania działań na serii danych w momencie ich tworzenia. W wielu nowoczesnych wdrożeniach Apache Kafka działa jako magazyn danych przesyłanych strumieniowo, a następnie wiele procesorów strumieniowych może działać na danych przechowywanych w Kafce w celu wygenerowania wielu danych wyjściowych. Niektóre architektury przesyłania strumieniowego obejmują przepływy pracy zarówno do przetwarzania strumieniowego, jak i przetwarzania wsadowego, które obejmują inne technologie do obsługi przetwarzania wsadowego na dużą skalę lub wykorzystują Kafkę jako magazyn centralny, jak określono w architekturze Kappa.</p>
+<p>Doskonała architektura przetwarzania danych w czasie rzeczywistym musi być odporna na błędy i skalowalna; musi obsługiwać aktualizacje wsadowe i przyrostowe oraz być rozszerzalna.</p>
+<p>Na początku badamy dwie podstawowe architektury przetwarzania danych, <code>Lambda</code> i <code>Kappa</code>, które stanowią podstawę różnych aplikacji korporacyjnych.</p>
+<section id="architektura-lambda" class="level3">
+<h3 class="anchored" data-anchor-id="architektura-lambda">Architektura lambda</h3>
+<p>Architektura Lambda obejmuje <code>warstwę wsadową</code> (batch layer), <code>warstwę strumieniowa</code> (stream layer) i <code>warstwę serwowania</code>.</p>
+<p>Warstwa wsadowa działa na pełnych danych, dzięki czemu system może generować najdokładniejsze wyniki. Jednak wyniki są okupione dużymi opóźnieniami wynikającymi z długiego czasu obliczeń. Warstwa wsadowa przechowuje surowe dane w miarę ich nadejścia i oblicza widoki wsadowe do wykorzystania. Naturalnie procesy wsadowe będą występować w pewnych odstępach czasu i będą długotrwałe. Zakres danych wynosi od godzin do kilku lat.</p>
+<p>Warstwa strumieniowa:</p>
+<ol type="1">
+<li>generuje wyniki z małymi opóźnieniami i w czasie zbliżonym do rzeczywistego.</li>
+<li>oblicza widoki w czasie rzeczywistym w celu uzupełnienia widoków wsadowych.</li>
+<li>odbiera napływające dane i aktualizuje wyniki warstwy wsadowej. Koszt obliczeń jest znacznie obniżony dzięki algorytmom przyrostowym zaimplementowanym w warstwie szybkości.</li>
+</ol>
+<p>Widoki wsadowe mogą być przetwarzane przy użyciu bardziej złożonych lub kosztownych reguł i mogą mieć lepszą jakość danych i mniej przekrzywień, podczas gdy widoki w czasie rzeczywistym zapewniają bieżący dostęp do najnowszych możliwych danych.</p>
+<p>Wreszcie warstwa serwująca umożliwia różne zapytania o wyniki przesłane z warstw wsadowych i szybkich. Dane wyjściowe z warstwy wsadowej w postaci widoków wsadowych i warstwy szybkości w postaci opinii w czasie zbliżonym do rzeczywistego są przekazywane do warstwy obsługującej, która wykorzystuje te dane do obsługi oczekujących zapytań na zasadzie ad-hoc.</p>
+<p><br> <img src="img/lambda_arch.png" class="center"> Implementacja: <br> <img src="img/lambda_app.png" class="center"></p>
+<p><strong>Dobre bo:</strong></p>
+<ol type="1">
+<li>Dobra równowaga między szybkością, niezawodnością i skalowalnością.</li>
+<li>Dostęp do wyników zarówno w czasie rzeczywistym, jak i offline, bardzo dobrze pokrywa wiele scenariuszy analizy danych.</li>
+<li>Dostęp do pełnego zestawu danych w oknie wsadowym może przynieść określone optymalizacje, które sprawią, że Lambda będzie wydajniejsza i jeszcze prostsza do wdrożenia.</li>
+</ol>
+<p><strong>Kiepskie gdy:</strong></p>
+<ol type="1">
+<li>Wewnętrzna logika przetwarzania jest taka sama (warstwy wsadowe i warstwy czasu rzeczywistego) - wiele zduplikowanych modułów i kodowania.</li>
+<li>Zbiór danych modelowany za pomocą architektury Lambda jest trudny do migracji i reorganizacji.</li>
+</ol>
+</section>
+<section id="architektura-kappa" class="level3">
+<h3 class="anchored" data-anchor-id="architektura-kappa">Architektura kappa</h3>
+<p>Architektura Kappa to architektura oprogramowania używana do przetwarzania danych przesyłanych strumieniowo. Głównym założeniem Architektury Kappa jest możliwość wykonywania przetwarzania w czasie rzeczywistym i przetwarzania wsadowego, zwłaszcza w celach analitycznych, za pomocą jednego stosu technologicznego. Opiera się na architekturze przesyłania strumieniowego, w której przychodzące serie danych są najpierw przechowywane w silniku przesyłania wiadomości, takim jak Apache Kafka. Stamtąd silnik przetwarzania strumienia odczyta dane, przekształci je w format nadający się do analizy, a następnie zapisze je w analitycznej bazie danych, aby użytkownicy końcowi mogli wyszukiwać.</p>
+<p>Architektura Kappa obsługuje analizy (prawie) w czasie rzeczywistym, gdy dane są odczytywane i przekształcane natychmiast po umieszczeniu ich w silniku przesyłania komunikatów. Dzięki temu najnowsze dane są szybko dostępne dla zapytań użytkowników końcowych. Obsługuje również analizę historyczną, odczytując zapisane dane przesyłane strumieniowo z mechanizmu przesyłania wiadomości później w sposób wsadowy, aby utworzyć dodatkowe możliwe do analizy dane wyjściowe dla większej liczby typów analiz.</p>
+<p>Architektura Kappa jest prostszą alternatywą dla architektury Lambda, ponieważ wykorzystuje ten sam stos technologii do obsługi strumienia w czasie rzeczywistym i historycznego przetwarzania wsadowego. Obie architektury obejmują przechowywanie danych historycznych w celu umożliwienia analiz na dużą skalę. Obie architektury są również pomocne w rozwiązywaniu problemów związanych z „tolerancją błędów ludzkich”, w których problemy z kodem przetwarzania (błędy lub znane ograniczenia) można przezwyciężyć, aktualizując kod i ponownie uruchamiając go na danych historycznych. Główna różnica w stosunku do architektury Kappa polega na tym, że wszystkie dane są traktowane jako strumień, więc silnik przetwarzania strumienia działa jako jedyny silnik transformacji danych.</p>
+<p><br> <img src="img/kappa1.png" class="center"></p>
+<p>Implementation Example: <br> <img src="img/kappa2.png" class="center"></p>
+</section>
+<section id="plusy" class="level3">
+<h3 class="anchored" data-anchor-id="plusy">Plusy</h3>
+<ol type="1">
+<li>Aplikacje mogą odczytywać i zapisywać bezpośrednio do Kafki zgodnie z rozwojem. W przypadku istniejących źródeł zdarzeń detektory są teraz przyzwyczajone do przesyłania strumieniowego raportów z dzienników bazy danych, co eliminuje konieczność przetwarzania wsadowego podczas ruchu przychodzącego, co skutkuje mniejszą liczbą zasobów.</li>
+<li>Zapytania muszą uwzględniać tylko jedną lokalizację serwowania, zamiast sprawdzać widoki partii i szybkości.</li>
+</ol>
+</section>
+<section id="trudności" class="level3">
+<h3 class="anchored" data-anchor-id="trudności">Trudności</h3>
+<ol type="1">
+<li>niełatwe do wdrożenia, zwłaszcza w przypadku odtwarzania danych.</li>
+</ol>
+</section>
+<section id="jak-wypada-porównanie-lambda-i-kappa" class="level3">
+<h3 class="anchored" data-anchor-id="jak-wypada-porównanie-lambda-i-kappa">Jak wypada porównanie Lambda i Kappa?</h3>
+<p>Obie architektury obsługują analizy w czasie rzeczywistym i historyczne w jednym środowisku. Jednak istotną zaletą architektury Kappa w porównaniu z architekturą Lambda jest to, że umożliwia ona zbudowanie systemu przesyłania strumieniowego i przetwarzania wsadowego na jednej technologii. Oznacza to, że możesz zbudować aplikację przetwarzającą strumienie do obsługi danych w czasie rzeczywistym, a jeśli musisz zmodyfikować dane wyjściowe, zaktualizuj swój kod, a następnie ponownie uruchom go na danych w mechanizmie przesyłania komunikatów w sposób wsadowy. Jak sugeruje architektura Lambda, nie ma osobnej technologii do obsługi przetwarzania wsadowego.</p>
+<p>Przy wystarczająco szybkim silniku przetwarzania strumieniowego możesz nie potrzebować innej technologii zoptymalizowanej pod kątem przetwarzania wsadowego. Odczytujesz równolegle przechowywane dane przesyłane strumieniowo (zakładając, że dane w Kafce są odpowiednio podzielone na osobne kanały lub „partycje”) i przekształcasz dane tak, jakby pochodziły ze źródła strumieniowego. W przypadku niektórych środowisk możliwe do przeanalizowania dane wyjściowe można utworzyć na żądanie. Gdy nowe zapytanie zostanie przesłane przez użytkownika końcowego, dane mogą zostać przekształcone ad hoc, aby uzyskać optymalną odpowiedź na to zapytanie. Ponownie wymaga to szybkiego silnika przetwarzania strumieniowego, aby zapewnić małe opóźnienia.</p>
+<p>Chociaż architektura Lambda nie określa technologii, których należy użyć, komponent przetwarzania wsadowego jest często wykonywany na platformie big data z wykorzystaniem Apache Hadoop. <em>Rozproszony system plików Hadoop</em> (HDFS) umożliwia ekonomiczne przechowywanie „surowych danych”, które można przekształcić za pomocą narzędzi Hadoop w format umożliwiający analizę. Podczas gdy Hadoop jest używany w komponencie systemu do przetwarzania wsadowego, oddzielny silnik przeznaczony do przetwarzania strumieniowego jest używany w komponencie analitycznym w czasie rzeczywistym. Jednak jedną z zalet architektury Lambda jest to, że znacznie większe zestawy danych (w zakresie petabajtów) można przechowywać i przetwarzać wydajniej w Hadoop w celu analizy historycznej na dużą skalę.</p>
+</section>
+</section>
+<section id="publikujsubskrybuj" class="level2">
+<h2 class="anchored" data-anchor-id="publikujsubskrybuj">Publikuj/Subskrybuj</h2>
+<p>System przesyłania wiadomości „Publikuj/Subskrybuj” ma kluczowe znaczenie dla aplikacji opartych na danych. <em>Komunikaty Pub/Sub</em> to wzorzec charakteryzujący się tym, że nadawca (publikujący) fragmentu danych (wiadomości) nie kieruje go wprost do odbiorcy. pub/sub to systemy, które często posiadają brokera czyli centralny punkt, w którym znajdują się wiadomości.</p>
+</section>
+<section id="apache-kafka" class="level2">
+<h2 class="anchored" data-anchor-id="apache-kafka">Apache Kafka</h2>
+<p>Na <a href="https://kafka.apache.org">witrynie Kafki</a> znajdziesz definicję:</p>
+<blockquote class="blockquote">
+<p>Rozproszona platforma streamingowa</p>
+</blockquote>
+<p><strong>Co to jest „platforma rozproszonego przesyłania strumieniowego”?</strong></p>
+<p>Najpierw chcę przypomnieć, czym jest „strumień”. Strumienie to po prostu nieograniczone dane, dane, które nigdy się nie kończą. Ciągle ich przybywa i możesz przetwarzać je w czasie rzeczywistym.</p>
+<p>A „rozproszone”? Rozproszony oznacza, że ​​Kafka działa w klastrze, a każdy węzeł w grupie nazywa się Brokerem. Ci brokerzy to po prostu serwery wykonujące kopię Apache Kafka.</p>
+<p>Tak więc Kafka to zestaw współpracujących ze sobą maszyn, aby móc obsługiwać i przetwarzać nieograniczone dane w czasie rzeczywistym.</p>
+<p>Jego rozproszona architektura jest jednym z powodów, dla których Kafka stał się tak sławny. Brokerzy sprawiają, że jest odporny, niezawodny, skalowalny i odporny na błędy. Ale dlaczego panuje błędne przekonanie, że Kafka to kolejny „kolejkowy system przesyłania wiadomości”?</p>
+<p>Aby odpowiedzieć na tę odpowiedź, musimy najpierw wyjaśnić, jak działa kolejkowe przesyłanie wiadomości.</p>
+<section id="kolejkowy-system-przesyłania-wiadomości" class="level3">
+<h3 class="anchored" data-anchor-id="kolejkowy-system-przesyłania-wiadomości">Kolejkowy system przesyłania wiadomości</h3>
+<p>Przesyłanie wiadomości, to po prostu czynność wysyłania wiadomości z jednego miejsca do drugiego. Ma trzech głównych “aktorów”:</p>
+<ul>
+<li>Producent: Który tworzy i wysyła komunikaty do jednej lub więcej kolejek;</li>
+<li>Kolejka: struktura danych bufora, która odbiera (od producentów) i dostarcza komunikaty (do konsumentów) w sposób FIFO (First-In-First-Out). Po otrzymaniu powiadomienia jest ono na zawsze usuwane z kolejki; nie ma szans na odzyskanie go;</li>
+<li>Konsument: subskrybuje jedną lub więcej kolejek i otrzymuje ich wiadomości po opublikowaniu.</li>
+</ul>
+<p>I to jest to; tak działa przesyłanie wiadomości. Jak widać, nie ma tu nic o strumieniach, czasie rzeczywistym czy klastrach.</p>
+</section>
+<section id="architektura-kafki" class="level3">
+<h3 class="anchored" data-anchor-id="architektura-kafki">Architektura Kafki</h3>
+<p>Dużo informacji znajdziesz pod tym <a href="https://www.cloudkarafka.com/blog/part1-kafka-for-beginners-what-is-apache-kafka.html">linkiem</a>.</p>
+<p>Teraz, gdy wiemy, jak działa przesyłanie wiadomości, zanurzmy się w świat Kafki. W Kafce mamy też „Producentów” i „Konsumentów”; działają w bardzo podobny sposób, jak w kolejkowych systemach, produkując i konsumując komunikaty.</p>
+<p><br> <img src="img/kafka1.png" class="center"></p>
+<p>Jak widać, jest to bardzo podobne do tego, o czym rozmawialiśmy o przesyłaniu wiadomości, ale tutaj nie mamy pojęcia „kolejki”. Zamiast tego mamy „Tematy” (Topic).</p>
+<p>„Temat” to szczególny typ strumienia danych; jest bardzo podobny do kolejki, odbiera i dostarcza wiadomości, ale jest kilka pojęć, które musimy zrozumieć w odniesieniu do tematów:</p>
+<ul>
+<li>Temat jest podzielony na <code>partycje</code>; każdy temat może mieć jedną lub więcej partycji i musimy określić tę liczbę podczas tworzenia topicu. Możesz sobie wyobrazić topic jako folder w systemie operacyjnym, a każdy folder wewnątrz niego jako partycję.</li>
+<li>Każda wiadomość zostanie zapisana na dysku brokera i otrzyma offset (unikalny identyfikator). Offset jest unikalny na poziomie partycji; każda partycja ma swój własny zbiór offsetów. To jeszcze jeden powód, który sprawia, że ​​Kafka jest tak wyjątkowa, przechowuje wiadomości na dysku (jak baza danych, a w rzeczywistości Kafka też jest bazą danych), aby w razie potrzeby odzyskać je później. W odróżnieniu od systemu przesyłania wiadomości, gdzie wiadomość jest usuwana po zużyciu;</li>
+<li>Kosumenci używają offsetu do czytania wiadomości, od najstarszej do najnowszej. W przypadku awarii konsumenta zacznie odczytywać końcowe wartości realizowane po nawiązaniu połączenia.</li>
+</ul>
+<p><br> <img src="img/kafka2.png" class="center"></p>
+</section>
+<section id="brokerzy" class="level3">
+<h3 class="anchored" data-anchor-id="brokerzy">Brokerzy</h3>
+<p>Jak wspomniano wcześniej, Kafka działa w sposób rozproszony. W razie potrzeby klaster Kafka może zawierać wielu brokerów.</p>
+<p><br> <img src="img/kafka3.png" class="center"></p>
+<p>Każdy broker w klastrze jest identyfikowany przez identyfikator i zawiera co najmniej jedną partycję tematyczną. Aby skonfigurować liczbę partycji w każdym brokerze, podczas tworzenia tematu musimy skonfigurować coś, co nazywa się współczynnikiem replikacji. Powiedzmy, że mamy trzech brokerów w naszym klastrze, temat z trzema partycjami i współczynnikiem replikacji równym trzy; w takim przypadku każdy broker będzie odpowiedzialny za jedną sekcję emisji.</p>
+<p>Jak widać na powyższym obrazku, <span class="math inline">\(Topic_1\)</span> ma trzy partycje; każdy broker jest odpowiedzialny za sekcję tematu, więc współczynnik replikacji <span class="math inline">\(Topic_1\)</span> wynosi trzy. Liczba partycji musi być zgodna z liczbą brokerów; w ten sposób każdy broker będzie odpowiedzialny za jedną sekcję tematu.</p>
+</section>
+<section id="producenci" class="level3">
+<h3 class="anchored" data-anchor-id="producenci">Producenci</h3>
+<p>Podobnie jak w świecie kolejkowych systemów, „Producenci” w Kafce to ci, którzy tworzą i wysyłają wiadomości do tematów. Jak wspomniano wcześniej, wiadomości są wysyłane w sposób okrężny. Przykład: wiadomość 01 trafia do partycji 0 tematu 1, a wiadomość 02 do partycji 1 tego samego tematu. Oznacza to, że nie możemy zagwarantować, że wiadomości stworzone przez tego samego producenta zawsze będą dostarczane w tym samym numerze. Podczas wysyłania wiadomości musimy określić klucz; Kafka wygeneruje skrót na podstawie tego klucza i będzie wiedział, która partycja ma dostarczyć tę wiadomość. Ten skrót uwzględnia liczbę partycji tematu; dlatego tego numeru nie można zmienić, gdy temat jest już utworzony.</p>
+</section>
+<section id="konsumenci-i-grupy-konsumentów" class="level3">
+<h3 class="anchored" data-anchor-id="konsumenci-i-grupy-konsumentów">Konsumenci i grupy konsumentów</h3>
+<p><code>Konsumenci</code> to aplikacje zasubskrybowane do jednego lub więcej tematów, które będą odczytywać wiadomości stamtąd. Mogą czytać z jednej lub więcej partycji. Gdy konsument odczytuje tylko z jednej partycji, możemy zapewnić kolejność odczytu, ale gdy pojedynczy konsument odczytuje z dwóch lub więcej partycji, będzie czytać równolegle, więc nie ma gwarancji kolejności odczytu. Na przykład wiadomość, która przyszła później, może zostać odczytana przed inną, która przyszła wcześniej. Dlatego musimy być ostrożni przy wyborze liczby partycji i podczas tworzenia wiadomości.</p>
+<p>Innym ważnym pojęciem Kafki są „Grupy konsumentów”. Jest to bardzo ważne, gdy musimy skalować odczytywanie wiadomości. Staje się to bardzo kosztowne, gdy pojedynczy konsument musi czytać z wielu partycji, więc musimy zrównoważyć obciążenie między naszymi konsumentami, wtedy wchodzą grupy konsumentów.</p>
+<p>Dane z jednego tematu będą równoważone obciążeniem między konsumentami, dzięki czemu możemy zagwarantować, że nasi konsumenci będą w stanie obsługiwać i przetwarzać dane. Ideałem jest posiadanie takiej samej liczby konsumentów w grupie, jaką mamy jako partycje w temacie, w ten sposób każdy konsument czyta tylko z jednego. Podczas dodawania konsumentów do grupy należy uważać, jeśli liczba konsumentów jest większa niż liczba partycji, niektórzy konsumenci nie będą czytać z żadnego tematu i pozostaną bezczynni.</p>
+<p><br> <img src="img/kafka4.png" class="center"></p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

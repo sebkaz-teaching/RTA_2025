@@ -1,0 +1,255 @@
+---
+title: "Wykład 1"
+---
+
+
+## Od plików płaskich do Data Lake
+
+Rozwój technologii informatycznych spowodował dostęp do niewyobrażalnych ilości nowego zasobu jakim są **ustrukturyzowane** jak i **nieustrukturyzowane** dane.
+
+![](img/main.jpeg){.center}
+
+Dane przyczyniły się do powstania tysięcy nowych narzędzi do `generowania`, `zbierania`, `przechowywania` i `przetwarzania` informacji na niespotykaną dotąd skalę.
+
+Zasób ten nie jest nowością i dostępny jest od bardzo dawna.
+Jednak dopiero po wprowadzeniu systemu pisma można było zacząć prowadzić zapis i przetwarzanie w postaci rachunkowości czy rejestrów różnych rzeczy takich jak: zaludnienie w krajach, spisy rzek, jezior, najgłębsze miejsca itp.
+
+Pojawienie się nowych wyzwań naukowych czy biznesowych staje się możliwe do realizacji dzięki budowie systemów opartych na `otwartym oprogramowaniu`, jak również dzięki wykorzystaniu domowych komputerów do wspomagania przetwarzania ogromnych ilości danych.
+
+Dziś systemy takie jak [SAS](https://www.sas.com/pl_pl/home.html), [Apache Hadoop](https://hadoop.apache.org), [Apache Spark](https://spark.apache.org), [Apache Flink](https://flink.apache.org) dzięki rozwiązaniom chmurowym  używane są na szeroką skalę w wielu instytucjach i firmach niemal w każdej dziedzinie.
+Narzędzia te wykorzystywane są w bankowości, opiece zdrowotnej, naukach przyrodniczych, produkcji, sektorze publicznym czy sprzedaży.
+
+Epoka danych stawia przed nami coraz to nowsze wyzwania związane nie tylko z ilością, ale i z czasem przetwarzania danych.
+
+Nowe wyzwania biznesowe to między innymi:
+
+- inteligentna reklama tysięcy produktów dla milionów klientów,
+- przetwarzanie danych o genach, RNA czy też białkach [genus](http://genus.fuw.edu.pl),
+- inteligentne wykrywanie różnorodnych sposobów nadużyć wśród setek miliardów transakcji kart kredytowych,
+- symulacje giełdowe oparte o tysiące instrumentów finansowych
+- ...
+
+Wszystkie algorytmy uczenia maszynowego wymagają **danych ustrukturyzowanych** zapisanych w tabelarycznej postaci (tensory).  
+Zorganizowane są one w kolumnach cech charakteryzujących każdą obserwację (wiersze).
+Przykładem mogą być takie cechy jak: __płeć__, __wzrost__ czy __ilość posiadanych samochodów__, na podstawie których można przewidywać czy klient będzie spłacał kredyt czy też nie.
+Takie przewidywanie również oznaczane jest jako cecha.
+Zmienne te dobierane są tak, by łatwo można je było pozyskać.
+Dzięki tak otrzymanym tabelom cech możemy stosować algorytmy  tj. `XGBoost` lub `regresji logistycznej` w celu wyznaczenia odpowiedniej kombinacji zmiennych wpływających na prawdopodobieństwo dobrego albo i złego klienta.
+
+Podstawowe systemy bazodanowe związane z językiem SQL również realizują modele danych, w których dane ładnowane są do (ustrukturyzowanych) tabel.
+
+**Dane nieustrukturyzowane** to takie, które nie są ułożone w~tabelarycznej postaci. 
+> !Uwaga - nie oznacza to, iż dane nie możemy przetworzyć do jakiejś postaci tabelarzycnzej.
+
+Przykładem może być `dźwięk`, `obraz`czy `tekst`.
+Poszczególne litery, częstotliwości~czy piksele nie niosą ze sobą żadnych informacji.
+Nie tworzą osobnych cech, co jest kluczowe dla odróżnienia ich od danych ustrukturyzowanych.
+
+> Zna typy danych ustrukturyzowanych jak i nieustrukturyzowanych (K2A_W02, K2A_W04, O2_W04, O2_W07)
+
+## Źródła danych
+
+Do trzech największych "generatorów" danych należą:
+
+- `dane społeczne` w formie tekstów (tweety, wpisy w~portalach społecznościowych, komentarze), zdjęć czy plików wideo.
+    Przydatne do problemów biznesowych realizujących ocenę zachowań i nastrojów konsumentów w analizach marketingowych.
+- `IoT`: dane pochodzące z czujników, czy też logi działania urządzeń i użytkowników (np. na stronie www).
+- `Dane transakcyjne`: czyli ogólnie to co w każdej chwili generowane jest jako transakcje pojawiające się zarówno w trybie online jak i w trybie offline.
+
+### Rzeczywisty proces generowania danych
+
+Dane generowane są w postaci `nieograniczonej` - pojawiają się na skutek ciągłych działań systemów. 
+W swoim telefonie wygenerowałeś dziś (a nawet na tych zajęciach!) wiele danych. 
+Czy na następnych zajęciach lub tez jutro nie będziesz ich generował?
+
+Dane zawsze generowane są jako jakaś forma strumienia danych. 
+
+Systemy obsługujące strumienie danych:
+- hurtownie danych
+- systemy monitorujące działania urządzeń (IoT)
+- systemy transakcyjne
+- systemy analityczne stron www
+- reklamy on-line
+- media społecznościowe
+- systemy logowania 
+- ....
+
+> firma to organizacja, która generuje i odpowiada na ciągły strumień danych. [Zobacz](/RTA_2023/ksiazki#bellemare)
+
+
+W przetwarzaniu wsadowym źródłem (ale i wynikiem przetwarzania) danych jest **plik**. 
+Jest on zapisywany raz i można się do niego odwołać (może na nim działać wiele procesów - zadań). 
+Nazwa pliku to element identyfikujący zbiór rekordów. 
+
+W przypadku strumienia zdarzenie jest generowane tylko raz przez tzw. _producenta_ (zwanego też nadawcą lub dostawcą).
+Powstałe zdarzenie przetwarzane może być przez wielu tzw. _konsumentów_ (odbiorców). 
+Zdarzenia strumieniowe grupowane są w tzw. **tematy** (ang. **topics**). 
+
+## Big Data
+
+> _,,Big Data is like teenage sex: everyone talks about it, nobody really knows how to do it, everyone thinks everyone else is doing it, so every one claims they are doing it.''_ — Dan Ariely, Professor of Psychology and Behavioral Economics, Duke University
+
+### one, two, ... four V
+
+1. **Volume**  (Objętość) - rozmiar danych produkowanych na całym świecie przyrasta w tempie wykładniczym.
+2. **Velocity** (Szybkość) - tempo produkowania danych, szybkości ich przesyłania i przetwarzania.
+3. **Variety** (Zróżnicowanie) - tradycyjne dane kojarzą się nam z postacią alfanumeryczną złożoną z liter i cyfr. Obecnie mamy do dyspozycji obrazy, dźwięki, pliki wideo, strumienie danych z IoT
+4. **Veracity** (Wiarygodność) - Czy dane są kompletne i poprawne? Czy obiektywnie odzwierciedlają rzeczywistość? Czy są podstawą do podejmowania decyzji?
+5. **Value** - The value that the data actually holds. In the end, it's all about cost and benefits.
+
+> _Celem obliczeń nie są liczby, lecz ich zrozumienie_ R.W. Hamming 1962. 
+
+
+## Modele przetwarzania danych
+
+Dane w biznesie przetwarzane są praktycznie od zawsze. 
+W ciągu ostatnich dziesięcioleci ilość przetwarzanych danych systematycznie rośnie co wpływa na proces przygotowania i przetwarzania danych.
+
+### Trochę historii
+
+- Lata 60-te : Kolekcje danych, bazy danych
+- Lata 70-te : Relacyjne modele danych i ich implementacja w systemach OLTP
+- 1975 : Pierwsze komputery osobiste 
+- Lata 80-te : Zaawansowane modele danych, extended-relational, objective oriented, aplikacyjno-zorientowane itp.
+- 1983 : Początek internetu
+- Lata 90-te : Data mining, hurtownie danych, systemy OLAP
+- Później : NoSQL, Hadoop, SPARK, data lake
+- 2002 : AWS , 2005: Hadoop, Cloud computing 
+
+
+Większość danych przechowywana jest w bazach lub hurtowniach danych.
+Standardowo dostęp do danych sprowadza się najczęściej do realizacji zapytań poprzez aplikację.
+
+Sposób wykorzystania i realizacji procesu dostępu do bazy danych nazywamy **modelem przetwarzania**.
+Najczęściej używane są dwie implementacje:
+
+### Model Tradycyjny
+
+**Model tradycyjny** - przetwarzanie transakcyjne w trybie on-line, OLTP (on-line transaction processing).
+Świetnie sprawdza się w przypadku obsługi bieżącej np. obsługa klienta, rejestr zamówień, obsługa sprzedaży itp.
+Wykorzystywany w systemach Enterprise Resource Planning (ERP) Systems, Customer Relationship Management (CRM) software, and web-based applications.
+
+![](img/baza1.png){.center}
+
+Model ten dostarcza efektywnych rozwiązań m.in do:
+
+- efektywnego i bezpiecznego przechowywania danych,
+- transakcyjnego odtwarzanie danych po awarii,
+- optymalizacji dostępu do danych,
+- zarządzania współbieżnością,
+- przetwarzania zdarzeń -> odczyt -> zapis
+
+Co w przypadku gdy mamy do czynienia z:
+
+- agregacjami danych z wielu systemów (np. dla wielu sklepów),
+- raportowanie i podsumowania danych,
+- optymalizacja złożonych zapytań,
+- wspomaganie decyzji biznesowych.
+
+Badania nad tego typu zagadnieniami doprowadziły do sformułowania nowego modelu przetwarzania danych oraz nowego typu baz danych - **Hurtownie Danych** _(Data warehouse)_.
+
+### Model OLAP
+
+**Przetwarzanie analityczne on-line OLAP (on-line analytic processing).**
+
+ Wspieranie procesów analizy i dostarczanie narzędzi umożliwiających analizę wielowymiarową (`czas`, `miejsce`, `produkt`).
+
+ Proces zrzucania danych z różnych systemów do jednej bazy nazywamy Extract-Transform-Load (ETL) (normalizacja i encoding and schema transaction).
+
+ Analiza danych z hurtowni to przede wszystkim obliczanie **agregatów** (podsumowań) dotyczących wymiarów hurtowni.
+ Proces ten jest całkowicie sterowany przez użytkownika.
+
+**Przykład**
+
+Załóżmy, że mamy dostęp do hurtowni danych gdzie przechowywane są informacje dotyczące sprzedaży produktów w supermarkecie.
+Jak przeanalizować zapytania:
+
+1. Jaka jest łączna sprzedaż produktów w kolejnych kwartałach, miesiącach, tygodniach ?
+2. Jaka jest sprzedaż produktów z podziałem na rodzaje produktów ?
+3. Jaka jest sprzedaż produktów z podziałem na oddziały supermarketu ?
+
+Odpowiedzi na te pytania pozwalają określić `wąskie gardła` sprzedaży produktów przynoszących deficyt, zaplanować zapasy w magazynach czy porównać sprzedaż różnych grup w różnych oddziałach supermarketu.
+
+W ramach Hurtowni Danych najczęściej wykonuje się dwa rodzaje zapytań(oba w trybie batchowym):
+1. Wykonywane okresowo w czasie zapytania raportowe obliczające biznesowe statystyki
+2. Wykonywane ad-hoc zapytania wspomagające krytyczne decyzje biznesowe.
+
+
+# Analiza strumieni danych 
+
+Analiza strumieni danych to ciągłe przetwarzanie i analiza dużych zbiorów danych w ruchu.
+
+[dodatkowe informacje](https://aws.amazon.com/streaming-data/)
+
+## Źródła danych przesyłanych strumieniowo obejmują:
+
+- czujniki sprzętu, 
+- strumienie kliknięć,
+- śledzenie lokalizacji
+- interackcja z użytkownikiem: co robią użytkownicy Twojej witryny?
+- kanały mediów społecznościowych, 
+- notowania giełdowe, 
+- aktywność w aplikacjach
+- inne. 
+
+Firmy wykorzystują analitykę strumieniową do odkrywania i interpretowania wzorców, tworzenia wizualizacji, przekazywania spostrzeżeń i alertów oraz uruchamiania procesów w czasie rzeczywistym lub zbliżonym do rzeczywistego.
+
+### Analiza danych w czasie rzeczywistym a przetwarzanie strumienia zdarzeń
+
+Łatwo jest połączyć analizę w czasie rzeczywistym i analizę strumieniową (lub przetwarzanie strumienia zdarzeń). Ale chociaż technologie analizy strumieniowej mogą umożliwiać analizę w czasie rzeczywistym, to nie to samo!
+
+Analiza strumieniowa polega na przetwarzaniu danych w ruchu. Analityka w czasie rzeczywistym to dowolna metoda przetwarzania danych, która skutkuje okresem opóźnienia określanym jako „w czasie rzeczywistym”.
+
+Zazwyczaj systemy analizy czasu rzeczywistego są definiowane jako twarde i miękkie systemy czasu rzeczywistego. Niedotrzymanie terminu w twardych systemach czasu rzeczywistego, takich jak samolot, jest katastrofalne, a w miękkich systemach czasu rzeczywistego, takich jak stacja pogodowa, niedotrzymanie terminów może prowadzić do bezużytecznych danych.
+
+Ponadto, podczas gdy analiza strumieniowa implikuje istnienie architektury strumieniowej, analiza w czasie rzeczywistym nie implikuje żadnej konkretnej architektury. 
+
+Wszystko, co implikuje analityka w czasie rzeczywistym, polega na tym, że tworzenie i przetwarzanie danych odbywa się w dowolnym czasie, który firma definiuje jako „w czasie rzeczywistym”.
+
+## Uzasadnienie biznesowe
+
+Analityka służy do znajdowania znaczących wzorców w danych i odkrywania nowej wiedzy. Dotyczy to zarówno transmisji strumieniowych, jak i tradycyjnych analiz.
+
+Ale w dzisiejszym świecie natura „znajdowania sensownych wzorców w danych” uległa zmianie, ponieważ zmienił się charakter danych. Szybkość, objętość i rodzaje danych eksplodowały.
+
+Twitter produkuje ponad 500 milionów tweetów dziennie. IDC przewiduje, że do 2025 roku urządzenia Internetu rzeczy (IoT) będą w stanie wygenerować 79,4 zettabajtów (ZB) danych.
+I te trendy nie wykazują oznak spowolnienia.
+
+Biorąc pod uwagę nowy charakter danych, główną zaletą analizy strumieniowej jest to, że pomaga ona firmom znajdować znaczące wzorce w danych i odkrywać nową wiedzę ,,w czasie rzeczywistym" lub zbliżonym do rzeczywistego.
+
+- który pojazd firmowej floty ma prawie pusty bak i~gdzie wysłać prowadzącego pojazd do tankowania.
+- Który pojazd floty zużywa najwięcej paliwa i~dlaczego? 
+- Które urządzenia w~zakładzie czy fabryce mogą ulec awarii w~ciągu najbliższych dni?
+- Jakie części zamienne trzeba będzie wymienić i~w~których maszynach w~najbliższym czasie ? 
+- Ilu klientów aktualnie robi zakupy w~sklepie i~czy można im coś zaproponować ? 
+- Czy klient dzwoni w~celu zerwania umowy ? 
+- i wiele wiele innych.
+
+[8 najlepszych przykładów](https://www.linkedin.com/pulse/8-best-examples-real-time-data-analytics-bernard-marr/)
+
+[Biznesowe zastosowania](https://www.forbes.com/sites/forbestechcouncil/2021/10/26/how-to-build-a-strong-business-case-for-streaming-analytics/?sh=eee8eaa465d0)
+
+## Definicje
+
+Zapoznaj się z tematem [danych strumieniowych](https://medium.com/cuelogic-technologies/analyzing-data-streaming-using-spark-vs-kafka-bcfdc33ac828)
+
+> Definicja 1 - *Zdarzenie* czyli wszystko co możemy zaobserwować w pewnej chwili czasu.
+> Definicja 2 - W przypadku danych *zdarzenie* rozumiemy jako **niezmienialny** rekord w strumieniu danych zakodowany jako JSON, XML, CSV lub binarnie.
+> Definicja 3 - Ciągły strumień zdarzeń to nieskończony zbiór pojedynczych zdarzeń uporządkowanych w czasie np. logi z urządzenia.
+
+> **Przedsiębiorstwo to organizacja, która generuje i odpowiada na ciągły strumień zdarzeń**.
+
+> Definicja 4 - Strumień danych to dane tworzone przyrostowo w czasie, generowane ze statycznych danych (baza danych, czytanie lini z pliku) bądź w sposób dynamiczny (logi, sensory, funkcje).
+
+Analityka strumieniowa (ang. _stream analytics_) nazywana jest również przetwarzaniem strumieniowym zdarzen (ang. _event stream processing_) - przetwarzanie dużej ilości danych już na etapie ich generowania. 
+
+Generowane są jako bezpośredni skutek działania.
+
+Niezależnie od zastosowanej technologi wszystkie dane powstają jako ciągły strumień zdarzeń (działania użytkowników na stronie www, logi systemowe, pomiary z sensorów).
+
+## Aplikacje dla strumieniowania danych
+
+Aplikacja przetwarzająca strumień zdarzeń powinna umożliwiać przetworzenie i zapisanie zdarzenia oraz dostęp (w tym samym czasie) do innych danych tak by móc dane zdarzenie przetworzyć (wykonać na nim dowolne przeliczenie) i zapisać jako `stan lokalny`. 
+Stan ten może być zapisywany w wielu miejscach np. zmienne w programie, pliki lokalne, wew i zew bazy danych. Jedną z najbardziej znanych aplikacji tego typu jest Apache Kafka, którą można łączyć np. z Apache Spark bądź Apache Flink.  
+
+[Porównanie z aplikacją w trybie batch](https://riverml.xyz/dev/examples/batch-to-online/)

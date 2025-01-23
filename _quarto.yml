@@ -1,0 +1,38 @@
+project: 
+  type: website
+  output-dir: docs
+
+website: 
+  title: Analiza danych w czasie rzeczywistym
+  navbar:
+    left: 
+          - href: index.qmd
+            text: 222890-D
+          - href: indexS.qmd
+            text: 222890-S
+          - href: wyklad1.qmd
+            text: Wykład 1
+          - href: wyklad2.qmd
+            text: Wykład 2
+          - href: wyklad3.qmd
+            text: Wykład 3
+          - href: wyklad4.qmd
+            text: Wykład 4
+          # - href: wyklad1S.qmd
+          #   text: Wykład SN1
+          # - href: wyklad2S.qmd
+          #   text: Wykład SN2
+          - href: sylabus.qmd
+            text: Sylabus
+          - href: info.qmd
+            text: Narzędzia
+          - href: ksiazki.qmd
+            text: Książki
+          
+
+format:
+  html:
+    theme: cosmo
+    css: style.css
+    toc: true
+    self-contained-math: true

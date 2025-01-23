@@ -1,0 +1,151 @@
+---
+title: "Informacje ogólne"
+---
+
+## Analiza danych w czasie rzeczywistym
+
+Kod: 222890-D
+
+Semestr zimowy 2022/2023,
+SGH Szkoła Główna Handlowa w Warszawie
+
+Podstawowe informacje znajdziesz w [sylabusie](/RTA_2023/sylabus).
+
+Ciekawe książki i strony internetowe zamieszczone zostały w zakładce [książki](/RTA_2023/ksiazki). Jeśli chciał(a)byś coś dodać prześlij informację przez MS teams.
+
+## Kalendarz
+
+#### Wykład 
+
+Wykład jest realizowany w trybie hybrydowym.
+Jest on NIEOBOWIĄZKOWY i odbywa się w Auli I bud G
+
+1. <del> 20-02-2023 (poniedziałek) 09:50-11:30 - Wykład 1 </del>
+Tematy zrealizowane na wykładzie:
+    - Dane ustrukturyzowane i nieustrukturyzowane
+    - Procesy generowania danych
+    - Big Data
+    - Modele przetwarzania danych OLTP, OLAP
+2. <del>27-02-2023 (poniedziałek) 09:50-11:30 - Wykład 2</del>
+Tematy zrealizowane na wykładzie:
+    - Przetwarzanie wsadowe vs Przetwarzanie strumieni danych
+    - ETL 
+    - Wzorzec MapReduce
+    - Biznesowe wymagania dla strumieni danych
+    - Definicje: Zdarzenie, strumień zdarzeń, analiza i przetwarzanie strumieni zdarzeń, 
+    - Narzędzie i aplikacje przetwarzania strumieniowego
+3. <del>06-03-2023 (poniedziałek) 09:50-11:30 - Wykład 3</del>
+Tematy reazlizowane na wykładzie: 
+    - Czas w przetwarzaniu danych strumieniowych  
+    - Działanie systemu klient-serwer: REST API
+4. <del>13-03-2023 (poniedziałek) 09:50-11:30 - Wykład 4</del>
+Tematy realizowane na wykładzie:
+    - TEST 10 pytań!
+    - Działanie systemu pub-sub: Apache Kafka
+    - Architektura Lammbda i Kappa
+
+    
+Wykłady kończą się TESTEM: 10 pytań - 20 minut. 
+Test przeprowadzany jest za pośrednictwem MS Teams.
+
+#### Laboratoria
+
+1. <del>20-03-2023 (poniedziałek) 08:00-13:30 - C4D 3 grupy </del>
+2. <del>21-03-2023 (wtorek) 11:40-17:00 - C4D 3 grupy </del>
+
+- środowisko wirtualne python, tworzenie, przenoszenie, aktywacja
+- środowisko docker, lokalne uruchomienie jupyter lab
+
+3. <del> 27-03-2023 (poniedziałek) 08:00-13:30 - C4D, 3 grupy </del>
+4. <del>28-03-2023 (wtorek) 11:40-17:00 - C4D, 3 grupy </del>
+
+- Instalacja obrazu z jupyterlab, apache kafka, mongoDB
+- Dane ustrukturyzowane i nieustrukturyzowane w pythonie
+
+5. <del>03-04-2023 (poniedziałek) 08:00-13:30 - C2B, 3 grupy</del>
+6. <del>04-04-2023 (wtorek) 11:40-17:00 - C2B, 3 grupy </del>
+
+- Dane nieustrukturyzowane w pythonie
+- Sieci neuronowe dla danych nieustrukturyzowanych
+- Obiektowy model danych w pakiecie scikit-learn 
+
+7. <del>17-04-2023 (poniedziałek) 08:00-13:30 - C2B, 3 grupy </del>
+8. <del>18-04-2023 (wtorek) 11:40-17:00 - C2B, 3 grupy </del>
+
+- Obiektowe programowanie w pythonie 
+- Perceptron, Adeline klasy dla sieci neuronowych
+
+
+9. <del>24-04-2023 (poniedziałek) 08:00-13:30 - C2B, 3 grupy</del>
+10. <del> 25-04-2023 (wtorek) 11:40-17:00 - C2B, 3 grupy </del>
+
+- Flask API
+- Model ML w Flask API
+
+11. <del>08-05-2023 (poniedziałek) 08:00-13:30 - C2B, 3 grupy</del>
+12. <del>09-05-2023 (wtorek) 11:40-17:00 - C2B, 3 grupy </del>
+- Wprowadzenie do Apache Spark 
+- Apache Spark Streaming DStream i Ramki danych
+
+
+13. <del>15-05-2023 (poniedziałek) 08:00-13:30 - C2B, 3 grupy</del>
+14. <del>16-05-2023 (wtorek) 11:40-17:00 - C2B, 3 grupy</del>
+- Praca w domu nad projektem
+
+15. <del>22-05-2023 (poniedziałek) 08:00-13:30 - C2B, 3 grupy</del>
+16. <del>23-05-2023 (wtorek) 11:40-17:00 - C2B, 3 grupy </del>
+- Praca w domu nad projektem
+
+17. 29-05-2023 (poniedziałek) 08:00-13:30 - C2B, 3 grupy
+18. 30-05-2023 (wtorek) 11:40-17:00 - C2B, 3 grupy
+- Apache Kafka i Apache Spark Streaming
+
+19. 05-06-2023 (poniedziałek) 08:00-13:30 - C2B, 3 grupy
+20. 06-06-2023 (wtorek) 11:40-17:00 - C2B, 3 grupy 
+- Apache Kafka i Apache Spark Streaming
+
+<!-- 
+W przyszłym roku zrobić na ostatnich zajęciach test z ćwiczeń. 
+
+Jako 90 minutowe zadania do realizacji w notatniku.
+Przedstawiający krok po kroku 
+- Przygotowanie danych dla szeregu czasowego 
+- skrypt w pythonie wysyłający dane do Apache Kafka
+- skrypt w pythonie lub Apache Spark odbierający dane z Apache Kafka 
+- obliczenie średniej w oknie i wypisanie wyniku na ekran 
+- gdy wartość > x to zapis do mongodb (to musi być na ćwiczeniach)
+- wizualizacja danych w pythonie z podłączenia mongodb - ile razy pojawia się przekrocznie - to też na ćwiczeniach
+-->
+
+#### Miejsce
+
+Wykłady 1-5: G-Aula I
+Laboratorium 1-9: C2B
+
+#### Zaliczenie i Egzamin
+
+Wykłady zakończone zostaną testem (ostatnie zajęcia).
+Pozytywna ocena z testu (powyżej 13 pkt) upoważnia do realizacji ćwiczeń. 
+
+Po ćwiczeniach realizowane będą zadania domowe przekazywane za pośrednictwem platformy teams.  
+Zaliczenie wszystkich ćwiczeń i zadań upoważnia do realizacji projektu. 
+
+Projekt powinien być realizowany w grupach max 5 osobowych. 
+
+Wymagania projektu: 
+
+- Projekt powinien przedstawiać BIZNESOWY PROBLEM, który można realizować wykorzystując informacje podawane w trybie online. (Nie oznacza to, że nie można korzystać z procesowania batchowego np w celu wygenerowania modelu).
+- Dane powinny być przesyłane do Apache Kafki i stamtąd poddawane dalszemu procesowaniu i analizie. 
+- Język programowania jest dowolny - dotyczy każdego komponentu projektu. 
+- Można wykorzystać narzędzia BI 
+- Źródłem danych może być tabela, sztucznie generowane dane, IoT itp.
+
+## Technologie
+
+Uczestnicząc w zajęciach musisz opanować i przynajmniej w podstawowym zakresie posługiwać się następującymi technologiami informatycznymi:
+
+1. [GIT](https://sebkaz-teaching.github.io/RTA_2023/info.html#git) 
+2. Python, Jupyter notebook, Jupyter lab, Colab
+3. [Docker](https://sebkaz-teaching.github.io/RTA_2023/info.html#docker)
+4. **Apache Spark**, Apache Flink, **Apache Kafka**, Apache Beam
+5. Databricks Community edition [Web page](https://community.cloud.databricks.com/login.html).
