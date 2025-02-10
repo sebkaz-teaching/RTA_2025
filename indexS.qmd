@@ -6,18 +6,18 @@ title: "Informacje ogólne"
 
 Kod: 222890-S
 
-Semestr zimowy 2022/2023,
+Semestr zimowy 2024/2025,
 SGH Szkoła Główna Handlowa w Warszawie
 
-Szczegółowy opis znajdziesz w [sylabusie](/RTA_2023/sylabus).
+Szczegółowy opis znajdziesz w [sylabusie](/RTA_2025/sylabus).
 Znajdziesz w nim opis wszystkich wykładów i ćwiczeń oraz proponowaną literaturę.
 
-Inne książki zamieszczone zostały w zakładce [książki](/RTA_2023/ksiazki)
+Inne książki zamieszczone zostały w zakładce [książki](/RTA_2025/ksiazki)
 
 ## Kalendarz
 
 #### Wykład
-1. <del>25-02-2023 (sobota) 08:00-09:30 - Wykład 1</del>
+1. 25-02-2023 (sobota) 08:00-09:30 - Wykład 1
 Tematy reazlizowane na wykładzie:
     - Dane ustrukturyzowane i nieustrukturyzowane
     - Procesy generowania danych
@@ -32,21 +32,21 @@ Tematy reazlizowane na wykładzie:
 
 #### ćwiczenia
 
-1. <del>25-03-2022 (sobota) 08:00-15:00 - G116 4 grupy </del>
-1. <del>26-03-2022 (niedziela) 09:50-17.00 - G116 4 grupy</del>
+1. 25-03-2022 (sobota) 08:00-15:00 - G116 4 grupy 
+1. 26-03-2022 (niedziela) 09:50-17.00 - G116 4 grupy
 
 - uruchomienie środowiska 
 - dane ustrukturyzowane i nieustrukturyzowane
 
-2. <del>15-04-2022 (sobota) 08:00-15:00 - G116 4 grupy</del>
-2. <del>16-04-2022 (niedziela) 09:50-17.00 - G116 4 grupy</del>
+2. 15-04-2022 (sobota) 08:00-15:00 - G116 4 grupy
+2. 16-04-2022 (niedziela) 09:50-17.00 - G116 4 grupy
 
 - sieci neuronowe dla danych nieustrukturyzowanych
 - Flask API 
 - Programowanie obiektowe
 
-3. <del>06-05-2022 (sobota) 08:00-15:00 - G116 4 grupy</del>
-3. <del>07-05-2022 (niedziela) 09:50-17.00 - G116 4 grupy</del>
+3. 06-05-2022 (sobota) 08:00-15:00 - G116 4 grupy
+3. 07-05-2022 (niedziela) 09:50-17.00 - G116 4 grupy
 
 - Spark Streaming 
 
