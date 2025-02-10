@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.353">
+<meta name="generator" content="quarto-1.6.40">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Analiza danych w czasie rzeczywistym - Informacje ogólne</title>
+<title>Informacje ogólne – Analiza danych w czasie rzeczywistym</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -35,17 +35,23 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-6bd9cfa162949bde0a231f530c97869d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -54,8 +60,10 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 
@@ -67,59 +75,47 @@ ul.task-list li input[type="checkbox"] {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Analiza danych w czasie rzeczywistym</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html" rel="" target="">
- <span class="menu-text">222890-D</span></a>
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">222890-D</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./indexS.html" rel="" target="" aria-current="page">
- <span class="menu-text">222890-S</span></a>
+    <a class="nav-link active" href="./indexS.html" aria-current="page"> 
+<span class="menu-text">222890-S</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./wyklad1.html" rel="" target="">
- <span class="menu-text">Wykład 1</span></a>
+    <a class="nav-link" href="./plan.html"> 
+<span class="menu-text">plan</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./wyklad2.html" rel="" target="">
- <span class="menu-text">Wykład 2</span></a>
+    <a class="nav-link" href="./sylabus.html"> 
+<span class="menu-text">Sylabus</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./wyklad3.html" rel="" target="">
- <span class="menu-text">Wykład 3</span></a>
+    <a class="nav-link" href="./info.html"> 
+<span class="menu-text">Narzędzia</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./wyklad4.html" rel="" target="">
- <span class="menu-text">Wykład 4</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./sylabus.html" rel="" target="">
- <span class="menu-text">Sylabus</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./info.html" rel="" target="">
- <span class="menu-text">Narzędzia</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./ksiazki.html" rel="" target="">
- <span class="menu-text">Książki</span></a>
+    <a class="nav-link" href="./ksiazki.html"> 
+<span class="menu-text">Książki</span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools ms-auto">
-</div>
           </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -133,7 +129,11 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#analiza-danych-w-czasie-rzeczywistym" id="toc-analiza-danych-w-czasie-rzeczywistym" class="nav-link active" data-scroll-target="#analiza-danych-w-czasie-rzeczywistym">Analiza danych w czasie rzeczywistym</a></li>
-  <li><a href="#kalendarz" id="toc-kalendarz" class="nav-link" data-scroll-target="#kalendarz">Kalendarz</a></li>
+  <li><a href="#kalendarz" id="toc-kalendarz" class="nav-link" data-scroll-target="#kalendarz">Kalendarz</a>
+  <ul class="collapse">
+  <li><a href="#wykład" id="toc-wykład" class="nav-link" data-scroll-target="#wykład">Wykład</a></li>
+  <li><a href="#laboratoria" id="toc-laboratoria" class="nav-link" data-scroll-target="#laboratoria">Laboratoria</a></li>
+  </ul></li>
   <li><a href="#technologie" id="toc-technologie" class="nav-link" data-scroll-target="#technologie">Technologie</a></li>
   </ul>
 </nav>
@@ -156,89 +156,47 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
+
 </header>
+
 
 <section id="analiza-danych-w-czasie-rzeczywistym" class="level2">
 <h2 class="anchored" data-anchor-id="analiza-danych-w-czasie-rzeczywistym">Analiza danych w czasie rzeczywistym</h2>
 <p>Kod: 222890-S</p>
-<p>Semestr zimowy 2022/2023, SGH Szkoła Główna Handlowa w Warszawie</p>
-<p>Szczegółowy opis znajdziesz w <a href="./RTA_2023/sylabus">sylabusie</a>. Znajdziesz w nim opis wszystkich wykładów i ćwiczeń oraz proponowaną literaturę.</p>
-<p>Inne książki zamieszczone zostały w zakładce <a href="./RTA_2023/ksiazki">książki</a></p>
+<p>Semestr zimowy 2024/2025, SGH Szkoła Główna Handlowa w Warszawie</p>
+<p>Szczegółowy opis znajdziesz w <a href="./RTA_2025/sylabus">sylabusie</a>. Znajdziesz w nim opis wszystkich wykładów i ćwiczeń oraz proponowaną literaturę.</p>
+<p>Inne książki zamieszczone zostały w zakładce <a href="./RTA_2025/ksiazki">książki</a></p>
 </section>
 <section id="kalendarz" class="level2">
 <h2 class="anchored" data-anchor-id="kalendarz">Kalendarz</h2>
-<section id="wykład" class="level4">
-<h4 class="anchored" data-anchor-id="wykład">Wykład</h4>
+<section id="wykład" class="level3">
+<h3 class="anchored" data-anchor-id="wykład">Wykład</h3>
 <ol type="1">
-<li><del>
-25-02-2023 (sobota) 08:00-09:30 - Wykład 1
-</del>
-Tematy reazlizowane na wykładzie:
-<ul>
-<li>Dane ustrukturyzowane i nieustrukturyzowane</li>
-<li>Procesy generowania danych</li>
-<li>Big Data</li>
-<li>Modele przetwarzania danych OLTP, OLAP</li>
-<li>Biznesowe wymagania dla strumieni danych</li>
-<li>Definicje: Zdarzenie, strumień zdarzeń, analiza i przetwarzanie strumieni zdarzeń,</li>
-<li>Narzędzie i aplikacje przetwarzania strumieniowego</li>
-</ul></li>
-<li>11-03-2023 (sobota) 08:00-09:30 - Wykład 2</li>
+<li>22-02-2025 (sobota) 08:00-09:30 - Wykład 1</li>
+<li>08-03-2025 (sobota) 08:00-09:30 - Wykład 2</li>
 </ol>
 </section>
-<section id="ćwiczenia" class="level4">
-<h4 class="anchored" data-anchor-id="ćwiczenia">ćwiczenia</h4>
-<ol type="1">
-<li><del>
-25-03-2022 (sobota) 08:00-15:00 - G116 4 grupy
-</del></li>
-<li><del>
-26-03-2022 (niedziela) 09:50-17.00 - G116 4 grupy
-</del></li>
-</ol>
-<ul>
-<li>uruchomienie środowiska</li>
-<li>dane ustrukturyzowane i nieustrukturyzowane</li>
-</ul>
-<ol start="2" type="1">
-<li><del>
-15-04-2022 (sobota) 08:00-15:00 - G116 4 grupy
-</del></li>
-<li><del>
-16-04-2022 (niedziela) 09:50-17.00 - G116 4 grupy
-</del></li>
-</ol>
-<ul>
-<li>sieci neuronowe dla danych nieustrukturyzowanych</li>
-<li>Flask API</li>
-<li>Programowanie obiektowe</li>
-</ul>
-<ol start="3" type="1">
-<li><del>
-06-05-2022 (sobota) 08:00-15:00 - G116 4 grupy
-</del></li>
-<li><del>
-07-05-2022 (niedziela) 09:50-17.00 - G116 4 grupy
-</del></li>
-</ol>
-<ul>
-<li>Spark Streaming</li>
-</ul>
-<ol start="4" type="1">
-<li>20-05-2022 (sobota) 08:00-15:00 - G116 4 grupy</li>
-<li>21-05-2022 (niedziela) 09:50-17.00 - G116 4 grupy</li>
-</ol>
-<ul>
-<li>homework</li>
-<li>Nagranie</li>
-</ul>
-<ol start="5" type="1">
-<li>10-06-2022 (sobota) 08:00-15:00 - G116 4 grupy</li>
-<li>11-06-2022 (niedziela) 09:50-17.00 - G116 4 grupy</li>
-</ol>
-<ul>
-<li>Apache Kafka</li>
-</ul>
+<section id="laboratoria" class="level3">
+<h3 class="anchored" data-anchor-id="laboratoria">Laboratoria</h3>
+<section id="lab1" class="level4">
+<h4 class="anchored" data-anchor-id="lab1">Lab1</h4>
+<p>22-03-2025 (sobota) 08:00-13:20 - G-210 grupy 11, 17, 18 23-03-2025 (niedziela) 13:30-17:00 - G-116 grupy 15, 16</p>
+</section>
+<section id="lab2" class="level4">
+<h4 class="anchored" data-anchor-id="lab2">Lab2</h4>
+<p>05-04-2025 (sobota) 08:00-13:20 - G-210 grupy 11, 17, 18 06-04-2025 (niedziela) 13:30-17:00 - G-116 grupy 15, 16</p>
+</section>
+<section id="lab3" class="level4">
+<h4 class="anchored" data-anchor-id="lab3">Lab3</h4>
+<p>26-04-2025 (sobota) 08:00-13:20 - G-210 grupy 11, 17, 18 27-04-2025 (niedziela) 13:30-17:00 - G-116 grupy 15, 16</p>
+</section>
+<section id="lab4" class="level4">
+<h4 class="anchored" data-anchor-id="lab4">Lab4</h4>
+<p>17-05-2025 (sobota) 08:00-13:20 - G-210 grupy 11, 17, 18 18-05-2025 (niedziela) 13:30-17:00 - G-116 grupy 15, 16</p>
+</section>
+<section id="lab5" class="level4">
+<h4 class="anchored" data-anchor-id="lab5">Lab5</h4>
+<p>31-05-2025 (sobota) 08:00-13:20 - G-210 grupy 11, 17, 18 01-06-2025 (niedziela) 13:30-17:00 - G-116 grupy 15, 16</p>
 </section>
 <section id="miejsce" class="level4">
 <h4 class="anchored" data-anchor-id="miejsce">Miejsce</h4>
@@ -260,14 +218,15 @@ Zaliczenie wszystkich ćwiczeń i zadań upoważnia do realizacji projektu.</p>
 </ul>
 </section>
 </section>
+</section>
 <section id="technologie" class="level2">
 <h2 class="anchored" data-anchor-id="technologie">Technologie</h2>
 <p>Uczestnicząc w zajęciach musisz opanować i przynajmniej w podstawowym zakresie posługiwać się następującymi technologiami informatycznymi:</p>
 <ol type="1">
-<li><a href="https://sebkaz-teaching.github.io/RTA_2023/info.html#git">GIT</a></li>
+<li><a href="https://sebkaz-teaching.github.io/RTA_2025/info.html#git">GIT</a></li>
 <li>Python, Jupyter notebook, Jupyter lab, Colab</li>
-<li><a href="https://sebkaz-teaching.github.io/RTA_2023/info.html#docker">Docker</a></li>
-<li><strong>Apache Spark</strong>, Apache Flink, <strong>Apache Kafka</strong>, Apache Beam</li>
+<li><a href="https://sebkaz-teaching.github.io/RTA_2025/info.html#docker">Docker</a></li>
+<li><strong>Apache Spark</strong>, <strong>Apache Kafka</strong></li>
 <li>Databricks Community edition <a href="https://community.cloud.databricks.com/login.html">Web page</a>.</li>
 </ol>
 
@@ -310,18 +269,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -353,11 +301,48 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -367,8 +352,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -380,7 +374,129 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -424,6 +540,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -449,6 +566,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -509,6 +652,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 

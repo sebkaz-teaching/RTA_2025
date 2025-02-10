@@ -20,14 +20,14 @@ title: Syllabus
 
 
 **Website:**
-  [https://sebkaz-teaching.github.io/RTA_2023/](https://sebkaz-teaching.github.io/RTA_2025/)
+  [https://sebkaz-teaching.github.io/RTA_2025/](https://sebkaz-teaching.github.io/RTA_2025/)
 
 
 
 ## Cel Przedmiotu
 
 Podejmowanie prawidłowych decyzji na podstawie danych i ich analiz w biznesie to proces i codzienność. 
-Nowoczesne metody modelowania przez uczenie maszynowe (ang. machine learning), sztuczną inteligencję (AI), bądź głębokie sieci neuronowe (ang. deep learning) pozwalają nie tylko na lepsze rozumienie biznesu, ale i wspomagają podejmowanie kluczowych dla niego decyzji. 
+Nowoczesne metody modelowania przez uczenie maszynowe (ang. _machine learning_), sztuczną inteligencję (ang. _artificial inteligence_), bądź głębokie sieci neuronowe (ang. _deep learning_) pozwalają nie tylko na lepsze rozumienie biznesu, ale i wspomagają podejmowanie kluczowych dla niego decyzji. 
 Rozwój technologii oraz coraz to nowsze koncepcje biznesowe pracy bezpośrednio z klientem wymagają nie tylko prawidłowych, ale i odpowiednio szybkich decyzji. 
 Oferowane zajęcia mają na celu przekazanie studentom doświadczenia oraz kompleksowej wiedzy teoretycznej w zakresie przetwarzania i analizy danych w czasie rzeczywistym oraz zaprezentowanie najnowszych technologii informatycznych (darmowych oraz komercyjnych) służących do przetwarzania danych ustrukturyzowanych (pochodzących np. z hurtowni danych) jak i nieustrukturyzowanych (np. obrazy, dźwięk, strumieniowanie video) w trybie on-line. 
 W toku zajęć przedstawiona zatem zostanie filozofia analizy dużych danych w czasie rzeczywistym jako część koncepcji Big Data w połączeniu ze strumieniowaniem danych, programowaniem strumieniowym w języku Python, R oraz SAS. 
@@ -39,7 +39,7 @@ Tak aby oprócz umiejętności i znajomości technik analitycznych studenci 
 ## Program przedmiotu
 
 1. Modelowanie, uczenie i predykcja w trybie wsadowym (offline learning) i przyrostowym (online learning). Problemy przyrostowego uczenia maszynowego.
-2. Modele przetwarzania danych w Big Data. Od plików płaskich do Data Lake. Mity i fakty przetwarzania danych w czasie rzeczywistym.
+2. Modele przetwarzania danych w Big Data. Od plików płaskich do Data Lake. Mity i fakty przetwarzania danych w czasie rzeczywistym. (Wykład)
 3. Systemy NRT (near real-time systems), pozyskiwanie danych, streaming, analityka.
 4. Algorytmy estymacji parametrów modelu w trybie przyrostowym. Stochastic Gradient Descent.
 5. Architektura Lambda i Kappa. Zaprojektowanie architektury IT dla przetwarzania danych w czasie rzeczywistym.
