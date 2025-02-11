@@ -153,3 +153,13 @@ Metody dokumentacji: prace pisemne studenta ( w trakcie semestru, zaliczeniowe, 
 4. Frank J. Ohlhorst. "Big Data Analytics. Turning Big Data into Big Money". John Wiley & Sons. Inc. 2013 
 5. Russell J. "Zwinna analiza danych Apache Hadoop dla każdego", Helion, 2014 
 6. Todman C., "Projektowanie hurtowni danych, Wspomaganie zarządzania relacjami z klientami", Helion, 2011
+
+
+## Nowy program przedmiotu
+
+1. Batch vs. Real-Time vs. Streaming Analytics – Różnice między trybami przetwarzania danych, kluczowe koncepcje i zastosowania.
+2. Modele przetwarzania danych w Big Data – Od plików płaskich do Data Lake, wady i zalety podejścia real-time. Mity i fakty o przetwarzaniu w czasie rzeczywistym.
+3. Architektura IT dla przetwarzania w czasie rzeczywistym – Omówienie architektur Lambda i Kappa w kontekście strumieniowego przetwarzania danych.
+4. Systemy przetwarzania danych w czasie rzeczywistym – Przegląd technologii: Apache Kafka, Apache Spark Streaming, Apache Flink i ich zastosowania w Pythonie.
+5. Podstawy uczenia maszynowego w czasie rzeczywistym – Porównanie offline learning vs. online learning, problemy związane z przyrostowym uczeniem maszynowym.
+

@@ -33,6 +33,7 @@ Test przeprowadzany jest za pośrednictwem MS Teams.
 
 #### Lab1
 24-03-2025 (poniedziałek) 08:00-15:10 - G-235 grupy 11, 12, 13, 14
+
 25-03-2025 (wtorek) 11:40-15:10 - W-60 grupy 15, 16 
 
 #### Lab2
