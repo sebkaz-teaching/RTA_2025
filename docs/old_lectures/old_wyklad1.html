@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Mikroserwisy – Analiza danych w czasie rzeczywistym</title>
+<title>Od plików płaskich do Data Mash – Analiza danych w czasie rzeczywistym</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,59 +20,25 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-6bd9cfa162949bde0a231f530c97869d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-6bd9cfa162949bde0a231f530c97869d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -102,7 +68,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 
 
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="../style.css">
 </head>
 
 <body class="nav-fixed">
@@ -112,7 +78,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Analiza danych w czasie rzeczywistym</span>
     </a>
   </div>
@@ -123,27 +89,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">222890-D</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./indexS.html"> 
+    <a class="nav-link" href="../indexS.html"> 
 <span class="menu-text">222890-S</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./newwyklad1.html"> 
+    <a class="nav-link" href="../wyklad1.html"> 
 <span class="menu-text">Wykład 1</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./sylabus.html"> 
+    <a class="nav-link" href="../sylabus.html"> 
 <span class="menu-text">Sylabus</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./info.html"> 
+    <a class="nav-link" href="../info.html"> 
 <span class="menu-text">Narzędzia</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./ksiazki.html"> 
+    <a class="nav-link" href="../ksiazki.html"> 
 <span class="menu-text">Książki</span></a>
   </li>  
 </ul>
@@ -162,11 +128,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#komunikacja-przez-api" id="toc-komunikacja-przez-api" class="nav-link active" data-scroll-target="#komunikacja-przez-api">Komunikacja przez API</a>
+  <li><a href="#źródła-danych" id="toc-źródła-danych" class="nav-link active" data-scroll-target="#źródła-danych">Źródła danych</a>
   <ul class="collapse">
-  <li><a href="#czym-jest-serwowanie-modelu-ml" id="toc-czym-jest-serwowanie-modelu-ml" class="nav-link" data-scroll-target="#czym-jest-serwowanie-modelu-ml">Czym jest serwowanie modelu ML</a></li>
-  <li><a href="#zapytanie---request" id="toc-zapytanie---request" class="nav-link" data-scroll-target="#zapytanie---request">Zapytanie - Request</a></li>
-  <li><a href="#odpowiedź---response" id="toc-odpowiedź---response" class="nav-link" data-scroll-target="#odpowiedź---response">Odpowiedź - Response</a></li>
+  <li><a href="#rzeczywisty-proces-generowania-danych" id="toc-rzeczywisty-proces-generowania-danych" class="nav-link" data-scroll-target="#rzeczywisty-proces-generowania-danych">Rzeczywisty proces generowania danych</a></li>
+  </ul></li>
+  <li><a href="#big-data" id="toc-big-data" class="nav-link" data-scroll-target="#big-data">Big Data</a>
+  <ul class="collapse">
+  <li><a href="#one-two-four-v" id="toc-one-two-four-v" class="nav-link" data-scroll-target="#one-two-four-v">one, two, … four V</a></li>
+  </ul></li>
+  <li><a href="#modele-przetwarzania-danych" id="toc-modele-przetwarzania-danych" class="nav-link" data-scroll-target="#modele-przetwarzania-danych">Modele przetwarzania danych</a>
+  <ul class="collapse">
+  <li><a href="#trochę-historii" id="toc-trochę-historii" class="nav-link" data-scroll-target="#trochę-historii">Trochę historii</a></li>
+  <li><a href="#model-tradycyjny" id="toc-model-tradycyjny" class="nav-link" data-scroll-target="#model-tradycyjny">Model Tradycyjny</a></li>
+  <li><a href="#model-olap" id="toc-model-olap" class="nav-link" data-scroll-target="#model-olap">Model OLAP</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -176,7 +150,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Mikroserwisy</h1>
+<h1 class="title">Od plików płaskich do Data Mash</h1>
 </div>
 
 
@@ -193,103 +167,131 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Komunikacja sieciowa, relacyjne bazy danych, rozwiązania chmurowe i big data znacząco zmieniły sposób budowania systemów informatycznych i wykonywnia na niach pracy.</p>
-<p>Porównaj to jak “narzędzia” do realizacji przekazu (gazeta, radio, telewizja, internet, komunikatory, media społecznościowe) zmieniły interakcje międzyludzkie i struktury społeczne.</p>
-<blockquote class="blockquote">
-<p>Każde nowe informatyczne medium zmieniło stosunek ludzi do informatyki.</p>
-</blockquote>
-<p>Koncepcja mikrousługi (mikroserwisu) jest bardzo popularnym sposobem budowania systemów informatycznych jak i koncepcją przy tworzeniu oprogramowania czy realizacji firmy w duchu Data-Driven. Koncepcja ta pozwala zachować wydajność (rób jedną rzecz ale dobrze), elastyczność i jasną postać całej struktury.</p>
-<p>Chociaż istnieją inne sposoby architektury projektów oprogramowania, „mikroserwisy” są często używane nie bez powodu. Idea mikroserwisów tkwi w nazwie: oprogramowanie jest reprezentowane jako wiele małych usług, które działają indywidualnie. Patrząc na ogólną architekturę, każda mikrousługa znajduje się w małej czarnej skrzynce z jasno zdefiniowanymi wejściami i wyjściami. Możesz porównać tego typu zachowanie do “czystej funkcji” w programowaniu funkcyjnym.</p>
-<p>W celu umożliwienia komunikacji różnych mikroserwisów często wybieranym rozwiązaniem jest wykorzystanie <code>Application Programming Interfaces</code> <strong>API</strong> .</p>
-<section id="komunikacja-przez-api" class="level2">
-<h2 class="anchored" data-anchor-id="komunikacja-przez-api">Komunikacja przez API</h2>
-<p>Centralnym elementem architektury mikrousług jest wykorzystanie interfejsów API. API to część, która pozwala na połączenie dwóch mikroserwisów. Interfejsy API są bardzo podobne do stron internetowych. Podobnie jak strona internetowa, serwer wysyła do Ciebie kod reprezentujący stronę internetową. Twoja przeglądarka internetowa interpretuje ten kod i wyświetla stronę internetową.</p>
-<p>Weźmy przypadek biznesowy z modelem ML jako usługą. Załóżmy, że pracujesz dla firmy sprzedającej mieszkania w Bostonie. Chcesz zwiększać sprzedaż i oferować naszym klientom lepszą jakość usług dzięki nowej aplikacji mobilnej, z której może korzystać nawet 1 000 000 osób jednocześnie. Możemy to osiągnąć, udostępniając prognozę wartości domu, gdy użytkownik prosi o wycenę przez Internet.</p>
-<section id="czym-jest-serwowanie-modelu-ml" class="level3">
-<h3 class="anchored" data-anchor-id="czym-jest-serwowanie-modelu-ml">Czym jest serwowanie modelu ML</h3>
+<p>Rozwój technologii informatycznych spowodował dostęp do niewyobrażalnych ilości nowego zasobu jakim są <strong>ustrukturyzowane</strong> jak i <strong>nieustrukturyzowane</strong> dane.</p>
+<p><img src="img/main.jpeg" class="center img-fluid"></p>
+<p>Dane przyczyniły się do powstania tysięcy nowych narzędzi do <code>generowania</code>, <code>zbierania</code>, <code>przechowywania</code> i <code>przetwarzania</code> informacji na niespotykaną dotąd skalę.</p>
+<p>Zasób ten nie jest nowością i dostępny jest od bardzo dawna. Jednak dopiero po wprowadzeniu systemu pisma można było zacząć prowadzić zapis i przetwarzanie w postaci rachunkowości czy rejestrów różnych rzeczy takich jak: zaludnienie w krajach, spisy rzek, jezior, najgłębsze miejsca itp.</p>
+<p>Pojawienie się nowych wyzwań naukowych czy biznesowych staje się możliwe do realizacji dzięki budowie systemów opartych na <code>otwartym oprogramowaniu</code>, jak również dzięki wykorzystaniu domowych komputerów do wspomagania przetwarzania ogromnych ilości danych.</p>
+<p>Dziś systemy takie jak <a href="https://www.sas.com/pl_pl/home.html">SAS</a>, <a href="https://hadoop.apache.org">Apache Hadoop</a>, <a href="https://spark.apache.org">Apache Spark</a>, <a href="https://flink.apache.org">Apache Flink</a> dzięki rozwiązaniom chmurowym używane są na szeroką skalę w wielu instytucjach i firmach niemal w każdej dziedzinie. Narzędzia te wykorzystywane są w bankowości, opiece zdrowotnej, naukach przyrodniczych, produkcji, sektorze publicznym czy sprzedaży.</p>
+<p>Epoka danych stawia przed nami coraz to nowsze wyzwania związane nie tylko z ilością, ale i z czasem przetwarzania danych.</p>
+<p>Nowe wyzwania biznesowe to między innymi:</p>
 <ul>
-<li><p>Szkolenie dobrego modelu ML to TYLKO pierwsza część całego procesu: Musisz udostępnić swój model użytkownikom końcowym. Robisz to, zapewniając dostęp do modelu na swoim serwerze.</p></li>
-<li><p>Aby udostępnić model potrzebujesz: modelu, interpretera, danych wsadowych.</p></li>
-<li><p>Ważne metryki</p></li>
+<li>inteligentna reklama tysięcy produktów dla milionów klientów,</li>
+<li>przetwarzanie danych o genach, RNA czy też białkach <a href="http://genus.fuw.edu.pl">genus</a>,</li>
+<li>inteligentne wykrywanie różnorodnych sposobów nadużyć wśród setek miliardów transakcji kart kredytowych,</li>
+<li>symulacje giełdowe oparte o tysiące instrumentów finansowych</li>
+<li>…</li>
 </ul>
+<p>Wszystkie algorytmy uczenia maszynowego wymagają <strong>danych ustrukturyzowanych</strong> zapisanych w tabelarycznej postaci (tensory).<br>
+Zorganizowane są one w kolumnach cech charakteryzujących każdą obserwację (wiersze). Przykładem mogą być takie cechy jak: <strong>płeć</strong>, <strong>wzrost</strong> czy <strong>ilość posiadanych samochodów</strong>, na podstawie których można przewidywać czy klient będzie spłacał kredyt czy też nie. Takie przewidywanie również oznaczane jest jako cecha. Zmienne te dobierane są tak, by łatwo można je było pozyskać. Dzięki tak otrzymanym tabelom cech możemy stosować algorytmy tj. <code>XGBoost</code> lub <code>regresji logistycznej</code> w celu wyznaczenia odpowiedniej kombinacji zmiennych wpływających na prawdopodobieństwo dobrego albo i złego klienta.</p>
+<p>Podstawowe systemy bazodanowe związane z językiem SQL również realizują modele danych, w których dane ładnowane są do (ustrukturyzowanych) tabel.</p>
+<p><strong>Dane nieustrukturyzowane</strong> to takie, które nie są ułożone wtabelarycznej postaci.</p>
+<blockquote class="blockquote">
+<p>!Uwaga - nie oznacza to, iż dane nie możemy przetworzyć do jakiejś postaci tabelarzycznej.</p>
+</blockquote>
+<p>Przykładem może być <code>dźwięk</code>, <code>obraz</code>czy <code>tekst</code>. Poszczególne litery, częstotliwości czy piksele nie niosą ze sobą żadnych informacji. Nie tworzą osobnych cech, co jest kluczowe dla odróżnienia ich od danych ustrukturyzowanych.</p>
+<blockquote class="blockquote">
+<p>Zna typy danych ustrukturyzowanych jak i nieustrukturyzowanych (K2A_W02, K2A_W04, O2_W04, O2_W07)</p>
+</blockquote>
+<section id="źródła-danych" class="level2">
+<h2 class="anchored" data-anchor-id="źródła-danych">Źródła danych</h2>
+<p>Do trzech największych “generatorów” danych należą:</p>
+<ul>
+<li><code>dane społeczne</code> w formie tekstów (tweety, wpisy w portalach społecznościowych, komentarze), zdjęć czy plików wideo. Przydatne do problemów biznesowych realizujących ocenę zachowań i nastrojów konsumentów w analizach marketingowych.</li>
+<li><code>IoT</code>: dane pochodzące z czujników, czy też logi działania urządzeń i użytkowników (np. na stronie www).</li>
+<li><code>dane transakcyjne</code>: czyli ogólnie to co w każdej chwili generowane jest jako transakcje pojawiające się zarówno w trybie online jak i w trybie offline.</li>
+</ul>
+<section id="rzeczywisty-proces-generowania-danych" class="level3">
+<h3 class="anchored" data-anchor-id="rzeczywisty-proces-generowania-danych">Rzeczywisty proces generowania danych</h3>
+<p>Dane generowane są w postaci <code>nieograniczonej</code> - pojawiają się na skutek ciągłych działań systemów. W swoim telefonie wygenerowałeś dziś (a nawet na tych zajęciach!) wiele danych. Czy na następnych zajęciach lub tez jutro nie będziesz ich generował?</p>
+<p>Dane zawsze generowane są jako jakaś forma strumienia danych.</p>
+<p>Systemy obsługujące strumienie danych: - hurtownie danych - systemy monitorujące działania urządzeń (IoT) - systemy transakcyjne - systemy analityczne stron www - reklamy on-line - media społecznościowe - systemy logowania - ….</p>
+<blockquote class="blockquote">
+<p>firma to organizacja, która generuje i odpowiada na ciągły strumień danych. <a href="../RTA_2023/ksiazki#bellemare">Zobacz</a></p>
+</blockquote>
+<p>W przetwarzaniu wsadowym źródłem (ale i wynikiem przetwarzania) danych jest <strong>plik</strong>. Jest on zapisywany raz i można się do niego odwołać (może na nim działać wiele procesów - zadań). Nazwa pliku to element identyfikujący zbiór rekordów.</p>
+<p>W przypadku strumienia zdarzenie jest generowane tylko raz przez tzw. <em>producenta</em> (zwanego też nadawcą lub dostawcą). Powstałe zdarzenie przetwarzane może być przez wielu tzw. <em>konsumentów</em> (odbiorców). Zdarzenia strumieniowe grupowane są w tzw. <strong>tematy</strong> (ang. <strong>topics</strong>).</p>
+</section>
+</section>
+<section id="big-data" class="level2">
+<h2 class="anchored" data-anchor-id="big-data">Big Data</h2>
+<blockquote class="blockquote">
+<p><em>,,Big Data is like teenage sex: everyone talks about it, nobody really knows how to do it, everyone thinks everyone else is doing it, so every one claims they are doing it.’’</em> — Dan Ariely, Professor of Psychology and Behavioral Economics, Duke University</p>
+</blockquote>
+<section id="one-two-four-v" class="level3">
+<h3 class="anchored" data-anchor-id="one-two-four-v">one, two, … four V</h3>
 <ol type="1">
-<li>czas oczekiwania,</li>
-<li>koszty,</li>
-<li>liczba zapytać w jednostce czasu</li>
+<li><strong>Volume</strong> (Objętość) - rozmiar danych produkowanych na całym świecie przyrasta w tempie wykładniczym.</li>
+<li><strong>Velocity</strong> (Szybkość) - tempo produkowania danych, szybkości ich przesyłania i przetwarzania.</li>
+<li><strong>Variety</strong> (Zróżnicowanie) - tradycyjne dane kojarzą się nam z postacią alfanumeryczną złożoną z liter i cyfr. Obecnie mamy do dyspozycji obrazy, dźwięki, pliki wideo, strumienie danych z IoT</li>
+<li><strong>Veracity</strong> (Wiarygodność) - Czy dane są kompletne i poprawne? Czy obiektywnie odzwierciedlają rzeczywistość? Czy są podstawą do podejmowania decyzji?</li>
+<li><strong>Value</strong> - The value that the data actually holds. In the end, it’s all about cost and benefits.</li>
 </ol>
 <blockquote class="blockquote">
-<p>Udostępnianie danych między dwoma lub więcej systemami zawsze było podstawowym wymogiem tworzenia oprogramowania – DevOps vs.&nbsp;MLOps.</p>
-</blockquote>
-<p>Gdy wywołasz interfejs API, otrzyma on Twoje żądanie. Żądanie wyzwala kod do uruchomienia na serwerze i generuje odpowiedź odesłaną do Ciebie. Jeśli coś pójdzie nie tak, możesz nie otrzymać żadnej odpowiedzi lub otrzymać kod błędu jako kod stanu HTTP.</p>
-<blockquote class="blockquote">
-<p>Klient-Serwer: Klient (system A) przesyła żądanie przez HTTP do adresu URL hostowanego przez system B, który zwraca odpowiedź. Identycznie działa np przeglądarka internetowa. Żądanie jest kierowane do serwera WWW, który zwraca tekstową stronę HTML.</p>
-</blockquote>
-<blockquote class="blockquote">
-<p>Bezstanowe: Żądanie klienta powinno zawierać wszystkie informacje niezbędne do udzielenia pełnej odpowiedzi.</p>
-</blockquote>
-<p>Interfejsy API można wywoływać za pomocą wielu różnych narzędzi. Czasami możesz nawet użyć przeglądarki internetowej. Narzędzia takie jak CURL wykonują zadanie w wierszu poleceń. Możesz używać narzędzi, takich jak Postman, do wywoływania interfejsów API za pomocą interfejsu użytkownika.</p>
-<blockquote class="blockquote">
-<p>Cała komunikacja jest objęta ustalonymi zasadami i praktykami, które są nazywane protokołem HTTP.</p>
+<p><em>Celem obliczeń nie są liczby, lecz ich zrozumienie</em> R.W. Hamming 1962.</p>
 </blockquote>
 </section>
-<section id="zapytanie---request" class="level3">
-<h3 class="anchored" data-anchor-id="zapytanie---request">Zapytanie - Request</h3>
-<ol type="1">
-<li><p>Adres URL (np. <em>http://mydomain:8000/getapi?&amp;val1=43&amp;val2=3</em>) zawiera:</p>
-<pre><code>- domenę, 
-- port, 
-- dodatkowe ścieżki, 
-- zapytanie</code></pre></li>
-<li><p>Metody HTTP:</p>
-<pre><code>- GET, 
-- POST</code></pre></li>
-<li><p>Nagłówki HTTP zawierają:</p>
-<pre><code>- informacje o autoryzacji, 
-- cookies metadata</code></pre></li>
-</ol>
-<p>Cała informacja zawarta jest w <em>Content-Type: application/json, text … Accept: application/json, Authorization: Basic abase64string, Tokens</em> 4. Ciało zapytania</p>
-<p>Najczęściej wybieranym formatem dla wymiany informacji między serwisami jest format <code>JavaScript Object Notation</code> (JSON). Przypomina on pythonowy obiekt słownika - “klucz”: “wartość”.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="dt">"RAD"</span><span class="fu">:</span> <span class="dv">1</span><span class="fu">,</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="dt">"PTRATIO"</span><span class="fu">:</span> <span class="fl">15.3</span><span class="fu">,</span> <span class="dt">"INDUS"</span><span class="fu">:</span> <span class="fl">2.31</span><span class="fu">,</span> <span class="dt">"B"</span><span class="fu">:</span> <span class="fl">396.9</span><span class="fu">,</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="dt">"ZN"</span><span class="fu">:</span> <span class="dv">18</span><span class="fu">,</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="dt">"DIS"</span><span class="fu">:</span> <span class="fl">4.09</span><span class="fu">,</span> <span class="dt">"CRIM"</span><span class="fu">:</span> <span class="dv">0</span><span class="er">.00632</span><span class="fu">,</span> <span class="dt">"RM"</span><span class="fu">:</span> <span class="fl">6.575</span><span class="fu">,</span> </span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="dt">"AGE"</span><span class="fu">:</span> <span class="fl">65.2</span><span class="fu">,</span> <span class="dt">"CHAS"</span><span class="fu">:</span> <span class="dv">0</span><span class="fu">,</span> <span class="dt">"NOX"</span><span class="fu">:</span> <span class="dv">0</span><span class="er">.</span><span class="dv">538</span><span class="fu">,</span> </span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="dt">"TAX"</span><span class="fu">:</span> <span class="dv">296</span><span class="fu">,</span> <span class="dt">"LSTAT"</span><span class="fu">:</span> <span class="fl">4.98</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="odpowiedź---response" class="level3">
-<h3 class="anchored" data-anchor-id="odpowiedź---response">Odpowiedź - Response</h3>
-<ol type="1">
-<li>Treść odpowiedzi przekazywana jest razem z nagłówkiem oraz statusem:</li>
-</ol>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">200</span> OK</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Content-Encoding:</span> gzip</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Content-Type:</span> text/html<span class="kw">;</span> <span class="va">charset</span><span class="op">=</span>utf-8</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="ex">Date:</span> Mon, 18 Jul 2016 16:06:00 GMT Server: Apache</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="va">Path</span><span class="op">=</span>/<span class="kw">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ol start="2" type="1">
-<li><p>np.: “<em>Content-Type” =&gt; ”application/json; charset=utf-8”, ”Server” =&gt; ”Genie/Julia/1.8.5</em>”</p></li>
-<li><p>Treść (ciało) odpowiedzi:</p></li>
-</ol>
-<div class="sourceCode" id="cb6"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span><span class="dt">":input"</span><span class="fu">:{</span><span class="dt">"RAD"</span><span class="fu">:</span><span class="dv">1</span><span class="fu">,</span><span class="dt">"PTRATIO"</span><span class="fu">:</span><span class="fl">15.3</span><span class="fu">,</span><span class="dt">"INDUS"</span><span class="fu">:</span><span class="fl">2.31</span><span class="fu">,</span><span class="er">.....</span><span class="fu">}}</span><span class="er">,</span> <span class="fu">{</span><span class="dt">":prediction"</span><span class="fu">:</span><span class="ot">[</span><span class="fl">29.919737211857683</span><span class="ot">]</span><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ol start="4" type="1">
-<li>HTTP status code:</li>
-</ol>
+<section id="modele-przetwarzania-danych" class="level2">
+<h2 class="anchored" data-anchor-id="modele-przetwarzania-danych">Modele przetwarzania danych</h2>
+<p>Dane w biznesie przetwarzane są praktycznie od zawsze. W ciągu ostatnich dziesięcioleci ilość przetwarzanych danych systematycznie rośnie co wpływa na proces przygotowania i przetwarzania danych.</p>
+<section id="trochę-historii" class="level3">
+<h3 class="anchored" data-anchor-id="trochę-historii">Trochę historii</h3>
 <ul>
-<li>200 OK - prawidłowe wykonanie zapytania,</li>
-<li>40X Access Denied</li>
-<li>50X Internal server error</li>
+<li>Lata 60-te : Kolekcje danych, bazy danych</li>
+<li>Lata 70-te : Relacyjne modele danych i ich implementacja w systemach OLTP</li>
+<li>1975 : Pierwsze komputery osobiste</li>
+<li>Lata 80-te : Zaawansowane modele danych, extended-relational, objective oriented, aplikacyjno-zorientowane itp.</li>
+<li>1983 : Początek internetu</li>
+<li>Lata 90-te : Data mining, hurtownie danych, systemy OLAP</li>
+<li>Później : NoSQL, Hadoop, SPARK, data lake</li>
+<li>2002 : AWS , 2005: Hadoop, Cloud computing</li>
 </ul>
-<blockquote class="blockquote">
-<p>Wyszukaj informacje czym jest <code>REST API</code>.</p>
-</blockquote>
+<p>Większość danych przechowywana jest w bazach lub hurtowniach danych. Standardowo dostęp do danych sprowadza się najczęściej do realizacji zapytań poprzez aplikację.</p>
+<p>Sposób wykorzystania i realizacji procesu dostępu do bazy danych nazywamy <strong>modelem przetwarzania</strong>. Najczęściej używane są dwie implementacje:</p>
+</section>
+<section id="model-tradycyjny" class="level3">
+<h3 class="anchored" data-anchor-id="model-tradycyjny">Model Tradycyjny</h3>
+<p><strong>Model tradycyjny</strong> - przetwarzanie transakcyjne w trybie on-line, OLTP (on-line transaction processing). Świetnie sprawdza się w przypadku obsługi bieżącej np. obsługa klienta, rejestr zamówień, obsługa sprzedaży itp. Wykorzystywany w systemach Enterprise Resource Planning (ERP) Systems, Customer Relationship Management (CRM) software, and web-based applications.</p>
+<p><img src="img/baza1.png" class="center img-fluid"></p>
+<p>Model ten dostarcza efektywnych rozwiązań m.in do:</p>
+<ul>
+<li>efektywnego i bezpiecznego przechowywania danych,</li>
+<li>transakcyjnego odtwarzanie danych po awarii,</li>
+<li>optymalizacji dostępu do danych,</li>
+<li>zarządzania współbieżnością,</li>
+<li>przetwarzania zdarzeń -&gt; odczyt -&gt; zapis</li>
+</ul>
+<p>Co w przypadku gdy mamy do czynienia z:</p>
+<ul>
+<li>agregacjami danych z wielu systemów (np. dla wielu sklepów),</li>
+<li>raportowanie i podsumowania danych,</li>
+<li>optymalizacja złożonych zapytań,</li>
+<li>wspomaganie decyzji biznesowych.</li>
+</ul>
+<p>Badania nad tego typu zagadnieniami doprowadziły do sformułowania nowego modelu przetwarzania danych oraz nowego typu baz danych - <strong>Hurtownie Danych</strong> <em>(Data warehouse)</em>.</p>
+</section>
+<section id="model-olap" class="level3">
+<h3 class="anchored" data-anchor-id="model-olap">Model OLAP</h3>
+<p><strong>Przetwarzanie analityczne on-line OLAP (on-line analytic processing).</strong></p>
+<p>Wspieranie procesów analizy i dostarczanie narzędzi umożliwiających analizę wielowymiarową (<code>czas</code>, <code>miejsce</code>, <code>produkt</code>).</p>
+<p>Proces zrzucania danych z różnych systemów do jednej bazy nazywamy Extract-Transform-Load (ETL) (normalizacja i encoding and schema transaction).</p>
+<p>Analiza danych z hurtowni to przede wszystkim obliczanie <strong>agregatów</strong> (podsumowań) dotyczących wymiarów hurtowni. Proces ten jest całkowicie sterowany przez użytkownika.</p>
+<p><strong>Przykład</strong></p>
+<p>Załóżmy, że mamy dostęp do hurtowni danych gdzie przechowywane są informacje dotyczące sprzedaży produktów w supermarkecie. Jak przeanalizować zapytania:</p>
+<ol type="1">
+<li>Jaka jest łączna sprzedaż produktów w kolejnych kwartałach, miesiącach, tygodniach ?</li>
+<li>Jaka jest sprzedaż produktów z podziałem na rodzaje produktów ?</li>
+<li>Jaka jest sprzedaż produktów z podziałem na oddziały supermarketu ?</li>
+</ol>
+<p>Odpowiedzi na te pytania pozwalają określić <code>wąskie gardła</code> sprzedaży produktów przynoszących deficyt, zaplanować zapasy w magazynach czy porównać sprzedaż różnych grup w różnych oddziałach supermarketu.</p>
+<p>W ramach Hurtowni Danych najczęściej wykonuje się dwa rodzaje zapytań(oba w trybie batchowym): 1. Wykonywane okresowo w czasie zapytania raportowe obliczające biznesowe statystyki 2. Wykonywane ad-hoc zapytania wspomagające krytyczne decyzje biznesowe.</p>
+<p><img src="img/baza2.png" class="center img-fluid"></p>
 <blockquote class="blockquote">
 <p>Wiedza:</p>
 <ul>
-<li>Zna możliwości i obszary zastosowania procesowania danych w czasie rzeczywistym</li>
-<li>Umie wybrać strukturę IT dla danego problemu biznesowego</li>
-<li>Rozumie potrzeby biznesowe podejmowania decyzji w bardzo krótkim czasie</li>
+<li>Zna historię i filozofię modeli przetwarzania danych.</li>
+<li>Zna typy danych ustrukturyzowanych jak i nieustrukturyzowanych</li>
 </ul>
 </blockquote>
 <blockquote class="blockquote">

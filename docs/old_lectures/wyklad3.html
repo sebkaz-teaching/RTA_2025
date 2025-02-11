@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Wykład 2 – Analiza danych w czasie rzeczywistym</title>
+<title>Mikroserwisy – Analiza danych w czasie rzeczywistym</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -57,22 +57,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-6bd9cfa162949bde0a231f530c97869d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-6bd9cfa162949bde0a231f530c97869d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -102,7 +102,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 
 
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="../style.css">
 </head>
 
 <body class="nav-fixed">
@@ -112,7 +112,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Analiza danych w czasie rzeczywistym</span>
     </a>
   </div>
@@ -123,27 +123,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">222890-D</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./indexS.html"> 
+    <a class="nav-link" href="../indexS.html"> 
 <span class="menu-text">222890-S</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./wyklad1.html"> 
+    <a class="nav-link" href="../wyklad1.html"> 
 <span class="menu-text">Wykład 1</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./sylabus.html"> 
+    <a class="nav-link" href="../sylabus.html"> 
 <span class="menu-text">Sylabus</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./info.html"> 
+    <a class="nav-link" href="../info.html"> 
 <span class="menu-text">Narzędzia</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./ksiazki.html"> 
+    <a class="nav-link" href="../ksiazki.html"> 
 <span class="menu-text">Książki</span></a>
   </li>  
 </ul>
@@ -162,24 +162,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#batch-vs-stream-processing" id="toc-batch-vs-stream-processing" class="nav-link active" data-scroll-target="#batch-vs-stream-processing">Batch vs Stream Processing</a>
+  <li><a href="#komunikacja-przez-api" id="toc-komunikacja-przez-api" class="nav-link active" data-scroll-target="#komunikacja-przez-api">Komunikacja przez API</a>
   <ul class="collapse">
-  <li><a href="#rodzaj-danych" id="toc-rodzaj-danych" class="nav-link" data-scroll-target="#rodzaj-danych">Rodzaj danych</a></li>
-  <li><a href="#czas-uruchomienia-przetwarzania" id="toc-czas-uruchomienia-przetwarzania" class="nav-link" data-scroll-target="#czas-uruchomienia-przetwarzania">Czas uruchomienia przetwarzania</a></li>
-  <li><a href="#ponowne-przetwarzanie" id="toc-ponowne-przetwarzanie" class="nav-link" data-scroll-target="#ponowne-przetwarzanie">Ponowne przetwarzanie</a></li>
-  <li><a href="#etl" id="toc-etl" class="nav-link" data-scroll-target="#etl">ETL</a></li>
-  <li><a href="#hadoop-map-reduce" id="toc-hadoop-map-reduce" class="nav-link" data-scroll-target="#hadoop-map-reduce">Hadoop Map-Reduce</a></li>
-  <li><a href="#apache-spark" id="toc-apache-spark" class="nav-link" data-scroll-target="#apache-spark">APACHE SPARK</a></li>
-  </ul></li>
-  <li><a href="#strumienie-danych" id="toc-strumienie-danych" class="nav-link" data-scroll-target="#strumienie-danych">Strumienie danych</a>
-  <ul class="collapse">
-  <li><a href="#źródła-danych-przesyłanych-strumieniowo-obejmują" id="toc-źródła-danych-przesyłanych-strumieniowo-obejmują" class="nav-link" data-scroll-target="#źródła-danych-przesyłanych-strumieniowo-obejmują">Źródła danych przesyłanych strumieniowo obejmują:</a></li>
-  <li><a href="#przykładowe-biznesowe-zastosowania" id="toc-przykładowe-biznesowe-zastosowania" class="nav-link" data-scroll-target="#przykładowe-biznesowe-zastosowania">Przykładowe biznesowe zastosowania</a></li>
-  </ul></li>
-  <li><a href="#czas-w-analizie-danych-w-czasie-rzeczywistym" id="toc-czas-w-analizie-danych-w-czasie-rzeczywistym" class="nav-link" data-scroll-target="#czas-w-analizie-danych-w-czasie-rzeczywistym">Czas w analizie danych w czasie rzeczywistym</a></li>
-  <li><a href="#okna-czasowe" id="toc-okna-czasowe" class="nav-link" data-scroll-target="#okna-czasowe">okna czasowe</a>
-  <ul class="collapse">
-  <li><a href="#komunikacja-przez-api" id="toc-komunikacja-przez-api" class="nav-link" data-scroll-target="#komunikacja-przez-api">Komunikacja przez API</a></li>
+  <li><a href="#czym-jest-serwowanie-modelu-ml" id="toc-czym-jest-serwowanie-modelu-ml" class="nav-link" data-scroll-target="#czym-jest-serwowanie-modelu-ml">Czym jest serwowanie modelu ML</a></li>
+  <li><a href="#zapytanie---request" id="toc-zapytanie---request" class="nav-link" data-scroll-target="#zapytanie---request">Zapytanie - Request</a></li>
+  <li><a href="#odpowiedź---response" id="toc-odpowiedź---response" class="nav-link" data-scroll-target="#odpowiedź---response">Odpowiedź - Response</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -189,7 +176,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Wykład 2</h1>
+<h1 class="title">Mikroserwisy</h1>
 </div>
 
 
@@ -206,119 +193,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="batch-vs-stream-processing" class="level2">
-<h2 class="anchored" data-anchor-id="batch-vs-stream-processing">Batch vs Stream Processing</h2>
-<p>Oczekiwania vs Rzeczywistość</p>
-<p><img alt="Batch Processing" src="img/batch00.png" class="center"></p>
-<p>Kiedy podjąć decyzję biznesową ?</p>
-<p><img alt="Batch Processing" src="img/batch0.png" class="center"></p>
-<section id="rodzaj-danych" class="level3">
-<h3 class="anchored" data-anchor-id="rodzaj-danych">Rodzaj danych</h3>
-<ol type="1">
-<li>Batch = Duże, historyczne zbiory</li>
-<li>Stream = Strumień danych, on line, przesyłane w trybie ciągłym</li>
-</ol>
-</section>
-<section id="czas-uruchomienia-przetwarzania" class="level3">
-<h3 class="anchored" data-anchor-id="czas-uruchomienia-przetwarzania">Czas uruchomienia przetwarzania</h3>
-<ol type="1">
-<li>Batch = minuty, godziny, dni (patrz Hurtownie danych)</li>
-<li>Stream = Real-time/near-real-time</li>
-</ol>
-</section>
-<section id="ponowne-przetwarzanie" class="level3">
-<h3 class="anchored" data-anchor-id="ponowne-przetwarzanie">Ponowne przetwarzanie</h3>
-<ol type="1">
-<li>Batch = możliwe i stosowane bardzo czesto</li>
-<li>Stream = ,,niemożliwe’’</li>
-</ol>
-<p><img alt="Batch Processing" src="img/batch1.png" class="center"></p>
-</section>
-<section id="etl" class="level3">
-<h3 class="anchored" data-anchor-id="etl">ETL</h3>
-<p>Extract, Transform, Load is a basic pattern for data processing, commonly known in data warehousing. It’s all about <em>extracting</em> data from a source, <em>transforming</em> the data (business rules) and at the end <em>writing/loading</em> everything to a target (Hadoop, Relational Database, Data Warehouse etc.)</p>
-</section>
-<section id="hadoop-map-reduce" class="level3">
-<h3 class="anchored" data-anchor-id="hadoop-map-reduce">Hadoop Map-Reduce</h3>
-<p>Gdy mówimy o skali (nie o języku Scala), najczęściej przychodzi nam na myśl przeglądarka Google. Przeszukuje ona ogromne zbiory danychz dużą prędkością. Sama nazwa Goolge wskasuje na skalę (colowo przyjęto błędną nazwę w zapisie <code>googol</code> co oznacza 1 i 100 zer).</p>
-<blockquote class="blockquote">
-<p>Sprawdź czy do końca zajęć uda Ci się zapisać liczbę googol na kartce.</p>
-</blockquote>
-<p>Powinno być dla Ciebie jasne, że żadne tradycyjne systemy, np relacyjne systemy baz danych, ani programowanie imperatywne nie są w stanie obłużyć przeszukiwania takiej ilości danych. Problemy te doprowadziły do budowy rozproszonych systemów plików <code>Google File System</code>, <code>MapReduce</code> (paradygmat programowania równoległego), czy <code>Bigtable</code> (skalowalna pamięć masowa ustrukturyzowanych danych znajdujących się na GFS).</p>
-<p><img alt="Batch Processing" src="img/batch3.png" class="center"></p>
-<blockquote class="blockquote">
-<p>Znajdź prosty algorytm map reduce w dowolnym języku programowania i uruchom go.</p>
-</blockquote>
-<p><img alt="Batch Processing" src="img/batch4.png" class="center"></p>
-<p>Jak poprawić ?</p>
-</section>
-<section id="apache-spark" class="level3">
-<h3 class="anchored" data-anchor-id="apache-spark">APACHE SPARK</h3>
-<p><img alt="Batch Processing" src="img/batch5.png" class="center"></p>
-<p><br> <img alt="Batch Processing" src="img/batch6.png" class="center"></p>
-</section>
-</section>
-<section id="strumienie-danych" class="level2">
-<h2 class="anchored" data-anchor-id="strumienie-danych">Strumienie danych</h2>
-<p>Strumieniowanie możesz kojarzyć z serwisów przesyłających video w trybie online. Gdy oglądasz swój ulubiony serial (tak jak teraz na zajęciach) serwis odpowiadający za strumieniowanie w nieprzerwany sposób przesyła do ciebie kolejne “porcje” video. Identycznie koncepcja ta realizowana jest w przypadku danych strumieniowych. Format przesyłanych porcji nie musi być plikiem video, wszystko zależy od celu realizowanego biznesowo. Np. ciągły pomiar z różnego rodzaju czujników w farbykach, elektrowniach itp. Warto odnotować, że masz do czynienia z ciągłym strumieniem danych, które przetwarzać musisz w czasie rzeczywistym. Nie możesz czekać do zatrzymania linii produkcyjnych w celu wykonania analizy, wszystkie pojawiające się problemy chcesz rejestrować natychmiast i jak najszybciej na nie reagować.</p>
-<blockquote class="blockquote">
-<p>Analiza strumieni danych to ciągłe przetwarzanie i analiza dużych zbiorów danych w ruchu.</p>
-</blockquote>
-<p>Porównuj to do wsakazanych powyżej elementów Big Data. Przetwarzanie Batchowe jest przeciwieństwem do przetwarzania strumieniowego. Najpierw zbierasz duże ilości danych a potem realizujesz analizy. Możesz oczywiście zawsze pobrać video w całości zanim je obejrzysz, ale czy miałoby to sens? Istnieją przypadki gdy takie podejście nie stanowi problemu, ale już tu widzisz, że przetwarzanie strumieniowe może przynieść dla biznesu dodatkowe wartości dodane, których trudno oczekiwać przy wsadowym przetwarzaniu.</p>
-<p><a href="https://aws.amazon.com/streaming-data/">ciekawe informacje</a></p>
-<section id="źródła-danych-przesyłanych-strumieniowo-obejmują" class="level3">
-<h3 class="anchored" data-anchor-id="źródła-danych-przesyłanych-strumieniowo-obejmują">Źródła danych przesyłanych strumieniowo obejmują:</h3>
-<ul>
-<li>czujniki sprzętu,</li>
-<li>strumienie kliknięć,</li>
-<li>śledzenie lokalizacji</li>
-<li>interackcja z użytkownikiem: co robią użytkownicy Twojej witryny?</li>
-<li>kanały mediów społecznościowych,</li>
-<li>notowania giełdowe,</li>
-<li>aktywność w aplikacjach</li>
-<li>inne.</li>
-</ul>
-<p>Firmy wykorzystują analitykę strumieniową do odkrywania i interpretowania wzorców, tworzenia wizualizacji, przekazywania spostrzeżeń i alertów oraz uruchamiania procesów w czasie rzeczywistym lub zbliżonym do rzeczywistego.</p>
-</section>
-<section id="przykładowe-biznesowe-zastosowania" class="level3">
-<h3 class="anchored" data-anchor-id="przykładowe-biznesowe-zastosowania">Przykładowe biznesowe zastosowania</h3>
-<ol type="1">
-<li><p>Dane z sensorów IoT i detekcja anomalii</p></li>
-<li><p>Stock Trading (problemy regresyjne) - czas reagowania na zmiany i czas zakupy i sprzedaży akcji.</p></li>
-<li><p>Clickstream for websites (problem klasyfikacji) - śledzenie i analiza gości na stronie serwisu internetowego - personalizacja strony i treści.</p></li>
-</ol>
-<p><a href="https://www.linkedin.com/pulse/8-best-examples-real-time-data-analytics-bernard-marr/">8 najlepszych przykładów analizy w czasie rzeczywistym</a></p>
-<p><a href="https://www.forbes.com/sites/forbestechcouncil/2021/10/26/how-to-build-a-strong-business-case-for-streaming-analytics/?sh=eee8eaa465d0">Biznesowe zastosowania</a></p>
-<blockquote class="blockquote">
-<p><strong>Przedsiębiorstwo to organizacja, która generuje i odpowiada na ciągły strumień zdarzeń</strong>.</p>
-</blockquote>
-<p><strong>Analityka strumieniowa</strong> (ang. <em>stream analytics</em>) nazywana jest również przetwarzaniem strumieniowym zdarzeń (ang. <em>event stream processing</em>) - przetwarzanie dużej ilości danych już na etapie ich generowania.</p>
-<p>Niezależnie od zastosowanej technologi wszystkie dane powstają jako ciągły strumień zdarzeń (działania użytkowników na stronie www, logi systemowe, pomiary z sensorów).</p>
-</section>
-</section>
-<section id="czas-w-analizie-danych-w-czasie-rzeczywistym" class="level2">
-<h2 class="anchored" data-anchor-id="czas-w-analizie-danych-w-czasie-rzeczywistym">Czas w analizie danych w czasie rzeczywistym</h2>
-<p>W przypadku przetwarzania wsadowego przetwarzamy dane historyczne i czas uruchomienia procesu przetwarzania nie ma nic wspólnego z czasem występowania analizowanych zdarzeń.</p>
-<p>Dla danych strumieniowych mamy dwie koncepcje czasu:</p>
-<ol type="1">
-<li>czas zdarzenia (<code>event time</code>) - czas w którym zdarzenie się wydarzyło.</li>
-<li>czas przetwarzania (<code>processing time</code>) - czas w którym system przetwarza zdarzenie.</li>
-</ol>
-<p>W przypadku idealnej sytuacji:</p>
-<p><img alt="Batch Processing" src="img/rys2_1.png" class="center"></p>
-<p>W rzeczywistości przetwarzanie danych zawsze odbywa się z pewnym opóźnieniem, co reprezentowane jest przez punkty pojawiające się poniżej funkcji dla sytuacji idealnej (poniżej diagonalnej).</p>
-<p><img alt="Batch Processing" src="img/rys2_2.png" class="center"></p>
-<p>W aplikacjach przetwarzania strumieniowego istotne okazują się różnice miedzy czasem powstania zdarzenia i jego procesowania. Do najczęstszych przyczyn opóźnienia wyszczególnia się przesyłanie danych przez sieć czy brak komunikacji między urządzeniem a siecią. Prostym przykładem jest tu przejazd samochodem przez tunel i śledzenie położenia przez aplikację GPS.</p>
-<p>Możesz oczywiście zliczać ilość takich pominiętych zdarzeń i uruchomić alarm w sytuacji gdy takich odrzutów będzie za dużo. Drugim (chyba częściej) wykorzystywanym sposobem jest zastosowanie korekty z wykorzystaniem tzw. <em>watermarkingu</em>.</p>
-<p>Proces przetwarzania zdarzeń w czasie rzeczywistym można przedstawić w postaci funkcji schodkowej, reprezentowanej na rysunku:<br> <img alt="Batch Processing" src="img/rys2_3.png" class="center"></p>
-<p>Jak można zauważyć nie wszystkie zdarzenia wnoszą wkład do analizy i przetwarzania. Realizację procesu przetwarzania wraz z uwzględnieniem dodatkowego czasu na pojawienie się zdarzeń (watermark) można przedstawić jako proces obejmujący wszystkie zdarzenia powyżej przerywanej linii. Dodatkowy czas pozwolił na przetworzenie dodatkowych zdarzeń, natomiast nadal mogą zdarzyć się punkty, które nie będą brane pod uwagę. <br> <img alt="Batch Processing" src="img/rys2_4.png" class="center"></p>
-<p>Przedstawione na wykresach sytuacje jawnie wskazują dlaczego pojęcie czasu jest istotnym czynnikiem i wymaga ścisłego określenia już na poziomie definiowania potrzeb biznesowych. Przypisywanie znaczników czasu do danych (zdarzeń) to trudne zadanie.</p>
-</section>
-<section id="okna-czasowe" class="level2">
-<h2 class="anchored" data-anchor-id="okna-czasowe">okna czasowe</h2>
-<p><strong>Okno rozłączne</strong> (ang. <em>tumbling window</em>) czyli okno o stałej długości. Jego cechą charakterystyczną jest to, iż każde zdarzenie należy tylko do jednego okna. <br> <img alt="Batch Processing" src="img/rys2_5.png" class="center"></p>
-<p><strong>Okno przesuwne</strong> (ang. <em>sliding window</em>) obejmuje wszystkie zdarzenia następujące w określonej długości między sobą. <br> <img alt="Batch Processing" src="img/rys2_6.png" class="center"></p>
-<p><strong>Okno skokowe</strong> (ang. <em>hopping window</em>) tak jak okno rozłączne ma stałą długość, ale pozwala się w nim na zachodzenie jednych okien na inne. Stosowane zazwyczaj do wygładzenia danych. <br> <img alt="Batch Processing" src="img/rys2_7.png" class="center"></p>
 <p>Komunikacja sieciowa, relacyjne bazy danych, rozwiązania chmurowe i big data znacząco zmieniły sposób budowania systemów informatycznych i wykonywnia na niach pracy.</p>
 <p>Porównaj to jak “narzędzia” do realizacji przekazu (gazeta, radio, telewizja, internet, komunikatory, media społecznościowe) zmieniły interakcje międzyludzkie i struktury społeczne.</p>
 <blockquote class="blockquote">
@@ -327,12 +201,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Koncepcja mikrousługi (mikroserwisu) jest bardzo popularnym sposobem budowania systemów informatycznych jak i koncepcją przy tworzeniu oprogramowania czy realizacji firmy w duchu Data-Driven. Koncepcja ta pozwala zachować wydajność (rób jedną rzecz ale dobrze), elastyczność i jasną postać całej struktury.</p>
 <p>Chociaż istnieją inne sposoby architektury projektów oprogramowania, „mikroserwisy” są często używane nie bez powodu. Idea mikroserwisów tkwi w nazwie: oprogramowanie jest reprezentowane jako wiele małych usług, które działają indywidualnie. Patrząc na ogólną architekturę, każda mikrousługa znajduje się w małej czarnej skrzynce z jasno zdefiniowanymi wejściami i wyjściami. Możesz porównać tego typu zachowanie do “czystej funkcji” w programowaniu funkcyjnym.</p>
 <p>W celu umożliwienia komunikacji różnych mikroserwisów często wybieranym rozwiązaniem jest wykorzystanie <code>Application Programming Interfaces</code> <strong>API</strong> .</p>
-<section id="komunikacja-przez-api" class="level3">
-<h3 class="anchored" data-anchor-id="komunikacja-przez-api">Komunikacja przez API</h3>
+<section id="komunikacja-przez-api" class="level2">
+<h2 class="anchored" data-anchor-id="komunikacja-przez-api">Komunikacja przez API</h2>
 <p>Centralnym elementem architektury mikrousług jest wykorzystanie interfejsów API. API to część, która pozwala na połączenie dwóch mikroserwisów. Interfejsy API są bardzo podobne do stron internetowych. Podobnie jak strona internetowa, serwer wysyła do Ciebie kod reprezentujący stronę internetową. Twoja przeglądarka internetowa interpretuje ten kod i wyświetla stronę internetową.</p>
 <p>Weźmy przypadek biznesowy z modelem ML jako usługą. Załóżmy, że pracujesz dla firmy sprzedającej mieszkania w Bostonie. Chcesz zwiększać sprzedaż i oferować naszym klientom lepszą jakość usług dzięki nowej aplikacji mobilnej, z której może korzystać nawet 1 000 000 osób jednocześnie. Możemy to osiągnąć, udostępniając prognozę wartości domu, gdy użytkownik prosi o wycenę przez Internet.</p>
-<section id="czym-jest-serwowanie-modelu-ml" class="level4">
-<h4 class="anchored" data-anchor-id="czym-jest-serwowanie-modelu-ml">Czym jest serwowanie modelu ML</h4>
+<section id="czym-jest-serwowanie-modelu-ml" class="level3">
+<h3 class="anchored" data-anchor-id="czym-jest-serwowanie-modelu-ml">Czym jest serwowanie modelu ML</h3>
 <ul>
 <li><p>Szkolenie dobrego modelu ML to TYLKO pierwsza część całego procesu: Musisz udostępnić swój model użytkownikom końcowym. Robisz to, zapewniając dostęp do modelu na swoim serwerze.</p></li>
 <li><p>Aby udostępnić model potrzebujesz: modelu, interpretera, danych wsadowych.</p></li>
@@ -358,40 +232,55 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Cała komunikacja jest objęta ustalonymi zasadami i praktykami, które są nazywane protokołem HTTP.</p>
 </blockquote>
 </section>
-<section id="zapytanie---request" class="level4">
-<h4 class="anchored" data-anchor-id="zapytanie---request">Zapytanie - Request</h4>
+<section id="zapytanie---request" class="level3">
+<h3 class="anchored" data-anchor-id="zapytanie---request">Zapytanie - Request</h3>
 <ol type="1">
-<li>Adres URL (np. <em>http://mydomain:8000/getapi?&amp;val1=43&amp;val2=3</em>) zawiera: - domenę, - port, - dodatkowe ścieżki, - zapytanie</li>
-<li>Metody HTTP: - GET, - POST</li>
-<li>Nagłówki HTTP zawierają: - informacje o autoryzacji, - cookies metadata Cała informacja zawarta jest w <em>Content-Type: application/json, text … Accept: application/json, Authorization: Basic abase64string, Tokens</em></li>
-<li>Ciało zapytania</li>
+<li><p>Adres URL (np. <em>http://mydomain:8000/getapi?&amp;val1=43&amp;val2=3</em>) zawiera:</p>
+<pre><code>- domenę, 
+- port, 
+- dodatkowe ścieżki, 
+- zapytanie</code></pre></li>
+<li><p>Metody HTTP:</p>
+<pre><code>- GET, 
+- POST</code></pre></li>
+<li><p>Nagłówki HTTP zawierają:</p>
+<pre><code>- informacje o autoryzacji, 
+- cookies metadata</code></pre></li>
 </ol>
+<p>Cała informacja zawarta jest w <em>Content-Type: application/json, text … Accept: application/json, Authorization: Basic abase64string, Tokens</em> 4. Ciało zapytania</p>
 <p>Najczęściej wybieranym formatem dla wymiany informacji między serwisami jest format <code>JavaScript Object Notation</code> (JSON). Przypomina on pythonowy obiekt słownika - “klucz”: “wartość”.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dt">"RAD"</span><span class="fu">:</span> <span class="dv">1</span><span class="fu">,</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="dt">"PTRATIO"</span><span class="fu">:</span> <span class="fl">15.3</span><span class="fu">,</span> <span class="dt">"INDUS"</span><span class="fu">:</span> <span class="fl">2.31</span><span class="fu">,</span> <span class="dt">"B"</span><span class="fu">:</span> <span class="fl">396.9</span><span class="fu">,</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="dt">"ZN"</span><span class="fu">:</span> <span class="dv">18</span><span class="fu">,</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="dt">"DIS"</span><span class="fu">:</span> <span class="fl">4.09</span><span class="fu">,</span> <span class="dt">"CRIM"</span><span class="fu">:</span> <span class="dv">0</span><span class="er">.00632</span><span class="fu">,</span> <span class="dt">"RM"</span><span class="fu">:</span> <span class="fl">6.575</span><span class="fu">,</span> <span class="dt">"AGE"</span><span class="fu">:</span> <span class="fl">65.2</span><span class="fu">,</span> <span class="dt">"CHAS"</span><span class="fu">:</span> <span class="dv">0</span><span class="fu">,</span> <span class="dt">"NOX"</span><span class="fu">:</span> <span class="dv">0</span><span class="er">.</span><span class="dv">538</span><span class="fu">,</span> <span class="dt">"TAX"</span><span class="fu">:</span> <span class="dv">296</span><span class="fu">,</span> <span class="dt">"LSTAT"</span><span class="fu">:</span> <span class="fl">4.98</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="dt">"RAD"</span><span class="fu">:</span> <span class="dv">1</span><span class="fu">,</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="dt">"PTRATIO"</span><span class="fu">:</span> <span class="fl">15.3</span><span class="fu">,</span> <span class="dt">"INDUS"</span><span class="fu">:</span> <span class="fl">2.31</span><span class="fu">,</span> <span class="dt">"B"</span><span class="fu">:</span> <span class="fl">396.9</span><span class="fu">,</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="dt">"ZN"</span><span class="fu">:</span> <span class="dv">18</span><span class="fu">,</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="dt">"DIS"</span><span class="fu">:</span> <span class="fl">4.09</span><span class="fu">,</span> <span class="dt">"CRIM"</span><span class="fu">:</span> <span class="dv">0</span><span class="er">.00632</span><span class="fu">,</span> <span class="dt">"RM"</span><span class="fu">:</span> <span class="fl">6.575</span><span class="fu">,</span> </span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="dt">"AGE"</span><span class="fu">:</span> <span class="fl">65.2</span><span class="fu">,</span> <span class="dt">"CHAS"</span><span class="fu">:</span> <span class="dv">0</span><span class="fu">,</span> <span class="dt">"NOX"</span><span class="fu">:</span> <span class="dv">0</span><span class="er">.</span><span class="dv">538</span><span class="fu">,</span> </span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="dt">"TAX"</span><span class="fu">:</span> <span class="dv">296</span><span class="fu">,</span> <span class="dt">"LSTAT"</span><span class="fu">:</span> <span class="fl">4.98</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="odpowiedź---response" class="level4">
-<h4 class="anchored" data-anchor-id="odpowiedź---response">Odpowiedź - Response</h4>
+<section id="odpowiedź---response" class="level3">
+<h3 class="anchored" data-anchor-id="odpowiedź---response">Odpowiedź - Response</h3>
 <ol type="1">
 <li>Treść odpowiedzi przekazywana jest razem z nagłówkiem oraz statusem:</li>
 </ol>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">200</span> OK</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Content-Encoding:</span> gzip</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Content-Type:</span> text/html<span class="kw">;</span> <span class="va">charset</span><span class="op">=</span>utf-8</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">Date:</span> Mon, 18 Jul 2016 16:06:00 GMT Server: Apache</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="va">Path</span><span class="op">=</span>/<span class="kw">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">200</span> OK</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Content-Encoding:</span> gzip</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Content-Type:</span> text/html<span class="kw">;</span> <span class="va">charset</span><span class="op">=</span>utf-8</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="ex">Date:</span> Mon, 18 Jul 2016 16:06:00 GMT Server: Apache</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="va">Path</span><span class="op">=</span>/<span class="kw">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="2" type="1">
 <li><p>np.: “<em>Content-Type” =&gt; ”application/json; charset=utf-8”, ”Server” =&gt; ”Genie/Julia/1.8.5</em>”</p></li>
 <li><p>Treść (ciało) odpowiedzi:</p></li>
 </ol>
-<div class="sourceCode" id="cb3"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span><span class="dt">":input"</span><span class="fu">:{</span><span class="dt">"RAD"</span><span class="fu">:</span><span class="dv">1</span><span class="fu">,</span><span class="dt">"PTRATIO"</span><span class="fu">:</span><span class="fl">15.3</span><span class="fu">,</span><span class="dt">"INDUS"</span><span class="fu">:</span><span class="fl">2.31</span><span class="fu">,</span><span class="er">.....</span><span class="fu">}}</span><span class="er">,</span> <span class="fu">{</span><span class="dt">":prediction"</span><span class="fu">:</span><span class="ot">[</span><span class="fl">29.919737211857683</span><span class="ot">]</span><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span><span class="dt">":input"</span><span class="fu">:{</span><span class="dt">"RAD"</span><span class="fu">:</span><span class="dv">1</span><span class="fu">,</span><span class="dt">"PTRATIO"</span><span class="fu">:</span><span class="fl">15.3</span><span class="fu">,</span><span class="dt">"INDUS"</span><span class="fu">:</span><span class="fl">2.31</span><span class="fu">,</span><span class="er">.....</span><span class="fu">}}</span><span class="er">,</span> <span class="fu">{</span><span class="dt">":prediction"</span><span class="fu">:</span><span class="ot">[</span><span class="fl">29.919737211857683</span><span class="ot">]</span><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="4" type="1">
-<li>HTTP status code: • 200 OK - prawidłowe wykonanie zapytania, • 40X Access Denied • 50X Internal server error</li>
+<li>HTTP status code:</li>
 </ol>
+<ul>
+<li>200 OK - prawidłowe wykonanie zapytania,</li>
+<li>40X Access Denied</li>
+<li>50X Internal server error</li>
+</ul>
 <blockquote class="blockquote">
 <p>Wyszukaj informacje czym jest <code>REST API</code>.</p>
 </blockquote>
@@ -399,25 +288,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Wiedza:</p>
 <ul>
 <li>Zna możliwości i obszary zastosowania procesowania danych w czasie rzeczywistym</li>
+<li>Umie wybrać strukturę IT dla danego problemu biznesowego</li>
 <li>Rozumie potrzeby biznesowe podejmowania decyzji w bardzo krótkim czasie</li>
 </ul>
 </blockquote>
 <blockquote class="blockquote">
 <p>Umiejętności:</p>
 <ul>
-<li>Rozumie ograniczenia wynikające z czasu przetwarzania przez urządzenia oraz systemy informatyczne</li>
+<li>Rozróżnia typy danych strukturyzowanych jak i niestrukturyzowanych</li>
 </ul>
 </blockquote>
 <blockquote class="blockquote">
 <p>Kompetencje:</p>
 <ul>
 <li>Utrwala umiejętność samodzielnego uzupełniania wiedzy teoretycznej jak i praktycznej w zakresie programowania, modelowania, nowych technologii informatycznych z wykorzystaniem analizy w czasie rzeczywistym.</li>
-<li>Formułuje problem analityczny wraz z jego informatycznym rozwiązaniem</li>
 </ul>
 </blockquote>
 
 
-</section>
 </section>
 </section>
 
