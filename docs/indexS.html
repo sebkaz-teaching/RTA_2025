@@ -129,6 +129,7 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#wykład" id="toc-wykład" class="nav-link" data-scroll-target="#wykład">Wykład</a></li>
   <li><a href="#laboratoria" id="toc-laboratoria" class="nav-link" data-scroll-target="#laboratoria">Laboratoria</a></li>
+  <li><a href="#zaliczenie-i-egzamin" id="toc-zaliczenie-i-egzamin" class="nav-link" data-scroll-target="#zaliczenie-i-egzamin">Zaliczenie i Egzamin</a></li>
   </ul></li>
   <li><a href="#technologie" id="toc-technologie" class="nav-link" data-scroll-target="#technologie">Technologie</a></li>
   </ul>
@@ -160,8 +161,8 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="analiza-danych-w-czasie-rzeczywistym">Analiza danych w czasie rzeczywistym</h2>
 <p>Kod: 222890-S</p>
 <p>Semestr zimowy 2024/2025, SGH Szkoła Główna Handlowa w Warszawie</p>
-<p>Szczegółowy opis znajdziesz w <a href="./RTA_2025/sylabus">sylabusie</a>. Znajdziesz w nim opis wszystkich wykładów i ćwiczeń oraz proponowaną literaturę.</p>
-<p>Inne książki zamieszczone zostały w zakładce <a href="./RTA_2025/ksiazki">książki</a></p>
+<p>Szczegółowy opis znajdziesz w <a href="./sylabus">sylabusie</a>. Znajdziesz w nim opis wszystkich wykładów i ćwiczeń oraz proponowaną literaturę.</p>
+<p>Inne książki zamieszczone zostały w zakładce <a href="./ksiazki">książki</a></p>
 </section>
 <section id="kalendarz" class="level2">
 <h2 class="anchored" data-anchor-id="kalendarz">Kalendarz</h2>
@@ -194,34 +195,32 @@ ul.task-list li input[type="checkbox"] {
 <h4 class="anchored" data-anchor-id="lab5">Lab5</h4>
 <p>31-05-2025 (sobota) 08:00-13:20 - G-210 grupy 11, 17, 18 01-06-2025 (niedziela) 13:30-17:00 - G-116 grupy 15, 16</p>
 </section>
-<section id="miejsce" class="level4">
-<h4 class="anchored" data-anchor-id="miejsce">Miejsce</h4>
-<p>Wykłady 1-2: G-Aula IV Laboratorium 1-5: 116 G</p>
 </section>
-<section id="zaliczenie-i-egzamin" class="level4">
-<h4 class="anchored" data-anchor-id="zaliczenie-i-egzamin">Zaliczenie i Egzamin</h4>
-<p>Wykłady zakończone zostaną testem (ostatnie zajęcia). Pozytywna ocena z testu (powyżej 13 pkt) upoważnia do realizacji ćwiczeń.</p>
-<p>Po ćwiczeniach realizowane będą zadania domowe przekazywane za pośrednictwem platformy teams.<br>
-Zaliczenie wszystkich ćwiczeń i zadań upoważnia do realizacji projektu.</p>
-<p>Projekt powinien być realizowany w grupach max 5 osobowych.</p>
-<p>Wymagania projektu:</p>
+<section id="zaliczenie-i-egzamin" class="level3">
+<h3 class="anchored" data-anchor-id="zaliczenie-i-egzamin">Zaliczenie i Egzamin</h3>
+<p>Wykłady zakończą się testem (podczas ostatnich zajęć).</p>
+<p>Aby zaliczyć test, należy zdobyć więcej niż 13 punktów – jest to warunek konieczny do uczestnictwa w ćwiczeniach.</p>
+<p>Laboratoria</p>
+<p>Podczas laboratoriów będą zadawane prace domowe, które należy przesyłać za pośrednictwem MS Teams. Każdy brak pracy domowej obniża końcową ocenę o 0,5 stopnia.</p>
+<p>Projekt</p>
+<p>Projekty należy realizować w grupach maksymalnie 5-osobowych.</p>
+<p>Wymagania projektu</p>
 <ul>
-<li>Projekt powinien przedstawiać BIZNESOWY PROBLEM, który można realizować wykorzystując informacje podawane w trybie online. (Nie oznacza to, że nie można korzystać z procesowania batchowego np w celu wygenerowania modelu).</li>
-<li>Dane powinny być przesyłane do Apache Kafki i stamtąd poddawane dalszemu procesowaniu i analizie.</li>
-<li>Język programowania jest dowolny - dotyczy każdego komponentu projektu.</li>
-<li>Można wykorzystać narzędzia BI</li>
-<li>Źródłem danych może być tabela, sztucznie generowane dane, IoT itp.</li>
+<li>Projekt powinien rozwiązywać realny problem biznesowy, który można opracować przy użyciu danych przetwarzanych w trybie online. (Nie wyklucza to użycia przetwarzania wsadowego, np. do generowania modelu).</li>
+<li>Dane powinny być przesyłane do Apache Kafka, skąd będą poddawane dalszemu przetwarzaniu i analizie.</li>
+<li>Można używać dowolnego języka programowania w każdym komponencie projektu.</li>
+<li>Można wykorzystać narzędzia BI.</li>
+<li>Źródłem danych może być dowolne API, sztucznie generowane dane, IoT itp.</li>
 </ul>
-</section>
 </section>
 </section>
 <section id="technologie" class="level2">
 <h2 class="anchored" data-anchor-id="technologie">Technologie</h2>
 <p>Uczestnicząc w zajęciach musisz opanować i przynajmniej w podstawowym zakresie posługiwać się następującymi technologiami informatycznymi:</p>
 <ol type="1">
-<li><a href="https://sebkaz-teaching.github.io/RTA_2025/info.html#git">GIT</a></li>
+<li><a href="./info.html#git">GIT</a></li>
 <li>Python, Jupyter notebook, Jupyter lab, Colab</li>
-<li><a href="https://sebkaz-teaching.github.io/RTA_2025/info.html#docker">Docker</a></li>
+<li><a href="./info.html#docker">Docker</a></li>
 <li><strong>Apache Spark</strong>, <strong>Apache Kafka</strong></li>
 <li>Databricks Community edition <a href="https://community.cloud.databricks.com/login.html">Web page</a>.</li>
 </ol>
