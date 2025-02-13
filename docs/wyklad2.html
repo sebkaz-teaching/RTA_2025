@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Od plików płaskich do Data Mash – Analiza danych w czasie rzeczywistym</title>
+<title>Wykład 2 – Analiza danych w czasie rzeczywistym</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -57,22 +57,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-html/quarto.js"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-6bd9cfa162949bde0a231f530c97869d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-6bd9cfa162949bde0a231f530c97869d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -102,7 +102,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 
 
-<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body class="nav-fixed">
@@ -112,7 +112,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Analiza danych w czasie rzeczywistym</span>
     </a>
   </div>
@@ -123,27 +123,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">222890-D</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../indexS.html"> 
+    <a class="nav-link" href="./indexS.html"> 
 <span class="menu-text">222890-S</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../wyklad1.html"> 
+    <a class="nav-link" href="./wyklad1.html"> 
 <span class="menu-text">Wykład 1</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../sylabus.html"> 
+    <a class="nav-link" href="./sylabus.html"> 
 <span class="menu-text">Sylabus</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../info.html"> 
+    <a class="nav-link" href="./info.html"> 
 <span class="menu-text">Narzędzia</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../ksiazki.html"> 
+    <a class="nav-link" href="./ksiazki.html"> 
 <span class="menu-text">Książki</span></a>
   </li>  
 </ul>
@@ -162,24 +162,38 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#dane" id="toc-dane" class="nav-link active" data-scroll-target="#dane">Dane</a>
+  <li><a href="#zmiany-w-analizie-danych" id="toc-zmiany-w-analizie-danych" class="nav-link active" data-scroll-target="#zmiany-w-analizie-danych">Zmiany w analizie danych:</a>
   <ul class="collapse">
+  <li><a href="#dane-tabelaryczne-tabele-sql" id="toc-dane-tabelaryczne-tabele-sql" class="nav-link" data-scroll-target="#dane-tabelaryczne-tabele-sql">Dane tabelaryczne (tabele SQL):</a></li>
+  <li><a href="#dane-grafowe" id="toc-dane-grafowe" class="nav-link" data-scroll-target="#dane-grafowe">Dane grafowe:</a></li>
+  <li><a href="#dane-tekstowe" id="toc-dane-tekstowe" class="nav-link" data-scroll-target="#dane-tekstowe">Dane tekstowe:</a></li>
+  <li><a href="#dane-strumieniowe" id="toc-dane-strumieniowe" class="nav-link" data-scroll-target="#dane-strumieniowe">Dane strumieniowe:</a></li>
+  </ul></li>
+  <li><a href="#popularne-narzędzia-analiz-danych" id="toc-popularne-narzędzia-analiz-danych" class="nav-link" data-scroll-target="#popularne-narzędzia-analiz-danych">Popularne narzędzia analiz danych:</a>
+  <ul class="collapse">
+  <li><a href="#sql" id="toc-sql" class="nav-link" data-scroll-target="#sql">SQL:</a></li>
+  <li><a href="#nosql" id="toc-nosql" class="nav-link" data-scroll-target="#nosql">NoSQL:</a></li>
+  <li><a href="#data-lake" id="toc-data-lake" class="nav-link" data-scroll-target="#data-lake">Data Lake:</a></li>
+  <li><a href="#przykład-jak-netflix-analizuje-dane-w-czasie-rzeczywistym" id="toc-przykład-jak-netflix-analizuje-dane-w-czasie-rzeczywistym" class="nav-link" data-scroll-target="#przykład-jak-netflix-analizuje-dane-w-czasie-rzeczywistym">Przykład: Jak Netflix analizuje dane w czasie rzeczywistym?</a></li>
+  </ul></li>
+  <li><a href="#przykład-strumieniowego-przetwarzania-w-netflix" id="toc-przykład-strumieniowego-przetwarzania-w-netflix" class="nav-link" data-scroll-target="#przykład-strumieniowego-przetwarzania-w-netflix">Przykład strumieniowego przetwarzania w Netflix:</a></li>
+  <li><a href="#podsumowanie" id="toc-podsumowanie" class="nav-link" data-scroll-target="#podsumowanie">Podsumowanie</a></li>
+  <li><a href="#ewolucja-analizy-danych-od-struktur-tabelarycznych-do-strumieni" id="toc-ewolucja-analizy-danych-od-struktur-tabelarycznych-do-strumieni" class="nav-link" data-scroll-target="#ewolucja-analizy-danych-od-struktur-tabelarycznych-do-strumieni">Ewolucja analizy danych: Od struktur tabelarycznych do strumieni</a></li>
   <li><a href="#dane-ustrukturyzowane" id="toc-dane-ustrukturyzowane" class="nav-link" data-scroll-target="#dane-ustrukturyzowane">Dane ustrukturyzowane</a></li>
-  <li><a href="#dane-w-języku-python" id="toc-dane-w-języku-python" class="nav-link" data-scroll-target="#dane-w-języku-python">Dane w języku Python</a></li>
+  <li><a href="#dane-nieustrukturyzowane" id="toc-dane-nieustrukturyzowane" class="nav-link" data-scroll-target="#dane-nieustrukturyzowane">Dane nieustrukturyzowane</a></li>
+  <li><a href="#przetwarzanie-wsadowe-vs.-przetwarzanie-strumieniowe" id="toc-przetwarzanie-wsadowe-vs.-przetwarzanie-strumieniowe" class="nav-link" data-scroll-target="#przetwarzanie-wsadowe-vs.-przetwarzanie-strumieniowe">Przetwarzanie wsadowe vs.&nbsp;przetwarzanie strumieniowe</a>
+  <ul class="collapse">
+  <li><a href="#przykład-batch-processing" id="toc-przykład-batch-processing" class="nav-link" data-scroll-target="#przykład-batch-processing">Przykład batch processing:</a></li>
+  <li><a href="#przykład-stream-processing" id="toc-przykład-stream-processing" class="nav-link" data-scroll-target="#przykład-stream-processing">Przykład stream processing:</a></li>
   </ul></li>
   <li><a href="#źródła-danych" id="toc-źródła-danych" class="nav-link" data-scroll-target="#źródła-danych">Źródła danych</a>
   <ul class="collapse">
   <li><a href="#rzeczywisty-proces-generowania-danych" id="toc-rzeczywisty-proces-generowania-danych" class="nav-link" data-scroll-target="#rzeczywisty-proces-generowania-danych">Rzeczywisty proces generowania danych</a></li>
   </ul></li>
-  <li><a href="#big-data" id="toc-big-data" class="nav-link" data-scroll-target="#big-data">Big Data</a>
+  <li><a href="#architektura-systemów-real-time" id="toc-architektura-systemów-real-time" class="nav-link" data-scroll-target="#architektura-systemów-real-time">Architektura systemów real-time</a>
   <ul class="collapse">
-  <li><a href="#one-two-four-v" id="toc-one-two-four-v" class="nav-link" data-scroll-target="#one-two-four-v">one, two, … four V</a></li>
-  </ul></li>
-  <li><a href="#modele-przetwarzania-danych" id="toc-modele-przetwarzania-danych" class="nav-link" data-scroll-target="#modele-przetwarzania-danych">Modele przetwarzania danych</a>
-  <ul class="collapse">
-  <li><a href="#trochę-historii" id="toc-trochę-historii" class="nav-link" data-scroll-target="#trochę-historii">Trochę historii</a></li>
-  <li><a href="#model-tradycyjny" id="toc-model-tradycyjny" class="nav-link" data-scroll-target="#model-tradycyjny">Model Tradycyjny</a></li>
-  <li><a href="#model-olap" id="toc-model-olap" class="nav-link" data-scroll-target="#model-olap">Model OLAP</a></li>
+  <li><a href="#podstawowe-elementy-systemu-real-time" id="toc-podstawowe-elementy-systemu-real-time" class="nav-link" data-scroll-target="#podstawowe-elementy-systemu-real-time">Podstawowe elementy systemu real-time</a></li>
+  <li><a href="#popularne-architektury-systemów-real-time" id="toc-popularne-architektury-systemów-real-time" class="nav-link" data-scroll-target="#popularne-architektury-systemów-real-time">Popularne architektury systemów real-time</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -189,7 +203,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Od plików płaskich do Data Mash</h1>
+<h1 class="title">Wykład 2</h1>
 </div>
 
 
@@ -206,29 +220,65 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="dane" class="level2">
-<h2 class="anchored" data-anchor-id="dane">Dane</h2>
-<p>Rozwój technologii informatycznych spowodował dostęp do niewyobrażalnych ilości nowego zasobu jakim są <strong>ustrukturyzowane</strong> jak i <strong>nieustrukturyzowane</strong> dane.</p>
-<p><code>Dane</code> przyczyniły się do powstania tysięcy nowych narzędzi do <code>generowania</code>, <code>zbierania</code>, <code>przechowywania</code> i <code>przetwarzania</code> informacji na niespotykaną dotąd skalę.</p>
-<p>Zasób ten nie jest nowością i dostępny jest od bardzo dawna. Jednak dopiero po wprowadzeniu systemu pisma można było zacząć prowadzić zapis i przetwarzanie w postaci rachunkowości czy rejestrów różnych rzeczy takich jak: zaludnienie w krajach, spisy rzek, jezior, najgłębsze miejsca itp.</p>
-<p>Pojawienie się nowych wyzwań <em>naukowych</em> i <em>biznesowych</em> staje się możliwe do realizacji dzięki budowie systemów opartych na <code>otwartym oprogramowaniu</code>, jak również dzięki wykorzystaniu klastrów komputerów do wspomagania przetwarzania ogromnych ilości danych.</p>
-<p>Dziś systemy takie jak <a href="https://www.sas.com/pl_pl/home.html">SAS</a>, <a href="https://hadoop.apache.org">Apache Hadoop</a>,<a href="#">Apache Kafka</a> , <a href="https://spark.apache.org">Apache Spark</a>, <a href="https://flink.apache.org">Apache Flink</a> i ich chmurowe odpowiedniki, używane są na szeroką skalę w wielu instytucjach i firmach niemal w każdej dziedzinie. Narzędzia te wykorzystywane są w bankowości, opiece zdrowotnej, naukach przyrodniczych, produkcji, sektorze publicznym czy sprzedaży.</p>
-<p>Epoka danych stawia przed nami coraz to nowsze wyzwania związane nie tylko z <code>ilością</code>, ale i z <code>czasem przetwarzania</code> danych.</p>
-<p>Nowe wyzwania biznesowe to między innymi:</p>
-<ul>
-<li>inteligentna reklama tysięcy produktów dla milionów klientów,</li>
-<li>przetwarzanie danych o genach, RNA czy też białkach <a href="http://genus.fuw.edu.pl">genus</a>,</li>
-<li>inteligentne wykrywanie różnorodnych sposobów nadużyć wśród setek miliardów transakcji kart kredytowych,</li>
-<li>symulacje giełdowe oparte o tysiące instrumentów finansowych</li>
-<li>…</li>
-</ul>
-<section id="dane-ustrukturyzowane" class="level3">
-<h3 class="anchored" data-anchor-id="dane-ustrukturyzowane">Dane ustrukturyzowane</h3>
-<p>Dane ustrukturyzowane zorganizowane są w kolumnach cech charakteryzujących każdą obserwację (wiersze). Kolumny posiadają etykietę, która wskazuje na ich interpretację.</p>
-<p>Przykładem kolumn mogą być takie cechy jak: <strong>płeć</strong>, <strong>wzrost</strong> czy <strong>ilość kedytów</strong>, na podstawie których można przewidywać czy klient będzie spłacał kredyt czy też nie.</p>
+<p>⏳ Czas trwania: 1,5h <em>🎯 Cel wykładu</em></p>
+<p>zrozumienie, jak dane ewoluowały w różnych branżach i jakie narzędzia są dziś wykorzystywane do ich analizy.</p>
+<hr>
+<p>W tym wstępie przedstawimy ewolucję analizy danych, pokazując, jak zmieniały się technologie i podejścia do przetwarzania danych na przestrzeni lat. Rozpoczniemy od klasycznych struktur tabelarycznych, przez bardziej zaawansowane modele grafowe i tekstowe, aż po nowoczesne podejście do strumieniowego przetwarzania danych.</p>
+<section id="zmiany-w-analizie-danych" class="level2">
+<h2 class="anchored" data-anchor-id="zmiany-w-analizie-danych">Zmiany w analizie danych:</h2>
+<section id="dane-tabelaryczne-tabele-sql" class="level3">
+<h3 class="anchored" data-anchor-id="dane-tabelaryczne-tabele-sql">Dane tabelaryczne (tabele SQL):</h3>
+<p>Początkowo dane były przechowywane w postaci tabel, gdzie każda tabela zawierała zorganizowane informacje w kolumnach i wierszach (np. bazy danych SQL). Modele takie doskonale nadawały się do danych <strong>ustrukturyzowanych</strong>.</p>
+</section>
+<section id="dane-grafowe" class="level3">
+<h3 class="anchored" data-anchor-id="dane-grafowe">Dane grafowe:</h3>
+<p>Wraz z rozwojem potrzeb biznesowych pojawiły się <strong>dane grafowe</strong>, w których relacje między obiektami (np. użytkownikami, produktami) są reprezentowane jako wierzchołki i krawędzie grafu. Przykłady takich danych to sieci społecznościowe, linki internetowe czy zależności między produktami.</p>
+</section>
+<section id="dane-tekstowe" class="level3">
+<h3 class="anchored" data-anchor-id="dane-tekstowe">Dane tekstowe:</h3>
+<p>Kolejnym etapem była analiza danych tekstowych, które zaczęły odgrywać istotną rolę w analizie danych z mediów społecznościowych, e-maili, forów czy opinii. Technologie takie jak NLP (przetwarzanie języka naturalnego) pozwalają wydobywać sens z nieustrukturyzowanego tekstu.</p>
+</section>
+<section id="dane-strumieniowe" class="level3">
+<h3 class="anchored" data-anchor-id="dane-strumieniowe">Dane strumieniowe:</h3>
+<p>Obecnie najbardziej dynamicznie rozwija się analiza danych strumieniowych, gdzie dane są analizowane na bieżąco, w miarę ich napływania. Przykładem takiego podejścia jest monitorowanie zdarzeń w czasie rzeczywistym, np. transakcje finansowe, analiza social media, detekcja oszustw.</p>
+</section>
+</section>
+<section id="popularne-narzędzia-analiz-danych" class="level2">
+<h2 class="anchored" data-anchor-id="popularne-narzędzia-analiz-danych">Popularne narzędzia analiz danych:</h2>
+<section id="sql" class="level3">
+<h3 class="anchored" data-anchor-id="sql">SQL:</h3>
+<p>Tradycyjne bazy danych SQL są idealne do pracy z danymi ustrukturyzowanymi, które wymagają ścisłej struktury tabel (np. dane o transakcjach, klientach). SQL jest standardem w analizie takich danych, ale nie jest wystarczający w przypadku pracy z dużymi ilościami danych nieustrukturyzowanych.</p>
+</section>
+<section id="nosql" class="level3">
+<h3 class="anchored" data-anchor-id="nosql">NoSQL:</h3>
+<p>Bazy danych NoSQL, takie jak MongoDB, Cassandra, pozwalają na bardziej elastyczne podejście do danych, które mogą przybierać różne formy (np. dokumenty JSON, dane z sensorów, obrazy). NoSQL świetnie sprawdza się w przypadku danych, które nie pasują do tradycyjnych struktur tabelarycznych.</p>
+</section>
+<section id="data-lake" class="level3">
+<h3 class="anchored" data-anchor-id="data-lake">Data Lake:</h3>
+<p>Data Lake to systemy przechowywania ogromnych zbiorów danych, zarówno ustrukturyzowanych, jak i nieustrukturyzowanych. Dzięki Data Lake organizacje mogą przechowywać dane w pierwotnej formie i analizować je później w miarę potrzeb, bez potrzeby wcześniejszego przetwarzania. ### Apache Kafka: Kafka to system przetwarzania strumieniowego, który umożliwia zbieranie, przechowywanie i przetwarzanie danych w czasie rzeczywistym. Jest szeroko wykorzystywany w aplikacjach wymagających szybkiej reakcji na dane napływające w czasie rzeczywistym. ### Apache Flink: Apache Flink to narzędzie do przetwarzania strumieniowego, które umożliwia analizowanie danych w czasie rzeczywistym z minimalnym opóźnieniem. W przeciwieństwie do Kafki, Flink nie tylko zbiera dane, ale także je przetwarza, co jest szczególnie przydatne w analizach złożonych.</p>
+</section>
+<section id="przykład-jak-netflix-analizuje-dane-w-czasie-rzeczywistym" class="level3">
+<h3 class="anchored" data-anchor-id="przykład-jak-netflix-analizuje-dane-w-czasie-rzeczywistym">Przykład: Jak Netflix analizuje dane w czasie rzeczywistym?</h3>
+<p>Netflix to doskonały przykład firmy, która z powodzeniem wykorzystuje dane strumieniowe w celu dostarczania użytkownikom spersonalizowanych rekomendacji i analizowania ich zachowań. Dzięki technologii strumieniowej, Netflix monitoruje działania swoich użytkowników (co oglądają, jakie treści przewijają, jak długo oglądają), analizując te dane w czasie rzeczywistym. Na podstawie tej analizy Netflix jest w stanie dostarczać rekomendacje filmów i seriali w czasie rzeczywistym, dostosowując je do zmieniających się preferencji użytkownika.</p>
+</section>
+</section>
+<section id="przykład-strumieniowego-przetwarzania-w-netflix" class="level2">
+<h2 class="anchored" data-anchor-id="przykład-strumieniowego-przetwarzania-w-netflix">Przykład strumieniowego przetwarzania w Netflix:</h2>
+<p>Kiedy użytkownik zaczyna oglądać film, system śledzi jego reakcje (np. przerwanie filmu, przewijanie) i dostosowuje rekomendacje do jego preferencji. Takie dane mogą być przesyłane do systemu analitycznego za pomocą narzędzi takich jak Apache Kafka i przetwarzane na żywo w Apache Flink.</p>
+</section>
+<section id="podsumowanie" class="level2">
+<h2 class="anchored" data-anchor-id="podsumowanie">Podsumowanie</h2>
+<p>Dzięki ewolucji technologii, analiza danych przeszła długą drogę, od prostych tabel SQL, przez złożone dane grafowe i tekstowe, aż do analiz strumieniowych. Zrozumienie różnic między tymi podejściami pozwala na lepsze dobieranie narzędzi do odpowiednich typów analiz, w tym wykorzystania nowoczesnych systemów przetwarzania danych w czasie rzeczywistym, takich jak Kafka i Flink.</p>
+</section>
+<section id="ewolucja-analizy-danych-od-struktur-tabelarycznych-do-strumieni" class="level2">
+<h2 class="anchored" data-anchor-id="ewolucja-analizy-danych-od-struktur-tabelarycznych-do-strumieni">Ewolucja analizy danych: Od struktur tabelarycznych do strumieni</h2>
+<p>Rozwój technologii informatycznych stworzył nowe możliwości przetwarzania ogromnych ilości danych, zarówno <strong>ustrukturyzowanych</strong>, jak i <strong>nieustrukturyzowanych</strong>. W ciągu ostatnich kilku dekad obserwujemy wzrost dostępnych danych oraz technologii do ich przechowywania i analizy. Dzięki temu dane stały się jednym z najcenniejszych zasobów współczesnych organizacji.</p>
+</section>
+<section id="dane-ustrukturyzowane" class="level2">
+<h2 class="anchored" data-anchor-id="dane-ustrukturyzowane">Dane ustrukturyzowane</h2>
+<p>Dane ustrukturyzowane to dane, które są przechowywane w sposób zorganizowany i jednoznacznie określony. Przykładami takich danych są tabele w bazach SQL, w których każda kolumna reprezentuje jedną cechę, a każdy wiersz to pojedynczy rekord. Tego typu dane są najczęściej wykorzystywane w klasycznych algorytmach uczenia maszynowego, takich jak regresja logistyczna, XGBoost czy modele klasyfikacji.</p>
+<p>Przykład: Załóżmy, że mamy tabelę, w której każda linia przedstawia dane o kliencie: jego płeć, wzrost, ilość kredytów itd.</p>
 <div id="tab_data" class="cell" data-execution_count="2">
-<details class="code-fold">
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>dane_klientow <span class="op">=</span> {<span class="st">"sex"</span>:[<span class="st">"m"</span>,<span class="st">"f"</span>,<span class="st">"m"</span>,<span class="st">"m"</span>,<span class="st">"f"</span>],</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a> <span class="st">"height"</span>:[<span class="dv">160</span>, <span class="dv">172</span>, <span class="dv">158</span>, <span class="dv">174</span>, <span class="dv">192</span>],</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a> <span class="st">"credits"</span>:[<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">1</span>]</span>
@@ -236,7 +286,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(dane_klientow)</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>  sex  height  credits
 0   m     160        0
@@ -246,13 +295,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 4   f     192        1</code></pre>
 </div>
 </div>
-<p>Takie przewidywanie również oznaczane jest jako cecha (<em>ang. target</em>).</p>
+<p>Na tej podstawie możemy przewidywać prawdopodobieństwo spłaty kredytu (regresja logistyczna). Takie przewidywanie również oznaczane jest jako cecha (<em>ang. target</em>).</p>
 <div id="tab_data_target" class="cell" data-execution_count="3">
-<details class="code-fold">
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'target'</span>] <span class="op">=</span> [<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>]</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>  sex  height  credits  target
 0   m     160        0       0
@@ -263,90 +309,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="dane-w-języku-python" class="level3">
-<h3 class="anchored" data-anchor-id="dane-w-języku-python">Dane w języku Python</h3>
-<p>W wielu językach programowania domyślnym <code>pojemnikiem</code> na przechowywanie wartości są zmienne.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>wiek <span class="op">=</span> <span class="dv">47</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>stan_cywilny <span class="op">=</span> <span class="st">'kawaler'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Nie są one jednak praktyczną formą do przechowywania i manipulowania danymi.</p>
-<p>Jednym z rozwiązań jest przechowywanie wszystkich cech (np. klienta) w jednym obiekcie.</p>
-<p>W Pythonie zadanie to moze realizować obiekt <code>listy</code>, który pozwala przechowywać rózne typy danych w jednym obiekcie.</p>
-<div id="lista" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>klient <span class="op">=</span> [<span class="dv">38</span>, <span class="st">'kawaler'</span>, <span class="dv">1</span>, <span class="fl">56.3</span>]</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"dane klienta </span><span class="sc">{</span>klient<span class="sc">}</span><span class="ss"> w obiekcie: </span><span class="sc">{</span><span class="bu">type</span>(klient)<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>dane klienta [38, 'kawaler', 1, 56.3] w obiekcie: &lt;class 'list'&gt;</code></pre>
-</div>
-</div>
-<p>Z punktu widzenia przerwarzania i modelowania mozliwość ta wprowadza więcej problemów niz korzyści. Sprawdźmy domyślne operacje:</p>
-<div id="lista_add" class="cell" data-execution_count="5">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> [<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>]</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"a=</span><span class="sc">{</span>a<span class="sc">}</span><span class="ss">, b=</span><span class="sc">{</span>b<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"a+b=</span><span class="sc">{</span>a<span class="op">+</span>b<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>a=[1, 2, 3], b=[4, 5, 6]
-a+b=[1, 2, 3, 4, 5, 6]</code></pre>
-</div>
-</div>
-<p>natomiast:</p>
-<div id="lista_mul" class="cell" data-execution_count="6">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"a=</span><span class="sc">{</span>a<span class="sc">}</span><span class="ss">, b=</span><span class="sc">{</span>b<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"a*b"</span>)</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"a*b= </span><span class="sc">{</span>a<span class="op">*</span>b<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">TypeError</span>:</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"operacja niezdefiniowana"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>a=[1, 2, 3], b=[4, 5, 6]
-a*b
-operacja niezdefiniowana</code></pre>
-</div>
-</div>
-<p>Biblioteka Numpy:</p>
-<div id="827bd81c" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>aa <span class="op">=</span> np.array([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>])</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>bb <span class="op">=</span> np.array([<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>])</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(aa))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>&lt;class 'numpy.ndarray'&gt;</code></pre>
-</div>
-</div>
-<div id="79d0f88b" class="cell" data-execution_count="8">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"aa=</span><span class="sc">{</span>aa<span class="sc">}</span><span class="ss">, bb=</span><span class="sc">{</span>bb<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"aa+bb=</span><span class="sc">{</span>aa<span class="op">+</span>bb<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"aa*bb=</span><span class="sc">{</span>aa<span class="op">*</span>bb<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>aa=[1 2 3], bb=[4 5 6]
-aa+bb=[5 7 9]
-aa*bb=[ 4 10 18]</code></pre>
-</div>
-</div>
-<p>Dzięki tak otrzymanym tabelom cech możemy stosować algorytmy tj. <code>XGBoost</code> lub <code>regresji logistycznej</code> w celu wyznaczenia odpowiedniej kombinacji zmiennych wpływających na prawdopodobieństwo dobrego albo i złego klienta.</p>
-<p>Podstawowe systemy bazodanowe związane z językiem SQL również realizują modele danych, w których dane ładnowane są do (ustrukturyzowanych) tabel. <!-- ```{python}
-import sqlite3
-engine = sql.connect("database.sqlite")
-df.to_sql('kredyt' , con=engine, index=False)
-``` --></p>
-<p><strong>Dane nieustrukturyzowane</strong> to takie, które nie są ułożone w tabelarycznej postaci.</p>
+<section id="dane-nieustrukturyzowane" class="level2">
+<h2 class="anchored" data-anchor-id="dane-nieustrukturyzowane">Dane nieustrukturyzowane</h2>
+<p>Dane nieustrukturyzowane to dane, które nie mają określonej, tabelarycznej formy. Należą do nich obrazy, dźwięki, wideo i tekst. Choć te dane wydają się chaotyczne, są one również cennym źródłem informacji, które można przetwarzać za pomocą odpowiednich algorytmów.</p>
+<p>Przykład: Analiza obrazów (np. weryfikacja, czy zdjęcie przedstawia psa czy kota) lub analizy tekstu (np. sentymentu w tweetach) są przykładami pracy z danymi nieustrukturyzowanymi.</p>
 <blockquote class="blockquote">
-<p>!Uwaga - nie oznacza to, iż dane nie możemy przetworzyć do jakiejś postaci tabelarzycznej.</p>
+<p>Jakie wyzwania niesie analiza danych w różnych formach?</p>
 </blockquote>
-<p>Przykładem może być <code>dźwięk</code>, <code>obraz</code>czy <code>tekst</code>. Poszczególne litery, częstotliwości czy piksele nie niosą ze sobą żadnych informacji. Nie tworzą osobnych cech, co jest kluczowe dla odróżnienia ich od danych ustrukturyzowanych.</p>
+<p>Zwiększający się wolumen danych, a także ich różnorodność, stawia przed nami kolejne wyzwania związane z przetwarzaniem i analizowaniem tych danych.</p>
 <blockquote class="blockquote">
-<p>Zna typy danych ustrukturyzowanych jak i nieustrukturyzowanych (K2A_W02, K2A_W04, O2_W04, O2_W07)</p>
+<p>Kluczowe pytanie brzmi: jak efektywnie przetwarzać ogromne ilości danych w czasie rzeczywistym?</p>
 </blockquote>
+</section>
+<section id="przetwarzanie-wsadowe-vs.-przetwarzanie-strumieniowe" class="level2">
+<h2 class="anchored" data-anchor-id="przetwarzanie-wsadowe-vs.-przetwarzanie-strumieniowe">Przetwarzanie wsadowe vs.&nbsp;przetwarzanie strumieniowe</h2>
+<p>W tradycyjnych systemach analizy danych, takich jak bazy danych SQL, przetwarzanie danych odbywa się w trybie wsadowym (batch processing). Oznacza to, że dane są zbierane przez pewien czas, a następnie przetwarzane w partiach (np. raz dziennie, raz w tygodniu). Jest to podejście, które świetnie sprawdza się w analizach historycznych i podejmowaniu decyzji na podstawie dużych zbiorów danych.</p>
+<section id="przykład-batch-processing" class="level3">
+<h3 class="anchored" data-anchor-id="przykład-batch-processing">Przykład batch processing:</h3>
+<p>Przetwarzanie wszystkich transakcji dokonanych przez klientów w ciągu dnia, aby na końcu dnia wyciągnąć raporty i wnioski dotyczące aktywności.</p>
+<p>Natomiast przetwarzanie strumieniowe (stream processing) pozwala na bieżące analizowanie danych w momencie ich napływania. Dzięki temu, dane mogą być przetwarzane i analizowane w czasie rzeczywistym, co jest niezwykle ważne w przypadku takich zastosowań jak wykrywanie nadużyć w czasie rzeczywistym, personalizowanie treści czy monitorowanie urządzeń IoT.</p>
+</section>
+<section id="przykład-stream-processing" class="level3">
+<h3 class="anchored" data-anchor-id="przykład-stream-processing">Przykład stream processing:</h3>
+<p>System detekcji oszustw w kartach kredytowych, który monitoruje transakcje na żywo, analizując je pod kątem podejrzanych działań (np. przekroczenie typowego wzorca wydatków).</p>
+<p>Współczesna analiza danych nie ogranicza się do prostych zbiorów danych w formie tabelarycznej. Przechodzimy od danych ustrukturyzowanych do zaawansowanego przetwarzania strumieniowego, które pozwala na podejmowanie decyzji w czasie rzeczywistym. Zrozumienie różnicy między przetwarzaniem wsadowym a strumieniowym to klucz do pracy z nowoczesnymi technologiami i narzędziami, które napędzają innowacje w wielu dziedzinach.</p>
 </section>
 </section>
 <section id="źródła-danych" class="level2">
@@ -363,107 +349,117 @@ df.to_sql('kredyt' , con=engine, index=False)
 <p>Dane zawsze generowane są jako jakaś forma strumienia danych.</p>
 <p>Systemy obsługujące strumienie danych: - hurtownie danych - systemy monitorujące działania urządzeń (IoT) - systemy transakcyjne - systemy analityczne stron www - reklamy on-line - media społecznościowe - systemy logowania - ….</p>
 <blockquote class="blockquote">
-<p>firma to organizacja, która generuje i odpowiada na ciągły strumień danych. <a href="../RTA_2025/ksiazki#bellemare">Zobacz</a></p>
+<p>firma to organizacja, która generuje i odpowiada na ciągły strumień danych. <a href="./RTA_2025/ksiazki#bellemare">Zobacz</a></p>
 </blockquote>
 <p>W przetwarzaniu wsadowym źródłem (ale i wynikiem przetwarzania) danych jest <strong>plik</strong>. Jest on zapisywany raz i można się do niego odwołać (może na nim działać wiele procesów - zadań). Nazwa pliku to element identyfikujący zbiór rekordów.</p>
 <p>W przypadku strumienia zdarzenie jest generowane tylko raz przez tzw. <em>producenta</em> (zwanego też nadawcą lub dostawcą). Powstałe zdarzenie przetwarzane może być przez wielu tzw. <em>konsumentów</em> (odbiorców). Zdarzenia strumieniowe grupowane są w tzw. <strong>tematy</strong> (ang. <strong>topics</strong>).</p>
 </section>
 </section>
-<section id="big-data" class="level2">
-<h2 class="anchored" data-anchor-id="big-data">Big Data</h2>
-<blockquote class="blockquote">
-<p><em>,,Big Data is like teenage sex: everyone talks about it, nobody really knows how to do it, everyone thinks everyone else is doing it, so every one claims they are doing it.’’</em> — Dan Ariely, Professor of Psychology and Behavioral Economics, Duke University</p>
-</blockquote>
-<section id="one-two-four-v" class="level3">
-<h3 class="anchored" data-anchor-id="one-two-four-v">one, two, … four V</h3>
-<ol type="1">
-<li><strong>Volume</strong> (Objętość) - rozmiar danych produkowanych na całym świecie przyrasta w tempie wykładniczym.</li>
-<li><strong>Velocity</strong> (Szybkość) - tempo produkowania danych, szybkości ich przesyłania i przetwarzania.</li>
-<li><strong>Variety</strong> (Zróżnicowanie) - tradycyjne dane kojarzą się nam z postacią alfanumeryczną złożoną z liter i cyfr. Obecnie mamy do dyspozycji obrazy, dźwięki, pliki wideo, strumienie danych z IoT</li>
-<li><strong>Veracity</strong> (Wiarygodność) - Czy dane są kompletne i poprawne? Czy obiektywnie odzwierciedlają rzeczywistość? Czy są podstawą do podejmowania decyzji?</li>
-<li><strong>Value</strong> - The value that the data actually holds. In the end, it’s all about cost and benefits.</li>
-</ol>
-<blockquote class="blockquote">
-<p><em>Celem obliczeń nie są liczby, lecz ich zrozumienie</em> R.W. Hamming 1962.</p>
-</blockquote>
+<section id="architektura-systemów-real-time" class="level2">
+<h2 class="anchored" data-anchor-id="architektura-systemów-real-time">Architektura systemów real-time</h2>
+<p>Wykorzystanie systemów real-time (czas rzeczywisty) w analizie danych wymaga odpowiedniej architektury, która będzie mogła szybko przetwarzać ogromne ilości danych oraz reagować na nie w czasie rzeczywistym. Architektura systemu real-time jest kluczowa, ponieważ umożliwia szybsze podejmowanie decyzji, monitorowanie procesów w czasie rzeczywistym i reagowanie na zdarzenia bez opóźnienia.</p>
+<p>Omówimy główne elementy architektury systemów real-time, popularne wzorce architektoniczne oraz technologie, które są wykorzystywane do budowy takich systemów.</p>
+<section id="podstawowe-elementy-systemu-real-time" class="level3">
+<h3 class="anchored" data-anchor-id="podstawowe-elementy-systemu-real-time">Podstawowe elementy systemu real-time</h3>
+<p>Systemy real-time muszą spełniać szereg wymagań związanych z czasem przetwarzania danych. Istnieje kilka kluczowych komponentów w architekturze systemu, które zapewniają jego prawidłowe funkcjonowanie.</p>
+<section id="producent-danych-data-producer" class="level4">
+<h4 class="anchored" data-anchor-id="producent-danych-data-producer">Producent danych (Data Producer)</h4>
+<p>Dane w systemie real-time pochodzą z różnych źródeł, takich jak:</p>
+<ul>
+<li>Czujniki IoT: np. monitorowanie maszyn w fabryce, urządzenia medyczne.</li>
+<li>Transakcje w czasie rzeczywistym: np. zakupy online, dane z giełdy.</li>
+<li>Dane użytkowników: np. logi użytkowników w aplikacjach mobilnych, dane z mediów społecznościowych.</li>
+</ul>
+</section>
+<section id="przesyłanie-danych-data-transport" class="level4">
+<h4 class="anchored" data-anchor-id="przesyłanie-danych-data-transport">Przesyłanie danych (Data Transport)</h4>
+<p>Dane muszą być szybko przesyłane do systemów, które mogą je analizować. W tym celu wykorzystywane są technologie strumieniowe, takie jak:</p>
+<ul>
+<li>Apache Kafka: popularny system do przesyłania danych w czasie rzeczywistym, zapewniający wysoką wydajność i niezawodność.</li>
+<li>Apache Pulsar: alternatywa dla Kafki, dedykowana do przetwarzania danych w czasie rzeczywistym z dużą ilością subskrybentów.</li>
+</ul>
+</section>
+<section id="przetwarzanie-danych-data-processing" class="level4">
+<h4 class="anchored" data-anchor-id="przetwarzanie-danych-data-processing">Przetwarzanie danych (Data Processing)</h4>
+<p>Dane w systemach real-time są często przetwarzane w strumieniu. Dwa główne modele przetwarzania to:</p>
+<ul>
+<li>Batch processing: Przetwarzanie danych w partiach, które może mieć opóźnienie, ale przetwarza dane w sposób efektywny. Może być wykorzystywane w kombinacji z systemami real-time do agregacji danych.</li>
+<li>Stream processing: Przetwarzanie danych w czasie rzeczywistym, bez opóźnień, w którym dane są natychmiastowo analizowane i przetwarzane.</li>
+</ul>
+</section>
+<section id="składowanie-danych-data-storage" class="level4">
+<h4 class="anchored" data-anchor-id="składowanie-danych-data-storage">Składowanie danych (Data Storage)</h4>
+<p>Przechowywanie danych w systemie real-time zależy od wymagań aplikacji. Dwa główne rodzaje przechowywania to:</p>
+<ul>
+<li>Data Lake: składowanie ogromnych ilości nieprzetworzonych danych w postaci surowych plików. Bazy danych NoSQL: takie jak Cassandra, które umożliwiają szybki dostęp do danych w czasie rzeczywistym.</li>
+<li>Data Warehouse: składowanie przetworzonych danych w celu ich analizy.</li>
+</ul>
+</section>
+<section id="analiza-i-wizualizacja-danych-data-analytics-and-visualization" class="level4">
+<h4 class="anchored" data-anchor-id="analiza-i-wizualizacja-danych-data-analytics-and-visualization">Analiza i wizualizacja danych (Data Analytics and Visualization)</h4>
+<p>Po przetworzeniu danych w czasie rzeczywistym należy wykonać ich analizę i prezentację w sposób zrozumiały dla użytkownika:</p>
+<ul>
+<li>Dashboardy: narzędzia takie jak Grafana lub Kibana, które służą do wizualizacji wyników w czasie rzeczywistym.</li>
+<li>Machine Learning: zastosowanie algorytmów uczenia maszynowego w czasie rzeczywistym do klasyfikacji, wykrywania anomalii czy predykcji (np. wykrywanie oszustw).</li>
+</ul>
 </section>
 </section>
-<section id="modele-przetwarzania-danych" class="level2">
-<h2 class="anchored" data-anchor-id="modele-przetwarzania-danych">Modele przetwarzania danych</h2>
-<p>Dane w biznesie przetwarzane są praktycznie od zawsze. W ciągu ostatnich dziesięcioleci ilość przetwarzanych danych systematycznie rośnie co wpływa na proces przygotowania i przetwarzania danych.</p>
-<section id="trochę-historii" class="level3">
-<h3 class="anchored" data-anchor-id="trochę-historii">Trochę historii</h3>
+<section id="popularne-architektury-systemów-real-time" class="level3">
+<h3 class="anchored" data-anchor-id="popularne-architektury-systemów-real-time">Popularne architektury systemów real-time</h3>
+<section id="lambda-architecture" class="level4">
+<h4 class="anchored" data-anchor-id="lambda-architecture">Lambda Architecture</h4>
+<p>Lambda Architecture to popularna koncepcja przetwarzania danych, która łączy przetwarzanie wsadowe z przetwarzaniem strumieniowym. To klasyczna architektura używana w systemach przetwarzania Big Data, która zakłada dwie warstwy:</p>
 <ul>
-<li>Lata 60-te : Kolekcje danych, bazy danych</li>
-<li>Lata 70-te : Relacyjne modele danych i ich implementacja w systemach OLTP</li>
-<li>1975 : Pierwsze komputery osobiste</li>
-<li>Lata 80-te : Zaawansowane modele danych, extended-relational, objective oriented, aplikacyjno-zorientowane itp.</li>
-<li>1983 : Początek internetu</li>
-<li>Lata 90-te : Data mining, hurtownie danych, systemy OLAP</li>
-<li>Później : NoSQL, Hadoop, SPARK, data lake</li>
-<li>2002 : AWS , 2005: Hadoop, Cloud computing</li>
+<li><p>Batch Layer: przetwarzanie (dużych ilości) danych wsadowych, które są później wykorzystywane do analizy. Realizuje procesy przetwarzania w trybie offline</p></li>
+<li><p>Speed Layer (Real-Time Layer): przetwarzanie danych w czasie rzeczywistym, czyli napływające dane strumieniowe, np. z sensorów, social media, transakcji, w celu uzyskania natychmiastowych wyników.</p></li>
+<li><p>Serving Layer: warstwa, która łączy wyniki obu poprzednich warstw i dostarcza je do użytkownika np. za pomocą API.</p></li>
 </ul>
-<p>Większość danych przechowywana jest w bazach lub hurtowniach danych. Standardowo dostęp do danych sprowadza się najczęściej do realizacji zapytań poprzez aplikację.</p>
-<p>Sposób wykorzystania i realizacji procesu dostępu do bazy danych nazywamy <strong>modelem przetwarzania</strong>. Najczęściej używane są dwie implementacje:</p>
+<p><br> <img src="img/lambda_dale.jpg" class="center"></p>
 </section>
-<section id="model-tradycyjny" class="level3">
-<h3 class="anchored" data-anchor-id="model-tradycyjny">Model Tradycyjny</h3>
-<p><strong>Model tradycyjny</strong> - przetwarzanie transakcyjne w trybie on-line, OLTP (on-line transaction processing). Świetnie sprawdza się w przypadku obsługi bieżącej np. obsługa klienta, rejestr zamówień, obsługa sprzedaży itp. Wykorzystywany w systemach Enterprise Resource Planning (ERP) Systems, Customer Relationship Management (CRM) software, and web-based applications.</p>
-<p><img src="img/baza1.png" class="center img-fluid"></p>
-<p>Model ten dostarcza efektywnych rozwiązań m.in do:</p>
+<section id="zalety-i-wady-lambda-architecture" class="level4">
+<h4 class="anchored" data-anchor-id="zalety-i-wady-lambda-architecture">Zalety i Wady Lambda Architecture:</h4>
 <ul>
-<li>efektywnego i bezpiecznego przechowywania danych,</li>
-<li>transakcyjnego odtwarzanie danych po awarii,</li>
-<li>optymalizacji dostępu do danych,</li>
-<li>zarządzania współbieżnością,</li>
-<li>przetwarzania zdarzeń -&gt; odczyt -&gt; zapis</li>
+<li>✅ Możliwość łączenia przetwarzania wsadowego i strumieniowego,</li>
+<li>✅ wsparcie dla dużych zbiorów danych,</li>
+<li>✅ elastyczność w przetwarzaniu złożonych zapytań.</li>
+<li>❌ Wymaga utrzymywania dwóch oddzielnych systemów do przetwarzania danych (batch i stream), co prowadzi do złożoności implementacji i utrzymania.</li>
 </ul>
-<p>Co w przypadku gdy mamy do czynienia z:</p>
-<ul>
-<li>agregacjami danych z wielu systemów (np. dla wielu sklepów),</li>
-<li>raportowanie i podsumowania danych,</li>
-<li>optymalizacja złożonych zapytań,</li>
-<li>wspomaganie decyzji biznesowych.</li>
-</ul>
-<p>Badania nad tego typu zagadnieniami doprowadziły do sformułowania nowego modelu przetwarzania danych oraz nowego typu baz danych - <strong>Hurtownie Danych</strong> <em>(Data warehouse)</em>.</p>
 </section>
-<section id="model-olap" class="level3">
-<h3 class="anchored" data-anchor-id="model-olap">Model OLAP</h3>
-<p><strong>Przetwarzanie analityczne on-line OLAP (on-line analytic processing).</strong></p>
-<p>Wspieranie procesów analizy i dostarczanie narzędzi umożliwiających analizę wielowymiarową (<code>czas</code>, <code>miejsce</code>, <code>produkt</code>).</p>
-<p>Proces zrzucania danych z różnych systemów do jednej bazy nazywamy Extract-Transform-Load (ETL) (normalizacja i encoding and schema transaction).</p>
-<p>Analiza danych z hurtowni to przede wszystkim obliczanie <strong>agregatów</strong> (podsumowań) dotyczących wymiarów hurtowni. Proces ten jest całkowicie sterowany przez użytkownika.</p>
-<p><strong>Przykład</strong></p>
-<p>Załóżmy, że mamy dostęp do hurtowni danych gdzie przechowywane są informacje dotyczące sprzedaży produktów w supermarkecie. Jak przeanalizować zapytania:</p>
-<ol type="1">
-<li>Jaka jest łączna sprzedaż produktów w kolejnych kwartałach, miesiącach, tygodniach ?</li>
-<li>Jaka jest sprzedaż produktów z podziałem na rodzaje produktów ?</li>
-<li>Jaka jest sprzedaż produktów z podziałem na oddziały supermarketu ?</li>
-</ol>
-<p>Odpowiedzi na te pytania pozwalają określić <code>wąskie gardła</code> sprzedaży produktów przynoszących deficyt, zaplanować zapasy w magazynach czy porównać sprzedaż różnych grup w różnych oddziałach supermarketu.</p>
-<p>W ramach Hurtowni Danych najczęściej wykonuje się dwa rodzaje zapytań(oba w trybie batchowym): 1. Wykonywane okresowo w czasie zapytania raportowe obliczające biznesowe statystyki 2. Wykonywane ad-hoc zapytania wspomagające krytyczne decyzje biznesowe.</p>
-<p><img src="img/baza2.png" class="center img-fluid"></p>
-<blockquote class="blockquote">
-<p>Wiedza:</p>
+<section id="kappa-architecture" class="level4">
+<h4 class="anchored" data-anchor-id="kappa-architecture">Kappa Architecture</h4>
+<p>Kappa Architecture jest uproszczoną wersją Lambda Architecture. Zamiast używać dwóch osobnych warstw (batch i speed), Kappa wykorzystuje tylko jedną warstwę przetwarzania strumieniowego, co upraszcza cały system.</p>
+<p>Jest to bardziej elastyczne podejście do budowy systemów real-time, zwłaszcza w przypadku, gdy dane są przetwarzane tylko w jednym trybie (streaming).</p>
+<p><br> <img src="img/kappa.jpg" class="center"></p>
+</section>
+<section id="zalety-i-wady-kappa-architecture" class="level4">
+<h4 class="anchored" data-anchor-id="zalety-i-wady-kappa-architecture">Zalety i Wady Kappa Architecture:</h4>
 <ul>
-<li>Zna historię i filozofię modeli przetwarzania danych.</li>
-<li>Zna typy danych ustrukturyzowanych jak i nieustrukturyzowanych</li>
+<li>✅ Prostota: Jako że przetwarzanie danych odbywa się tylko w jednym strumieniu, cały system jest prostszy i bardziej spójny.</li>
+<li>✅ Skalowalność: Dzięki eliminacji warstwy batch, system jest bardziej elastyczny i skalowalny w kontekście analizy danych w czasie rzeczywistym.</li>
+<li>✅ Idealne dla ML: Kappa Architecture świetnie sprawdza się w zastosowaniach związanych z Machine Learning, ponieważ przetwarzanie danych odbywa się na bieżąco, co pozwala na szybsze uczenie i wdrażanie modeli ML w czasie rzeczywistym.</li>
+<li>❌ Może być mniej wydajna przy bardzo dużych zbiorach danych, w przypadku, gdy wymagane jest skomplikowane przetwarzanie wsadowe.</li>
 </ul>
-</blockquote>
-<blockquote class="blockquote">
-<p>Umiejętności:</p>
+</section>
+<section id="microservices-architecture" class="level4">
+<h4 class="anchored" data-anchor-id="microservices-architecture">Microservices Architecture</h4>
+<p>Architektura mikroserwisów jest powszechnie wykorzystywana w systemach real-time, ponieważ umożliwia:</p>
 <ul>
-<li>Rozróżnia typy danych strukturyzowanych jak i niestrukturyzowanych</li>
+<li>Podział aplikacji na mniejsze, autonomiczne jednostki.</li>
+<li>Elastyczność i skalowalność systemu.</li>
+<li>Możliwość przetwarzania różnych rodzajów danych przez różne mikroserwisy.</li>
+<li>Wykorzystanie komunikacji asynchronicznej, np. przez kolejki wiadomości.</li>
 </ul>
-</blockquote>
-<blockquote class="blockquote">
-<p>Kompetencje:</p>
-<ul>
-<li>Utrwala umiejętność samodzielnego uzupełniania wiedzy teoretycznej jak i praktycznej w zakresie programowania, modelowania, nowych technologii informatycznych z wykorzystaniem analizy w czasie rzeczywistym.</li>
-</ul>
-</blockquote>
+</section>
+<section id="przykład" class="level4">
+<h4 class="anchored" data-anchor-id="przykład">Przykład</h4>
+<p>Uber to przykład firmy, która skutecznie wykorzystuje narzędzia do przetwarzania strumieniowego, by monitorować ruch drogowy w czasie rzeczywistym. Dzięki systemowi Apache Kafka, Uber gromadzi dane o ruchu drogowym, lokalizacji pojazdów oraz czasach oczekiwania na przejazd, które są następnie analizowane na żywo.</p>
+<p>Dane wejściowe: Informacje o czasie i miejscu podróży, dane GPS z pojazdów, natężenie ruchu.</p>
+<p>Proces przetwarzania: Uber wykorzystuje Apache Kafka do przesyłania tych danych w czasie rzeczywistym do systemów takich jak Apache Flink lub Spark Streaming, które analizują je na bieżąco.</p>
+<p>Analiza: System przewiduje czas oczekiwania na przejazd, monitoruje warunki drogowe oraz optymalizuje trasę w czasie rzeczywistym.</p>
+<p>Wynik: Użytkownicy Ubera otrzymują prognozy czasu przejazdu, a Uber dynamicznie dostosowuje zasoby (np. przydzielanie kierowców), co umożliwia optymalizację transportu.</p>
 
 
+</section>
 </section>
 </section>
 

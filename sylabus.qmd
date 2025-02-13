@@ -1,10 +1,10 @@
 ---
-title: Syllabus
+title: Sylabus
 ---
 
 > Nazwa przedmiotu: Analiza danych w czasie rzeczywistym
 > 
-> Jednostka: SGH w Warszawie
+> Jednostka: Szkoła Główna Handlowa w Warszawie
 > 
 > Kod przedmiotu: 222890-D, 222890-S
 >
@@ -26,15 +26,18 @@ title: Syllabus
 
 ## Cel Przedmiotu
 
-Podejmowanie prawidłowych decyzji na podstawie danych i ich analiz w biznesie to proces i codzienność. 
-Nowoczesne metody modelowania przez uczenie maszynowe (ang. _machine learning_), sztuczną inteligencję (ang. _artificial inteligence_), bądź głębokie sieci neuronowe (ang. _deep learning_) pozwalają nie tylko na lepsze rozumienie biznesu, ale i wspomagają podejmowanie kluczowych dla niego decyzji. 
-Rozwój technologii oraz coraz to nowsze koncepcje biznesowe pracy bezpośrednio z klientem wymagają nie tylko prawidłowych, ale i odpowiednio szybkich decyzji. 
-Oferowane zajęcia mają na celu przekazanie studentom doświadczenia oraz kompleksowej wiedzy teoretycznej w zakresie przetwarzania i analizy danych w czasie rzeczywistym oraz zaprezentowanie najnowszych technologii informatycznych (darmowych oraz komercyjnych) służących do przetwarzania danych ustrukturyzowanych (pochodzących np. z hurtowni danych) jak i nieustrukturyzowanych (np. obrazy, dźwięk, strumieniowanie video) w trybie on-line. 
-W toku zajęć przedstawiona zatem zostanie filozofia analizy dużych danych w czasie rzeczywistym jako część koncepcji Big Data w połączeniu ze strumieniowaniem danych, programowaniem strumieniowym w języku Python, R oraz SAS. 
-Zostanie przedstawiona tzw. struktury lambda oraz kappa służące do przetwarzania danych w data lake wraz z omówieniem problemów i trudności jakie spotyka się w realizacji modelowania w czasie rzeczywistym dla dużej ilości danych. 
-Wiedza teoretyczna zdobywana będzie (oprócz części wykładowej) poprzez realizację przypadków testowych w narzędziach takich jak Apache Spark, Nifi, Microsoft Azure, czy SAS.
-Na zajęciach laboratoryjnych studenci korzystać będą z pełni skonfigurowanych środowisk programistycznych przygotowanych do przetwarzania, modelowania i analizy danych. 
-Tak aby oprócz umiejętności i znajomości technik analitycznych studenci poznali i zrozumieli najnowsze technologie informatyczne związane z przetwarzaniem danych w czasie rzeczywistym.
+Współczesny biznes opiera się na podejmowaniu decyzji opartych na danych. 
+Coraz większa ilość informacji, rosnące wymagania rynku oraz potrzeba natychmiastowej reakcji sprawiają, że analiza danych w czasie rzeczywistym staje się kluczowym elementem nowoczesnych procesów biznesowych.
+
+Na zajęciach studenci zapoznają się z metodami i technologiami umożliwiającymi przetwarzanie danych w czasie rzeczywistym. 
+Szczególną uwagę poświęcimy zastosowaniu uczenia maszynowego (machine learning), sztucznej inteligencji (artificial intelligence) oraz głębokich sieci neuronowych (deep learning) w analizie danych. 
+Zrozumienie tych metod pozwala nie tylko lepiej interpretować zjawiska biznesowe, ale także podejmować szybkie i trafne decyzje.
+
+W ramach kursu omówimy zarówno dane ustrukturyzowane, jak i nieustrukturyzowane (obrazy, dźwięk, strumieniowanie wideo). 
+Studenci poznają architektury przetwarzania danych, takie jak lambda i kappa, wykorzystywane w systemach data lake, a także wyzwania związane z modelowaniem danych w czasie rzeczywistym na dużą skalę.
+
+Kurs obejmuje część teoretyczną oraz praktyczne laboratoria, podczas których studenci będą pracować z rzeczywistymi danymi w środowiskach takich jak: JupyterLab, PyTorch, Apache Spark, Apache Kafka. 
+Dzięki temu studenci nie tylko zdobędą wiedzę na temat metod analitycznych, ale także nauczą się korzystać z najnowszych technologii informatycznych stosowanych w analizie danych w czasie rzeczywistym.
 
 ## Program przedmiotu
 
@@ -59,100 +62,144 @@ Tak aby oprócz umiejętności i znajomości technik analitycznych studenci 
 1. Wiedza:
 
 - Zna historię i filozofię modeli przetwarzania danych
+
 Powiązania: (Analiza danych - Big Data)K2A_W01, (Analiza danych - Big Data)K2A_W03, (OGL)O2_W01, (OGL) O2_W02, (OGL)O2_W04, (OGL)O2_W07
+
 Metody weryfikacji: kolokwium pisemne (pytania otwarte, zadania)
+
 Metody dokumentacji: wykaz pytań z kolokwium
 
 - Zna typy danych ustrukturyzowanych jak i nieustrukturyzowanych
+
 Powiązania: (Analiza danych - Big Data)K2A_W02, (Analiza danych - Big Data)K2A_W04, (OGL)O2_W04, (OGL) O2_W07
+
 Metody weryfikacji: projekt
+
 Metody dokumentacji: prace pisemne studenta ( w trakcie semestru, zaliczeniowe, egzaminacyjne)
 
 - Zna możliwości i obszary zastosowania procesowania danych w czasie rzeczywistym
+
 Powiązania: (Analiza danych - Big Data)K2A_W01, (Analiza danych - Big Data)K2A_W02, (OGL)O2_W01, (OGL) O2_W04, (OGL)O2_W08
+
 Metody weryfikacji: egzamin pisemny (pytania otwarte, zadania)
+
 Metody dokumentacji: wykaz pytań egzaminacyjnych
 
 - Zna teoretyczne aspekty struktury lambda i kappa
+
 Powiązania: (Analiza danych - Big Data)K2A_W03, (Analiza danych - Big Data)K2A_W05, (OGL)O2_W04, (OGL) O2_W06, (OGL)O2_W08
+
 Metody weryfikacji: kolokwium pisemne (pytania otwarte, zadania)
+
 Metody dokumentacji: wykaz pytań z kolokwium
 
 - Umie wybrać strukturę IT dla danego problemu biznesowego
+
 Powiązania: (Analiza danych - Big Data)K2A_W02, (Analiza danych - Big Data)K2A_W03, (OGL)O2_W01, (OGL) O2_W04, (OGL)O2_W06, (OGL)O2_W08
+
 Metody weryfikacji: projekt
+
 Metody dokumentacji: prace pisemne studenta ( w trakcie semestru, zaliczeniowe, egzaminacyjne)
 
 - Rozumie potrzeby biznesowe podejmowania decyzji w bardzo krótkim czasie
+
 Powiązania: (Analiza danych - Big Data)K2A_W01, (Analiza danych - Big Data)K2A_W05, (OGL)O2_W01, (OGL) O2_W04, (OGL)O2_W06, (OGL)O2_W08
+
 Metody weryfikacji: projekt
+
 Metody dokumentacji: prace pisemne studenta ( w trakcie semestru, zaliczeniowe, egzaminacyjne)
 
 2. Umiejętności:
 
 - Rozróżnia typy danych strukturyzowanych jak i niestrukturyzowanych
+
 Powiązania: K2A_U02, K2A_U07, K2A_U10, O2_U02
+
 Metody weryfikacji: test
+
 Metody dokumentacji: prace pisemne studenta ( w trakcie semestru, zaliczeniowe, egzaminacyjne)
 
 - Umie przygotować, przetwarzać oraz zachowywać dane generowane w czasie rzeczywistym
+
 Powiązania:  K2A_U03, K2A_U05, K2A_U09, O2_U02, O2_U04
+
 Metody weryfikacji: projekt
+
 Metody dokumentacji: prace pisemne studenta ( w trakcie semestru, zaliczeniowe, egzaminacyjne)
 
 - Rozumie ograniczenia wynikające z czasu przetwarzania przez urządzenia oraz systemy informatyczne
+
 Powiązania:  K2A_U01, K2A_U07, K2A_U11, O2_U02
+
 Metody weryfikacji: projekt
+
 Metody dokumentacji: prace pisemne studenta ( w trakcie semestru, zaliczeniowe, egzaminacyjne)
 
 - Umie zastosować i skonstruować system do przetwarzania w czasie rzeczywistym
+
 Powiązania:  K2A_U05, K2A_U10, O2_U05, O2_U06, O2_U07
+
 Metody weryfikacji: projekt
+
 Metody dokumentacji: prace pisemne studenta ( w trakcie semestru, zaliczeniowe, egzaminacyjne)
 
 - Umie przygotować raportowanie dla systemu przetwarzania w czasie rzeczywistym
+
 Powiązania: K2A_U02, K2A_U08, K2A_U10, O2_U06, O2_U07
+
 Metody weryfikacji: projekt
+
 Metody dokumentacji: prace pisemne studenta ( w trakcie semestru, zaliczeniowe, egzaminacyjne)
 
 3. Kompetencje:
 
 - Formułuje problem analityczny wraz z jego informatycznym rozwiązaniem
+
 Powiązania: K2A_K01, K2A_K03, O2_K02,  O2_K06, O2_K07
+
 Metody weryfikacji: projekt, prezentacja
+
 Metody dokumentacji: prace pisemne studenta (w trakcie semestru, zaliczeniowe, egzaminacyjne)
 
 - Utrwala umiejętność samodzielnego uzupełniania wiedzy teoretycznej jak i praktycznej w zakresie programowania,
-modelowania, nowych technologii informatycznych z wykorzystaniem analizy w czasie rzeczywistym. Powiązania: K2A_K02, K2A_K04, (OGL)O2_K01, (OGL) O2_K02, (OGL)O2_K05, (OGL)O2_K06
+modelowania, nowych technologii informatycznych z wykorzystaniem analizy w czasie rzeczywistym. 
+
+Powiązania: K2A_K02, K2A_K04, (OGL)O2_K01, (OGL) O2_K02, (OGL)O2_K05, (OGL)O2_K06
+
 Metody weryfikacji: projekt
+
 Metody dokumentacji: prace pisemne studenta ( w trakcie semestru, zaliczeniowe, egzaminacyjne)
 
 
 ## Realizacja przedmiotu
 
-- egzamin testowy 30%
-- kolokwium 30%
-- referaty/eseje 40%
+- egzamin testowy 20%
+- Zadania 40% 
+- Projekt 40%
+
 
 ## Literatura
 
 
-1. Zając S., red. "Modelowanie dla biznesu, Analityka w czasie rzeczywistym - narzędzia informatyczne i biznesowe", Oficyna Wydawnicza SGH, Warszawa 2022
-2. Frątczak E., red. "Modelowanie dla biznesu, Regresja logistyczna, Regresja Poissona, Survival Data Mining, CRM, Credit Scoring". SGH, Warszawa 2019. 
-3. Frątczak E., red., "Zaawansowane metody analiz statystycznych", Oficyna Wydawnicza SGH, Warszawa 2012. 
-4. Bellemare A., "Mikrousługi oparte na zdarzeniach. Wykorzystanie danych w organizacji na dużą skalę", O'Reilly 2021
-5. Lakshmanan V., Robinson S., Munn M., "Wzorce projektowe uczenia maszynowego. Rozwiązania typowych problemów dotyczących przygotowania danych, konstruowania modeli i MLOps", O'Reilly 2021
-6. Shapira G., Palino T., Sivaram R., Petty K., "Kafka the definitive guide. Real-time data and stream processing at scale" O'Reilly 2022
-7. Gift N., Deza A., "Practical MLOps. Operationalizing Machine Learning Models", O'Reilly 2022.  
+1️⃣ Zając S. (red.), Modelowanie dla biznesu, Analityka w czasie rzeczywistym - narzędzia informatyczne i biznesowe, SGH, Warszawa 2022.
 
-## Literatura uzupełniająca
+2️⃣ Frątczak E. (red.), Modelowanie dla biznesu: Regresja logistyczna, Regresja Poissona, Survival Data Mining, CRM, Credit Scoring, SGH, Warszawa 2019.
 
-1. Frątczak E., "Statistics for Management & Economics" SGH, Warszawa, 2015 
-2. Simon P., "Too Big to IGNORE. The Business Case for Big Data", John Wiley & Sons Inc., 2013 
-3. Nandi A. "Spark for Python Developers", 2015 
-4. Frank J. Ohlhorst. "Big Data Analytics. Turning Big Data into Big Money". John Wiley & Sons. Inc. 2013 
-5. Russell J. "Zwinna analiza danych Apache Hadoop dla każdego", Helion, 2014 
-6. Todman C., "Projektowanie hurtowni danych, Wspomaganie zarządzania relacjami z klientami", Helion, 2011
+3️⃣ Bellemare A., Mikrousługi oparte na zdarzeniach. Wykorzystanie danych w organizacji na dużą skalę, O'Reilly 2021.
+
+4️⃣ Shapira G., Palino T., Sivaram R., Petty K., Kafka: The Definitive Guide. Real-time data and stream processing at scale, O'Reilly 2022.
+
+5️⃣ Lakshmanan V., Robinson S., Munn M., Wzorce projektowe uczenia maszynowego. Rozwiązania typowych problemów dotyczących przygotowania danych, konstruowania modeli i MLOps, O'Reilly 2021.
+
+6️⃣ Gift N., Deza A., Practical MLOps: Operationalizing Machine Learning Models, O'Reilly 2022.
+
+7️⃣ Tiark Rompf, Streaming Systems: The What, Where, When, and How of Large-Scale Data Processing, O'Reilly 2018.
+
+8️⃣ Sebastián Ramírez, FastAPI: Modern Web APIs with Python, Manning (w przygotowaniu, aktualnie dostępna online).
+
+9️⃣ Trevor Hastie, Robert Tibshirani, Jerome Friedman, The Elements of Statistical Learning: Data Mining, Inference, and Prediction, Springer 2017.
+
+🔟 Anirudh Koul, Siddha Ganju, Meher Kasam, Practical Deep Learning for Cloud, Mobile & Edge, O'Reilly 2019.
 
 
 ## Nowy program przedmiotu
@@ -162,4 +209,31 @@ Metody dokumentacji: prace pisemne studenta ( w trakcie semestru, zaliczeniowe, 
 3. Architektura IT dla przetwarzania w czasie rzeczywistym – Omówienie architektur Lambda i Kappa w kontekście strumieniowego przetwarzania danych.
 4. Systemy przetwarzania danych w czasie rzeczywistym – Przegląd technologii: Apache Kafka, Apache Spark Streaming, Apache Flink i ich zastosowania w Pythonie.
 5. Podstawy uczenia maszynowego w czasie rzeczywistym – Porównanie offline learning vs. online learning, problemy związane z przyrostowym uczeniem maszynowym.
+
+🧑‍🏫 Wykłady (teoria + case study z biznesu)
+
+1️⃣ Wprowadzenie: Ewolucja analizy danych
+Dane strukturyzowane (SQL, Pandas) vs. nieustrukturyzowane (teksty, obrazy, grafy).
+Przetwarzanie wsadowe (batch processing) vs. strumieniowe (stream processing).
+Case study: Jak firmy przechodzą od tabel do analizy strumieniowej?
+
+2️⃣ Systemy przetwarzania danych w czasie rzeczywistym
+Modele danych: relacyjne (PostgreSQL), grafowe (NetworkX), strumieniowe (Kafka).
+Lambda i Kappa Architecture – różnice i zastosowania.
+Case study: Rekomendacje produktowe w e-commerce.
+
+3️⃣ Modele ML/DL dla danych w czasie rzeczywistym
+Uczenie wsadowe (batch) vs. przyrostowe (online learning).
+Stochastic Gradient Descent (SGD) – podstawa ML na strumieniach.
+Case study: Klasyfikacja oszustw w czasie rzeczywistym.
+
+4️⃣ Obiektowe programowanie w Pythonie w kontekście ML
+Struktury klasowe dla modeli ML.
+Tworzenie pipeline'ów ML w Pythonie.
+Case study: Klasyfikacja wiadomości jako SPAM/NON-SPAM w strumieniu tekstów.
+
+5️⃣ Tworzenie API z regułami decyzyjnymi i ML
+Budowa API w FastAPI dla modelu ML.
+Integracja modelu klasyfikacji z systemem decyzyjnym.
+Case study: System wykrywania anomalii w logach serwerowych.
 

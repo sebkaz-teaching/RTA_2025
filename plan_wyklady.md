@@ -1,38 +1,36 @@
 
 ## 📖 Plan wykładu  
+🧑‍🏫 Wykłady (teoria + case study z biznesu)
 
-### Wprowadzenie (15 min)  
-- **Czym jest analiza danych w czasie rzeczywistym?**  
-  - Definicja i kluczowe koncepcje  
-  - Przykłady zastosowań w biznesie i technologii  
-  - Różnice między **real-time analytics, near real-time analytics, batch processing**  
-- **Dlaczego real-time analytics jest ważne?**  
-  - Przykłady użycia: monitoring systemów IT, analiza IoT, fraud detection, dynamiczne systemy rekomendacyjne  
-  - Wyzwania związane z analizą danych w czasie rzeczywistym  
+1️⃣ Wprowadzenie: Ewolucja analizy danych
+Dane strukturyzowane (SQL, Pandas) vs. nieustrukturyzowane (teksty, obrazy, grafy).
+Przetwarzanie wsadowe (batch processing) vs. strumieniowe (stream processing).
+Case study: Jak firmy przechodzą od tabel do analizy strumieniowej?
+2️⃣ Systemy przetwarzania danych w czasie rzeczywistym
+Modele danych: relacyjne (PostgreSQL), grafowe (NetworkX), strumieniowe (Kafka).
+Lambda i Kappa Architecture – różnice i zastosowania.
+Case study: Rekomendacje produktowe w e-commerce.
+3️⃣ Modele ML/DL dla danych w czasie rzeczywistym
+Uczenie wsadowe (batch) vs. przyrostowe (online learning).
+Stochastic Gradient Descent (SGD) – podstawa ML na strumieniach.
+Case study: Klasyfikacja oszustw w czasie rzeczywistym.
+4️⃣ Obiektowe programowanie w Pythonie w kontekście ML
+Struktury klasowe dla modeli ML.
+Tworzenie pipeline'ów ML w Pythonie.
+Case study: Klasyfikacja wiadomości jako SPAM/NON-SPAM w strumieniu tekstów.
+5️⃣ Tworzenie API z regułami decyzyjnymi i ML
+Budowa API w FastAPI dla modelu ML.
+Integracja modelu klasyfikacji z systemem decyzyjnym.
+Case study: System wykrywania anomalii w logach serwerowych.
+🛠 Laboratoria (praktyka + implementacja w Pythonie)
 
-### 2️⃣ Batch vs. Streaming vs. Real-Time Analytics (20 min)  
-- **Batch processing**  
-  - Czym jest? Kiedy jest stosowany?  
-  - Przykłady: tradycyjne raportowanie, analizy historyczne  
-- **Streaming analytics (strumieniowe przetwarzanie danych)**  
-  - Jak działa? W jakich sytuacjach jest używane?  
-  - Przykłady: analiza logów, IoT, detekcja anomalii  
-- **Real-time analytics (analityka w czasie rzeczywistym)**  
-  - Jakie systemy spełniają kryteria real-time?  
-  - Przykłady: systemy rekomendacyjne (**Netflix, Spotify**), dynamiczne ceny (**Uber, Amazon**)  
-
-### 3️⃣ Architektura systemów real-time (20 min)  
-- **Kluczowe komponenty**  
-  - 📡 Źródła danych: **sensory, API, bazy danych, IoT**  
-  - 📩 Systemy kolejkowe: **Apache Kafka, RabbitMQ**  
-  - 🖥 Warstwa obliczeniowa: **Apache Flink, Spark Streaming**  
-  - 📊 Warstwa analityczna: **ML, systemy detekcji anomalii**  
-- **Porównanie podejść Lambda i Kappa**  
-  - Kiedy stosować **Lambda Architecture** (batch + stream)?  
-  - Kiedy wystarczy **Kappa Architecture** (tylko streaming)?  
-
-### 4️⃣ Wyzwania i problemy analizy danych w czasie rzeczywistym (15 min)  
-- ⚡ **Opóźnienia i latencja** – co oznacza "real-time" w różnych kontekstach?  
-- 📈 **Obsługa dużych wolumenów danych** – jak efektywnie przetwarzać miliony zdarzeń na sekundę?  
-- ⚖ **Dokładność vs. szybkość**
-
+🔹 Lab 1: Struktury danych w Pythonie – Pandas, SQL (PostgreSQL, SQLite).
+🔹 Lab 2: Dane grafowe w analizie relacji – NetworkX i algorytmy grafowe.
+🔹 Lab 3: Analiza tekstów i NLP – przetwarzanie danych tekstowych (spaCy, TF-IDF).
+🔹 Lab 4: Strumieniowanie danych w Apache Kafka – pierwsza aplikacja Python + Kafka.
+🔹 Lab 5: Uczenie maszynowe na strumieniu – klasyfikacja w czasie rzeczywistym (SGDClassifier).
+🔹 Lab 6: Przygotowanie API w FastAPI – serwowanie modelu ML.
+🔹 Lab 7: Zastosowanie modelu ML w regułach decyzyjnych – integracja API z logiką biznesową.
+🔹 Lab 8: Przetwarzanie obrazów w czasie rzeczywistym – OpenCV + klasyfikacja wideo.
+🔹 Lab 9: Wykrywanie oszustw w transakcjach finansowych – online learning na Kafka.
+🔹 Lab 10: Projekt końcowy – budowa mikroserwisu do analizy danych w czasie rzeczywistym.

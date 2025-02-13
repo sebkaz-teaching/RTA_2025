@@ -1,0 +1,292 @@
+---
+title:  Wykład 2
+---
+ 
+⏳ Czas trwania: 1,5h
+*🎯 Cel wykładu* 
+
+zrozumienie, jak dane ewoluowały w różnych branżach i jakie narzędzia są dziś wykorzystywane do ich analizy.
+
+---
+
+W tym wstępie przedstawimy ewolucję analizy danych, pokazując, jak zmieniały się technologie i podejścia do przetwarzania danych na przestrzeni lat. 
+Rozpoczniemy od klasycznych struktur tabelarycznych, przez bardziej zaawansowane modele grafowe i tekstowe, aż po nowoczesne podejście do strumieniowego przetwarzania danych. 
+
+
+## Zmiany w analizie danych:
+
+### Dane tabelaryczne (tabele SQL):
+
+Początkowo dane były przechowywane w postaci tabel, gdzie każda tabela zawierała zorganizowane informacje w kolumnach i wierszach (np. bazy danych SQL). 
+Modele takie doskonale nadawały się do danych **ustrukturyzowanych**.
+
+### Dane grafowe:
+
+Wraz z rozwojem potrzeb biznesowych pojawiły się **dane grafowe**, w których relacje między obiektami (np. użytkownikami, produktami) są reprezentowane jako wierzchołki i krawędzie grafu. 
+Przykłady takich danych to sieci społecznościowe, linki internetowe czy zależności między produktami.
+
+### Dane tekstowe:
+
+Kolejnym etapem była analiza danych tekstowych, które zaczęły odgrywać istotną rolę w analizie danych z mediów społecznościowych, e-maili, forów czy opinii. Technologie takie jak NLP (przetwarzanie języka naturalnego) pozwalają wydobywać sens z nieustrukturyzowanego tekstu.
+
+### Dane strumieniowe:
+
+Obecnie najbardziej dynamicznie rozwija się analiza danych strumieniowych, gdzie dane są analizowane na bieżąco, w miarę ich napływania. 
+Przykładem takiego podejścia jest monitorowanie zdarzeń w czasie rzeczywistym, np. transakcje finansowe, analiza social media, detekcja oszustw.
+
+## Popularne narzędzia analiz danych:
+
+### SQL: 
+Tradycyjne bazy danych SQL są idealne do pracy z danymi ustrukturyzowanymi, które wymagają ścisłej struktury tabel (np. dane o transakcjach, klientach). 
+SQL jest standardem w analizie takich danych, ale nie jest wystarczający w przypadku pracy z dużymi ilościami danych nieustrukturyzowanych.
+
+### NoSQL: 
+Bazy danych NoSQL, takie jak MongoDB, Cassandra, pozwalają na bardziej elastyczne podejście do danych, które mogą przybierać różne formy (np. dokumenty JSON, dane z sensorów, obrazy). NoSQL świetnie sprawdza się w przypadku danych, które nie pasują do tradycyjnych struktur tabelarycznych.
+
+### Data Lake: 
+Data Lake to systemy przechowywania ogromnych zbiorów danych, zarówno ustrukturyzowanych, jak i nieustrukturyzowanych. Dzięki Data Lake organizacje mogą przechowywać dane w pierwotnej formie i analizować je później w miarę potrzeb, bez potrzeby wcześniejszego przetwarzania.
+### Apache Kafka: 
+Kafka to system przetwarzania strumieniowego, który umożliwia zbieranie, przechowywanie i przetwarzanie danych w czasie rzeczywistym. Jest szeroko wykorzystywany w aplikacjach wymagających szybkiej reakcji na dane napływające w czasie rzeczywistym.
+### Apache Flink: 
+Apache Flink to narzędzie do przetwarzania strumieniowego, które umożliwia analizowanie danych w czasie rzeczywistym z minimalnym opóźnieniem. W przeciwieństwie do Kafki, Flink nie tylko zbiera dane, ale także je przetwarza, co jest szczególnie przydatne w analizach złożonych.
+
+### Przykład: Jak Netflix analizuje dane w czasie rzeczywistym?
+
+Netflix to doskonały przykład firmy, która z powodzeniem wykorzystuje dane strumieniowe w celu dostarczania użytkownikom spersonalizowanych rekomendacji i analizowania ich zachowań. 
+Dzięki technologii strumieniowej, Netflix monitoruje działania swoich użytkowników (co oglądają, jakie treści przewijają, jak długo oglądają), analizując te dane w czasie rzeczywistym. 
+Na podstawie tej analizy Netflix jest w stanie dostarczać rekomendacje filmów i seriali w czasie rzeczywistym, dostosowując je do zmieniających się preferencji użytkownika.
+
+## Przykład strumieniowego przetwarzania w Netflix:
+
+Kiedy użytkownik zaczyna oglądać film, system śledzi jego reakcje (np. przerwanie filmu, przewijanie) i dostosowuje rekomendacje do jego preferencji. 
+Takie dane mogą być przesyłane do systemu analitycznego za pomocą narzędzi takich jak Apache Kafka i przetwarzane na żywo w Apache Flink.
+
+## Podsumowanie
+
+Dzięki ewolucji technologii, analiza danych przeszła długą drogę, od prostych tabel SQL, przez złożone dane grafowe i tekstowe, aż do analiz strumieniowych. Zrozumienie różnic między tymi podejściami pozwala na lepsze dobieranie narzędzi do odpowiednich typów analiz, w tym wykorzystania nowoczesnych systemów przetwarzania danych w czasie rzeczywistym, takich jak Kafka i Flink.
+
+
+## Ewolucja analizy danych: Od struktur tabelarycznych do strumieni
+
+
+Rozwój technologii informatycznych stworzył nowe możliwości przetwarzania ogromnych ilości danych, zarówno **ustrukturyzowanych**, jak i **nieustrukturyzowanych**. 
+W ciągu ostatnich kilku dekad obserwujemy wzrost dostępnych danych oraz technologii do ich przechowywania i analizy. 
+Dzięki temu dane stały się jednym z najcenniejszych zasobów współczesnych organizacji.
+
+## Dane ustrukturyzowane
+
+Dane ustrukturyzowane to dane, które są przechowywane w sposób zorganizowany i jednoznacznie określony. 
+Przykładami takich danych są tabele w bazach SQL, w których każda kolumna reprezentuje jedną cechę, a każdy wiersz to pojedynczy rekord. 
+Tego typu dane są najczęściej wykorzystywane w klasycznych algorytmach uczenia maszynowego, takich jak regresja logistyczna, XGBoost czy modele klasyfikacji.
+
+Przykład: Załóżmy, że mamy tabelę, w której każda linia przedstawia dane o kliencie: jego płeć, wzrost, ilość kredytów itd. 
+
+```{python}
+#| echo: false
+import pandas as pd
+```
+
+```{python}
+#| label: tab_data
+dane_klientow = {"sex":["m","f","m","m","f"],
+ "height":[160, 172, 158, 174, 192],
+ "credits":[0,0,1,3,1]
+ }
+
+df = pd.DataFrame(dane_klientow)
+print(df)
+```
+
+Na tej podstawie możemy przewidywać prawdopodobieństwo spłaty kredytu (regresja logistyczna).
+Takie przewidywanie również oznaczane jest jako cecha (_ang. target_).
+
+```{python}
+#| label: tab_data_target
+df['target'] = [0,1,1,0,0]
+print(df)
+```
+
+
+## Dane nieustrukturyzowane
+
+Dane nieustrukturyzowane to dane, które nie mają określonej, tabelarycznej formy. 
+Należą do nich obrazy, dźwięki, wideo i tekst. 
+Choć te dane wydają się chaotyczne, są one również cennym źródłem informacji, które można przetwarzać za pomocą odpowiednich algorytmów.
+
+Przykład: Analiza obrazów (np. weryfikacja, czy zdjęcie przedstawia psa czy kota) lub analizy tekstu (np. sentymentu w tweetach) są przykładami pracy z danymi nieustrukturyzowanymi.
+
+> Jakie wyzwania niesie analiza danych w różnych formach?
+
+Zwiększający się wolumen danych, a także ich różnorodność, stawia przed nami kolejne wyzwania związane z przetwarzaniem i analizowaniem tych danych.
+
+> Kluczowe pytanie brzmi: jak efektywnie przetwarzać ogromne ilości danych w czasie rzeczywistym?
+
+## Przetwarzanie wsadowe vs. przetwarzanie strumieniowe
+
+W tradycyjnych systemach analizy danych, takich jak bazy danych SQL, przetwarzanie danych odbywa się w trybie wsadowym (batch processing). 
+Oznacza to, że dane są zbierane przez pewien czas, a następnie przetwarzane w partiach (np. raz dziennie, raz w tygodniu). 
+Jest to podejście, które świetnie sprawdza się w analizach historycznych i podejmowaniu decyzji na podstawie dużych zbiorów danych.
+
+### Przykład batch processing:
+
+Przetwarzanie wszystkich transakcji dokonanych przez klientów w ciągu dnia, aby na końcu dnia wyciągnąć raporty i wnioski dotyczące aktywności.
+
+Natomiast przetwarzanie strumieniowe (stream processing) pozwala na bieżące analizowanie danych w momencie ich napływania. 
+Dzięki temu, dane mogą być przetwarzane i analizowane w czasie rzeczywistym, co jest niezwykle ważne w przypadku takich zastosowań jak wykrywanie nadużyć w czasie rzeczywistym, personalizowanie treści czy monitorowanie urządzeń IoT.
+
+### Przykład stream processing:
+
+System detekcji oszustw w kartach kredytowych, który monitoruje transakcje na żywo, analizując je pod kątem podejrzanych działań (np. przekroczenie typowego wzorca wydatków).
+
+
+Współczesna analiza danych nie ogranicza się do prostych zbiorów danych w formie tabelarycznej. Przechodzimy od danych ustrukturyzowanych do zaawansowanego przetwarzania strumieniowego, które pozwala na podejmowanie decyzji w czasie rzeczywistym. Zrozumienie różnicy między przetwarzaniem wsadowym a strumieniowym to klucz do pracy z nowoczesnymi technologiami i narzędziami, które napędzają innowacje w wielu dziedzinach.
+
+## Źródła danych
+
+Do trzech największych "generatorów" danych należą:
+
+- `dane społeczne` w formie tekstów (tweety, wpisy w portalach społecznościowych, komentarze), zdjęć czy plików wideo.
+    Przydatne do problemów biznesowych realizujących ocenę zachowań i nastrojów konsumentów w analizach marketingowych.
+- `IoT`: dane pochodzące z czujników, czy też logi działania urządzeń i użytkowników (np. na stronie www).
+- `dane transakcyjne`: czyli ogólnie to co w każdej chwili generowane jest jako transakcje pojawiające się zarówno w trybie online jak i w trybie offline.
+
+
+### Rzeczywisty proces generowania danych
+
+Dane generowane są w postaci `nieograniczonej` - pojawiają się na skutek ciągłych działań systemów. 
+W swoim telefonie wygenerowałeś dziś (a nawet na tych zajęciach!) wiele danych. 
+Czy na następnych zajęciach lub tez jutro nie będziesz ich generował?
+
+Dane zawsze generowane są jako jakaś forma strumienia danych. 
+
+Systemy obsługujące strumienie danych:
+- hurtownie danych
+- systemy monitorujące działania urządzeń (IoT)
+- systemy transakcyjne
+- systemy analityczne stron www
+- reklamy on-line
+- media społecznościowe
+- systemy logowania 
+- ....
+
+> firma to organizacja, która generuje i odpowiada na ciągły strumień danych. [Zobacz](/RTA_2025/ksiazki#bellemare)
+
+
+W przetwarzaniu wsadowym źródłem (ale i wynikiem przetwarzania) danych jest **plik**. 
+Jest on zapisywany raz i można się do niego odwołać (może na nim działać wiele procesów - zadań). 
+Nazwa pliku to element identyfikujący zbiór rekordów. 
+
+W przypadku strumienia zdarzenie jest generowane tylko raz przez tzw. _producenta_ (zwanego też nadawcą lub dostawcą).
+Powstałe zdarzenie przetwarzane może być przez wielu tzw. _konsumentów_ (odbiorców). 
+Zdarzenia strumieniowe grupowane są w tzw. **tematy** (ang. **topics**). 
+
+
+## Architektura systemów real-time
+
+Wykorzystanie systemów real-time (czas rzeczywisty) w analizie danych wymaga odpowiedniej architektury, która będzie mogła szybko przetwarzać ogromne ilości danych oraz reagować na nie w czasie rzeczywistym. 
+Architektura systemu real-time jest kluczowa, ponieważ umożliwia szybsze podejmowanie decyzji, monitorowanie procesów w czasie rzeczywistym i reagowanie na zdarzenia bez opóźnienia.
+
+Omówimy główne elementy architektury systemów real-time, popularne wzorce architektoniczne oraz technologie, które są wykorzystywane do budowy takich systemów.
+
+### Podstawowe elementy systemu real-time
+
+Systemy real-time muszą spełniać szereg wymagań związanych z czasem przetwarzania danych. 
+Istnieje kilka kluczowych komponentów w architekturze systemu, które zapewniają jego prawidłowe funkcjonowanie.
+
+#### Producent danych (Data Producer)
+
+Dane w systemie real-time pochodzą z różnych źródeł, takich jak:
+
+- Czujniki IoT: np. monitorowanie maszyn w fabryce, urządzenia medyczne.
+- Transakcje w czasie rzeczywistym: np. zakupy online, dane z giełdy.
+- Dane użytkowników: np. logi użytkowników w aplikacjach mobilnych, dane z mediów społecznościowych.
+
+#### Przesyłanie danych (Data Transport)
+
+Dane muszą być szybko przesyłane do systemów, które mogą je analizować. 
+W tym celu wykorzystywane są technologie strumieniowe, takie jak:
+
+- Apache Kafka: popularny system do przesyłania danych w czasie rzeczywistym, zapewniający wysoką wydajność i niezawodność.
+- Apache Pulsar: alternatywa dla Kafki, dedykowana do przetwarzania danych w czasie rzeczywistym z dużą ilością subskrybentów.
+
+#### Przetwarzanie danych (Data Processing)
+
+Dane w systemach real-time są często przetwarzane w strumieniu. Dwa główne modele przetwarzania to:
+
+- Batch processing: Przetwarzanie danych w partiach, które może mieć opóźnienie, ale przetwarza dane w sposób efektywny. Może być wykorzystywane w kombinacji z systemami real-time do agregacji danych.
+- Stream processing: Przetwarzanie danych w czasie rzeczywistym, bez opóźnień, w którym dane są natychmiastowo analizowane i przetwarzane.
+
+#### Składowanie danych (Data Storage)
+
+Przechowywanie danych w systemie real-time zależy od wymagań aplikacji. Dwa główne rodzaje przechowywania to:
+
+- Data Lake: składowanie ogromnych ilości nieprzetworzonych danych w postaci surowych plików.
+Bazy danych NoSQL: takie jak Cassandra, które umożliwiają szybki dostęp do danych w czasie rzeczywistym.
+- Data Warehouse: składowanie przetworzonych danych w celu ich analizy.
+
+#### Analiza i wizualizacja danych (Data Analytics and Visualization)
+
+Po przetworzeniu danych w czasie rzeczywistym należy wykonać ich analizę i prezentację w sposób zrozumiały dla użytkownika:
+
+- Dashboardy: narzędzia takie jak Grafana lub Kibana, które służą do wizualizacji wyników w czasie rzeczywistym.
+- Machine Learning: zastosowanie algorytmów uczenia maszynowego w czasie rzeczywistym do klasyfikacji, wykrywania anomalii czy predykcji (np. wykrywanie oszustw).
+
+### Popularne architektury systemów real-time
+
+####  Lambda Architecture
+
+Lambda Architecture to popularna koncepcja przetwarzania danych, która łączy przetwarzanie wsadowe z przetwarzaniem strumieniowym. To klasyczna architektura używana w systemach przetwarzania Big Data, która zakłada dwie warstwy:
+
+- Batch Layer: przetwarzanie (dużych ilości) danych wsadowych, które są później wykorzystywane do analizy. Realizuje procesy przetwarzania w trybie offline
+- Speed Layer (Real-Time Layer): przetwarzanie danych w czasie rzeczywistym, czyli napływające dane strumieniowe, np. z sensorów, social media, transakcji, w celu uzyskania natychmiastowych wyników.
+
+- Serving Layer: warstwa, która łączy wyniki obu poprzednich warstw i dostarcza je do użytkownika np. za pomocą API.
+
+</br>
+<img src = "img/lambda_dale.jpg" class="center" />
+
+#### Zalety i Wady Lambda Architecture:
+
+- ✅ Możliwość łączenia przetwarzania wsadowego i strumieniowego, 
+- ✅ wsparcie dla dużych zbiorów danych, 
+- ✅ elastyczność w przetwarzaniu złożonych zapytań.
+- ❌ Wymaga utrzymywania dwóch oddzielnych systemów do przetwarzania danych (batch i stream), co prowadzi do złożoności implementacji i utrzymania.
+
+#### Kappa Architecture
+
+Kappa Architecture jest uproszczoną wersją Lambda Architecture. 
+Zamiast używać dwóch osobnych warstw (batch i speed), Kappa wykorzystuje tylko jedną warstwę przetwarzania strumieniowego, co upraszcza cały system. 
+
+Jest to bardziej elastyczne podejście do budowy systemów real-time, zwłaszcza w przypadku, gdy dane są przetwarzane tylko w jednym trybie (streaming).
+
+</br>
+<img src = "img/kappa.jpg" class="center" />
+
+#### Zalety i Wady Kappa Architecture:
+
+- ✅ Prostota: Jako że przetwarzanie danych odbywa się tylko w jednym strumieniu, cały system jest prostszy i bardziej spójny.
+- ✅ Skalowalność: Dzięki eliminacji warstwy batch, system jest bardziej elastyczny i skalowalny w kontekście analizy danych w czasie rzeczywistym.
+- ✅ Idealne dla ML: Kappa Architecture świetnie sprawdza się w zastosowaniach związanych z Machine Learning, ponieważ przetwarzanie danych odbywa się na bieżąco, co pozwala na szybsze uczenie i wdrażanie modeli ML w czasie rzeczywistym.
+- ❌ Może być mniej wydajna przy bardzo dużych zbiorach danych, w przypadku, gdy wymagane jest skomplikowane przetwarzanie wsadowe.
+
+#### Microservices Architecture
+
+Architektura mikroserwisów jest powszechnie wykorzystywana w systemach real-time, ponieważ umożliwia:
+
+- Podział aplikacji na mniejsze, autonomiczne jednostki.
+- Elastyczność i skalowalność systemu.
+- Możliwość przetwarzania różnych rodzajów danych przez różne mikroserwisy.
+- Wykorzystanie komunikacji asynchronicznej, np. przez kolejki wiadomości.
+
+#### Przykład 
+
+Uber to przykład firmy, która skutecznie wykorzystuje narzędzia do przetwarzania strumieniowego, by monitorować ruch drogowy w czasie rzeczywistym. 
+Dzięki systemowi Apache Kafka, Uber gromadzi dane o ruchu drogowym, lokalizacji pojazdów oraz czasach oczekiwania na przejazd, które są następnie analizowane na żywo.
+
+Dane wejściowe: Informacje o czasie i miejscu podróży, dane GPS z pojazdów, natężenie ruchu.
+
+Proces przetwarzania: Uber wykorzystuje Apache Kafka do przesyłania tych danych w czasie rzeczywistym do systemów takich jak Apache Flink lub Spark Streaming, które analizują je na bieżąco.
+
+Analiza: System przewiduje czas oczekiwania na przejazd, monitoruje warunki drogowe oraz optymalizuje trasę w czasie rzeczywistym.
+
+Wynik: Użytkownicy Ubera otrzymują prognozy czasu przejazdu, a Uber dynamicznie dostosowuje zasoby (np. przydzielanie kierowców), co umożliwia optymalizację transportu.

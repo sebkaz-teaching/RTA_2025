@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>wyklad1 – Analiza danych w czasie rzeczywistym</title>
+<title>Wykład 1 – Analiza danych w czasie rzeczywistym</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -162,9 +162,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#wprowadzenie" id="toc-wprowadzenie" class="nav-link active" data-scroll-target="#wprowadzenie">📊 Wprowadzenie</a>
-  <ul class="collapse">
-  <li><a href="#czym-jest-analiza-danych-w-czasie-rzeczywistym" id="toc-czym-jest-analiza-danych-w-czasie-rzeczywistym" class="nav-link" data-scroll-target="#czym-jest-analiza-danych-w-czasie-rzeczywistym">Czym jest analiza danych w czasie rzeczywistym?</a>
+  <li><a href="#czym-jest-analiza-danych-w-czasie-rzeczywistym" id="toc-czym-jest-analiza-danych-w-czasie-rzeczywistym" class="nav-link active" data-scroll-target="#czym-jest-analiza-danych-w-czasie-rzeczywistym">Czym jest analiza danych w czasie rzeczywistym?</a>
   <ul class="collapse">
   <li><a href="#definicja-i-kluczowe-koncepcje" id="toc-definicja-i-kluczowe-koncepcje" class="nav-link" data-scroll-target="#definicja-i-kluczowe-koncepcje">Definicja i kluczowe koncepcje</a></li>
   <li><a href="#kluczowe-cechy-analizy-danych-w-czasie-rzeczywistym" id="toc-kluczowe-cechy-analizy-danych-w-czasie-rzeczywistym" class="nav-link" data-scroll-target="#kluczowe-cechy-analizy-danych-w-czasie-rzeczywistym">Kluczowe cechy analizy danych w czasie rzeczywistym:</a></li>
@@ -176,7 +174,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#telekomunikacja-i-iot" id="toc-telekomunikacja-i-iot" class="nav-link" data-scroll-target="#telekomunikacja-i-iot">Telekomunikacja i IoT</a></li>
   <li><a href="#ochrona-zdrowia" id="toc-ochrona-zdrowia" class="nav-link" data-scroll-target="#ochrona-zdrowia">Ochrona zdrowia</a></li>
   </ul></li>
-  <li><a href="#różnice-między-real-time-analytics-near-real-time-analytics-i-batch-processing" id="toc-różnice-między-real-time-analytics-near-real-time-analytics-i-batch-processing" class="nav-link" data-scroll-target="#różnice-między-real-time-analytics-near-real-time-analytics-i-batch-processing">Różnice między Real-Time Analytics, Near Real-Time Analytics i Batch Processing</a>
+  <li><a href="#różnice-między-batch-processing-near-real-time-analytics-real-time-analytics" id="toc-różnice-między-batch-processing-near-real-time-analytics-real-time-analytics" class="nav-link" data-scroll-target="#różnice-między-batch-processing-near-real-time-analytics-real-time-analytics">Różnice między Batch Processing, Near Real-Time Analytics, Real-Time Analytics</a>
   <ul class="collapse">
   <li><a href="#batch-processing-przetwarzanie-wsadowe" id="toc-batch-processing-przetwarzanie-wsadowe" class="nav-link" data-scroll-target="#batch-processing-przetwarzanie-wsadowe">Batch Processing – Przetwarzanie wsadowe</a></li>
   <li><a href="#near-real-time-analytics-analiza-niemal-w-czasie-rzeczywistym" id="toc-near-real-time-analytics-analiza-niemal-w-czasie-rzeczywistym" class="nav-link" data-scroll-target="#near-real-time-analytics-analiza-niemal-w-czasie-rzeczywistym">Near Real-Time Analytics – Analiza niemal w czasie rzeczywistym</a></li>
@@ -193,11 +191,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#optymalizacja-kosztów" id="toc-optymalizacja-kosztów" class="nav-link" data-scroll-target="#optymalizacja-kosztów">Optymalizacja kosztów</a></li>
   <li><a href="#zdolność-do-przewidywania-i-zapobiegania" id="toc-zdolność-do-przewidywania-i-zapobiegania" class="nav-link" data-scroll-target="#zdolność-do-przewidywania-i-zapobiegania">Zdolność do przewidywania i zapobiegania</a></li>
   </ul></li>
-  <li><a href="#architektura-systemów-real-time" id="toc-architektura-systemów-real-time" class="nav-link" data-scroll-target="#architektura-systemów-real-time">Architektura systemów real-time</a>
-  <ul class="collapse">
-  <li><a href="#podstawowe-elementy-systemu-real-time" id="toc-podstawowe-elementy-systemu-real-time" class="nav-link" data-scroll-target="#podstawowe-elementy-systemu-real-time">Podstawowe elementy systemu real-time</a></li>
-  <li><a href="#popularne-architektury-systemów-real-time" id="toc-popularne-architektury-systemów-real-time" class="nav-link" data-scroll-target="#popularne-architektury-systemów-real-time">Popularne architektury systemów real-time</a></li>
-  </ul></li>
   <li><a href="#wyzwania-i-problemy-analizy-danych-w-czasie-rzeczywistym" id="toc-wyzwania-i-problemy-analizy-danych-w-czasie-rzeczywistym" class="nav-link" data-scroll-target="#wyzwania-i-problemy-analizy-danych-w-czasie-rzeczywistym">Wyzwania i problemy analizy danych w czasie rzeczywistym</a>
   <ul class="collapse">
   <li><a href="#skalowalność-systemów" id="toc-skalowalność-systemów" class="nav-link" data-scroll-target="#skalowalność-systemów">Skalowalność systemów</a></li>
@@ -208,27 +201,39 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#zarządzanie-błędami-i-awariami" id="toc-zarządzanie-błędami-i-awariami" class="nav-link" data-scroll-target="#zarządzanie-błędami-i-awariami">Zarządzanie błędami i awariami</a></li>
   <li><a href="#koszty-związane-z-infrastrukturą" id="toc-koszty-związane-z-infrastrukturą" class="nav-link" data-scroll-target="#koszty-związane-z-infrastrukturą">Koszty związane z infrastrukturą</a></li>
   </ul></li>
-  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Wykład 1</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
 
-<section id="wprowadzenie" class="level1">
-<h1>📊 Wprowadzenie</h1>
-<p>⏳ <strong>Czas trwania: 1,5 godziny</strong></p>
-<p><em>🎯 Cel wykładu</em></p>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>⏳ Czas trwania: 1,5h <em>🎯 Cel wykładu</em></p>
 <p>Zapoznanie studentów z podstawami <strong>real-time analytics</strong>, różnicami między trybami przetwarzania danych (<strong>batch, streaming, real-time</strong>) oraz kluczowymi zastosowaniami i wyzwaniami.</p>
 <hr>
 <section id="czym-jest-analiza-danych-w-czasie-rzeczywistym" class="level2">
 <h2 class="anchored" data-anchor-id="czym-jest-analiza-danych-w-czasie-rzeczywistym">Czym jest analiza danych w czasie rzeczywistym?</h2>
 <section id="definicja-i-kluczowe-koncepcje" class="level3">
 <h3 class="anchored" data-anchor-id="definicja-i-kluczowe-koncepcje">Definicja i kluczowe koncepcje</h3>
-<p>Analiza danych w czasie rzeczywistym (ang. <em>Real-Time Data Analytics</em>) to <em>proces</em> przetwarzania i analizy danych natychmiast po ich wygenerowaniu, bez konieczności przechowywania i oczekiwania na późniejsze przetworzenie. Celem jest uzyskanie <em>natychmiastowych</em> wniosków i reakcji na zmieniające się warunki w systemach biznesowych, technologicznych i naukowych.</p>
+<p>Analiza danych w czasie rzeczywistym (ang. <em>Real-Time Data Analytics</em>) to <strong>proces</strong> przetwarzania i analizy danych natychmiast po ich wygenerowaniu, bez konieczności przechowywania i oczekiwania na późniejsze przetworzenie. Celem jest uzyskanie <strong>natychmiastowych</strong> wniosków i reakcji na zmieniające się warunki w systemach biznesowych, technologicznych i naukowych.</p>
 </section>
 <section id="kluczowe-cechy-analizy-danych-w-czasie-rzeczywistym" class="level3">
 <h3 class="anchored" data-anchor-id="kluczowe-cechy-analizy-danych-w-czasie-rzeczywistym">Kluczowe cechy analizy danych w czasie rzeczywistym:</h3>
@@ -245,39 +250,39 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="finanse-i-bankowość" class="level3">
 <h3 class="anchored" data-anchor-id="finanse-i-bankowość">Finanse i bankowość</h3>
 <ul>
-<li><em>Wykrywanie oszustw</em> – analiza transakcji w czasie rzeczywistym pozwala na wykrycie anomalii wskazujących na oszustwa.</li>
-<li><em>Automatyczny trading</em> – systemy HFT (High-Frequency Trading) analizują miliony danych w ułamkach sekundy.</li>
-<li><em>Dynamiczne oceny kredytowe</em> – natychmiastowa analiza ryzyka kredytowego klienta.</li>
+<li><strong>Wykrywanie oszustw</strong> – analiza transakcji w czasie rzeczywistym pozwala na wykrycie anomalii wskazujących na oszustwa.</li>
+<li><strong>Automatyczny trading</strong> – systemy HFT (High-Frequency Trading) analizują miliony danych w ułamkach sekundy.</li>
+<li><strong>Dynamiczne oceny kredytowe</strong> – natychmiastowa analiza ryzyka kredytowego klienta.</li>
 </ul>
 </section>
 <section id="e-commerce-i-marketing-cyfrowy" class="level3">
 <h3 class="anchored" data-anchor-id="e-commerce-i-marketing-cyfrowy">E-commerce i marketing cyfrowy</h3>
 <ul>
-<li><em>Personalizacja ofert w czasie rzeczywistym</em> – dynamiczne rekomendacje produktów na podstawie aktualnego zachowania użytkownika.</li>
-<li><em>Dynamiczne ceny</em> – np. Uber, Amazon i hotele stosują dynamiczne ustalanie cen na podstawie popytu.</li>
-<li><em>Monitorowanie mediów społecznościowych</em> – analiza nastrojów klientów i natychmiastowa reakcja na negatywne komentarze.</li>
+<li><strong>Personalizacja ofert w czasie rzeczywistym</strong> – dynamiczne rekomendacje produktów na podstawie aktualnego zachowania użytkownika.</li>
+<li><strong>Dynamiczne ceny</strong> – np. Uber, Amazon i hotele stosują dynamiczne ustalanie cen na podstawie popytu.</li>
+<li><strong>Monitorowanie mediów społecznościowych</strong> – analiza nastrojów klientów i natychmiastowa reakcja na negatywne komentarze.</li>
 </ul>
 </section>
 <section id="telekomunikacja-i-iot" class="level3">
 <h3 class="anchored" data-anchor-id="telekomunikacja-i-iot">Telekomunikacja i IoT</h3>
 <ul>
-<li><em>Monitorowanie infrastruktury sieciowej</em> – analiza logów w czasie rzeczywistym pozwala na wykrywanie awarii przed ich wystąpieniem.</li>
-<li><em>Smart Cities</em> – analiza ruchu drogowego i natychmiastowa optymalizacja sygnalizacji świetlnej.</li>
-<li><em>Analityka IoT</em> – urządzenia IoT generują strumienie danych, które można analizować w czasie rzeczywistym (np. inteligentne liczniki energii).</li>
+<li><strong>Monitorowanie infrastruktury sieciowej</strong> – analiza logów w czasie rzeczywistym pozwala na wykrywanie awarii przed ich wystąpieniem.</li>
+<li><strong>Smart Cities</strong> – analiza ruchu drogowego i natychmiastowa optymalizacja sygnalizacji świetlnej.</li>
+<li><strong>Analityka IoT</strong> – urządzenia IoT generują strumienie danych, które można analizować w czasie rzeczywistym (np. inteligentne liczniki energii).</li>
 </ul>
 </section>
 <section id="ochrona-zdrowia" class="level3">
 <h3 class="anchored" data-anchor-id="ochrona-zdrowia">Ochrona zdrowia</h3>
 <ul>
-<li><em>Monitorowanie pacjentów</em> – analiza sygnałów z urządzeń medycznych w celu natychmiastowego wykrycia zagrożenia życia.</li>
-<li><em>Analityka epidemiologiczna</em> – śledzenie rozprzestrzeniania się chorób na podstawie danych w czasie rzeczywistym.</li>
+<li><strong>Monitorowanie pacjentów</strong> – analiza sygnałów z urządzeń medycznych w celu natychmiastowego wykrycia zagrożenia życia.</li>
+<li><strong>Analityka epidemiologiczna</strong> – śledzenie rozprzestrzeniania się chorób na podstawie danych w czasie rzeczywistym.</li>
 </ul>
 <p>Analiza danych w czasie rzeczywistym to kluczowy element nowoczesnych systemów informatycznych, który umożliwia firmom podejmowanie decyzji szybciej i bardziej precyzyjnie. Jest wykorzystywana w wielu branżach – od finansów, przez e-commerce, aż po ochronę zdrowia i IoT.</p>
 </section>
 </section>
-<section id="różnice-między-real-time-analytics-near-real-time-analytics-i-batch-processing" class="level2">
-<h2 class="anchored" data-anchor-id="różnice-między-real-time-analytics-near-real-time-analytics-i-batch-processing">Różnice między Real-Time Analytics, Near Real-Time Analytics i Batch Processing</h2>
-<p>Podczas analizy danych istnieją trzy główne podejścia do przetwarzania informacji:</p>
+<section id="różnice-między-batch-processing-near-real-time-analytics-real-time-analytics" class="level2">
+<h2 class="anchored" data-anchor-id="różnice-między-batch-processing-near-real-time-analytics-real-time-analytics">Różnice między Batch Processing, Near Real-Time Analytics, Real-Time Analytics</h2>
+<p>Istnieją trzy główne podejścia do przetwarzania informacji:</p>
 <ol type="1">
 <li>Batch Processing (Przetwarzanie wsadowe)</li>
 <li>Near Real-Time Analytics (Analiza niemal w czasie rzeczywistym)</li>
@@ -587,84 +592,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Real-time analytics to nie tylko analiza danych – to kluczowy element strategii firm w świecie, który wymaga szybkich reakcji, elastyczności i dostosowywania się do zmieniającego się otoczenia. Firmy, które wdrażają te technologie, mogą znacząco poprawić swoje wyniki finansowe, obsługę klienta, wydajność operacyjną, a także przewagę konkurencyjną.</p>
 </section>
 </section>
-<section id="architektura-systemów-real-time" class="level2">
-<h2 class="anchored" data-anchor-id="architektura-systemów-real-time">Architektura systemów real-time</h2>
-<p>Wykorzystanie systemów real-time (czas rzeczywisty) w analizie danych wymaga odpowiedniej architektury, która będzie mogła szybko przetwarzać ogromne ilości danych oraz reagować na nie w czasie rzeczywistym. Architektura systemu real-time jest kluczowa, ponieważ umożliwia szybsze podejmowanie decyzji, monitorowanie procesów w czasie rzeczywistym i reagowanie na zdarzenia bez opóźnienia.</p>
-<p>Omówimy główne elementy architektury systemów real-time, popularne wzorce architektoniczne oraz technologie, które są wykorzystywane do budowy takich systemów.</p>
-<section id="podstawowe-elementy-systemu-real-time" class="level3">
-<h3 class="anchored" data-anchor-id="podstawowe-elementy-systemu-real-time">Podstawowe elementy systemu real-time</h3>
-<p>Systemy real-time muszą spełniać szereg wymagań związanych z czasem przetwarzania danych. Istnieje kilka kluczowych komponentów w architekturze systemu, które zapewniają jego prawidłowe funkcjonowanie.</p>
-<section id="producent-danych-data-producer" class="level4">
-<h4 class="anchored" data-anchor-id="producent-danych-data-producer">Producent danych (Data Producer)</h4>
-<p>Dane w systemie real-time pochodzą z różnych źródeł, takich jak:</p>
-<ul>
-<li>Czujniki IoT: np. monitorowanie maszyn w fabryce, urządzenia medyczne.</li>
-<li>Transakcje w czasie rzeczywistym: np. zakupy online, dane z giełdy.</li>
-<li>Dane użytkowników: np. logi użytkowników w aplikacjach mobilnych, dane z mediów społecznościowych.</li>
-</ul>
-</section>
-<section id="przesyłanie-danych-data-transport" class="level4">
-<h4 class="anchored" data-anchor-id="przesyłanie-danych-data-transport">Przesyłanie danych (Data Transport)</h4>
-<p>Dane muszą być szybko przesyłane do systemów, które mogą je analizować. W tym celu wykorzystywane są technologie strumieniowe, takie jak:</p>
-<ul>
-<li>Apache Kafka: popularny system do przesyłania danych w czasie rzeczywistym, zapewniający wysoką wydajność i niezawodność.</li>
-<li>Apache Pulsar: alternatywa dla Kafki, dedykowana do przetwarzania danych w czasie rzeczywistym z dużą ilością subskrybentów.</li>
-</ul>
-</section>
-<section id="przetwarzanie-danych-data-processing" class="level4">
-<h4 class="anchored" data-anchor-id="przetwarzanie-danych-data-processing">Przetwarzanie danych (Data Processing)</h4>
-<p>Dane w systemach real-time są często przetwarzane w strumieniu. Dwa główne modele przetwarzania to:</p>
-<ul>
-<li>Batch processing: Przetwarzanie danych w partiach, które może mieć opóźnienie, ale przetwarza dane w sposób efektywny. Może być wykorzystywane w kombinacji z systemami real-time do agregacji danych.</li>
-<li>Stream processing: Przetwarzanie danych w czasie rzeczywistym, bez opóźnień, w którym dane są natychmiastowo analizowane i przetwarzane.</li>
-</ul>
-</section>
-<section id="składowanie-danych-data-storage" class="level4">
-<h4 class="anchored" data-anchor-id="składowanie-danych-data-storage">Składowanie danych (Data Storage)</h4>
-<p>Przechowywanie danych w systemie real-time zależy od wymagań aplikacji. Dwa główne rodzaje przechowywania to:</p>
-<ul>
-<li>Data Lake: składowanie ogromnych ilości nieprzetworzonych danych w postaci surowych plików. Bazy danych NoSQL: takie jak Cassandra, które umożliwiają szybki dostęp do danych w czasie rzeczywistym.</li>
-<li>Data Warehouse: składowanie przetworzonych danych w celu ich analizy.</li>
-</ul>
-</section>
-<section id="analiza-i-wizualizacja-danych-data-analytics-and-visualization" class="level4">
-<h4 class="anchored" data-anchor-id="analiza-i-wizualizacja-danych-data-analytics-and-visualization">Analiza i wizualizacja danych (Data Analytics and Visualization)</h4>
-<p>Po przetworzeniu danych w czasie rzeczywistym należy wykonać ich analizę i prezentację w sposób zrozumiały dla użytkownika:</p>
-<ul>
-<li>Dashboardy: narzędzia takie jak Grafana lub Kibana, które służą do wizualizacji wyników w czasie rzeczywistym.</li>
-<li>Machine Learning: zastosowanie algorytmów uczenia maszynowego w czasie rzeczywistym do klasyfikacji, wykrywania anomalii czy predykcji (np. wykrywanie oszustw).</li>
-</ul>
-</section>
-</section>
-<section id="popularne-architektury-systemów-real-time" class="level3">
-<h3 class="anchored" data-anchor-id="popularne-architektury-systemów-real-time">Popularne architektury systemów real-time</h3>
-<ol type="1">
-<li>Lambda Architecture</li>
-</ol>
-<p>Lambda Architecture to popularna koncepcja przetwarzania danych, która łączy przetwarzanie wsadowe z przetwarzaniem strumieniowym. Architektura ta umożliwia:</p>
-<ul>
-<li>Batch Layer: przetwarzanie danych wsadowych, które są później wykorzystywane do analizy.</li>
-<li>Speed Layer: przetwarzanie danych w czasie rzeczywistym w celu uzyskania natychmiastowych wyników.</li>
-<li>Serving Layer: warstwa, która łączy wyniki obu poprzednich warstw i dostarcza je do użytkownika.</li>
-</ul>
-<p><br> <img src="img/lambda_dale.jpg" class="center"></p>
-<ol start="2" type="1">
-<li>Kappa Architecture</li>
-</ol>
-<p>Kappa Architecture jest uproszczoną wersją Lambda Architecture. Zamiast używać dwóch osobnych warstw (batch i speed), Kappa wykorzystuje tylko jedną warstwę przetwarzania strumieniowego, co upraszcza cały system. Jest to bardziej elastyczne podejście do budowy systemów real-time, zwłaszcza w przypadku, gdy dane są przetwarzane tylko w jednym trybie (streaming).</p>
-<p><br> <img src="img/kappa.jpg" class="center"></p>
-<ol start="3" type="1">
-<li>Microservices Architecture</li>
-</ol>
-<p>Architektura mikroserwisów jest powszechnie wykorzystywana w systemach real-time, ponieważ umożliwia:</p>
-<ul>
-<li>Podział aplikacji na mniejsze, autonomiczne jednostki.</li>
-<li>Elastyczność i skalowalność systemu.</li>
-<li>Możliwość przetwarzania różnych rodzajów danych przez różne mikroserwisy.</li>
-<li>Wykorzystanie komunikacji asynchronicznej, np. przez kolejki wiadomości.</li>
-</ul>
-</section>
-</section>
 <section id="wyzwania-i-problemy-analizy-danych-w-czasie-rzeczywistym" class="level2">
 <h2 class="anchored" data-anchor-id="wyzwania-i-problemy-analizy-danych-w-czasie-rzeczywistym">Wyzwania i problemy analizy danych w czasie rzeczywistym</h2>
 <p>Analiza danych w czasie rzeczywistym wiąże się z wieloma wyzwaniami i trudnościami, które trzeba rozwiązać, aby systemy real-time działały efektywnie i niezawodnie. Pomimo ogromnego potencjału, jaki daje możliwość natychmiastowego przetwarzania danych, realizacja tych procesów w praktyce wiąże się z licznymi problemami technologicznymi, organizacyjnymi i dotyczącymi zarządzania danymi.</p>
@@ -748,7 +675,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Chociaż analiza danych w czasie rzeczywistym oferuje ogromne korzyści, wiąże się także z wieloma wyzwaniami. Właściwa architektura, narzędzia i technologie, takie jak Apache Kafka, Flink, Spark czy Kubernetes, mogą pomóc w przezwyciężeniu wielu z tych trudności. Warto również pamiętać o konieczności zapewnienia wysokiej jakości danych, ich bezpieczeństwa, a także elastyczności i skalowalności systemów, które będą w stanie sprostać rosnącym wymaganiom.</p>
 
 
-</section>
 </section>
 </section>
 </section>

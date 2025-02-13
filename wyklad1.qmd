@@ -1,19 +1,24 @@
-# 📊 Wprowadzenie
+---
+title:  Wykład 1
 
-⏳ **Czas trwania: 1,5 godziny**  
+format:
+  html:
+    code-fold: true
+jupyter: python3
+---
 
+⏳ Czas trwania: 1,5h
 *🎯 Cel wykładu* 
 
-Zapoznanie studentów z podstawami **real-time analytics**, różnicami między trybami przetwarzania danych (**batch, streaming, real-time**) oraz kluczowymi zastosowaniami i wyzwaniami.  
-
+Zapoznanie studentów z podstawami **real-time analytics**, różnicami między trybami przetwarzania danych (**batch, streaming, real-time**) oraz kluczowymi zastosowaniami i wyzwaniami.
 ---
 
 ## Czym jest analiza danych w czasie rzeczywistym?
 
 ### Definicja i kluczowe koncepcje
 
-Analiza danych w czasie rzeczywistym (ang. _Real-Time Data Analytics_) to *proces* przetwarzania i analizy danych natychmiast po ich wygenerowaniu, bez konieczności przechowywania i oczekiwania na późniejsze przetworzenie. 
-Celem jest uzyskanie *natychmiastowych* wniosków i reakcji na zmieniające się warunki w systemach biznesowych, technologicznych i naukowych.
+Analiza danych w czasie rzeczywistym (ang. _Real-Time Data Analytics_) to **proces** przetwarzania i analizy danych natychmiast po ich wygenerowaniu, bez konieczności przechowywania i oczekiwania na późniejsze przetworzenie. 
+Celem jest uzyskanie **natychmiastowych** wniosków i reakcji na zmieniające się warunki w systemach biznesowych, technologicznych i naukowych.
 
 ### Kluczowe cechy analizy danych w czasie rzeczywistym:
 
@@ -26,34 +31,34 @@ Celem jest uzyskanie *natychmiastowych* wniosków i reakcji na zmieniające się
 
 ### Finanse i bankowość
 
-- *Wykrywanie oszustw* – analiza transakcji w czasie rzeczywistym pozwala na wykrycie anomalii wskazujących na oszustwa.
-- *Automatyczny trading* – systemy HFT (High-Frequency Trading) analizują miliony danych w ułamkach sekundy.
-- *Dynamiczne oceny kredytowe* – natychmiastowa analiza ryzyka kredytowego klienta.
+- **Wykrywanie oszustw** – analiza transakcji w czasie rzeczywistym pozwala na wykrycie anomalii wskazujących na oszustwa.
+- **Automatyczny trading** – systemy HFT (High-Frequency Trading) analizują miliony danych w ułamkach sekundy.
+- **Dynamiczne oceny kredytowe** – natychmiastowa analiza ryzyka kredytowego klienta.
 
 
 ###  E-commerce i marketing cyfrowy
 
-- *Personalizacja ofert w czasie rzeczywistym* – dynamiczne rekomendacje produktów na podstawie aktualnego zachowania użytkownika.
-- *Dynamiczne ceny* – np. Uber, Amazon i hotele stosują dynamiczne ustalanie cen na podstawie popytu.
-- *Monitorowanie mediów społecznościowych* – analiza nastrojów klientów i natychmiastowa reakcja na negatywne komentarze.
+- **Personalizacja ofert w czasie rzeczywistym** – dynamiczne rekomendacje produktów na podstawie aktualnego zachowania użytkownika.
+- **Dynamiczne ceny** – np. Uber, Amazon i hotele stosują dynamiczne ustalanie cen na podstawie popytu.
+- **Monitorowanie mediów społecznościowych** – analiza nastrojów klientów i natychmiastowa reakcja na negatywne komentarze.
 
 ### Telekomunikacja i IoT
 
-- *Monitorowanie infrastruktury sieciowej* – analiza logów w czasie rzeczywistym pozwala na wykrywanie awarii przed ich wystąpieniem.
-- *Smart Cities* – analiza ruchu drogowego i natychmiastowa optymalizacja sygnalizacji świetlnej.
-- *Analityka IoT*  – urządzenia IoT generują strumienie danych, które można analizować w czasie rzeczywistym (np. inteligentne liczniki energii).
+- **Monitorowanie infrastruktury sieciowej** – analiza logów w czasie rzeczywistym pozwala na wykrywanie awarii przed ich wystąpieniem.
+- **Smart Cities** – analiza ruchu drogowego i natychmiastowa optymalizacja sygnalizacji świetlnej.
+- **Analityka IoT**  – urządzenia IoT generują strumienie danych, które można analizować w czasie rzeczywistym (np. inteligentne liczniki energii).
 
 ### Ochrona zdrowia
 
-- *Monitorowanie pacjentów* – analiza sygnałów z urządzeń medycznych w celu natychmiastowego wykrycia zagrożenia życia.
-- *Analityka epidemiologiczna*  – śledzenie rozprzestrzeniania się chorób na podstawie danych w czasie rzeczywistym.
+- **Monitorowanie pacjentów** – analiza sygnałów z urządzeń medycznych w celu natychmiastowego wykrycia zagrożenia życia.
+- **Analityka epidemiologiczna**  – śledzenie rozprzestrzeniania się chorób na podstawie danych w czasie rzeczywistym.
 
 Analiza danych w czasie rzeczywistym to kluczowy element nowoczesnych systemów informatycznych, który umożliwia firmom podejmowanie decyzji szybciej i bardziej precyzyjnie. 
 Jest wykorzystywana w wielu branżach – od finansów, przez e-commerce, aż po ochronę zdrowia i IoT.
 
-## Różnice między Real-Time Analytics, Near Real-Time Analytics i Batch Processing
+## Różnice między Batch Processing, Near Real-Time Analytics, Real-Time Analytics
 
-Podczas analizy danych istnieją trzy główne podejścia do przetwarzania informacji:
+Istnieją trzy główne podejścia do przetwarzania informacji:
 
 1. Batch Processing (Przetwarzanie wsadowe)
 2. Near Real-Time Analytics (Analiza niemal w czasie rzeczywistym)
@@ -338,87 +343,6 @@ Analiza w czasie rzeczywistym wspiera procesy predykcyjne, które mogą przewidy
 
 Real-time analytics to nie tylko analiza danych – to kluczowy element strategii firm w świecie, który wymaga szybkich reakcji, elastyczności i dostosowywania się do zmieniającego się otoczenia. 
 Firmy, które wdrażają te technologie, mogą znacząco poprawić swoje wyniki finansowe, obsługę klienta, wydajność operacyjną, a także przewagę konkurencyjną.
-
-## Architektura systemów real-time
-
-Wykorzystanie systemów real-time (czas rzeczywisty) w analizie danych wymaga odpowiedniej architektury, która będzie mogła szybko przetwarzać ogromne ilości danych oraz reagować na nie w czasie rzeczywistym. 
-Architektura systemu real-time jest kluczowa, ponieważ umożliwia szybsze podejmowanie decyzji, monitorowanie procesów w czasie rzeczywistym i reagowanie na zdarzenia bez opóźnienia.
-
-Omówimy główne elementy architektury systemów real-time, popularne wzorce architektoniczne oraz technologie, które są wykorzystywane do budowy takich systemów.
-
-### Podstawowe elementy systemu real-time
-
-Systemy real-time muszą spełniać szereg wymagań związanych z czasem przetwarzania danych. 
-Istnieje kilka kluczowych komponentów w architekturze systemu, które zapewniają jego prawidłowe funkcjonowanie.
-
-#### Producent danych (Data Producer)
-
-Dane w systemie real-time pochodzą z różnych źródeł, takich jak:
-
-- Czujniki IoT: np. monitorowanie maszyn w fabryce, urządzenia medyczne.
-- Transakcje w czasie rzeczywistym: np. zakupy online, dane z giełdy.
-- Dane użytkowników: np. logi użytkowników w aplikacjach mobilnych, dane z mediów społecznościowych.
-
-#### Przesyłanie danych (Data Transport)
-
-Dane muszą być szybko przesyłane do systemów, które mogą je analizować. 
-W tym celu wykorzystywane są technologie strumieniowe, takie jak:
-
-- Apache Kafka: popularny system do przesyłania danych w czasie rzeczywistym, zapewniający wysoką wydajność i niezawodność.
-- Apache Pulsar: alternatywa dla Kafki, dedykowana do przetwarzania danych w czasie rzeczywistym z dużą ilością subskrybentów.
-
-#### Przetwarzanie danych (Data Processing)
-
-Dane w systemach real-time są często przetwarzane w strumieniu. Dwa główne modele przetwarzania to:
-
-- Batch processing: Przetwarzanie danych w partiach, które może mieć opóźnienie, ale przetwarza dane w sposób efektywny. Może być wykorzystywane w kombinacji z systemami real-time do agregacji danych.
-- Stream processing: Przetwarzanie danych w czasie rzeczywistym, bez opóźnień, w którym dane są natychmiastowo analizowane i przetwarzane.
-
-#### Składowanie danych (Data Storage)
-
-Przechowywanie danych w systemie real-time zależy od wymagań aplikacji. Dwa główne rodzaje przechowywania to:
-
-- Data Lake: składowanie ogromnych ilości nieprzetworzonych danych w postaci surowych plików.
-Bazy danych NoSQL: takie jak Cassandra, które umożliwiają szybki dostęp do danych w czasie rzeczywistym.
-- Data Warehouse: składowanie przetworzonych danych w celu ich analizy.
-
-#### Analiza i wizualizacja danych (Data Analytics and Visualization)
-
-Po przetworzeniu danych w czasie rzeczywistym należy wykonać ich analizę i prezentację w sposób zrozumiały dla użytkownika:
-
-- Dashboardy: narzędzia takie jak Grafana lub Kibana, które służą do wizualizacji wyników w czasie rzeczywistym.
-- Machine Learning: zastosowanie algorytmów uczenia maszynowego w czasie rzeczywistym do klasyfikacji, wykrywania anomalii czy predykcji (np. wykrywanie oszustw).
-
-### Popularne architektury systemów real-time
-
-1.  Lambda Architecture
-
-Lambda Architecture to popularna koncepcja przetwarzania danych, która łączy przetwarzanie wsadowe z przetwarzaniem strumieniowym. Architektura ta umożliwia:
-
-- Batch Layer: przetwarzanie danych wsadowych, które są później wykorzystywane do analizy.
-- Speed Layer: przetwarzanie danych w czasie rzeczywistym w celu uzyskania natychmiastowych wyników.
-- Serving Layer: warstwa, która łączy wyniki obu poprzednich warstw i dostarcza je do użytkownika.
-
-</br>
-<img src = "img/lambda_dale.jpg" class="center" />
-
-2. Kappa Architecture
-
-Kappa Architecture jest uproszczoną wersją Lambda Architecture. 
-Zamiast używać dwóch osobnych warstw (batch i speed), Kappa wykorzystuje tylko jedną warstwę przetwarzania strumieniowego, co upraszcza cały system. 
-Jest to bardziej elastyczne podejście do budowy systemów real-time, zwłaszcza w przypadku, gdy dane są przetwarzane tylko w jednym trybie (streaming).
-
-</br>
-<img src = "img/kappa.jpg" class="center" />
-
-3. Microservices Architecture
-
-Architektura mikroserwisów jest powszechnie wykorzystywana w systemach real-time, ponieważ umożliwia:
-
-- Podział aplikacji na mniejsze, autonomiczne jednostki.
-- Elastyczność i skalowalność systemu.
-- Możliwość przetwarzania różnych rodzajów danych przez różne mikroserwisy.
-- Wykorzystanie komunikacji asynchronicznej, np. przez kolejki wiadomości.
 
 
 ## Wyzwania i problemy analizy danych w czasie rzeczywistym
