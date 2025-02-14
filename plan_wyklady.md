@@ -34,3 +34,26 @@ Case study: System wykrywania anomalii w logach serwerowych.
 🔹 Lab 8: Przetwarzanie obrazów w czasie rzeczywistym – OpenCV + klasyfikacja wideo.
 🔹 Lab 9: Wykrywanie oszustw w transakcjach finansowych – online learning na Kafka.
 🔹 Lab 10: Projekt końcowy – budowa mikroserwisu do analizy danych w czasie rzeczywistym.
+
+
+
+## Moje 
+
+1. wprowadzenie 
+2. Batch processing
+- typy danych
+- Big data
+- ETL
+- MAP Reduce
+- Sparkowe przetwarzanie klastrowe 
+- Bazy SQL - OLTP, OLAP
+
+3. API online 
+- wystawienie serwisu LLM 
+- batching
+
+4. Near Real-Time i Real Time 
+- Strumienie danych, definicje, biznes, 
+- Lambda/Kappa 
+- Pub Sub, Kafka 
+- 

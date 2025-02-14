@@ -23,11 +23,12 @@ Type "help", "copyright", "credits" or "license" for more information.
 ### Nowe środowisko pythona
 
 ```bash
-python3 -m venv <name of env>
-
+python3.11 -m venv <name of env>
+# dla linux i mac os
 source <name of env>/bin/activate
 # . env/bin/activate
-
+# dla windows 
+# <name of env>\Scripts\activate
 (venv)$ 
 ```
 
@@ -86,7 +87,7 @@ git --version
 
 ### Struktura GitHuba
 
-Na najwyższym poziomie znajdują się konta indywidualne (np [http://github.com/sebkaz](http://github.com/sebkaz), bądź zakładane przez organizacje. 
+Na najwyższym poziomie znajdują się konta indywidualne np [http://github.com/sebkaz](http://github.com/sebkaz), bądź zakładane przez organizacje. 
 Użytkownicy indywidualni mogą tworzyć **repozytoria** publiczne (`public` ) bądź prywatne (`private`). 
 
 Jeden plik nie powinien przekraczać 100 MB.

@@ -60,7 +60,7 @@ Laboratoria
 Podczas laboratoriów będą zadawane prace domowe, które należy przesyłać za pośrednictwem MS Teams.
 Każdy brak pracy domowej obniża końcową ocenę o 0,5 stopnia.
 
-Projekt
+#### Projekt
 
 Projekty należy realizować w grupach maksymalnie 5-osobowych.
 

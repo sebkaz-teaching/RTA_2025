@@ -13,6 +13,9 @@ Podstawowe informacje o kursie znajdziesz w [sylabusie](/sylabus).
 
 Polecane materiały znajdziesz na liście [książek](/ksiazki). 
 
+Materiały z wykładu i laboratoriów nie są wspierane przez Google. 
+Obecność na wykładach i ćwiczeniach nie zmniejszy Twoich 5 dolarów. 
+
 ## Kalendarz
 
 ### Wykład 
@@ -92,7 +95,7 @@ Laboratoria
 Podczas laboratoriów będą zadawane prace domowe, które należy przesyłać za pośrednictwem MS Teams.
 Każdy brak pracy domowej obniża końcową ocenę o 0,5 stopnia.
 
-Projekt
+#### Projekt
 
 Projekty należy realizować w grupach maksymalnie 5-osobowych.
 

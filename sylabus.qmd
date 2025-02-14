@@ -201,39 +201,3 @@ Metody dokumentacji: prace pisemne studenta ( w trakcie semestru, zaliczeniowe, 
 
 🔟 Anirudh Koul, Siddha Ganju, Meher Kasam, Practical Deep Learning for Cloud, Mobile & Edge, O'Reilly 2019.
 
-
-## Nowy program przedmiotu
-
-1. Batch vs. Real-Time vs. Streaming Analytics – Różnice między trybami przetwarzania danych, kluczowe koncepcje i zastosowania.
-2. Modele przetwarzania danych w Big Data – Od plików płaskich do Data Lake, wady i zalety podejścia real-time. Mity i fakty o przetwarzaniu w czasie rzeczywistym.
-3. Architektura IT dla przetwarzania w czasie rzeczywistym – Omówienie architektur Lambda i Kappa w kontekście strumieniowego przetwarzania danych.
-4. Systemy przetwarzania danych w czasie rzeczywistym – Przegląd technologii: Apache Kafka, Apache Spark Streaming, Apache Flink i ich zastosowania w Pythonie.
-5. Podstawy uczenia maszynowego w czasie rzeczywistym – Porównanie offline learning vs. online learning, problemy związane z przyrostowym uczeniem maszynowym.
-
-🧑‍🏫 Wykłady (teoria + case study z biznesu)
-
-1️⃣ Wprowadzenie: Ewolucja analizy danych
-Dane strukturyzowane (SQL, Pandas) vs. nieustrukturyzowane (teksty, obrazy, grafy).
-Przetwarzanie wsadowe (batch processing) vs. strumieniowe (stream processing).
-Case study: Jak firmy przechodzą od tabel do analizy strumieniowej?
-
-2️⃣ Systemy przetwarzania danych w czasie rzeczywistym
-Modele danych: relacyjne (PostgreSQL), grafowe (NetworkX), strumieniowe (Kafka).
-Lambda i Kappa Architecture – różnice i zastosowania.
-Case study: Rekomendacje produktowe w e-commerce.
-
-3️⃣ Modele ML/DL dla danych w czasie rzeczywistym
-Uczenie wsadowe (batch) vs. przyrostowe (online learning).
-Stochastic Gradient Descent (SGD) – podstawa ML na strumieniach.
-Case study: Klasyfikacja oszustw w czasie rzeczywistym.
-
-4️⃣ Obiektowe programowanie w Pythonie w kontekście ML
-Struktury klasowe dla modeli ML.
-Tworzenie pipeline'ów ML w Pythonie.
-Case study: Klasyfikacja wiadomości jako SPAM/NON-SPAM w strumieniu tekstów.
-
-5️⃣ Tworzenie API z regułami decyzyjnymi i ML
-Budowa API w FastAPI dla modelu ML.
-Integracja modelu klasyfikacji z systemem decyzyjnym.
-Case study: System wykrywania anomalii w logach serwerowych.
-

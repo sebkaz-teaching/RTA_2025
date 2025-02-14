@@ -211,12 +211,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> exit<span class="kw">()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <section id="nowe-środowisko-pythona" class="level3">
 <h3 class="anchored" data-anchor-id="nowe-środowisko-pythona">Nowe środowisko pythona</h3>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> <span class="at">-m</span> venv <span class="op">&lt;</span>name of env<span class="op">&gt;</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python3.11</span> <span class="at">-m</span> venv <span class="op">&lt;</span>name of env<span class="op">&gt;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># dla linux i mac os</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> <span class="op">&lt;</span>name of env<span class="op">&gt;</span>/bin/activate</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># . env/bin/activate</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv</span><span class="kw">)</span><span class="ex">$</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># dla windows </span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># &lt;name of env&gt;\Scripts\activate</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv</span><span class="kw">)</span><span class="ex">$</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Szybka instalacja podstawowych bibliotek i jupyterlab.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">--no-cache</span> <span class="at">--upgrade</span> pip setuptools</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -258,7 +259,7 @@ Skupimy się wyłącznie na darmowej wersji serwisu GitHub.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> <span class="at">--version</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <section id="struktura-githuba" class="level3">
 <h3 class="anchored" data-anchor-id="struktura-githuba">Struktura GitHuba</h3>
-<p>Na najwyższym poziomie znajdują się konta indywidualne (np <a href="http://github.com/sebkaz">http://github.com/sebkaz</a>, bądź zakładane przez organizacje. Użytkownicy indywidualni mogą tworzyć <strong>repozytoria</strong> publiczne (<code>public</code> ) bądź prywatne (<code>private</code>).</p>
+<p>Na najwyższym poziomie znajdują się konta indywidualne np <a href="http://github.com/sebkaz">http://github.com/sebkaz</a>, bądź zakładane przez organizacje. Użytkownicy indywidualni mogą tworzyć <strong>repozytoria</strong> publiczne (<code>public</code> ) bądź prywatne (<code>private</code>).</p>
 <p>Jeden plik nie powinien przekraczać 100 MB.</p>
 <p><strong>Repo</strong> (skrót do repozytorium) tworzymy za pomocą <code>Create a new repository</code>. Każde repo powinno mieć swoją indywidualną nazwę.</p>
 </section>
