@@ -7,9 +7,11 @@ format:
 jupyter: python3
 ---
 
-⏳ Czas trwania: 1,5h *🎯 Cel wykładu*
+⏳ Czas trwania: 1,5h 
 
-## Zapoznanie studentów z podstawami **real-time analytics**, różnicami między trybami przetwarzania danych (**batch, streaming, real-time**) oraz kluczowymi zastosowaniami i wyzwaniami.
+*🎯 Cel wykładu*
+
+Zapoznanie studentów z podstawami **real-time analytics**, różnicami między trybami przetwarzania danych (**batch, streaming, real-time**) oraz kluczowymi zastosowaniami i wyzwaniami.
 
 ## Czym jest analiza danych w czasie rzeczywistym?
 
