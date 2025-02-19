@@ -3,7 +3,9 @@ project:
   output-dir: docs
 
 website: 
-  title: Analiza danych w czasie rzeczywistym
+  title: "Analiza danych w czasie rzeczywistym"
+  description: "Kurs analizy danych dla studentów SGH w Warszawie"
+  site-url: https://sebkaz-teaching.github.io/RTA_2025
   navbar:
     left: 
           - href: index.qmd
