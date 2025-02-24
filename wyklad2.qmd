@@ -1,6 +1,11 @@
 ---
 title:  Wykład 2
+format:
+  html:
+    code-fold: true
+jupyter: python3
 ---
+
  
 ⏳ Czas trwania: 1,5h
 *🎯 Cel wykładu* 
@@ -13,12 +18,14 @@ W tym wstępie przedstawimy ewolucję analizy danych, pokazując, jak zmieniały
 Rozpoczniemy od klasycznych struktur tabelarycznych, przez bardziej zaawansowane modele grafowe i tekstowe, aż po nowoczesne podejście do strumieniowego przetwarzania danych. 
 
 
-## Zmiany w analizie danych:
+## Ewolucja danych:
 
 ### Dane tabelaryczne (tabele SQL):
 
 Początkowo dane były przechowywane w postaci tabel, gdzie każda tabela zawierała zorganizowane informacje w kolumnach i wierszach (np. bazy danych SQL). 
 Modele takie doskonale nadawały się do danych **ustrukturyzowanych**.
+
+Dane ustrukturyzowane zorganizowane są w kolumnach cech charakteryzujących każdą obserwację (wiersze). Kolumny posiadają etykietę, która wskazuje na ich interpretację. 
 
 ### Dane grafowe:
 
@@ -27,28 +34,41 @@ Przykłady takich danych to sieci społecznościowe, linki internetowe czy zale�
 
 ### Dane tekstowe:
 
-Kolejnym etapem była analiza danych tekstowych, które zaczęły odgrywać istotną rolę w analizie danych z mediów społecznościowych, e-maili, forów czy opinii. Technologie takie jak NLP (przetwarzanie języka naturalnego) pozwalają wydobywać sens z nieustrukturyzowanego tekstu.
+Kolejnym etapem była analiza danych tekstowych, które zaczęły odgrywać istotną rolę w analizie danych z mediów społecznościowych, e-maili, forów czy opinii. 
+Technologie takie jak przetwarzanie języka naturalnego Natural Language Processing (NLP) pozwalają wydobywać sens z nieustrukturyzowanego tekstu.
 
 ### Dane strumieniowe:
 
 Obecnie najbardziej dynamicznie rozwija się analiza danych strumieniowych, gdzie dane są analizowane na bieżąco, w miarę ich napływania. 
 Przykładem takiego podejścia jest monitorowanie zdarzeń w czasie rzeczywistym, np. transakcje finansowe, analiza social media, detekcja oszustw.
 
-## Popularne narzędzia analiz danych:
 
-### SQL: 
+## Popularne narzędzia do przechowywania i przetwarzania danych:
+
+### SQL i bazy tranzakcyjne OLTP ()
+
 Tradycyjne bazy danych SQL są idealne do pracy z danymi ustrukturyzowanymi, które wymagają ścisłej struktury tabel (np. dane o transakcjach, klientach). 
 SQL jest standardem w analizie takich danych, ale nie jest wystarczający w przypadku pracy z dużymi ilościami danych nieustrukturyzowanych.
 
-### NoSQL: 
-Bazy danych NoSQL, takie jak MongoDB, Cassandra, pozwalają na bardziej elastyczne podejście do danych, które mogą przybierać różne formy (np. dokumenty JSON, dane z sensorów, obrazy). NoSQL świetnie sprawdza się w przypadku danych, które nie pasują do tradycyjnych struktur tabelarycznych.
+### NoSQL
 
-### Data Lake: 
-Data Lake to systemy przechowywania ogromnych zbiorów danych, zarówno ustrukturyzowanych, jak i nieustrukturyzowanych. Dzięki Data Lake organizacje mogą przechowywać dane w pierwotnej formie i analizować je później w miarę potrzeb, bez potrzeby wcześniejszego przetwarzania.
-### Apache Kafka: 
-Kafka to system przetwarzania strumieniowego, który umożliwia zbieranie, przechowywanie i przetwarzanie danych w czasie rzeczywistym. Jest szeroko wykorzystywany w aplikacjach wymagających szybkiej reakcji na dane napływające w czasie rzeczywistym.
-### Apache Flink: 
-Apache Flink to narzędzie do przetwarzania strumieniowego, które umożliwia analizowanie danych w czasie rzeczywistym z minimalnym opóźnieniem. W przeciwieństwie do Kafki, Flink nie tylko zbiera dane, ale także je przetwarza, co jest szczególnie przydatne w analizach złożonych.
+Bazy danych NoSQL, takie jak MongoDB, Cassandra, pozwalają na bardziej elastyczne podejście do danych, które mogą przybierać różne formy (np. dokumenty JSON, dane z sensorów, obrazy). 
+NoSQL świetnie sprawdza się w przypadku danych, które nie pasują do tradycyjnych struktur tabelarycznych.
+
+### Data Lake
+
+Data Lake to systemy przechowywania ogromnych zbiorów danych, zarówno ustrukturyzowanych, jak i nieustrukturyzowanych. 
+Dzięki Data Lake organizacje mogą przechowywać dane w pierwotnej formie i analizować je później w miarę potrzeb, bez potrzeby wcześniejszego przetwarzania.
+
+### Apache Kafka
+
+Kafka to system przetwarzania strumieniowego, który umożliwia zbieranie, przechowywanie i przetwarzanie danych w czasie rzeczywistym. 
+Jest szeroko wykorzystywany w aplikacjach wymagających szybkiej reakcji na dane napływające w czasie rzeczywistym.
+
+### Apache Flink
+
+Apache Flink to narzędzie do przetwarzania strumieniowego, które umożliwia analizowanie danych w czasie rzeczywistym z minimalnym opóźnieniem. 
+W przeciwieństwie do Kafki, Flink nie tylko zbiera dane, ale także je przetwarza, co jest szczególnie przydatne w analizach złożonych.
 
 ### Przykład: Jak Netflix analizuje dane w czasie rzeczywistym?
 
@@ -63,7 +83,8 @@ Takie dane mogą być przesyłane do systemu analitycznego za pomocą narzędzi 
 
 ## Podsumowanie
 
-Dzięki ewolucji technologii, analiza danych przeszła długą drogę, od prostych tabel SQL, przez złożone dane grafowe i tekstowe, aż do analiz strumieniowych. Zrozumienie różnic między tymi podejściami pozwala na lepsze dobieranie narzędzi do odpowiednich typów analiz, w tym wykorzystania nowoczesnych systemów przetwarzania danych w czasie rzeczywistym, takich jak Kafka i Flink.
+Dzięki ewolucji technologii, analiza danych przeszła długą drogę, od prostych tabel SQL, przez złożone dane grafowe i tekstowe, aż do analiz strumieniowych. 
+Zrozumienie różnic między tymi podejściami pozwala na lepsze dobieranie narzędzi do odpowiednich typów analiz, w tym wykorzystania nowoczesnych systemów przetwarzania danych w czasie rzeczywistym, takich jak Kafka i Flink.
 
 
 ## Ewolucja analizy danych: Od struktur tabelarycznych do strumieni
@@ -120,6 +141,9 @@ Przykład: Analiza obrazów (np. weryfikacja, czy zdjęcie przedstawia psa czy k
 Zwiększający się wolumen danych, a także ich różnorodność, stawia przed nami kolejne wyzwania związane z przetwarzaniem i analizowaniem tych danych.
 
 > Kluczowe pytanie brzmi: jak efektywnie przetwarzać ogromne ilości danych w czasie rzeczywistym?
+
+
+
 
 ## Przetwarzanie wsadowe vs. przetwarzanie strumieniowe
 

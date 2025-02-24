@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.40">
+<meta name="generator" content="quarto-1.6.41">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -69,7 +69,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-48ffa3e5b9d089919c6712c39e5b00f2.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-6bd9cfa162949bde0a231f530c97869d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -135,6 +135,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Wykład 1</span></a>
   </li>  
   <li class="nav-item">
+    <a class="nav-link active" href="./wyklad2.html" aria-current="page"> 
+<span class="menu-text">Wykład 2</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="./sylabus.html"> 
 <span class="menu-text">Sylabus</span></a>
   </li>  
@@ -162,18 +166,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#zmiany-w-analizie-danych" id="toc-zmiany-w-analizie-danych" class="nav-link active" data-scroll-target="#zmiany-w-analizie-danych">Zmiany w analizie danych:</a>
+  <li><a href="#ewolucja-danych" id="toc-ewolucja-danych" class="nav-link active" data-scroll-target="#ewolucja-danych">Ewolucja danych:</a>
   <ul class="collapse">
   <li><a href="#dane-tabelaryczne-tabele-sql" id="toc-dane-tabelaryczne-tabele-sql" class="nav-link" data-scroll-target="#dane-tabelaryczne-tabele-sql">Dane tabelaryczne (tabele SQL):</a></li>
   <li><a href="#dane-grafowe" id="toc-dane-grafowe" class="nav-link" data-scroll-target="#dane-grafowe">Dane grafowe:</a></li>
   <li><a href="#dane-tekstowe" id="toc-dane-tekstowe" class="nav-link" data-scroll-target="#dane-tekstowe">Dane tekstowe:</a></li>
   <li><a href="#dane-strumieniowe" id="toc-dane-strumieniowe" class="nav-link" data-scroll-target="#dane-strumieniowe">Dane strumieniowe:</a></li>
   </ul></li>
-  <li><a href="#popularne-narzędzia-analiz-danych" id="toc-popularne-narzędzia-analiz-danych" class="nav-link" data-scroll-target="#popularne-narzędzia-analiz-danych">Popularne narzędzia analiz danych:</a>
+  <li><a href="#popularne-narzędzia-do-przechowywania-i-przetwarzania-danych" id="toc-popularne-narzędzia-do-przechowywania-i-przetwarzania-danych" class="nav-link" data-scroll-target="#popularne-narzędzia-do-przechowywania-i-przetwarzania-danych">Popularne narzędzia do przechowywania i przetwarzania danych:</a>
   <ul class="collapse">
-  <li><a href="#sql" id="toc-sql" class="nav-link" data-scroll-target="#sql">SQL:</a></li>
-  <li><a href="#nosql" id="toc-nosql" class="nav-link" data-scroll-target="#nosql">NoSQL:</a></li>
-  <li><a href="#data-lake" id="toc-data-lake" class="nav-link" data-scroll-target="#data-lake">Data Lake:</a></li>
+  <li><a href="#sql-i-bazy-tranzakcyjne-oltp" id="toc-sql-i-bazy-tranzakcyjne-oltp" class="nav-link" data-scroll-target="#sql-i-bazy-tranzakcyjne-oltp">SQL i bazy tranzakcyjne OLTP ()</a></li>
+  <li><a href="#nosql" id="toc-nosql" class="nav-link" data-scroll-target="#nosql">NoSQL</a></li>
+  <li><a href="#data-lake" id="toc-data-lake" class="nav-link" data-scroll-target="#data-lake">Data Lake</a></li>
+  <li><a href="#apache-kafka" id="toc-apache-kafka" class="nav-link" data-scroll-target="#apache-kafka">Apache Kafka</a></li>
+  <li><a href="#apache-flink" id="toc-apache-flink" class="nav-link" data-scroll-target="#apache-flink">Apache Flink</a></li>
   <li><a href="#przykład-jak-netflix-analizuje-dane-w-czasie-rzeczywistym" id="toc-przykład-jak-netflix-analizuje-dane-w-czasie-rzeczywistym" class="nav-link" data-scroll-target="#przykład-jak-netflix-analizuje-dane-w-czasie-rzeczywistym">Przykład: Jak Netflix analizuje dane w czasie rzeczywistym?</a></li>
   </ul></li>
   <li><a href="#przykład-strumieniowego-przetwarzania-w-netflix" id="toc-przykład-strumieniowego-przetwarzania-w-netflix" class="nav-link" data-scroll-target="#przykład-strumieniowego-przetwarzania-w-netflix">Przykład strumieniowego przetwarzania w Netflix:</a></li>
@@ -224,11 +230,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>zrozumienie, jak dane ewoluowały w różnych branżach i jakie narzędzia są dziś wykorzystywane do ich analizy.</p>
 <hr>
 <p>W tym wstępie przedstawimy ewolucję analizy danych, pokazując, jak zmieniały się technologie i podejścia do przetwarzania danych na przestrzeni lat. Rozpoczniemy od klasycznych struktur tabelarycznych, przez bardziej zaawansowane modele grafowe i tekstowe, aż po nowoczesne podejście do strumieniowego przetwarzania danych.</p>
-<section id="zmiany-w-analizie-danych" class="level2">
-<h2 class="anchored" data-anchor-id="zmiany-w-analizie-danych">Zmiany w analizie danych:</h2>
+<section id="ewolucja-danych" class="level2">
+<h2 class="anchored" data-anchor-id="ewolucja-danych">Ewolucja danych:</h2>
 <section id="dane-tabelaryczne-tabele-sql" class="level3">
 <h3 class="anchored" data-anchor-id="dane-tabelaryczne-tabele-sql">Dane tabelaryczne (tabele SQL):</h3>
 <p>Początkowo dane były przechowywane w postaci tabel, gdzie każda tabela zawierała zorganizowane informacje w kolumnach i wierszach (np. bazy danych SQL). Modele takie doskonale nadawały się do danych <strong>ustrukturyzowanych</strong>.</p>
+<p>Dane ustrukturyzowane zorganizowane są w kolumnach cech charakteryzujących każdą obserwację (wiersze). Kolumny posiadają etykietę, która wskazuje na ich interpretację.</p>
 </section>
 <section id="dane-grafowe" class="level3">
 <h3 class="anchored" data-anchor-id="dane-grafowe">Dane grafowe:</h3>
@@ -236,26 +243,34 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="dane-tekstowe" class="level3">
 <h3 class="anchored" data-anchor-id="dane-tekstowe">Dane tekstowe:</h3>
-<p>Kolejnym etapem była analiza danych tekstowych, które zaczęły odgrywać istotną rolę w analizie danych z mediów społecznościowych, e-maili, forów czy opinii. Technologie takie jak NLP (przetwarzanie języka naturalnego) pozwalają wydobywać sens z nieustrukturyzowanego tekstu.</p>
+<p>Kolejnym etapem była analiza danych tekstowych, które zaczęły odgrywać istotną rolę w analizie danych z mediów społecznościowych, e-maili, forów czy opinii. Technologie takie jak przetwarzanie języka naturalnego Natural Language Processing (NLP) pozwalają wydobywać sens z nieustrukturyzowanego tekstu.</p>
 </section>
 <section id="dane-strumieniowe" class="level3">
 <h3 class="anchored" data-anchor-id="dane-strumieniowe">Dane strumieniowe:</h3>
 <p>Obecnie najbardziej dynamicznie rozwija się analiza danych strumieniowych, gdzie dane są analizowane na bieżąco, w miarę ich napływania. Przykładem takiego podejścia jest monitorowanie zdarzeń w czasie rzeczywistym, np. transakcje finansowe, analiza social media, detekcja oszustw.</p>
 </section>
 </section>
-<section id="popularne-narzędzia-analiz-danych" class="level2">
-<h2 class="anchored" data-anchor-id="popularne-narzędzia-analiz-danych">Popularne narzędzia analiz danych:</h2>
-<section id="sql" class="level3">
-<h3 class="anchored" data-anchor-id="sql">SQL:</h3>
+<section id="popularne-narzędzia-do-przechowywania-i-przetwarzania-danych" class="level2">
+<h2 class="anchored" data-anchor-id="popularne-narzędzia-do-przechowywania-i-przetwarzania-danych">Popularne narzędzia do przechowywania i przetwarzania danych:</h2>
+<section id="sql-i-bazy-tranzakcyjne-oltp" class="level3">
+<h3 class="anchored" data-anchor-id="sql-i-bazy-tranzakcyjne-oltp">SQL i bazy tranzakcyjne OLTP ()</h3>
 <p>Tradycyjne bazy danych SQL są idealne do pracy z danymi ustrukturyzowanymi, które wymagają ścisłej struktury tabel (np. dane o transakcjach, klientach). SQL jest standardem w analizie takich danych, ale nie jest wystarczający w przypadku pracy z dużymi ilościami danych nieustrukturyzowanych.</p>
 </section>
 <section id="nosql" class="level3">
-<h3 class="anchored" data-anchor-id="nosql">NoSQL:</h3>
+<h3 class="anchored" data-anchor-id="nosql">NoSQL</h3>
 <p>Bazy danych NoSQL, takie jak MongoDB, Cassandra, pozwalają na bardziej elastyczne podejście do danych, które mogą przybierać różne formy (np. dokumenty JSON, dane z sensorów, obrazy). NoSQL świetnie sprawdza się w przypadku danych, które nie pasują do tradycyjnych struktur tabelarycznych.</p>
 </section>
 <section id="data-lake" class="level3">
-<h3 class="anchored" data-anchor-id="data-lake">Data Lake:</h3>
-<p>Data Lake to systemy przechowywania ogromnych zbiorów danych, zarówno ustrukturyzowanych, jak i nieustrukturyzowanych. Dzięki Data Lake organizacje mogą przechowywać dane w pierwotnej formie i analizować je później w miarę potrzeb, bez potrzeby wcześniejszego przetwarzania. ### Apache Kafka: Kafka to system przetwarzania strumieniowego, który umożliwia zbieranie, przechowywanie i przetwarzanie danych w czasie rzeczywistym. Jest szeroko wykorzystywany w aplikacjach wymagających szybkiej reakcji na dane napływające w czasie rzeczywistym. ### Apache Flink: Apache Flink to narzędzie do przetwarzania strumieniowego, które umożliwia analizowanie danych w czasie rzeczywistym z minimalnym opóźnieniem. W przeciwieństwie do Kafki, Flink nie tylko zbiera dane, ale także je przetwarza, co jest szczególnie przydatne w analizach złożonych.</p>
+<h3 class="anchored" data-anchor-id="data-lake">Data Lake</h3>
+<p>Data Lake to systemy przechowywania ogromnych zbiorów danych, zarówno ustrukturyzowanych, jak i nieustrukturyzowanych. Dzięki Data Lake organizacje mogą przechowywać dane w pierwotnej formie i analizować je później w miarę potrzeb, bez potrzeby wcześniejszego przetwarzania.</p>
+</section>
+<section id="apache-kafka" class="level3">
+<h3 class="anchored" data-anchor-id="apache-kafka">Apache Kafka</h3>
+<p>Kafka to system przetwarzania strumieniowego, który umożliwia zbieranie, przechowywanie i przetwarzanie danych w czasie rzeczywistym. Jest szeroko wykorzystywany w aplikacjach wymagających szybkiej reakcji na dane napływające w czasie rzeczywistym.</p>
+</section>
+<section id="apache-flink" class="level3">
+<h3 class="anchored" data-anchor-id="apache-flink">Apache Flink</h3>
+<p>Apache Flink to narzędzie do przetwarzania strumieniowego, które umożliwia analizowanie danych w czasie rzeczywistym z minimalnym opóźnieniem. W przeciwieństwie do Kafki, Flink nie tylko zbiera dane, ale także je przetwarza, co jest szczególnie przydatne w analizach złożonych.</p>
 </section>
 <section id="przykład-jak-netflix-analizuje-dane-w-czasie-rzeczywistym" class="level3">
 <h3 class="anchored" data-anchor-id="przykład-jak-netflix-analizuje-dane-w-czasie-rzeczywistym">Przykład: Jak Netflix analizuje dane w czasie rzeczywistym?</h3>
@@ -279,6 +294,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Dane ustrukturyzowane to dane, które są przechowywane w sposób zorganizowany i jednoznacznie określony. Przykładami takich danych są tabele w bazach SQL, w których każda kolumna reprezentuje jedną cechę, a każdy wiersz to pojedynczy rekord. Tego typu dane są najczęściej wykorzystywane w klasycznych algorytmach uczenia maszynowego, takich jak regresja logistyczna, XGBoost czy modele klasyfikacji.</p>
 <p>Przykład: Załóżmy, że mamy tabelę, w której każda linia przedstawia dane o kliencie: jego płeć, wzrost, ilość kredytów itd.</p>
 <div id="tab_data" class="cell" data-execution_count="2">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>dane_klientow <span class="op">=</span> {<span class="st">"sex"</span>:[<span class="st">"m"</span>,<span class="st">"f"</span>,<span class="st">"m"</span>,<span class="st">"m"</span>,<span class="st">"f"</span>],</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a> <span class="st">"height"</span>:[<span class="dv">160</span>, <span class="dv">172</span>, <span class="dv">158</span>, <span class="dv">174</span>, <span class="dv">192</span>],</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a> <span class="st">"credits"</span>:[<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">1</span>]</span>
@@ -286,6 +303,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(dane_klientow)</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>  sex  height  credits
 0   m     160        0
@@ -297,8 +315,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Na tej podstawie możemy przewidywać prawdopodobieństwo spłaty kredytu (regresja logistyczna). Takie przewidywanie również oznaczane jest jako cecha (<em>ang. target</em>).</p>
 <div id="tab_data_target" class="cell" data-execution_count="3">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'target'</span>] <span class="op">=</span> [<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>]</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>  sex  height  credits  target
 0   m     160        0       0

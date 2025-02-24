@@ -51,7 +51,8 @@ Analiza danych w czasie rzeczywistym (ang. *Real-Time Data Analytics*) to **proc
 -   **Monitorowanie pacjentów** – analiza sygnałów z urządzeń medycznych w celu natychmiastowego wykrycia zagrożenia życia.
 -   **Analityka epidemiologiczna** – śledzenie rozprzestrzeniania się chorób na podstawie danych w czasie rzeczywistym.
 
-Analiza danych w czasie rzeczywistym to kluczowy element nowoczesnych systemów informatycznych, który umożliwia firmom podejmowanie decyzji szybciej i bardziej precyzyjnie. Jest wykorzystywana w wielu branżach – od finansów, przez e-commerce, aż po ochronę zdrowia i IoT.
+Analiza danych w czasie rzeczywistym to kluczowy element nowoczesnych systemów informatycznych, który umożliwia firmom podejmowanie decyzji szybciej i bardziej precyzyjnie. 
+Jest wykorzystywana w wielu branżach – od finansów, przez e-commerce, aż po ochronę zdrowia i IoT.
 
 ## Różnice między Batch Processing, Near Real-Time Analytics, Real-Time Analytics
 
