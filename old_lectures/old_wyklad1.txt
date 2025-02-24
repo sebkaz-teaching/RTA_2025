@@ -156,7 +156,7 @@ Dane generowane są w postaci `nieograniczonej` - pojawiają się na skutek cią
 W swoim telefonie wygenerowałeś dziś (a nawet na tych zajęciach!) wiele danych. 
 Czy na następnych zajęciach lub tez jutro nie będziesz ich generował?
 
-Dane zawsze generowane są jako jakaś forma strumienia danych. 
+Dane zawsze generowane są jako jakaś forma strumieni danych. 
 
 Systemy obsługujące strumienie danych:
 - hurtownie danych
