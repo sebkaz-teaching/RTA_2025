@@ -35,10 +35,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-48ffa3e5b9d089919c6712c39e5b00f2.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-45c9daaf6acd34b0420988892e8b8644.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-6bd9cfa162949bde0a231f530c97869d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-c4b40d80f3775827f3eec312850474a7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -97,14 +97,6 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">222890-S</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./wyklad1.html"> 
-<span class="menu-text">Wykład 1</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./wyklad2.html"> 
-<span class="menu-text">Wykład 2</span></a>
-  </li>  
-  <li class="nav-item">
     <a class="nav-link" href="./sylabus.html"> 
 <span class="menu-text">Sylabus</span></a>
   </li>  
@@ -115,6 +107,16 @@ ul.task-list li input[type="checkbox"] {
   <li class="nav-item">
     <a class="nav-link" href="./ksiazki.html"> 
 <span class="menu-text">Książki</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./wyklad1.html"> 
+<span class="menu-text">Wykład 1</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./wyklad2.html"> 
+<span class="menu-text">Wykład 2</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -129,16 +131,11 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title"><strong>Sections</strong></h2>
    
-  <ul>
-  <li><a href="#analiza-danych-w-czasie-rzeczywistym" id="toc-analiza-danych-w-czasie-rzeczywistym" class="nav-link active" data-scroll-target="#analiza-danych-w-czasie-rzeczywistym">Analiza danych w czasie rzeczywistym</a></li>
-  <li><a href="#kalendarz" id="toc-kalendarz" class="nav-link" data-scroll-target="#kalendarz">Kalendarz</a>
   <ul class="collapse">
-  <li><a href="#wykład" id="toc-wykład" class="nav-link" data-scroll-target="#wykład">Wykład</a></li>
-  <li><a href="#laboratoria" id="toc-laboratoria" class="nav-link" data-scroll-target="#laboratoria">Laboratoria</a></li>
-  <li><a href="#zaliczenie-i-egzamin" id="toc-zaliczenie-i-egzamin" class="nav-link" data-scroll-target="#zaliczenie-i-egzamin">Zaliczenie i Egzamin</a></li>
-  </ul></li>
+  <li><a href="#analiza-danych-w-czasie-rzeczywistym" id="toc-analiza-danych-w-czasie-rzeczywistym" class="nav-link active" data-scroll-target="#analiza-danych-w-czasie-rzeczywistym">Analiza danych w czasie rzeczywistym</a></li>
+  <li><a href="#kalendarz" id="toc-kalendarz" class="nav-link" data-scroll-target="#kalendarz">Kalendarz</a></li>
   <li><a href="#technologie" id="toc-technologie" class="nav-link" data-scroll-target="#technologie">Technologie</a></li>
   </ul>
 </nav>
@@ -381,6 +378,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         if (link.dataset.originalHref !== undefined) {
           link.href = link.dataset.originalHref;
         }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
       }
     }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
@@ -695,6 +697,19 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>Copyright 2024, Sebastian Zajac</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
 
 
 

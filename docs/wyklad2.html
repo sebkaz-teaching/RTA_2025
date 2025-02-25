@@ -69,10 +69,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-48ffa3e5b9d089919c6712c39e5b00f2.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-45c9daaf6acd34b0420988892e8b8644.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-6bd9cfa162949bde0a231f530c97869d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-c4b40d80f3775827f3eec312850474a7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -131,14 +131,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">222890-S</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./wyklad1.html"> 
-<span class="menu-text">Wykład 1</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link active" href="./wyklad2.html" aria-current="page"> 
-<span class="menu-text">Wykład 2</span></a>
-  </li>  
-  <li class="nav-item">
     <a class="nav-link" href="./sylabus.html"> 
 <span class="menu-text">Sylabus</span></a>
   </li>  
@@ -149,6 +141,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li class="nav-item">
     <a class="nav-link" href="./ksiazki.html"> 
 <span class="menu-text">Książki</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./wyklad1.html"> 
+<span class="menu-text">Wykład 1</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./wyklad2.html" aria-current="page"> 
+<span class="menu-text">Wykład 2</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -163,108 +165,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title"><strong>Sections</strong></h2>
    
-  <ul>
+  <ul class="collapse">
   <li><a href="#ewolucja-danych" id="toc-ewolucja-danych" class="nav-link active" data-scroll-target="#ewolucja-danych"><strong>Ewolucja danych</strong></a>
   <ul class="collapse">
-  <li><a href="#dane-tabelaryczne-tabele-sql" id="toc-dane-tabelaryczne-tabele-sql" class="nav-link" data-scroll-target="#dane-tabelaryczne-tabele-sql"><strong>1. Dane tabelaryczne (tabele SQL)</strong></a>
-  <ul class="collapse">
-  <li><a href="#cechy" id="toc-cechy" class="nav-link" data-scroll-target="#cechy">📌 <strong>Cechy:</strong></a></li>
-  <li><a href="#przykłady" id="toc-przykłady" class="nav-link" data-scroll-target="#przykłady">📌 <strong>Przykłady:</strong></a></li>
-  <li><a href="#przykładowy-kod-w-pythonie-sqlite" id="toc-przykładowy-kod-w-pythonie-sqlite" class="nav-link" data-scroll-target="#przykładowy-kod-w-pythonie-sqlite">🖥️ <strong>Przykładowy kod w Pythonie (SQLite):</strong></a></li>
-  </ul></li>
-  <li><a href="#dane-grafowe" id="toc-dane-grafowe" class="nav-link" data-scroll-target="#dane-grafowe"><strong>2. Dane grafowe</strong></a>
-  <ul class="collapse">
-  <li><a href="#cechy-1" id="toc-cechy-1" class="nav-link" data-scroll-target="#cechy-1">📌 <strong>Cechy:</strong></a></li>
-  <li><a href="#przykłady-1" id="toc-przykłady-1" class="nav-link" data-scroll-target="#przykłady-1">📌 <strong>Przykłady:</strong></a></li>
-  <li><a href="#przykładowy-kod-w-pythonie-graf-karate---networkx" id="toc-przykładowy-kod-w-pythonie-graf-karate---networkx" class="nav-link" data-scroll-target="#przykładowy-kod-w-pythonie-graf-karate---networkx">🖥️ <strong>Przykładowy kod w Pythonie (Graf Karate - NetworkX):</strong></a></li>
-  </ul></li>
-  <li><a href="#dane-półstrukturyzowane-json-xml-yaml" id="toc-dane-półstrukturyzowane-json-xml-yaml" class="nav-link" data-scroll-target="#dane-półstrukturyzowane-json-xml-yaml"><strong>3. Dane półstrukturyzowane (JSON, XML, YAML)</strong></a>
-  <ul class="collapse">
-  <li><a href="#cechy-2" id="toc-cechy-2" class="nav-link" data-scroll-target="#cechy-2">📌 <strong>Cechy:</strong></a></li>
-  <li><a href="#przykłady-2" id="toc-przykłady-2" class="nav-link" data-scroll-target="#przykłady-2">📌 <strong>Przykłady:</strong></a></li>
-  <li><a href="#przykładowy-kod-w-pythonie-json" id="toc-przykładowy-kod-w-pythonie-json" class="nav-link" data-scroll-target="#przykładowy-kod-w-pythonie-json">🖥️ <strong>Przykładowy kod w Pythonie (JSON):</strong></a></li>
-  </ul></li>
-  <li><a href="#dane-tekstowe-nlp" id="toc-dane-tekstowe-nlp" class="nav-link" data-scroll-target="#dane-tekstowe-nlp"><strong>4. Dane tekstowe (NLP)</strong></a>
-  <ul class="collapse">
-  <li><a href="#cechy-3" id="toc-cechy-3" class="nav-link" data-scroll-target="#cechy-3">📌 <strong>Cechy:</strong></a></li>
-  <li><a href="#przykłady-3" id="toc-przykłady-3" class="nav-link" data-scroll-target="#przykłady-3">📌 <strong>Przykłady:</strong></a></li>
-  <li><a href="#przykładowy-kod-w-pythonie" id="toc-przykładowy-kod-w-pythonie" class="nav-link" data-scroll-target="#przykładowy-kod-w-pythonie">🖥️ <strong>Przykładowy kod w Pythonie:</strong></a></li>
-  </ul></li>
-  <li><a href="#dane-multimedialne-obrazy-dźwięk-wideo" id="toc-dane-multimedialne-obrazy-dźwięk-wideo" class="nav-link" data-scroll-target="#dane-multimedialne-obrazy-dźwięk-wideo"><strong>5. Dane multimedialne (obrazy, dźwięk, wideo)</strong></a>
-  <ul class="collapse">
-  <li><a href="#cechy-4" id="toc-cechy-4" class="nav-link" data-scroll-target="#cechy-4">📌 <strong>Cechy:</strong></a></li>
-  <li><a href="#przykłady-4" id="toc-przykłady-4" class="nav-link" data-scroll-target="#przykłady-4">📌 <strong>Przykłady:</strong></a></li>
-  <li><a href="#przykładowy-kod-w-pythonie-obraz---opencv" id="toc-przykładowy-kod-w-pythonie-obraz---opencv" class="nav-link" data-scroll-target="#przykładowy-kod-w-pythonie-obraz---opencv">🖥️ <strong>Przykładowy kod w Pythonie (Obraz - OpenCV):</strong></a></li>
-  </ul></li>
-  <li><a href="#dane-strumieniowe" id="toc-dane-strumieniowe" class="nav-link" data-scroll-target="#dane-strumieniowe"><strong>6. Dane strumieniowe</strong></a>
-  <ul class="collapse">
-  <li><a href="#cechy-5" id="toc-cechy-5" class="nav-link" data-scroll-target="#cechy-5">📌 <strong>Cechy:</strong></a></li>
-  <li><a href="#przykłady-5" id="toc-przykłady-5" class="nav-link" data-scroll-target="#przykłady-5">📌 <strong>Przykłady:</strong></a></li>
-  <li><a href="#przykładowy-kod-w-pythonie-strumieniowe-transakcje-bankowe" id="toc-przykładowy-kod-w-pythonie-strumieniowe-transakcje-bankowe" class="nav-link" data-scroll-target="#przykładowy-kod-w-pythonie-strumieniowe-transakcje-bankowe">🖥️ <strong>Przykładowy kod w Pythonie (Strumieniowe transakcje bankowe):</strong></a></li>
-  </ul></li>
-  <li><a href="#dane-sensoryczne-i-iot" id="toc-dane-sensoryczne-i-iot" class="nav-link" data-scroll-target="#dane-sensoryczne-i-iot"><strong>7. Dane sensoryczne i IoT</strong></a>
-  <ul class="collapse">
-  <li><a href="#cechy-6" id="toc-cechy-6" class="nav-link" data-scroll-target="#cechy-6">📌 <strong>Cechy:</strong></a></li>
-  <li><a href="#przykłady-6" id="toc-przykłady-6" class="nav-link" data-scroll-target="#przykłady-6">📌 <strong>Przykłady:</strong></a></li>
-  <li><a href="#przykładowy-kod-w-pythonie-sensor---temperatura" id="toc-przykładowy-kod-w-pythonie-sensor---temperatura" class="nav-link" data-scroll-target="#przykładowy-kod-w-pythonie-sensor---temperatura">🖥️ <strong>Przykładowy kod w Pythonie (Sensor - temperatura):</strong></a></li>
-  </ul></li>
+  <li><a href="#dane-tabelaryczne-tabele-sql" id="toc-dane-tabelaryczne-tabele-sql" class="nav-link" data-scroll-target="#dane-tabelaryczne-tabele-sql"><strong>1. Dane tabelaryczne (tabele SQL)</strong></a></li>
+  <li><a href="#dane-grafowe" id="toc-dane-grafowe" class="nav-link" data-scroll-target="#dane-grafowe"><strong>2. Dane grafowe</strong></a></li>
+  <li><a href="#dane-półstrukturyzowane-json-xml-yaml" id="toc-dane-półstrukturyzowane-json-xml-yaml" class="nav-link" data-scroll-target="#dane-półstrukturyzowane-json-xml-yaml"><strong>3. Dane półstrukturyzowane (JSON, XML, YAML)</strong></a></li>
+  <li><a href="#dane-tekstowe-nlp" id="toc-dane-tekstowe-nlp" class="nav-link" data-scroll-target="#dane-tekstowe-nlp"><strong>4. Dane tekstowe (NLP)</strong></a></li>
+  <li><a href="#dane-multimedialne-obrazy-dźwięk-wideo" id="toc-dane-multimedialne-obrazy-dźwięk-wideo" class="nav-link" data-scroll-target="#dane-multimedialne-obrazy-dźwięk-wideo"><strong>5. Dane multimedialne (obrazy, dźwięk, wideo)</strong></a></li>
+  <li><a href="#dane-strumieniowe" id="toc-dane-strumieniowe" class="nav-link" data-scroll-target="#dane-strumieniowe"><strong>6. Dane strumieniowe</strong></a></li>
+  <li><a href="#dane-sensoryczne-i-iot" id="toc-dane-sensoryczne-i-iot" class="nav-link" data-scroll-target="#dane-sensoryczne-i-iot"><strong>7. Dane sensoryczne i IoT</strong></a></li>
   </ul></li>
   <li><a href="#rzeczywisty-proces-generowania-danych" id="toc-rzeczywisty-proces-generowania-danych" class="nav-link" data-scroll-target="#rzeczywisty-proces-generowania-danych">Rzeczywisty proces generowania danych</a></li>
   <li><a href="#duże-dane" id="toc-duże-dane" class="nav-link" data-scroll-target="#duże-dane">Duże dane</a>
   <ul class="collapse">
-  <li><a href="#hadoop-map-reduce-skalowanie-obliczeń-na-big-data" id="toc-hadoop-map-reduce-skalowanie-obliczeń-na-big-data" class="nav-link" data-scroll-target="#hadoop-map-reduce-skalowanie-obliczeń-na-big-data"><strong>Hadoop Map-Reduce – Skalowanie obliczeń na Big Data</strong></a>
-  <ul class="collapse">
-  <li><a href="#wyzwanie-czy-uda-ci-się-zapisać-liczbę-googol-do-końca-zajęć" id="toc-wyzwanie-czy-uda-ci-się-zapisać-liczbę-googol-do-końca-zajęć" class="nav-link" data-scroll-target="#wyzwanie-czy-uda-ci-się-zapisać-liczbę-googol-do-końca-zajęć"><strong>🔥 Wyzwanie: Czy uda Ci się zapisać liczbę Googol do końca zajęć?</strong></a></li>
-  </ul></li>
-  <li><a href="#dlaczego-sql-i-klasyczne-algorytmy-nie-wystarczają" id="toc-dlaczego-sql-i-klasyczne-algorytmy-nie-wystarczają" class="nav-link" data-scroll-target="#dlaczego-sql-i-klasyczne-algorytmy-nie-wystarczają"><strong>🔍 Dlaczego SQL i klasyczne algorytmy nie wystarczają?</strong></a>
-  <ul class="collapse">
-  <li><a href="#rozwiązania-google-dla-big-data" id="toc-rozwiązania-google-dla-big-data" class="nav-link" data-scroll-target="#rozwiązania-google-dla-big-data"><strong>🛠️ Rozwiązania Google dla Big Data:</strong></a></li>
-  </ul></li>
-  <li><a href="#graficzne-przedstawienie-mapreduce" id="toc-graficzne-przedstawienie-mapreduce" class="nav-link" data-scroll-target="#graficzne-przedstawienie-mapreduce"><strong>🖼️ Graficzne przedstawienie MapReduce</strong></a>
-  <ul class="collapse">
-  <li><a href="#mapowanie-rozdziela-zadania-map" id="toc-mapowanie-rozdziela-zadania-map" class="nav-link" data-scroll-target="#mapowanie-rozdziela-zadania-map"><strong>1. Mapowanie rozdziela zadania (Map)</strong></a></li>
-  <li><a href="#redukcja-zbiera-wyniki-reduce" id="toc-redukcja-zbiera-wyniki-reduce" class="nav-link" data-scroll-target="#redukcja-zbiera-wyniki-reduce"><strong>2. Redukcja zbiera wyniki (Reduce)</strong></a></li>
-  </ul></li>
-  <li><a href="#klasyczny-przykład-liczenie-słów-w-tekście" id="toc-klasyczny-przykład-liczenie-słów-w-tekście" class="nav-link" data-scroll-target="#klasyczny-przykład-liczenie-słów-w-tekście"><strong>💡 Klasyczny przykład: Liczenie słów w tekście</strong></a>
-  <ul class="collapse">
-  <li><a href="#kod-mapreduce-w-pythonie-z-użyciem-multiprocessing" id="toc-kod-mapreduce-w-pythonie-z-użyciem-multiprocessing" class="nav-link" data-scroll-target="#kod-mapreduce-w-pythonie-z-użyciem-multiprocessing"><strong>🖥️ Kod MapReduce w Pythonie (z użyciem multiprocessing)</strong></a></li>
-  <li><a href="#co-tu-się-dzieje" id="toc-co-tu-się-dzieje" class="nav-link" data-scroll-target="#co-tu-się-dzieje"><strong>🔹 Co tu się dzieje?</strong></a></li>
-  </ul></li>
+  <li><a href="#hadoop-map-reduce-skalowanie-obliczeń-na-big-data" id="toc-hadoop-map-reduce-skalowanie-obliczeń-na-big-data" class="nav-link" data-scroll-target="#hadoop-map-reduce-skalowanie-obliczeń-na-big-data"><strong>Hadoop Map-Reduce – Skalowanie obliczeń na Big Data</strong></a></li>
+  <li><a href="#dlaczego-sql-i-klasyczne-algorytmy-nie-wystarczają" id="toc-dlaczego-sql-i-klasyczne-algorytmy-nie-wystarczają" class="nav-link" data-scroll-target="#dlaczego-sql-i-klasyczne-algorytmy-nie-wystarczają"><strong>🔍 Dlaczego SQL i klasyczne algorytmy nie wystarczają?</strong></a></li>
+  <li><a href="#graficzne-przedstawienie-mapreduce" id="toc-graficzne-przedstawienie-mapreduce" class="nav-link" data-scroll-target="#graficzne-przedstawienie-mapreduce"><strong>🖼️ Graficzne przedstawienie MapReduce</strong></a></li>
+  <li><a href="#klasyczny-przykład-liczenie-słów-w-tekście" id="toc-klasyczny-przykład-liczenie-słów-w-tekście" class="nav-link" data-scroll-target="#klasyczny-przykład-liczenie-słów-w-tekście"><strong>💡 Klasyczny przykład: Liczenie słów w tekście</strong></a></li>
   <li><a href="#wizualizacja-porównanie-klasycznego-podejścia-i-mapreduce" id="toc-wizualizacja-porównanie-klasycznego-podejścia-i-mapreduce" class="nav-link" data-scroll-target="#wizualizacja-porównanie-klasycznego-podejścia-i-mapreduce"><strong>🎨 Wizualizacja – Porównanie klasycznego podejścia i MapReduce</strong></a></li>
   <li><a href="#wyzwanie-dla-ciebie" id="toc-wyzwanie-dla-ciebie" class="nav-link" data-scroll-target="#wyzwanie-dla-ciebie"><strong>🚀 Wyzwanie dla Ciebie!</strong></a></li>
-  <li><a href="#big-data" id="toc-big-data" class="nav-link" data-scroll-target="#big-data">Big Data</a>
-  <ul class="collapse">
-  <li><a href="#one-two-four-v" id="toc-one-two-four-v" class="nav-link" data-scroll-target="#one-two-four-v">one, two, … four V</a></li>
-  </ul></li>
-  <li><a href="#modele-przetwarzania-danych" id="toc-modele-przetwarzania-danych" class="nav-link" data-scroll-target="#modele-przetwarzania-danych">Modele przetwarzania danych</a>
-  <ul class="collapse">
-  <li><a href="#trochę-historii" id="toc-trochę-historii" class="nav-link" data-scroll-target="#trochę-historii">Trochę historii</a></li>
-  <li><a href="#model-tradycyjny" id="toc-model-tradycyjny" class="nav-link" data-scroll-target="#model-tradycyjny">Model Tradycyjny</a></li>
-  <li><a href="#model-olap" id="toc-model-olap" class="nav-link" data-scroll-target="#model-olap">Model OLAP</a></li>
-  </ul></li>
+  <li><a href="#big-data" id="toc-big-data" class="nav-link" data-scroll-target="#big-data">Big Data</a></li>
+  <li><a href="#modele-przetwarzania-danych" id="toc-modele-przetwarzania-danych" class="nav-link" data-scroll-target="#modele-przetwarzania-danych">Modele przetwarzania danych</a></li>
   </ul></li>
   <li><a href="#strumienie-danych" id="toc-strumienie-danych" class="nav-link" data-scroll-target="#strumienie-danych">Strumienie danych</a>
   <ul class="collapse">
-  <li><a href="#analiza-danych-w-czasie-rzeczywistym-a-przetwarzanie-strumienia-zdarzeń" id="toc-analiza-danych-w-czasie-rzeczywistym-a-przetwarzanie-strumienia-zdarzeń" class="nav-link" data-scroll-target="#analiza-danych-w-czasie-rzeczywistym-a-przetwarzanie-strumienia-zdarzeń">Analiza danych w czasie rzeczywistym a przetwarzanie strumienia zdarzeń</a></li>
-  <li><a href="#źródła-danych-przesyłanych-strumieniowo-obejmują" id="toc-źródła-danych-przesyłanych-strumieniowo-obejmują" class="nav-link" data-scroll-target="#źródła-danych-przesyłanych-strumieniowo-obejmują">Źródła danych przesyłanych strumieniowo obejmują:</a></li>
-  <li><a href="#uzasadnienie-biznesowe" id="toc-uzasadnienie-biznesowe" class="nav-link" data-scroll-target="#uzasadnienie-biznesowe">Uzasadnienie biznesowe</a></li>
-  <li><a href="#przykładowe-biznesowe-zastosowania" id="toc-przykładowe-biznesowe-zastosowania" class="nav-link" data-scroll-target="#przykładowe-biznesowe-zastosowania">Przykładowe biznesowe zastosowania</a></li>
-  <li><a href="#definicje" id="toc-definicje" class="nav-link" data-scroll-target="#definicje">Definicje</a>
-  <ul class="collapse">
-  <li><a href="#zapoznaj-się-z-tematem-danych-strumieniowych" id="toc-zapoznaj-się-z-tematem-danych-strumieniowych" class="nav-link" data-scroll-target="#zapoznaj-się-z-tematem-danych-strumieniowych">Zapoznaj się z tematem danych strumieniowych</a></li>
-  <li><a href="#analityka-strumieniowa" id="toc-analityka-strumieniowa" class="nav-link" data-scroll-target="#analityka-strumieniowa"><strong>Analityka strumieniowa</strong></a></li>
-  </ul></li>
+  <li><a href="#definicje" id="toc-definicje" class="nav-link" data-scroll-target="#definicje">Definicje</a></li>
   <li><a href="#czas-w-analizie-danych-w-czasie-rzeczywistym" id="toc-czas-w-analizie-danych-w-czasie-rzeczywistym" class="nav-link" data-scroll-target="#czas-w-analizie-danych-w-czasie-rzeczywistym">Czas w analizie danych w czasie rzeczywistym</a></li>
-  <li><a href="#okna-czasowe-w-analizie-strumieniowej" id="toc-okna-czasowe-w-analizie-strumieniowej" class="nav-link" data-scroll-target="#okna-czasowe-w-analizie-strumieniowej"><strong>Okna czasowe w analizie strumieniowej</strong></a>
-  <ul class="collapse">
-  <li><a href="#okno-rozłączne-tumbling-window" id="toc-okno-rozłączne-tumbling-window" class="nav-link" data-scroll-target="#okno-rozłączne-tumbling-window"><strong>1. Okno rozłączne (<em>Tumbling Window</em>)</strong></a></li>
-  <li><a href="#okno-przesuwne-sliding-window" id="toc-okno-przesuwne-sliding-window" class="nav-link" data-scroll-target="#okno-przesuwne-sliding-window"><strong>2. Okno przesuwne (<em>Sliding Window</em>)</strong></a></li>
-  <li><a href="#okno-skokowe-hopping-window" id="toc-okno-skokowe-hopping-window" class="nav-link" data-scroll-target="#okno-skokowe-hopping-window"><strong>3. Okno skokowe (<em>Hopping Window</em>)</strong></a></li>
-  <li><a href="#okno-sesyjne-session-window" id="toc-okno-sesyjne-session-window" class="nav-link" data-scroll-target="#okno-sesyjne-session-window"><strong>4. Okno sesyjne (<em>Session Window</em>)</strong></a></li>
-  <li><a href="#podsumowanie" id="toc-podsumowanie" class="nav-link" data-scroll-target="#podsumowanie"><strong>Podsumowanie</strong></a></li>
-  </ul></li>
+  <li><a href="#okna-czasowe-w-analizie-strumieniowej" id="toc-okna-czasowe-w-analizie-strumieniowej" class="nav-link" data-scroll-target="#okna-czasowe-w-analizie-strumieniowej"><strong>Okna czasowe w analizie strumieniowej</strong></a></li>
   </ul></li>
   </ul>
 </nav>
@@ -339,7 +269,7 @@ Modele takie doskonale nadawały się do danych <strong>ustrukturyzowanych</stro
 </section>
 <section id="przykładowy-kod-w-pythonie-graf-karate---networkx" class="level3">
 <h3 class="anchored" data-anchor-id="przykładowy-kod-w-pythonie-graf-karate---networkx">🖥️ <strong>Przykładowy kod w Pythonie (Graf Karate - NetworkX):</strong></h3>
-<div id="a48a34e1" class="cell" data-execution_count="1">
+<div id="1f0d7c35" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> networkx <span class="im">as</span> nx</span>
@@ -372,7 +302,7 @@ Modele takie doskonale nadawały się do danych <strong>ustrukturyzowanych</stro
 </section>
 <section id="przykładowy-kod-w-pythonie-json" class="level3">
 <h3 class="anchored" data-anchor-id="przykładowy-kod-w-pythonie-json">🖥️ <strong>Przykładowy kod w Pythonie (JSON):</strong></h3>
-<div id="9e41ab87" class="cell" data-execution_count="2">
+<div id="7922edd4" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
@@ -402,7 +332,7 @@ Modele takie doskonale nadawały się do danych <strong>ustrukturyzowanych</stro
 </section>
 <section id="przykładowy-kod-w-pythonie" class="level3">
 <h3 class="anchored" data-anchor-id="przykładowy-kod-w-pythonie">🖥️ <strong>Przykładowy kod w Pythonie:</strong></h3>
-<div id="1ce13790" class="cell" data-execution_count="3">
+<div id="e69f661f" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> ollama</span>
@@ -455,7 +385,7 @@ Modele takie doskonale nadawały się do danych <strong>ustrukturyzowanych</stro
 </section>
 <section id="przykładowy-kod-w-pythonie-strumieniowe-transakcje-bankowe" class="level3">
 <h3 class="anchored" data-anchor-id="przykładowy-kod-w-pythonie-strumieniowe-transakcje-bankowe">🖥️ <strong>Przykładowy kod w Pythonie (Strumieniowe transakcje bankowe):</strong></h3>
-<div id="a02f452c" class="cell" data-execution_count="4">
+<div id="8f13ef17" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
@@ -486,7 +416,7 @@ Processing transaction: {'id': 2, 'amount': 200}</code></pre>
 </section>
 <section id="przykładowy-kod-w-pythonie-sensor---temperatura" class="level3">
 <h3 class="anchored" data-anchor-id="przykładowy-kod-w-pythonie-sensor---temperatura">🖥️ <strong>Przykładowy kod w Pythonie (Sensor - temperatura):</strong></h3>
-<div id="79f244ff" class="cell" data-execution_count="5">
+<div id="90108ac3" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
@@ -495,7 +425,7 @@ Processing transaction: {'id': 2, 'amount': 200}</code></pre>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Current temperature: </span><span class="sc">{</span>get_temperature()<span class="sc">}</span><span class="ss">°C"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>Current temperature: 20.94°C</code></pre>
+<pre><code>Current temperature: 24.26°C</code></pre>
 </div>
 </div>
 </section>
@@ -1008,6 +938,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         if (link.dataset.originalHref !== undefined) {
           link.href = link.dataset.originalHref;
         }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
       }
     }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
@@ -1322,6 +1257,19 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>Copyright 2024, Sebastian Zajac</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
 
 
 

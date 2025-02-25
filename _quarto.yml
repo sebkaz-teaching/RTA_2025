@@ -12,29 +12,28 @@ website:
             text: 222890-D
           - href: indexS.qmd
             text: 222890-S
-          - href: wyklad1.qmd
-            text: Wykład 1
-          - href: wyklad2.qmd
-            text: Wykład 2
-          # - href: wyklad3.qmd
-          #   text: Wykład 3
-          # - href: wyklad4.qmd
-          #   text: Wykład 4
-          # - href: wyklad1S.qmd
-          #   text: Wykład SN1
-          # - href: wyklad2S.qmd
-          #   text: Wykład SN2
           - href: sylabus.qmd
             text: Sylabus
           - href: info.qmd
             text: Narzędzia
           - href: ksiazki.qmd
             text: Książki
-          
-
+    right: 
+        - href: wyklad1.qmd
+          text: Wykład 1
+        - href: wyklad2.qmd
+          text: Wykład 2
+  page-footer: "Copyright 2024, Sebastian Zajac"
 format:
   html:
-    theme: cosmo
+    page-layout: article
+    theme: minty
     css: style.css
     toc: true
+    toc-depth: 2
+    toc-title: "**Sections**"
     self-contained-math: true
+    code-overflow: wrap
+    highlight-style: github-dark
+    code-block-background: true
+    link-external-newwindow: true
