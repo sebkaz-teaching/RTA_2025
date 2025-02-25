@@ -200,7 +200,7 @@
     "href": "wyklad2.html#dane-sensoryczne-i-iot",
     "title": "Wykład 2",
     "section": "7. Dane sensoryczne i IoT",
-    "text": "7. Dane sensoryczne i IoT\nDane z czujników i urządzeń IoT są kolejnym krokiem w ewolucji.\n\n📌 Cechy:\n✅ Często pochodzą z miliardów urządzeń (big data).\n✅ Wymagają analizy brzegowej (edge computing).\n\n\n📌 Przykłady:\n➡️ Smart home, wearables, samochody autonomiczne, systemy przemysłowe.\n\n\n🖥️ Przykładowy kod w Pythonie (Sensor - temperatura):\n\n\nCode\nimport random\ndef get_temperature():\n    return round(random.uniform(20.0, 25.0), 2)\nprint(f\"Current temperature: {get_temperature()}°C\")\n\n\nCurrent temperature: 24.26°C"
+    "text": "7. Dane sensoryczne i IoT\nDane z czujników i urządzeń IoT są kolejnym krokiem w ewolucji.\n\n📌 Cechy:\n✅ Często pochodzą z miliardów urządzeń (big data).\n✅ Wymagają analizy brzegowej (edge computing).\n\n\n📌 Przykłady:\n➡️ Smart home, wearables, samochody autonomiczne, systemy przemysłowe.\n\n\n🖥️ Przykładowy kod w Pythonie (Sensor - temperatura):\n\n\nCode\nimport random\ndef get_temperature():\n    return round(random.uniform(20.0, 25.0), 2)\nprint(f\"Current temperature: {get_temperature()}°C\")\n\n\nCurrent temperature: 21.9°C"
   },
   {
     "objectID": "wyklad2.html#hadoop-map-reduce-skalowanie-obliczeń-na-big-data",
