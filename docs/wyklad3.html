@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Sylabus – Analiza danych w czasie rzeczywistym</title>
+<title>Wykład 3 – Analiza danych w czasie rzeczywistym</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -97,7 +97,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">222890-S</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./sylabus.html" aria-current="page"> 
+    <a class="nav-link" href="./sylabus.html"> 
 <span class="menu-text">Sylabus</span></a>
   </li>  
   <li class="nav-item">
@@ -119,7 +119,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Wykład 2</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./wyklad3.html"> 
+    <a class="nav-link active" href="./wyklad3.html" aria-current="page"> 
 <span class="menu-text">Wykład 3</span></a>
   </li>  
 </ul>
@@ -138,11 +138,12 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title"><strong>Sections</strong></h2>
    
   <ul class="collapse">
-  <li><a href="#cel-przedmiotu" id="toc-cel-przedmiotu" class="nav-link active" data-scroll-target="#cel-przedmiotu">Cel Przedmiotu</a></li>
-  <li><a href="#program-przedmiotu" id="toc-program-przedmiotu" class="nav-link" data-scroll-target="#program-przedmiotu">Program przedmiotu</a></li>
-  <li><a href="#efekty-kształcenia" id="toc-efekty-kształcenia" class="nav-link" data-scroll-target="#efekty-kształcenia">Efekty kształcenia</a></li>
-  <li><a href="#realizacja-przedmiotu" id="toc-realizacja-przedmiotu" class="nav-link" data-scroll-target="#realizacja-przedmiotu">Realizacja przedmiotu</a></li>
-  <li><a href="#literatura" id="toc-literatura" class="nav-link" data-scroll-target="#literatura">Literatura</a></li>
+  <li><a href="#strumienie-danych" id="toc-strumienie-danych" class="nav-link active" data-scroll-target="#strumienie-danych">Strumienie danych</a>
+  <ul class="collapse">
+  <li><a href="#definicje" id="toc-definicje" class="nav-link" data-scroll-target="#definicje">Definicje</a></li>
+  <li><a href="#czas-w-analizie-danych-w-czasie-rzeczywistym" id="toc-czas-w-analizie-danych-w-czasie-rzeczywistym" class="nav-link" data-scroll-target="#czas-w-analizie-danych-w-czasie-rzeczywistym">Czas w analizie danych w czasie rzeczywistym</a></li>
+  <li><a href="#okna-czasowe-w-analizie-strumieniowej" id="toc-okna-czasowe-w-analizie-strumieniowej" class="nav-link" data-scroll-target="#okna-czasowe-w-analizie-strumieniowej"><strong>Okna czasowe w analizie strumieniowej</strong></a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -151,7 +152,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Sylabus</h1>
+<h1 class="title">Wykład 3</h1>
 </div>
 
 
@@ -168,155 +169,193 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>⏳ Czas trwania: 1,5h <em>🎯 Cel wykładu</em></p>
+<p>zrozumienie, podstawowych sposobów przetwarzania i analizowania danych strumieniowych.</p>
+<hr>
+<section id="strumienie-danych" class="level1">
+<h1>Strumienie danych</h1>
+<p>Strumieniowanie możesz kojarzyć z serwisów przesyłających wideo online. Gdy oglądasz swój ulubiony serial (tak jak teraz na zajęciach), platforma streamingowa w sposób nieprzerwany dostarcza do Ciebie kolejne „porcje” wideo.</p>
+<p>Podobna koncepcja dotyczy danych strumieniowych. Przesyłane porcje nie muszą mieć formatu wideo – wszystko zależy od celu biznesowego. Przykładem może być ciągły pomiar z czujników w fabrykach, elektrowniach czy innych systemach monitorujących.</p>
+<p>Kluczowe jest to, że masz do czynienia z nieprzerwanym strumieniem danych, które musisz przetwarzać w czasie rzeczywistym. Nie możesz czekać na zatrzymanie linii produkcyjnej, aby przeprowadzić analizę – wszelkie pojawiające się problemy powinny być rejestrowane natychmiast, aby szybko na nie reagować.</p>
+<pre><code>Analiza strumieniowa to ciągłe przetwarzanie i analiza dużych zbiorów danych w ruchu.</code></pre>
+<p>Można to porównać do innych aspektów Big Data. Przetwarzanie wsadowe (batchowe) to przeciwieństwo przetwarzania strumieniowego – najpierw gromadzisz duże ilości danych, a dopiero potem je analizujesz. Oczywiście, możesz pobrać całe wideo przed obejrzeniem, ale czy miałoby to sens?</p>
+<p>Istnieją sytuacje, w których podejście wsadowe jest wystarczające, ale już teraz widzisz, że przetwarzanie strumieniowe może dostarczyć biznesowi dodatkową wartość, której trudno oczekiwać przy klasycznym przetwarzaniu wsadowym.</p>
+<p><a href="https://aws.amazon.com/streaming-data/">ciekawe informacje</a></p>
+<section id="analiza-danych-w-czasie-rzeczywistym-a-przetwarzanie-strumienia-zdarzeń" class="level3">
+<h3 class="anchored" data-anchor-id="analiza-danych-w-czasie-rzeczywistym-a-przetwarzanie-strumienia-zdarzeń">Analiza danych w czasie rzeczywistym a przetwarzanie strumienia zdarzeń</h3>
+<p>Łatwo jest połączyć analizę w czasie rzeczywistym z analizą strumieniową (lub przetwarzaniem strumienia zdarzeń). Choć technologie analizy strumieniowej mogą umożliwiać analizę w czasie rzeczywistym, to nie to samo!</p>
+<p>Analiza strumieniowa polega na przetwarzaniu danych w ruchu, natomiast analityka w czasie rzeczywistym odnosi się do każdej metody przetwarzania danych, w której opóźnienie jest na tyle krótkie, że spełnia określone wymagania biznesowe dotyczące „czasu rzeczywistego”.</p>
+<p>Zazwyczaj systemy analizy w czasie rzeczywistym dzieli się na twarde i miękkie systemy czasu rzeczywistego: - Twarde systemy czasu rzeczywistego (np. systemy sterujące w samolotach) wymagają ścisłego dotrzymania terminów – każde opóźnienie może mieć katastrofalne skutki. - Miękkie systemy czasu rzeczywistego (np. stacje pogodowe) mogą tolerować pewne opóźnienia, choć w skrajnych przypadkach może to prowadzić do utraty wartości danych.</p>
+<p>Co więcej, podczas gdy analiza strumieniowa zakłada istnienie dedykowanej architektury strumieniowej, analiza w czasie rzeczywistym nie jest powiązana z żadną konkretną architekturą.</p>
+<p>Kluczowe jest to, że analityka w czasie rzeczywistym oznacza przetwarzanie danych w okresie, który dana firma uznaje za „czas rzeczywisty” – może to być zarówno kilka milisekund, jak i kilka sekund, w zależności od potrzeb biznesowych.</p>
+</section>
+<section id="źródła-danych-przesyłanych-strumieniowo-obejmują" class="level3">
+<h3 class="anchored" data-anchor-id="źródła-danych-przesyłanych-strumieniowo-obejmują">Źródła danych przesyłanych strumieniowo obejmują:</h3>
+<pre><code>•   czujniki sprzętu,
+•   strumienie kliknięć,
+•   śledzenie lokalizacji,
+•   interakcję z użytkownikiem (np. działania użytkowników na Twojej witrynie),
+•   kanały mediów społecznościowych,
+•   notowania giełdowe,
+•   aktywność w aplikacjach,
+•   inne.</code></pre>
+<p>Firmy wykorzystują analitykę strumieniową do wykrywania i interpretowania wzorców, tworzenia wizualizacji, generowania spostrzeżeń i alertów oraz uruchamiania procesów w czasie rzeczywistym lub bliskim rzeczywistemu.</p>
+</section>
+<section id="uzasadnienie-biznesowe" class="level3">
+<h3 class="anchored" data-anchor-id="uzasadnienie-biznesowe">Uzasadnienie biznesowe</h3>
+<p>Analityka służy do identyfikowania istotnych wzorców w danych i odkrywania nowej wiedzy – zarówno w przypadku transmisji strumieniowych, jak i tradycyjnych analiz.</p>
+<p>Jednak w dzisiejszym świecie natura „znajdowania sensownych wzorców w danych” uległa zmianie, ponieważ zmienił się charakter samych danych. Ich szybkość, objętość i różnorodność eksplodowały.</p>
+<p>Twitter generuje ponad 500 milionów tweetów dziennie, a według prognoz IDC do 2025 roku urządzenia IoT będą w stanie wytworzyć 79,4 zettabajta (ZB) danych. Trend ten wciąż przyspiesza.</p>
+</section>
+<section id="przykładowe-biznesowe-zastosowania" class="level3">
+<h3 class="anchored" data-anchor-id="przykładowe-biznesowe-zastosowania">Przykładowe biznesowe zastosowania</h3>
+<ol type="1">
+<li>Dane z sensorów IoT i detekcja anomalii</li>
+<li>Stock Trading (problemy regresyjne) - czas reagowania na zmiany i czas zakupy i sprzedaży akcji.</li>
+<li>Clickstream for websites (problem klasyfikacji) - śledzenie i analiza gości na stronie serwisu internetowego - personalizacja strony i treści.</li>
+</ol>
+<p><a href="https://www.linkedin.com/pulse/8-best-examples-real-time-data-analytics-bernard-marr/">8 najlepszych przykładów analizy w czasie rzeczywistym</a></p>
+<p><a href="https://www.forbes.com/sites/forbestechcouncil/2021/10/26/how-to-build-a-strong-business-case-for-streaming-analytics/?sh=eee8eaa465d0">Biznesowe zastosowania</a></p>
+</section>
+<section id="definicje" class="level2">
+<h2 class="anchored" data-anchor-id="definicje">Definicje</h2>
+<section id="zapoznaj-się-z-tematem-danych-strumieniowych" class="level3">
+<h3 class="anchored" data-anchor-id="zapoznaj-się-z-tematem-danych-strumieniowych">Zapoznaj się z tematem <a href="https://medium.com/cuelogic-technologies/analyzing-data-streaming-using-spark-vs-kafka-bcfdc33ac828">danych strumieniowych</a></h3>
 <blockquote class="blockquote">
-<p>Nazwa przedmiotu: Analiza danych w czasie rzeczywistym</p>
-<p>Jednostka: Szkoła Główna Handlowa w Warszawie</p>
-<p>Kod przedmiotu: 222890-D, 222890-S</p>
-<p>Punkty ECTS: 3</p>
-<p>Język prowadzenia: polski</p>
-<p>Poziom przedmiotu: średnio-zaawansowany</p>
+<p><strong>Definicja 1</strong> – <em>Zdarzenie</em> to wszystko, co można zaobserwować w danym momencie czasu. Jest generowane jako bezpośredni skutek działania.</p>
+<p><strong>Definicja 2</strong> – W kontekście danych <em>zdarzenie</em> to <strong>niezmienialny</strong> rekord w strumieniu danych, zakodowany jako JSON, XML, CSV lub w formacie binarnym.</p>
+<p><strong>Definicja 3</strong> – <em>Ciągły strumień zdarzeń</em> to nieskończony zbiór pojedynczych zdarzeń uporządkowanych w czasie, np. logi z urządzeń.</p>
+<p><strong>Definicja 4</strong> – <em>Strumień danych</em> to dane tworzone przyrostowo w czasie, generowane ze źródeł statycznych (baza danych, odczyt linii z pliku) lub dynamicznych (logi, sensory, funkcje).</p>
+<p><strong>Przedsiębiorstwo to organizacja, która generuje i odpowiada na ciągły strumień zdarzeń.</strong></p>
 </blockquote>
-<p><strong>Prowadzący:</strong> <a href="https://sebastianzajac.pl">Sebastian Zając</a>, <a href="mailto:sebastian.zajac@sgh.waw.pl">sebastian.zajac@sgh.waw.pl</a></p>
-<p><strong>Website:</strong> <a href="https://sebkaz-teaching.github.io/RTA_2025/">https://sebkaz-teaching.github.io/RTA_2025/</a></p>
-<section id="cel-przedmiotu" class="level2">
-<h2 class="anchored" data-anchor-id="cel-przedmiotu">Cel Przedmiotu</h2>
-<p>Współczesny biznes opiera się na podejmowaniu decyzji opartych na danych. Coraz większa ilość informacji, rosnące wymagania rynku oraz potrzeba natychmiastowej reakcji sprawiają, że analiza danych w czasie rzeczywistym staje się kluczowym elementem nowoczesnych procesów biznesowych.</p>
-<p>Na zajęciach studenci zapoznają się z metodami i technologiami umożliwiającymi przetwarzanie danych w czasie rzeczywistym. Szczególną uwagę poświęcimy zastosowaniu uczenia maszynowego (machine learning), sztucznej inteligencji (artificial intelligence) oraz głębokich sieci neuronowych (deep learning) w analizie danych. Zrozumienie tych metod pozwala nie tylko lepiej interpretować zjawiska biznesowe, ale także podejmować szybkie i trafne decyzje.</p>
-<p>W ramach kursu omówimy zarówno dane ustrukturyzowane, jak i nieustrukturyzowane (obrazy, dźwięk, strumieniowanie wideo). Studenci poznają architektury przetwarzania danych, takie jak lambda i kappa, wykorzystywane w systemach data lake, a także wyzwania związane z modelowaniem danych w czasie rzeczywistym na dużą skalę.</p>
-<p>Kurs obejmuje część teoretyczną oraz praktyczne laboratoria, podczas których studenci będą pracować z rzeczywistymi danymi w środowiskach takich jak: JupyterLab, PyTorch, Apache Spark, Apache Kafka. Dzięki temu studenci nie tylko zdobędą wiedzę na temat metod analitycznych, ale także nauczą się korzystać z najnowszych technologii informatycznych stosowanych w analizie danych w czasie rzeczywistym.</p>
+<hr>
 </section>
-<section id="program-przedmiotu" class="level2">
-<h2 class="anchored" data-anchor-id="program-przedmiotu">Program przedmiotu</h2>
-<ol type="1">
-<li>Modelowanie, uczenie i predykcja w trybie wsadowym (offline learning) i przyrostowym (online learning). Problemy przyrostowego uczenia maszynowego.</li>
-<li>Modele przetwarzania danych w Big Data. Od plików płaskich do Data Lake. Mity i fakty przetwarzania danych w czasie rzeczywistym. (Wykład)</li>
-<li>Systemy NRT (near real-time systems), pozyskiwanie danych, streaming, analityka.</li>
-<li>Algorytmy estymacji parametrów modelu w trybie przyrostowym. Stochastic Gradient Descent.</li>
-<li>Architektura Lambda i Kappa. Zaprojektowanie architektury IT dla przetwarzania danych w czasie rzeczywistym.</li>
-<li>Przygotowanie mikroserwisu z modelem ML do zastosowania produkcyjnego.</li>
-<li>Strukturyzowane i niestrukturyzowane dane. Relacyjne bazy danych i bazy NoSQL</li>
-<li>Agregacje i raportowanie w bazach NoSQL (na przykładzie bazy Cassandra).</li>
-<li>Podstawy obiektowego programowania w Pythonie w analizie regresji liniowej, logistycznej oraz sieci neuronowych z wykorzystaniem biblioteki sklearn, TensorFLow i Keras</li>
-<li>Architektura IT przetwarzania Big Data. Przygotowanie wirtualnego środowiska dla Sparka. Pierwszy program w PySpark. Wykorzystanie przygotowanego środowiska do analizy danych z serwisu Twitter.</li>
-<li>Analiza 1 Detekcja wyłudzeń w zgłoszeniach szkód samochodowych w czasie rzeczywistym z wykorzystaniem przygotowanego, darmowego środowiska. Cz 1.</li>
-<li>Analiza 1 Detekcja wyłudzeń w zgłoszeniach szkód samochodowych w czasie rzeczywistym z wykorzystaniem przygotowanego, darmowego środowiska. Cz 2.</li>
-<li>Przygotowanie środowiska Microsoft Azure. Detekcja anomalii i wartości odstających w logowanych zdarzeniach sieci Ethernet cz 1.</li>
-<li>Analiza 2 Detekcja anomalii i wartości odstających w logowanych zdarzeniach sieci Ethernet cz 2. Inne narzędzia IT do szybkiej analizy logów.</li>
-<li>Narzędzia SAS do strumieniowego przetwarzania danych</li>
-</ol>
+<section id="analityka-strumieniowa" class="level3">
+<h3 class="anchored" data-anchor-id="analityka-strumieniowa"><strong>Analityka strumieniowa</strong></h3>
+<p><strong>Analityka strumieniowa</strong> (ang. <em>stream analytics</em>) nazywana jest również <strong>przetwarzaniem strumieniowym zdarzeń</strong> (ang. <em>event stream processing</em>) – czyli przetwarzaniem dużych ilości danych już na etapie ich generowania.</p>
+<p>Niezależnie od zastosowanej technologii, wszystkie dane powstają jako <strong>ciągły strumień zdarzeń</strong> – obejmuje to m.in.:<br>
+- działania użytkowników na stronach internetowych,<br>
+- logi systemowe,<br>
+- pomiary z sensorów.</p>
 </section>
-<section id="efekty-kształcenia" class="level2">
-<h2 class="anchored" data-anchor-id="efekty-kształcenia">Efekty kształcenia</h2>
-<ol type="1">
-<li>Wiedza:</li>
-</ol>
-<ul>
-<li>Zna historię i filozofię modeli przetwarzania danych</li>
-</ul>
-<p>Powiązania: (Analiza danych - Big Data)K2A_W01, (Analiza danych - Big Data)K2A_W03, (OGL)O2_W01, (OGL) O2_W02, (OGL)O2_W04, (OGL)O2_W07</p>
-<p>Metody weryfikacji: kolokwium pisemne (pytania otwarte, zadania)</p>
-<p>Metody dokumentacji: wykaz pytań z kolokwium</p>
-<ul>
-<li>Zna typy danych ustrukturyzowanych jak i nieustrukturyzowanych</li>
-</ul>
-<p>Powiązania: (Analiza danych - Big Data)K2A_W02, (Analiza danych - Big Data)K2A_W04, (OGL)O2_W04, (OGL) O2_W07</p>
-<p>Metody weryfikacji: projekt</p>
-<p>Metody dokumentacji: prace pisemne studenta ( w trakcie semestru, zaliczeniowe, egzaminacyjne)</p>
-<ul>
-<li>Zna możliwości i obszary zastosowania procesowania danych w czasie rzeczywistym</li>
-</ul>
-<p>Powiązania: (Analiza danych - Big Data)K2A_W01, (Analiza danych - Big Data)K2A_W02, (OGL)O2_W01, (OGL) O2_W04, (OGL)O2_W08</p>
-<p>Metody weryfikacji: egzamin pisemny (pytania otwarte, zadania)</p>
-<p>Metody dokumentacji: wykaz pytań egzaminacyjnych</p>
-<ul>
-<li>Zna teoretyczne aspekty struktury lambda i kappa</li>
-</ul>
-<p>Powiązania: (Analiza danych - Big Data)K2A_W03, (Analiza danych - Big Data)K2A_W05, (OGL)O2_W04, (OGL) O2_W06, (OGL)O2_W08</p>
-<p>Metody weryfikacji: kolokwium pisemne (pytania otwarte, zadania)</p>
-<p>Metody dokumentacji: wykaz pytań z kolokwium</p>
-<ul>
-<li>Umie wybrać strukturę IT dla danego problemu biznesowego</li>
-</ul>
-<p>Powiązania: (Analiza danych - Big Data)K2A_W02, (Analiza danych - Big Data)K2A_W03, (OGL)O2_W01, (OGL) O2_W04, (OGL)O2_W06, (OGL)O2_W08</p>
-<p>Metody weryfikacji: projekt</p>
-<p>Metody dokumentacji: prace pisemne studenta ( w trakcie semestru, zaliczeniowe, egzaminacyjne)</p>
-<ul>
-<li>Rozumie potrzeby biznesowe podejmowania decyzji w bardzo krótkim czasie</li>
-</ul>
-<p>Powiązania: (Analiza danych - Big Data)K2A_W01, (Analiza danych - Big Data)K2A_W05, (OGL)O2_W01, (OGL) O2_W04, (OGL)O2_W06, (OGL)O2_W08</p>
-<p>Metody weryfikacji: projekt</p>
-<p>Metody dokumentacji: prace pisemne studenta ( w trakcie semestru, zaliczeniowe, egzaminacyjne)</p>
-<ol start="2" type="1">
-<li>Umiejętności:</li>
-</ol>
-<ul>
-<li>Rozróżnia typy danych strukturyzowanych jak i niestrukturyzowanych</li>
-</ul>
-<p>Powiązania: K2A_U02, K2A_U07, K2A_U10, O2_U02</p>
-<p>Metody weryfikacji: test</p>
-<p>Metody dokumentacji: prace pisemne studenta ( w trakcie semestru, zaliczeniowe, egzaminacyjne)</p>
-<ul>
-<li>Umie przygotować, przetwarzać oraz zachowywać dane generowane w czasie rzeczywistym</li>
-</ul>
-<p>Powiązania: K2A_U03, K2A_U05, K2A_U09, O2_U02, O2_U04</p>
-<p>Metody weryfikacji: projekt</p>
-<p>Metody dokumentacji: prace pisemne studenta ( w trakcie semestru, zaliczeniowe, egzaminacyjne)</p>
-<ul>
-<li>Rozumie ograniczenia wynikające z czasu przetwarzania przez urządzenia oraz systemy informatyczne</li>
-</ul>
-<p>Powiązania: K2A_U01, K2A_U07, K2A_U11, O2_U02</p>
-<p>Metody weryfikacji: projekt</p>
-<p>Metody dokumentacji: prace pisemne studenta ( w trakcie semestru, zaliczeniowe, egzaminacyjne)</p>
-<ul>
-<li>Umie zastosować i skonstruować system do przetwarzania w czasie rzeczywistym</li>
-</ul>
-<p>Powiązania: K2A_U05, K2A_U10, O2_U05, O2_U06, O2_U07</p>
-<p>Metody weryfikacji: projekt</p>
-<p>Metody dokumentacji: prace pisemne studenta ( w trakcie semestru, zaliczeniowe, egzaminacyjne)</p>
-<ul>
-<li>Umie przygotować raportowanie dla systemu przetwarzania w czasie rzeczywistym</li>
-</ul>
-<p>Powiązania: K2A_U02, K2A_U08, K2A_U10, O2_U06, O2_U07</p>
-<p>Metody weryfikacji: projekt</p>
-<p>Metody dokumentacji: prace pisemne studenta ( w trakcie semestru, zaliczeniowe, egzaminacyjne)</p>
-<ol start="3" type="1">
-<li>Kompetencje:</li>
-</ol>
-<ul>
-<li>Formułuje problem analityczny wraz z jego informatycznym rozwiązaniem</li>
-</ul>
-<p>Powiązania: K2A_K01, K2A_K03, O2_K02, O2_K06, O2_K07</p>
-<p>Metody weryfikacji: projekt, prezentacja</p>
-<p>Metody dokumentacji: prace pisemne studenta (w trakcie semestru, zaliczeniowe, egzaminacyjne)</p>
-<ul>
-<li>Utrwala umiejętność samodzielnego uzupełniania wiedzy teoretycznej jak i praktycznej w zakresie programowania, modelowania, nowych technologii informatycznych z wykorzystaniem analizy w czasie rzeczywistym.</li>
-</ul>
-<p>Powiązania: K2A_K02, K2A_K04, (OGL)O2_K01, (OGL) O2_K02, (OGL)O2_K05, (OGL)O2_K06</p>
-<p>Metody weryfikacji: projekt</p>
-<p>Metody dokumentacji: prace pisemne studenta ( w trakcie semestru, zaliczeniowe, egzaminacyjne)</p>
 </section>
-<section id="realizacja-przedmiotu" class="level2">
-<h2 class="anchored" data-anchor-id="realizacja-przedmiotu">Realizacja przedmiotu</h2>
+<section id="czas-w-analizie-danych-w-czasie-rzeczywistym" class="level2">
+<h2 class="anchored" data-anchor-id="czas-w-analizie-danych-w-czasie-rzeczywistym">Czas w analizie danych w czasie rzeczywistym</h2>
+<p>W przypadku przetwarzania wsadowego analizujemy dane historyczne, a czas uruchomienia procesu nie ma żadnego związku z momentem wystąpienia analizowanych zdarzeń.</p>
+<p>Natomiast w przetwarzaniu strumieniowym wyróżniamy dwie koncepcje czasu: 1. Czas zdarzenia (event time) – moment, w którym zdarzenie faktycznie miało miejsce. 2. Czas przetwarzania (processing time) – moment, w którym system przetwarza zdarzenie.</p>
+<p>Idealne przetwarzanie danych</p>
+<p>W idealnej sytuacji przetwarzanie następuje natychmiast po wystąpieniu zdarzenia:</p>
+<p><img alt="Batch Processing" src="img/rys2_1.png" class="center"></p>
+<p>Rzeczywiste przetwarzanie danych</p>
+<p>W praktyce przetwarzanie danych zawsze odbywa się z pewnym opóźnieniem, co jest widoczne jako punkty poniżej linii idealnego przetwarzania (poniżej przekątnej na wykresie).</p>
+<p><img alt="Batch Processing" src="img/rys2_2.png" class="center"></p>
+<p>W aplikacjach przetwarzania strumieniowego istotna jest różnica między czasem powstania zdarzenia a czasem jego przetwarzania. Do najczęstszych przyczyn opóźnień należą:</p>
 <ul>
-<li>egzamin testowy 20%</li>
-<li>Zadania 40%</li>
-<li>Projekt 40%</li>
+<li>przesyłanie danych przez sieć,</li>
+<li>brak komunikacji między urządzeniem a siecią.</li>
 </ul>
+<p>Przykładem jest śledzenie położenia samochodu przez aplikację GPS – przejazd przez tunel może spowodować chwilową utratę danych.</p>
+<p>Obsługa opóźnień w przetwarzaniu strumieniowym</p>
+<p>Opóźnienia w przetwarzaniu zdarzeń można obsłużyć na dwa sposoby: 1. Monitorowanie liczby pominiętych zdarzeń i wyzwalanie alarmu w przypadku zbyt dużej liczby odrzuceń. 2. Zastosowanie korekty za pomocą watermarkingu, czyli dodatkowego mechanizmu uwzględniającego opóźnione zdarzenia.</p>
+<p>Proces przetwarzania zdarzeń w czasie rzeczywistym można przedstawić jako funkcję schodkową:</p>
+<p><img alt="Batch Processing" src="img/rys2_3.png" class="center"></p>
+<p>Nie wszystkie zdarzenia wnoszą wkład do analizy – niektóre mogą zostać odrzucone ze względu na zbyt duże opóźnienie.</p>
+<p>Wykorzystanie watermarkingu pozwala na uwzględnienie dodatkowego czasu na pojawienie się opóźnionych zdarzeń. Proces ten obejmuje wszystkie zdarzenia powyżej przerywanej linii. Mimo to nadal mogą zdarzyć się przypadki, w których niektóre punkty zostaną pominięte.</p>
+<p><img alt="Batch Processing" src="img/rys2_4.png" class="center"></p>
+<p>Przedstawione na wykresach sytuacje jawnie wskazują dlaczego pojęcie czasu jest istotnym czynnikiem i wymaga ścisłego określenia już na poziomie definiowania potrzeb biznesowych. Przypisywanie znaczników czasu do danych (zdarzeń) to trudne zadanie.</p>
 </section>
-<section id="literatura" class="level2">
-<h2 class="anchored" data-anchor-id="literatura">Literatura</h2>
-<p>1️⃣ Zając S. (red.), Modelowanie dla biznesu, Analityka w czasie rzeczywistym - narzędzia informatyczne i biznesowe, SGH, Warszawa 2022.</p>
-<p>2️⃣ Frątczak E. (red.), Modelowanie dla biznesu: Regresja logistyczna, Regresja Poissona, Survival Data Mining, CRM, Credit Scoring, SGH, Warszawa 2019.</p>
-<p>3️⃣ Bellemare A., Mikrousługi oparte na zdarzeniach. Wykorzystanie danych w organizacji na dużą skalę, O’Reilly 2021.</p>
-<p>4️⃣ Shapira G., Palino T., Sivaram R., Petty K., Kafka: The Definitive Guide. Real-time data and stream processing at scale, O’Reilly 2022.</p>
-<p>5️⃣ Lakshmanan V., Robinson S., Munn M., Wzorce projektowe uczenia maszynowego. Rozwiązania typowych problemów dotyczących przygotowania danych, konstruowania modeli i MLOps, O’Reilly 2021.</p>
-<p>6️⃣ Gift N., Deza A., Practical MLOps: Operationalizing Machine Learning Models, O’Reilly 2022.</p>
-<p>7️⃣ Tiark Rompf, Streaming Systems: The What, Where, When, and How of Large-Scale Data Processing, O’Reilly 2018.</p>
-<p>8️⃣ Sebastián Ramírez, FastAPI: Modern Web APIs with Python, Manning (w przygotowaniu, aktualnie dostępna online).</p>
-<p>9️⃣ Trevor Hastie, Robert Tibshirani, Jerome Friedman, The Elements of Statistical Learning: Data Mining, Inference, and Prediction, Springer 2017.</p>
-<p>🔟 Anirudh Koul, Siddha Ganju, Meher Kasam, Practical Deep Learning for Cloud, Mobile &amp; Edge, O’Reilly 2019.</p>
+<section id="okna-czasowe-w-analizie-strumieniowej" class="level2">
+<h2 class="anchored" data-anchor-id="okna-czasowe-w-analizie-strumieniowej"><strong>Okna czasowe w analizie strumieniowej</strong></h2>
+<p>W przetwarzaniu strumieniowym <strong>okna czasowe</strong> pozwalają na grupowanie danych w ograniczone czasowo segmenty, co umożliwia analizę zdarzeń w określonych przedziałach czasowych. W zależności od zastosowania stosuje się różne typy okien, dostosowane do charakterystyki danych i wymagań analitycznych.</p>
+<hr>
+<section id="okno-rozłączne-tumbling-window" class="level3">
+<h3 class="anchored" data-anchor-id="okno-rozłączne-tumbling-window"><strong>1. Okno rozłączne (<em>Tumbling Window</em>)</strong></h3>
+<p>Jest to okno o stałej długości, które <strong>nie nakłada się na siebie</strong> – każde zdarzenie należy tylko do jednego okna.</p>
+<p>✅ <strong>Charakterystyka:</strong><br>
+- Stała długość okna<br>
+- Brak nakładania się na siebie<br>
+- Idealne do podziału danych na równe segmenty czasowe</p>
+<p>📌 <strong>Przykład:</strong> Analiza liczby zamówień w sklepie internetowym co 5 minut.</p>
+<p><img alt="Tumbling Window" src="img/rys2_5.png" class="center"></p>
+<hr>
+</section>
+<section id="okno-przesuwne-sliding-window" class="level3">
+<h3 class="anchored" data-anchor-id="okno-przesuwne-sliding-window"><strong>2. Okno przesuwne (<em>Sliding Window</em>)</strong></h3>
+<p>Obejmuje wszystkie zdarzenia następujące w określonym przedziale czasu, gdzie okno <strong>przesuwa się w sposób ciągły</strong>.</p>
+<p>✅ <strong>Charakterystyka:</strong><br>
+- Każde zdarzenie może należeć do kilku okien<br>
+- Okno przesuwa się o zadany interwał<br>
+- Przydatne do wykrywania trendów i anomalii</p>
+<p>📌 <strong>Przykład:</strong> Śledzenie średniej temperatury w ciągu ostatnich 10 minut, aktualizowane co 2 minuty.</p>
+<p><img alt="Sliding Window" src="img/rys2_6.png" class="center"></p>
+<hr>
+</section>
+<section id="okno-skokowe-hopping-window" class="level3">
+<h3 class="anchored" data-anchor-id="okno-skokowe-hopping-window"><strong>3. Okno skokowe (<em>Hopping Window</em>)</strong></h3>
+<p>Jest podobne do okna rozłącznego, ale pozwala na <strong>nakładanie się okien</strong> na siebie, dzięki czemu jedno zdarzenie może należeć do kilku okien. Jest stosowane do wygładzania danych.</p>
+<p>✅ <strong>Charakterystyka:</strong><br>
+- Stała długość okna<br>
+- Możliwość nakładania się na siebie<br>
+- Przydatne do redukcji szumów w danych</p>
+<p>📌 <strong>Przykład:</strong> Analiza liczby odwiedzających stronę co 10 minut, ale aktualizowana co 5 minut, aby lepiej wychwytywać trendy.</p>
+<p><img alt="Hopping Window" src="img/rys2_7.png" class="center"></p>
+<hr>
+</section>
+<section id="okno-sesyjne-session-window" class="level3">
+<h3 class="anchored" data-anchor-id="okno-sesyjne-session-window"><strong>4. Okno sesyjne (<em>Session Window</em>)</strong></h3>
+<p>Okno sesyjne grupuje zdarzenia na podstawie <strong>okresów aktywności</strong> i zamyka się po określonym czasie braku aktywności.</p>
+<p>✅ <strong>Charakterystyka:</strong><br>
+- Dynamiczna długość okna<br>
+- Definiowane przez aktywność użytkownika<br>
+- Stosowane w analizie sesji użytkowników</p>
+<p>📌 <strong>Przykład:</strong> Analiza sesji użytkowników na stronie internetowej – sesja trwa tak długo, jak długo użytkownik wykonuje akcje, ale kończy się po 15 minutach braku aktywności.</p>
+<hr>
+</section>
+<section id="podsumowanie" class="level3">
+<h3 class="anchored" data-anchor-id="podsumowanie"><strong>Podsumowanie</strong></h3>
+<p>Różne rodzaje okien czasowych są stosowane w zależności od specyfiki danych i celów analizy. Wybór odpowiedniego okna wpływa na dokładność wyników i efektywność systemu analitycznego.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 38%">
+<col style="width: 35%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Typ okna</th>
+<th>Charakterystyka</th>
+<th>Zastosowanie</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Rozłączne (<em>Tumbling</em>)</strong></td>
+<td>Stała długość, brak nakładania</td>
+<td>Raporty okresowe</td>
+</tr>
+<tr class="even">
+<td><strong>Przesuwne (<em>Sliding</em>)</strong></td>
+<td>Stała długość, nakładające się okna</td>
+<td>Trendy, wykrywanie anomalii</td>
+</tr>
+<tr class="odd">
+<td><strong>Skokowe (<em>Hopping</em>)</strong></td>
+<td>Stała długość, częściowe nakładanie</td>
+<td>Wygładzanie danych</td>
+</tr>
+<tr class="even">
+<td><strong>Sesyjne (<em>Session</em>)</strong></td>
+<td>Dynamiczna długość, zależna od aktywności</td>
+<td>Analiza sesji użytkowników</td>
+</tr>
+</tbody>
+</table>
+<p>Każdy typ okna ma swoje unikalne zastosowania i pomaga w lepszej interpretacji danych strumieniowych. Wybór właściwej metody zależy od potrzeb biznesowych i charakterystyki analizowanych danych.</p>
+<p>W analizie danych strumieniowych interpretacja czasu jest złożonym zagadnieniem, ponieważ: 1. Różne systemy mają różne zegary, co może prowadzić do niespójności, 2. Dane mogą docierać z opóźnieniem, co wymaga technik watermarkingu i okien czasowych, 3. Różne podejścia do analizy czasu zdarzenia i czasu przetwarzania wpływają na dokładność wyników.</p>
 
 
+</section>
+</section>
 </section>
 
 </main> <!-- /main -->

@@ -24,8 +24,8 @@ Wykład jest realizowany w trybie stacjonarnym.
 Jest on NIEOBOWIĄZKOWY i odbywa się w Auli VI bud G
 
 1. <del>18-02-2025 (wtorek) 13:30-15:10 - Wykład 1</del>
-2. 25-02-2025 (wtorek) 13:30-15:10 - Wykład 2
-3. 04-03-2025 (wtorek) 13:30-15:10 - Wykład 3
+2. <del>25-02-2025 (wtorek) 13:30-15:10 - Wykład 2</del>
+3. <del>04-03-2025 (wtorek) 13:30-15:10 - Wykład 3 online </del>
 4. 11-03-2025 (wtorek) 13:30-15:10 - Wykład 4
 5. 18-03-2025 (wtorek) 13:30-15:10 - Wykład 5
     
