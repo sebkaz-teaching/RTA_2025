@@ -27,7 +27,7 @@ website:
           text: Wykład 3
         - href: wyklad4.qmd
           text: Wykład 4
-  page-footer: "Copyright 2025, Sebastian Zajac"
+  page-footer: "Copyright 2025, Sebastian Zając"
 format:
   html:
     page-layout: article

@@ -7,6 +7,54 @@ format:
 jupyter: python3
 ---
 
+## Historia podejścia do architektury 
+
+Rozwój technologii, szczególnie przejście od `monolitów` do `mikroserwisów`, miał ogromny wpływ na współczesne systemy informatyczne. 
+Monolityczne aplikacje, które były dominującym podejściem w przeszłości, stanowiły jedną, dużą jednostkę kodu. 
+Takie podejście miało swoje zalety, takie jak prostota na początkowych etapach rozwoju systemu, ale także istotne wady, w tym trudności w skalowaniu, ograniczoną elastyczność i skomplikowaną konserwację.
+
+W miarę jak technologia ewoluowała, pojawiły się `mikroserwisy` – podejście, które polega na dzieleniu aplikacji na mniejsze, niezależne usługi, z których każda odpowiada za określoną funkcjonalność.
+Przejście na mikroserwisy umożliwiło większą elastyczność, łatwiejsze skalowanie systemów oraz szybkie wdrażanie nowych funkcji. 
+Ponadto każda usługa może być rozwijana, testowana i wdrażana niezależnie, co upraszcza zarządzanie kodem i zmniejsza ryzyko błędów.
+
+Dzięki mikroserwisom organizacje mogą lepiej dostosować się do zmieniających się potrzeb biznesowych, poprawić dostępność systemów (poprzez izolowanie awarii do pojedynczych usług) oraz szybciej wprowadzać innowacje. 
+Dodatkowo, mikroserwisy sprzyjają stosowaniu nowoczesnych metod takich jak konteneryzacja i chmurowe rozwiązania, co dodatkowo ułatwia zarządzanie infrastrukturą i pozwala na lepsze wykorzystanie zasobów.
+
+Jednakże, mimo wielu korzyści, przejście do mikroserwisów wiąże się również z wyzwaniami, takimi jak:
+
+- złożoność zarządzania komunikacją między usługami, 
+- konieczność monitorowania i utrzymania większej liczby komponentów
+- zarządzanie transakcjami rozproszonymi. 
+
+Wymaga to nowych narzędzi i podejść do zarządzania oraz wdrożenia kultury DevOps.
+
+Wraz z rozwojem mikroserwisów, pojawiły się także nowe technologie, takie jak `serverless` i `konteneryzacja`, które stanowią naturalne rozszerzenie elastyczności systemów. 
+Te technologie jeszcze bardziej zwiększają efektywność zarządzania i skalowania nowoczesnych aplikacji, stając się kluczowymi elementami w ekosystemie chmurowym.
+
+### Serverless
+
+Serverless to model, w którym deweloperzy nie muszą zarządzać serwerami ani infrastrukturą. 
+Zamiast tego, dostawcy chmurowi zajmują się całą infrastrukturą, a programiści koncentrują się jedynie na kodzie aplikacji. 
+Kluczowym atutem tego podejścia jest jego skalowalność – aplikacje automatycznie skalują się w zależności od zapotrzebowania na zasoby. 
+Systemy serverless pozwalają na dynamiczne uruchamianie i zatrzymywanie funkcji w odpowiedzi na konkretne zdarzenia, co prowadzi do optymalizacji kosztów (płacisz tylko za faktyczne wykorzystanie zasobów). 
+To podejście ułatwia zarządzanie aplikacjami o zmiennym lub trudnym do przewidzenia ruchu.
+
+Serverless jest także doskonałym uzupełnieniem dla mikroserwisów, pozwalając na uruchamianie niezależnych funkcji w odpowiedzi na różne zdarzenia, co daje jeszcze większą elastyczność. 
+Może być wykorzystywane w takich zastosowaniach jak przetwarzanie danych w czasie rzeczywistym, obsługa API czy automatyzacja zadań.
+
+### Konteneryzacja
+
+Konteneryzacja (np. przy użyciu Docker) to kolejny krok w kierunku zwiększenia elastyczności. Dzięki kontenerom, aplikacje oraz ich zależności są zapakowane w izolowane jednostki, które można uruchamiać w różnych środowiskach w sposób spójny i przewidywalny. Kontenery są lekkie, szybkie do uruchomienia i oferują łatwość w przenoszeniu aplikacji między różnymi platformami, co jest kluczowe w architekturach mikroserwisowych.
+
+Konteneryzacja zyskuje na znaczeniu, szczególnie w połączeniu z narzędziami do zarządzania kontenerami, takimi jak Kubernetes, które automatycznie skalują aplikacje, monitorują ich stan, zapewniają wysoką dostępność oraz zarządzają ich cyklem życia. To podejście idealnie wspiera zarówno mikroserwisy, jak i serverless, umożliwiając łatwe wdrażanie, skalowanie i monitorowanie aplikacji.
+
+### Wspólny Cel – Elastyczność
+
+Zarówno serverless, jak i konteneryzacja, stanowią dalszy krok w kierunku elastyczności, oferując możliwość szybkiej reakcji na zmieniające się warunki i zapotrzebowanie. Wspólnie z mikroserwisami tworzą nowoczesne podejście do architektury aplikacji, które pozwala na rozdzielenie odpowiedzialności, łatwiejsze skalowanie, dynamiczne dostosowywanie zasobów i lepsze wykorzystanie infrastruktury chmurowej.
+
+Kombinacja tych technologii umożliwia firmom szybkie wdrażanie nowych funkcji, reagowanie na zmieniające się potrzeby użytkowników oraz minimalizowanie kosztów poprzez optymalne wykorzystanie zasobów, co jest szczególnie istotne w dzisiejszym, dynamicznie zmieniającym się środowisku technologicznym.
+
+
 ## Wpływ technologii na systemy informatyczne
 
 Komunikacja sieciowa, relacyjne bazy danych, rozwiązania chmurowe oraz Big Data znacząco zmieniły sposób budowania systemów informatycznych i wykonywania w nich pracy.  
@@ -87,16 +135,19 @@ Gdy użytkownik prosi o wycenę nieruchomości, aplikacja wysyła zapytanie do s
 Trening dobrego modelu **ML** to dopiero **pierwszy krok** całego procesu.  
 Aby model był użyteczny, musisz go **udostępnić użytkownikom końcowym**, np. w formie **API**.
 
-### Jak to zrobić?  
-- Potrzebujesz:
-  - wytrenowanego **modelu ML**,
-  - **interpreter** modelu (np. TensorFlow, Scikit-Learn, PyTorch),
-  - danych wejściowych dla modelu.  
+### Jak to zrobić?
 
-- Kluczowe **metryki** jakości serwowania modelu:
-  1. **Czas odpowiedzi** (latency),
-  2. **Koszt uruchomienia** modelu (infrastruktura serwerowa),
-  3. **Liczba zapytań na sekundę** (QPS – Queries Per Second).
+1. Potrzebujesz:
+
+- wytrenowanego **modelu ML**,
+- **interpreter** modelu (np. TensorFlow, Scikit-Learn, PyTorch),
+- danych wejściowych dla modelu.  
+
+2. Kluczowe **metryki** jakości serwowania modelu:
+
+1. **Czas odpowiedzi** (latency),
+2. **Koszt uruchomienia** modelu (infrastruktura serwerowa),
+3. **Liczba zapytań na sekundę** (QPS – Queries Per Second).
 
 > **Udostępnianie danych między systemami** zawsze było kluczowym wyzwaniem w tworzeniu oprogramowania.  
 > W obszarze tradycyjnego **DevOps** koncentrujemy się na infrastrukturze, a w **MLOps** – na wdrażaniu i utrzymaniu modeli uczenia maszynowego.
@@ -231,7 +282,7 @@ pub/sub to systemy, które często posiadają brokera czyli centralny punkt, w k
 
 Na [witrynie Kafki](https://kafka.apache.org) znajdziesz definicję:
 
-> Rozproszona platforma streamingowa
+### Rozproszona platforma streamingowa
 
 **Co to jest „platforma rozproszonego przesyłania strumieniowego”?**
 
@@ -258,9 +309,9 @@ Przesyłanie wiadomości, to po prostu czynność wysyłania wiadomości z jedne
 - Konsument: subskrybuje jedną lub więcej kolejek i otrzymuje ich wiadomości po opublikowaniu.
 
 I to jest to; tak działa przesyłanie wiadomości.
- Jak widać, nie ma tu nic o strumieniach, czasie rzeczywistym czy klastrach.
+Jak widać, nie ma tu nic o strumieniach, czasie rzeczywistym czy klastrach.
 
-#### Architektura Apache Kafka
+### Architektura Apache Kafka
 
 Więcej informacji na temat Kafki znajdziesz w tym [linku](https://www.cloudkarafka.com/blog/part1-kafka-for-beginners-what-is-apache-kafka.html).
 
@@ -358,8 +409,8 @@ print(f"Wiadomość wysłana do tematu '{topic}'")
 Konsumenci w Kafce odczytują i przetwarzają wiadomości z tematów.
 Każdy konsument może należeć do grupy konsumentów (Consumer Group),
 co pozwala na równoległe przetwarzanie wiadomości.
-	•	Jeśli wielu konsumentów należy do tej samej grupy, Kafka równoważy obciążenie między nimi.
-	•	Jeśli jeden konsument przestanie działać, Kafka automatycznie przypisze jego partycje do innego aktywnego konsumenta.
+-	Jeśli wielu konsumentów należy do tej samej grupy, Kafka równoważy obciążenie między nimi.
+-	Jeśli jeden konsument przestanie działać, Kafka automatycznie przypisze jego partycje do innego aktywnego konsumenta.
 
 Przykład konsumenta w Pythonie:
 ```python
