@@ -27,6 +27,9 @@ website:
           text: Wykład 3
         - href: wyklad4.qmd
           text: Wykład 4
+        - href: wyklad5.qmd
+          text: Wykład 5
+          
   page-footer: "Copyright 2025, Sebastian Zając"
 format:
   html:
