@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>plan – Analiza danych w czasie rzeczywistym</title>
+<title>Apache kafka - wprowadzenie – Analiza danych w czasie rzeczywistym</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,25 +20,59 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-9a023c9ade86a60361e96e3e3f11bc54.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-c4b40d80f3775827f3eec312850474a7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-9a023c9ade86a60361e96e3e3f11bc54.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-c4b40d80f3775827f3eec312850474a7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,17 +102,17 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="../style.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-sidebar floating nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Analiza danych w czasie rzeczywistym</span>
     </a>
   </div>
@@ -89,50 +123,24 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">222890-D</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./indexS.html"> 
+    <a class="nav-link" href="../indexS.html"> 
 <span class="menu-text">222890-S</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./sylabus.html"> 
+    <a class="nav-link" href="../sylabus.html"> 
 <span class="menu-text">Sylabus</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./info.html"> 
+    <a class="nav-link" href="../info.html"> 
 <span class="menu-text">Narzędzia</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./ksiazki.html"> 
+    <a class="nav-link" href="../ksiazki.html"> 
 <span class="menu-text">Książki</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./cw1.html"> 
-<span class="menu-text">lab1</span></a>
-  </li>  
-</ul>
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="./wyklad1.html"> 
-<span class="menu-text">Wykład 1</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./wyklad2.html"> 
-<span class="menu-text">Wykład 2</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./wyklad3.html"> 
-<span class="menu-text">Wykład 3</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./wyklad4.html"> 
-<span class="menu-text">Wykład 4</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./wyklad5.html"> 
-<span class="menu-text">Wykład 5</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -140,99 +148,159 @@ ul.task-list li input[type="checkbox"] {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../kafka_codes/kafka1.html">Apache Kafka</a></li><li class="breadcrumb-item"><a href="../kafka_codes/kafka1.html">Apache kafka - wprowadzenie</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title"><strong>Sections</strong></h2>
-   
-  <ul class="collapse">
-  <li><a href="#nowy-program-przedmiotu" id="toc-nowy-program-przedmiotu" class="nav-link active" data-scroll-target="#nowy-program-przedmiotu">Nowy program przedmiotu</a></li>
-  </ul>
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Wykłady</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/wyklad1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Wykład 1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/wyklad2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Wykład 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/wyklad3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Wykład 3</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/wyklad4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Wykład 4</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/wyklad5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Wykład 5</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Apache Kafka</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../kafka_codes/kafka1.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Apache kafka - wprowadzenie</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Python</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../cw1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">REST API z wykorzystaniem biblioteki Flask</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
 </nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../kafka_codes/kafka1.html">Apache Kafka</a></li><li class="breadcrumb-item"><a href="../kafka_codes/kafka1.html">Apache kafka - wprowadzenie</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Apache kafka - wprowadzenie</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
 
-<p><strong>Lecture 1: Introduction to Real-Time Data Analysis</strong></p>
-<ul>
-<li>Definition and importance of real-time data analysis</li>
-<li>Overview of challenges in real-time data analysis (latency, scalability, noise)</li>
-<li>Types of real-time data sources:</li>
-<li>IoT devices</li>
-<li>Social media platforms</li>
-<li>Financial markets</li>
-<li>Sensor networks</li>
-<li>Lecture objectives:</li>
-<li>Understand the concept of real-time data analysis</li>
-<li>Identify key challenges and types of real-time data sources</li>
-</ul>
-<p><strong>Lecture 2: Data Ingestion and Processing for Real-Time Analysis</strong></p>
-<ul>
-<li>Overview of data ingestion pipelines (e.g., Apache Kafka, AWS Kinesis)</li>
-<li>Data processing frameworks for real-time analysis (e.g., Apache Spark, Apache Flink)</li>
-<li>Discussion of batch vs.&nbsp;stream processing</li>
-<li>Lecture objectives:</li>
-<li>Understand the importance of efficient data ingestion and processing</li>
-<li>Learn about common data processing frameworks</li>
-</ul>
-<p><strong>Lecture 3: Real-Time Data Analysis Techniques</strong></p>
-<ul>
-<li>Introduction to machine learning algorithms for real-time analysis (e.g., decision trees, clustering)</li>
-<li>Deep learning applications for real-time analysis (e.g., neural networks, convolutional networks)</li>
-<li>Time series forecasting techniques (e.g., ARIMA, LSTM)</li>
-<li>Lecture objectives:</li>
-<li>Understand machine learning and deep learning applications in real-time data analysis</li>
-<li>Learn about time series forecasting techniques</li>
-</ul>
-<p><strong>Lecture 4: Real-Time Data Visualization and Communication</strong></p>
-<ul>
-<li>Importance of effective visualization for real-time insights</li>
-<li>Overview of data visualization tools and libraries (e.g., Tableau, Matplotlib)</li>
-<li>Best practices for presenting real-time data to stakeholders</li>
-<li>Discussion of storytelling in data analysis</li>
-<li>Lecture objectives:</li>
-<li>Understand the importance of visualizing real-time data</li>
-<li>Learn about data visualization best practices</li>
-</ul>
-<p><strong>Lecture 5: Case Studies and Implementation</strong></p>
-<ul>
-<li>Real-world case studies of successful real-time data analysis applications (e.g., finance, healthcare, IoT)</li>
-<li>Group project: students will work in groups to implement a simple real-time data analysis pipeline using Python or R</li>
-<li>Discussion of common pitfalls and lessons learned from real-world implementations</li>
-<li>Lecture objectives:</li>
-<li>Apply theoretical knowledge to real-world scenarios</li>
-<li>Develop practical skills for implementing real-time data analysis pipelines</li>
-</ul>
-<p>Throughout the lectures, I’ll incorporate interactive elements, such as:</p>
-<ul>
-<li>Group discussions and debates</li>
-<li>Hands-on exercises and coding challenges</li>
-<li>Real-world case studies and group projects</li>
-<li>Visual aids (e.g., slides, videos) to illustrate key concepts and techniques.</li>
-</ul>
-<p>This comprehensive lecture plan will provide students with a solid foundation in real-time data analysis, covering the technical aspects of data ingestion, processing, and visualization, as well as practical applications and best practices.</p>
-<section id="nowy-program-przedmiotu" class="level2">
-<h2 class="anchored" data-anchor-id="nowy-program-przedmiotu">Nowy program przedmiotu</h2>
-<ol type="1">
-<li>Batch vs.&nbsp;Real-Time vs.&nbsp;Streaming Analytics – Różnice między trybami przetwarzania danych, kluczowe koncepcje i zastosowania.</li>
-<li>Modele przetwarzania danych w Big Data – Od plików płaskich do Data Lake, wady i zalety podejścia real-time. Mity i fakty o przetwarzaniu w czasie rzeczywistym.</li>
-<li>Architektura IT dla przetwarzania w czasie rzeczywistym – Omówienie architektur Lambda i Kappa w kontekście strumieniowego przetwarzania danych.</li>
-<li>Systemy przetwarzania danych w czasie rzeczywistym – Przegląd technologii: Apache Kafka, Apache Spark Streaming, Apache Flink i ich zastosowania w Pythonie.</li>
-<li>Podstawy uczenia maszynowego w czasie rzeczywistym – Porównanie offline learning vs.&nbsp;online learning, problemy związane z przyrostowym uczeniem maszynowym.</li>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Apache kafka to ,,serwer’’ oraz ,,baza danych’’.</p>
+<p>Domyślnym adresem naszego serwera jest <code>broker:9092</code></p>
+<p>Nasza baza danych będzie posługiwała się tabelami, które w Apache Kafka nazywamy <code>topicami</code>.</p>
+<p>Zarządzanie Kafką odbywa się z wykorzystaniem skryptów. W naszym przypadku będą to skrypty <code>*.sh</code>.</p>
+<section id="sprawdź-listę-topiców" class="level3">
+<h3 class="anchored" data-anchor-id="sprawdź-listę-topiców">Sprawdź listę topiców</h3>
+<p>Pamiętaj aby przejść do katalogu domowego.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~ </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">kafka/bin/kafka-topics.sh</span> <span class="at">--list</span> <span class="at">--bootstrap-server</span> broker:9092</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="utwórz-nowy-topic-o-nazwie-mytopic" class="level3">
+<h3 class="anchored" data-anchor-id="utwórz-nowy-topic-o-nazwie-mytopic">Utwórz nowy topic o nazwie <code>mytopic</code></h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">kafka/bin/kafka-topics.sh</span> <span class="at">--create</span> <span class="at">--topic</span> mytopic  <span class="at">--bootstrap-server</span> broker:9092</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="utwórz-producenta" class="level3">
+<h3 class="anchored" data-anchor-id="utwórz-producenta">Utwórz producenta</h3>
+<p>Ten skrypt pozwoli Ci wprowadzać eventy ręcznie przez terminal. Opcje <code>--property</code> są dodatkowe i wprowadzone tylko do analizy przeprowadzanej w tym przykładzie.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">kafka/bin/kafka-console-producer.sh</span> <span class="at">--bootstrap-server</span> broker:9092 <span class="at">--topic</span> mytopic <span class="at">--property</span> <span class="st">"parse.key=true"</span> <span class="at">--property</span> <span class="st">"key.separator=:"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="consument-w-sparku" class="level3">
+<h3 class="anchored" data-anchor-id="consument-w-sparku">Consument w Sparku</h3>
+<p>Otwórz nowy terminal w miejscu gdzie znajduje się plik test_key_value.py i uruchom program Consumenta na Sparku</p>
+<p>Pamiętaj, iż Apache Spark nie posiada domyślnego konektora do Kafki dlatego uruchom proces poprzez komendę spark-submit i pobierz odpowiedni pakiet w scali.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">spark-submit</span> <span class="at">--packages</span> org.apache.spark:spark-sql-kafka-0-10_2.12:3.3.0  test_key_value.py</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="5" type="1">
+<li>W terminalu z uruchominionym producentem wpisz teskt w postaci:</li>
 </ol>
-<p>🧑‍🏫 Wykłady (teoria + case study z biznesu)</p>
-<p>1️⃣ Wprowadzenie: Ewolucja analizy danych Dane strukturyzowane (SQL, Pandas) vs.&nbsp;nieustrukturyzowane (teksty, obrazy, grafy). Przetwarzanie wsadowe (batch processing) vs.&nbsp;strumieniowe (stream processing). Case study: Jak firmy przechodzą od tabel do analizy strumieniowej?</p>
-<p>2️⃣ Systemy przetwarzania danych w czasie rzeczywistym Modele danych: relacyjne (PostgreSQL), grafowe (NetworkX), strumieniowe (Kafka). Lambda i Kappa Architecture – różnice i zastosowania. Case study: Rekomendacje produktowe w e-commerce.</p>
-<p>3️⃣ Modele ML/DL dla danych w czasie rzeczywistym Uczenie wsadowe (batch) vs.&nbsp;przyrostowe (online learning). Stochastic Gradient Descent (SGD) – podstawa ML na strumieniach. Case study: Klasyfikacja oszustw w czasie rzeczywistym.</p>
-<p>4️⃣ Obiektowe programowanie w Pythonie w kontekście ML Struktury klasowe dla modeli ML. Tworzenie pipeline’ów ML w Pythonie. Case study: Klasyfikacja wiadomości jako SPAM/NON-SPAM w strumieniu tekstów.</p>
-<p>5️⃣ Tworzenie API z regułami decyzyjnymi i ML Budowa API w FastAPI dla modelu ML. Integracja modelu klasyfikacji z systemem decyzyjnym. Case study: System wykrywania anomalii w logach serwerowych.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">jan:45</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">alicja:20</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>i sprawdz co pojawia się w oknie aplikacji consumenta.</p>
+<p>Po zakończeniu pokazu ctrl+c zamyka zarówno okno producenta jak i aplikacje sparkową</p>
 
 
 </section>

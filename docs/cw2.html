@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Informacje ogólne – Analiza danych w czasie rzeczywistym</title>
+<title>REST API z wykorzystaniem biblioteki Flask – Analiza danych w czasie rzeczywistym</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -89,7 +123,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">222890-D</span></a>
   </li>  
   <li class="nav-item">
@@ -119,7 +153,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Informacje ogólne</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">REST API z wykorzystaniem biblioteki Flask</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -181,12 +215,6 @@ ul.task-list li input[type="checkbox"] {
           </a> 
       </div>
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./kafka_codes/kafka1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Apache kafka - wprowadzenie</span></a>
-  </div>
-</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -211,23 +239,15 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title"><strong>Sections</strong></h2>
-   
-  <ul class="collapse">
-  <li><a href="#analiza-danych-w-czasie-rzeczywistym" id="toc-analiza-danych-w-czasie-rzeczywistym" class="nav-link active" data-scroll-target="#analiza-danych-w-czasie-rzeczywistym">Analiza danych w czasie rzeczywistym</a></li>
-  <li><a href="#kalendarz" id="toc-kalendarz" class="nav-link" data-scroll-target="#kalendarz">Kalendarz</a></li>
-  <li><a href="#technologie" id="toc-technologie" class="nav-link" data-scroll-target="#technologie">Technologie</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Informacje ogólne</h1>
+<h1 class="title">REST API z wykorzystaniem biblioteki Flask</h1>
 </div>
 
 
@@ -244,111 +264,171 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="analiza-danych-w-czasie-rzeczywistym" class="level2">
-<h2 class="anchored" data-anchor-id="analiza-danych-w-czasie-rzeczywistym">Analiza danych w czasie rzeczywistym</h2>
-<p>Kod: 222890-D</p>
-<p>Semestr: 2024/2025 Uczelnia: SGH Szkoła Główna Handlowa w Warszawie</p>
-<p>Podstawowe informacje o kursie znajdziesz w <a href="./sylabus">sylabusie</a>.</p>
-<p>Polecane materiały znajdziesz na liście <a href="./ksiazki">książek</a>.</p>
-<p>Materiały z wykładu i laboratoriów nie są wspierane przez Google. Obecność na wykładach i ćwiczeniach nie zmniejszy Twoich 5 dolarów.</p>
-</section>
-<section id="kalendarz" class="level2">
-<h2 class="anchored" data-anchor-id="kalendarz">Kalendarz</h2>
-<section id="wykład" class="level3">
-<h3 class="anchored" data-anchor-id="wykład">Wykład</h3>
-<p>Wykład jest realizowany w trybie stacjonarnym. Jest on NIEOBOWIĄZKOWY i odbywa się w Auli VI bud G</p>
-<ol type="1">
-<li>18-02-2025 (wtorek) 13:30-15:10 - Wykład 1</li>
-<li>25-02-2025 (wtorek) 13:30-15:10 - Wykład 2</li>
-<li>04-03-2025 (wtorek) 13:30-15:10 - Wykład 3 online</li>
-<li>11-03-2025 (wtorek) 13:30-15:10 - Wykład 4</li>
-<li>18-03-2025 (wtorek) 13:30-15:10 - Wykład 5</li>
-</ol>
-<p>Wykład 5 kończy się TESTEM: 20 pytań - 30 minut. Test przeprowadzany jest za pośrednictwem MS Teams.</p>
-</section>
-<section id="laboratoria" class="level3">
-<h3 class="anchored" data-anchor-id="laboratoria">Laboratoria</h3>
-<section id="lab1" class="level4">
-<h4 class="anchored" data-anchor-id="lab1">Lab1</h4>
-<p>24-03-2025 (poniedziałek) 08:00-15:10 - G-235 grupy 11, 12, 13, 14</p>
-<p>25-03-2025 (wtorek) 11:40-15:10 - W-60 grupy 15, 16</p>
-</section>
-<section id="lab2" class="level4">
-<h4 class="anchored" data-anchor-id="lab2">Lab2</h4>
-<p>31-03-2025 (poniedziałek) 08:00-15:10 - G-235 grupy 11, 12, 13, 14</p>
-<p>01-04-2025 (wtorek) 11:40-15:10 - W-60 grupy 15, 16</p>
-</section>
-<section id="lab3" class="level4">
-<h4 class="anchored" data-anchor-id="lab3">Lab3</h4>
-<p>07-04-2025 (poniedziałek) 08:00-15:10 - G-235 grupy 11, 12, 13, 14</p>
-<p>08-04-2025 (wtorek) 11:40-15:10 - W-60 grupy 15, 16</p>
-</section>
-<section id="lab4" class="level4">
-<h4 class="anchored" data-anchor-id="lab4">Lab4</h4>
-<p>14-04-2025 (poniedziałek) 08:00-15:10 - G-235 grupy 11, 12, 13, 14</p>
-<p>15-04-2025 (wtorek) 11:40-15:10 - W-60 grupy 15, 16</p>
-</section>
-<section id="lab5" class="level4">
-<h4 class="anchored" data-anchor-id="lab5">Lab5</h4>
-<p>28-04-2025 (poniedziałek) 08:00-15:10 - G-235 grupy 11, 12, 13, 14</p>
-<p>29-04-2025 (wtorek) 11:40-15:10 - W-60 grupy 15, 16</p>
-</section>
-<section id="lab6" class="level4">
-<h4 class="anchored" data-anchor-id="lab6">Lab6</h4>
-<p>05-05-2025 (poniedziałek) 08:00-15:10 - G-235 grupy 11, 12, 13, 14</p>
-<p>06-05-2025 (wtorek) 11:40-15:10 - W-60 grupy 15, 16</p>
-</section>
-<section id="lab7" class="level4">
-<h4 class="anchored" data-anchor-id="lab7">Lab7</h4>
-<p>12-05-2025 (poniedziałek) 08:00-15:10 - G-235 grupy 11, 12, 13, 14</p>
-<p>13-05-2025 (wtorek) 11:40-15:10 - W-60 grupy 15, 16</p>
-</section>
-<section id="lab8" class="level4">
-<h4 class="anchored" data-anchor-id="lab8">Lab8</h4>
-<p>19-05-2025 (poniedziałek) 08:00-15:10 - G-235 grupy 11, 12, 13, 14</p>
-<p>20-05-2025 (wtorek) 11:40-15:10 - W-60 grupy 15, 16</p>
-</section>
-<section id="lab9" class="level4">
-<h4 class="anchored" data-anchor-id="lab9">Lab9</h4>
-<p>26-05-2025 (poniedziałek) 08:00-15:10 - G-235 grupy 11, 12, 13, 14</p>
-<p>27-05-2025 (wtorek) 11:40-15:10 - W-60 grupy 15, 16</p>
-</section>
-<section id="lab10" class="level4">
-<h4 class="anchored" data-anchor-id="lab10">Lab10</h4>
-<p>02-06-2025 (poniedziałek) 08:00-15:10 - G-235 grupy 11, 12, 13, 14</p>
-<p>03-06-2025 (wtorek) 11:40-15:10 - W-60 grupy 15, 16</p>
-</section>
-</section>
-<section id="zaliczenie-i-egzamin" class="level3">
-<h3 class="anchored" data-anchor-id="zaliczenie-i-egzamin">Zaliczenie i Egzamin</h3>
-<p>Wykłady zakończą się testem (podczas ostatnich zajęć).</p>
-<p>Aby zaliczyć test, należy zdobyć więcej niż 13 punktów – jest to warunek konieczny do uczestnictwa w ćwiczeniach.</p>
-<p>Laboratoria</p>
-<p>Podczas laboratoriów będą zadawane prace domowe, które należy przesyłać za pośrednictwem MS Teams. Każdy brak pracy domowej obniża końcową ocenę o 0,5 stopnia.</p>
-<section id="projekt" class="level4">
-<h4 class="anchored" data-anchor-id="projekt">Projekt</h4>
-<p>Projekty należy realizować w grupach maksymalnie 5-osobowych.</p>
-<p>Wymagania projektu</p>
-<ul>
-<li>Projekt powinien rozwiązywać realny problem biznesowy, który można opracować przy użyciu danych przetwarzanych w trybie online. (Nie wyklucza to użycia przetwarzania wsadowego, np. do generowania modelu).</li>
-<li>Dane powinny być przesyłane do Apache Kafka, skąd będą poddawane dalszemu przetwarzaniu i analizie.</li>
-<li>Można używać dowolnego języka programowania w każdym komponencie projektu.</li>
-<li>Można wykorzystać narzędzia BI.</li>
-<li>Źródłem danych może być dowolne API, sztucznie generowane dane, IoT itp.</li>
-</ul>
-</section>
-</section>
-</section>
-<section id="technologie" class="level2">
-<h2 class="anchored" data-anchor-id="technologie">Technologie</h2>
-<p>Uczestnicząc w zajęciach musisz opanować i przynajmniej w podstawowym zakresie posługiwać się następującymi technologiami informatycznymi:</p>
-<ol type="1">
-<li><a href="./info.html#git">GIT</a></li>
-<li>Python, Jupyter notebook, Jupyter lab, Colab</li>
-<li><a href="./info.html#docker">Docker</a></li>
-<li><strong>Apache Spark</strong>, <strong>Apache Kafka</strong></li>
-<li>Databricks Community edition <a href="https://community.cloud.databricks.com/login.html">Web page</a>.</li>
-</ol>
+<p>Zanim przejdziemy do utworzenia podstawowej aplikacji Flask przyda się zrozumienie jak działa dekorator.</p>
+<p>Zdefiniujmy następującą funkcję:</p>
+<div id="cell-2" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test():</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"test z funkcji"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Dodajmy kolejną funkcję która pozwoli nam uruchomić nasz test.</p>
+<div id="cell-4" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> dekorator(func):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> inner():</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"funkcja wewnętrzna"</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>        func()</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> inner()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Tak przygotowane funkcje możemy wspólnie uruchomić jako:</p>
+<div id="cell-6" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>dekorator(test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>funkcja wewnętrzna
+test z funkcji</code></pre>
+</div>
+</div>
+<p>bardziej naturalnie możemy uruchomić dowolną funkcję już podczas jej deklaracji:</p>
+<div id="cell-8" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="at">@dekorator</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test2():</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"drukuj test2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>funkcja wewnętrzna
+drukuj test2</code></pre>
+</div>
+</div>
+<section id="aplikacja-flask" class="level3">
+<h3 class="anchored" data-anchor-id="aplikacja-flask">Aplikacja Flask</h3>
+<p>Poniźszy domyślny kod wygeneruje serwer z trzema podstronami. &gt; Aplikacji nie możemy uruchomić w notatniku bezpośrednio - uruchomi się i zablokuje pozostałe komórki notatnika. Dlatego zapiszmy ją do pliku</p>
+<div id="cell-10" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span><span class="bu">file</span> app1.py</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> flask <span class="im">import</span> Flask</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>app <span class="op">=</span> Flask(<span class="va">__name__</span>)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="at">@app.route</span>(<span class="st">'/hello'</span>)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> say_hello():</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="st">"Hello World"</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="at">@app.route</span>(<span class="st">'/'</span>)</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> say_he():</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="st">"Hello z innej strony"</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="at">@app.route</span>(<span class="st">'/test'</span>)</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> say():</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="st">"test"</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">'__main__'</span>:</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>    app.run()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Writing app1.py</code></pre>
+</div>
+</div>
+<p>Możemy wykorzystać biblioteki do uruchomienia kodu jako podproces. Dodatkowo uruchomimy bibliotekę odpowiadającą za komunikację.</p>
+<div id="cell-12" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> subprocess</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-13" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> subprocess.Popen([<span class="st">"python"</span>, <span class="st">"app1.py"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> * Serving Flask app 'app1'
+ * Debug mode: off</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:5000
+Press CTRL+C to quit</code></pre>
+</div>
+</div>
+<p>Odpytajmy stronę uruchomionego serwisu</p>
+<div id="cell-15" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>adres_url <span class="op">=</span> <span class="st">"http://127.0.0.1:5000/hello"</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> requests.get(adres_url)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>127.0.0.1 - - [28/Mar/2025 02:18:27] "GET /hello HTTP/1.1" 200 -</code></pre>
+</div>
+</div>
+<div id="cell-16" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(response.content)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>b'Hello World'</code></pre>
+</div>
+</div>
+<div id="cell-17" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>adres_url <span class="op">=</span> <span class="st">"http://127.0.0.1:5000/helloooo"</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> requests.get(adres_url)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>127.0.0.1 - - [28/Mar/2025 02:19:40] "GET /helloooo HTTP/1.1" 404 -</code></pre>
+</div>
+</div>
+<div id="cell-18" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(response.content)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>b'&lt;!doctype html&gt;\n&lt;html lang=en&gt;\n&lt;title&gt;404 Not Found&lt;/title&gt;\n&lt;h1&gt;Not Found&lt;/h1&gt;\n&lt;p&gt;The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.&lt;/p&gt;\n'</code></pre>
+</div>
+</div>
+<div id="cell-19" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>p.kill()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-20" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span><span class="bu">file</span> app2.py</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> flask <span class="im">import</span> Flask</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> flask <span class="im">import</span> request</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>app <span class="op">=</span> Flask(<span class="va">__name__</span>)</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="at">@app.route</span>(<span class="st">'/hello'</span>, methods<span class="op">=</span>[<span class="st">'GET'</span>])</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> say_hello():</span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>    name <span class="op">=</span> request.args.get(<span class="st">"name"</span>, <span class="st">""</span>) <span class="co"># tutaj leci str</span></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>    title <span class="op">=</span> request.args.get(<span class="st">"title"</span>, <span class="st">""</span>)</span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> name:</span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>        resp <span class="op">=</span> <span class="ss">f"Hello </span><span class="sc">{</span>title<span class="sc">}</span><span class="ss"> </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">"</span> <span class="cf">if</span> title <span class="cf">else</span> <span class="ss">f"Hello </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>        resp <span class="op">=</span> <span class="ss">f"Hello </span><span class="sc">{</span>title<span class="sc">}</span><span class="ss">"</span> <span class="cf">if</span> title <span class="cf">else</span> <span class="st">"Hello"</span></span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> resp</span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">'__main__'</span>:</span>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a>    app.run(port<span class="op">=</span><span class="dv">5005</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Writing app2.py</code></pre>
+</div>
+</div>
+<div id="cell-21" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> subprocess.Popen([<span class="st">"python"</span>, <span class="st">"app2.py"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> * Serving Flask app 'app2'
+ * Debug mode: off</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:5005
+Press CTRL+C to quit</code></pre>
+</div>
+</div>
+<div id="cell-22" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> requests.get(<span class="st">"http://127.0.0.1:5005/hello"</span>)</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> response.status_code <span class="op">==</span> <span class="dv">200</span>: </span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"dziala"</span>,response.content)</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>: </span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Nie dziala"</span>,response.content)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>dziala b'Hello'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>127.0.0.1 - - [28/Mar/2025 02:21:59] "GET /hello HTTP/1.1" 200 -</code></pre>
+</div>
+</div>
+<div id="cell-23" class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> requests.get(<span class="st">"http://127.0.0.1:5005/hello?name=Sebastian&amp;title=dr"</span>)</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>response.content</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>127.0.0.1 - - [28/Mar/2025 02:22:26] "GET /hello?name=Sebastian&amp;title=dr HTTP/1.1" 200 -</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="20">
+<pre><code>b'Hello dr Sebastian'</code></pre>
+</div>
+</div>
 
 
 </section>

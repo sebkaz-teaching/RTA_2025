@@ -6,6 +6,22 @@ website:
   title: "Analiza danych w czasie rzeczywistym"
   description: "Kurs analizy danych dla studentów SGH w Warszawie"
   site-url: https://sebkaz-teaching.github.io/RTA_2025
+  sidebar:
+    contents:
+      - section : "Wykłady"
+        contents:
+        - href: lectures/wyklad1.qmd
+        - href: lectures/wyklad2.qmd
+        - href: lectures/wyklad3.qmd
+        - href: lectures/wyklad4.qmd
+        - href: lectures/wyklad5.qmd
+      - section : "Apache Kafka"
+        contents:
+        - href: kafka_codes/kafka1.ipynb
+      - section : "Python"
+        contents:
+        - href: cw1.ipynb
+        
   navbar:
     left: 
           - href: index.qmd
@@ -18,19 +34,6 @@ website:
             text: Narzędzia
           - href: ksiazki.qmd
             text: Książki
-          - href: cw1.ipynb
-            text: lab1
-    right: 
-        - href: wyklad1.qmd
-          text: Wykład 1
-        - href: wyklad2.qmd
-          text: Wykład 2
-        - href: wyklad3.qmd
-          text: Wykład 3
-        - href: wyklad4.qmd
-          text: Wykład 4
-        - href: wyklad5.qmd
-          text: Wykład 5
           
   page-footer: "Copyright 2025, Sebastian Zając"
 format:
