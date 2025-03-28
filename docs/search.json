@@ -4,7 +4,19 @@
     "href": "kafka_codes/kafka1.html",
     "title": "Apache kafka - wprowadzenie",
     "section": "",
-    "text": "Apache kafka to ,,serwer’’ oraz ,,baza danych’’.\nDomyślnym adresem naszego serwera jest broker:9092\nNasza baza danych będzie posługiwała się tabelami, które w Apache Kafka nazywamy topicami.\nZarządzanie Kafką odbywa się z wykorzystaniem skryptów. W naszym przypadku będą to skrypty *.sh.\n\nSprawdź listę topiców\nPamiętaj aby przejść do katalogu domowego.\ncd ~ \nkafka/bin/kafka-topics.sh --list --bootstrap-server broker:9092\n\n\nUtwórz nowy topic o nazwie mytopic\nkafka/bin/kafka-topics.sh --create --topic mytopic  --bootstrap-server broker:9092\n\n\nUtwórz producenta\nTen skrypt pozwoli Ci wprowadzać eventy ręcznie przez terminal. Opcje --property są dodatkowe i wprowadzone tylko do analizy przeprowadzanej w tym przykładzie.\nkafka/bin/kafka-console-producer.sh --bootstrap-server broker:9092 --topic mytopic --property \"parse.key=true\" --property \"key.separator=:\"\n\n\nConsument w Sparku\nOtwórz nowy terminal w miejscu gdzie znajduje się plik test_key_value.py i uruchom program Consumenta na Sparku\nPamiętaj, iż Apache Spark nie posiada domyślnego konektora do Kafki dlatego uruchom proces poprzez komendę spark-submit i pobierz odpowiedni pakiet w scali.\nspark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.3.0  test_key_value.py\n\nW terminalu z uruchominionym producentem wpisz teskt w postaci:\n\njan:45\nalicja:20\ni sprawdz co pojawia się w oknie aplikacji consumenta.\nPo zakończeniu pokazu ctrl+c zamyka zarówno okno producenta jak i aplikacje sparkową",
+    "text": "Apache kafka to ,,serwer’’ oraz ,,baza danych’’.\nDomyślnym adresem naszego serwera jest broker:9092\nNasza baza danych będzie posługiwała się tabelami, które w Apache Kafka nazywamy topicami.\nZarządzanie Kafką odbywa się z wykorzystaniem skryptów. W naszym przypadku będą to skrypty *.sh.",
+    "crumbs": [
+      "222890-D",
+      "Apache Kafka",
+      "Apache kafka - wprowadzenie"
+    ]
+  },
+  {
+    "objectID": "kafka_codes/kafka1.html#apache-kafka---zadanie",
+    "href": "kafka_codes/kafka1.html#apache-kafka---zadanie",
+    "title": "Apache kafka - wprowadzenie",
+    "section": "Apache Kafka - Zadanie",
+    "text": "Apache Kafka - Zadanie\n\nSprawdź listę tematów udostępnionych na serwerze Kafki broker:9092\nDodaj topic o nazwie streaming## gdzie w miejsce ## wstaw swój numer przydzielony na początku zajęć.\nPonownie sprawdź listę tematów weryfikująć czy nowy teamt został dodany do listy.\nOtwórz nowy terminal na notatniku i utwórz producenta w pliku producer.py\n\nustal nazwę topicu\nustal bieżący czas i dane w postaci słownika z trzema kluczami i wartościami:\n\nklucz_1 == time i przypisuje bierzącą datę\nklucz_2 == id i wybiera losową wartość z listy [\"a\", \"b\", \"c\", \"d\"]\nkliucz_3 == values - zwraca losową wartość z zakresu 0, 1000\n\n\n\nimport json\nimport random\nimport sys\nfrom datetime import datetime\nfrom time import sleep\n\nfrom kafka import KafkaProducer\n\nSERVER = \"broker:9092\"\n# USTAL NAZWE TOPICU ZGODNIE Z TWOIM NUMEREM SRODOWISKA\nTOPIC = \"streaming##\"\nproducer = KafkaProducer(\n        bootstrap_servers=[SERVER],\n        value_serializer=lambda x: json.dumps(x).encode(\"utf-8\"),\n    )\n    \ntry:\n    while True:\n\n        # t = aktualna data i czas       \n        t = ...\n            \n        message = { pass } \n            \n            \n        producer.send(TOPIC, value=message)\n        sleep(1)\n\nexcept KeyboardInterrupt:\n    producer.flush()\n    producer.close()",
     "crumbs": [
       "222890-D",
       "Apache Kafka",
@@ -220,7 +232,7 @@
     "href": "lectures/wyklad2.html#dane-sensoryczne-i-iot",
     "title": "Wykład 2",
     "section": "7. Dane sensoryczne i IoT",
-    "text": "7. Dane sensoryczne i IoT\nDane z czujników i urządzeń IoT są kolejnym krokiem w ewolucji.\n\n📌 Cechy:\n✅ Często pochodzą z miliardów urządzeń (big data).\n✅ Wymagają analizy brzegowej (edge computing).\n\n\n📌 Przykłady:\n➡️ Smart home, wearables, samochody autonomiczne, systemy przemysłowe.\n\n\n🖥️ Przykładowy kod w Pythonie (Sensor - temperatura):\n\n\nCode\nimport random\ndef get_temperature():\n    return round(random.uniform(20.0, 25.0), 2)\nprint(f\"Current temperature: {get_temperature()}°C\")\n\n\nCurrent temperature: 21.74°C",
+    "text": "7. Dane sensoryczne i IoT\nDane z czujników i urządzeń IoT są kolejnym krokiem w ewolucji.\n\n📌 Cechy:\n✅ Często pochodzą z miliardów urządzeń (big data).\n✅ Wymagają analizy brzegowej (edge computing).\n\n\n📌 Przykłady:\n➡️ Smart home, wearables, samochody autonomiczne, systemy przemysłowe.\n\n\n🖥️ Przykładowy kod w Pythonie (Sensor - temperatura):\n\n\nCode\nimport random\ndef get_temperature():\n    return round(random.uniform(20.0, 25.0), 2)\nprint(f\"Current temperature: {get_temperature()}°C\")\n\n\nCurrent temperature: 23.79°C",
     "crumbs": [
       "222890-D",
       "Wykłady",
