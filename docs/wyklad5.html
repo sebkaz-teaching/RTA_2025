@@ -145,6 +145,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link" href="./ksiazki.html"> 
 <span class="menu-text">Książki</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./cw1.html"> 
+<span class="menu-text">lab1</span></a>
+  </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
@@ -260,7 +264,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Zdolność algorytmu do wskazania mechanizmów generujących wyniki nazywamy <strong>możliwością wyjaśnienia</strong>. Analiza etyczna stanowi standardowy element procesu walidacji algorytmu.</p>
 <p>Uzyskanie wysokiej wyjaśnialności jest szczególnie trudne w przypadku algorytmów uczenia maszynowego (ML) i głębokiego uczenia (DL). Na przykład banki korzystające z algorytmów do podejmowania decyzji kredytowych muszą zapewnić transparentność i wskazać powody wydanej decyzji.</p>
 <p>Jedną z metod poprawy wyjaśnialności algorytmów jest <strong>LIME</strong> (<em>Local Interpretable Model-Agnostic Explanations</em>), opublikowana w 2016 roku. Metoda ta polega na wprowadzaniu niewielkich zmian w danych wejściowych i analizowaniu ich wpływu na wynik, co pozwala określić lokalne zasady podejmowania decyzji przez model.</p>
-<div id="67b87166" class="cell" data-execution_count="1">
+<div id="a96f3613" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -37384,25 +37388,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script>
-        <div class="lime top_div" id="top_divPK62TGHP5R25NJ7"></div>
+        <div class="lime top_div" id="top_divLC4DDM540LFB4GD"></div>
         
         <script>
-        var top_div = d3.select('#top_divPK62TGHP5R25NJ7').classed('lime top_div', true);
+        var top_div = d3.select('#top_divLC4DDM540LFB4GD').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["setosa", "versicolor", "virginica"], [0.0, 0.0, 1.0]);
+            var pp = new lime.PredictProba(pp_svg, ["setosa", "versicolor", "virginica"], [1.0, 0.0, 0.0]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["setosa", "versicolor", "virginica"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["petal length (cm) > 5.10", -0.25789608211173265], ["petal width (cm) > 1.80", -0.19054219972518677], ["sepal width (cm) > 3.40", 0.0046553708871541815], ["sepal length (cm) > 6.40", -0.0005359016756663296]], 1, exp_div);
+                exp.show([["petal width (cm) <= 0.30", -0.20301420263714862], ["petal length (cm) <= 1.50", -0.19204498866295913], ["sepal length (cm) <= 5.10", -0.03981044286551339], ["3.00 < sepal width (cm) <= 3.40", 0.011280362117425]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_tabular([["petal length (cm)", "6.40", -0.25789608211173265], ["petal width (cm)", "2.00", -0.19054219972518677], ["sepal width (cm)", "3.80", 0.0046553708871541815], ["sepal length (cm)", "7.90", -0.0005359016756663296]], 1, raw_div);
+            exp.show_raw_tabular([["petal width (cm)", "0.10", -0.20301420263714862], ["petal length (cm)", "1.50", -0.19204498866295913], ["sepal length (cm)", "4.90", -0.03981044286551339], ["sepal width (cm)", "3.10", 0.011280362117425]], 1, raw_div);
         
         </script>
         
@@ -37477,7 +37481,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p><strong>Przykład: Analiza wynagrodzeń w firmie</strong></p>
 <p>Wykrywamy, czy w danej firmie są osoby o wynagrodzeniach znacznie odbiegających od średniej.</p>
-<div id="a391eb33" class="cell" data-execution_count="2">
+<div id="455ed657" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -37531,7 +37535,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><a href="https://scikit-learn.org/0.20/auto_examples/plot_anomaly_comparison.html">Metody detekcji anomalii sklearn</a></p>
 <p><strong>Przykład: Wykrywanie oszustw bankowych</strong></p>
 <p>Bank analizuje transakcje kartą kredytową i wykrywa te, które mogą być nieautoryzowane.</p>
-<div id="0361f9b1" class="cell" data-execution_count="3">
+<div id="839a0806" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
