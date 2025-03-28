@@ -18,6 +18,8 @@ website:
             text: Narzędzia
           - href: ksiazki.qmd
             text: Książki
+          - href: cw1.ipynb
+            text: lab1
     right: 
         - href: wyklad1.qmd
           text: Wykład 1
