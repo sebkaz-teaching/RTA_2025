@@ -18,21 +18,21 @@ Na tym wykładzie przedstawimy ewolucję analizy danych, pokazując, jak zmienia
 Rozpoczniemy od klasycznych struktur tabelarycznych, przez bardziej zaawansowane modele grafowe i tekstowe, aż po nowoczesne podejście do strumieniowego przetwarzania danych. 
 
 
-# **Ewolucja danych**  
+# Ewolucja danych 
 
-## **1. Dane tabelaryczne (tabele SQL)**  
+##  Dane tabelaryczne (tabele SQL)
 Początkowo dane były przechowywane w postaci tabel, gdzie każda tabela zawierała zorganizowane informacje w kolumnach i wierszach (np. bazy danych SQL).  
 Modele takie doskonale nadawały się do danych **ustrukturyzowanych**.  
 
-### 📌 **Cechy:**  
+### 📌 Cechy:
 ✅ Dane podzielone na kolumny o stałej strukturze.  
 ✅ Możliwość stosowania operacji CRUD (Create, Read, Update, Delete).  
 ✅ Ścisłe reguły spójności i normalizacji.  
 
-### 📌 **Przykłady:**  
+### 📌 Przykłady:  
 ➡️ Systemy bankowe, e-commerce, ERP, systemy CRM.  
 
-### 🖥️ **Przykładowy kod w Pythonie (SQLite):**  
+### 🖥️ Przykładowy kod w Pythonie (SQLite):  
 ```python
 import sqlite3
 conn = sqlite3.connect(':memory:')
@@ -46,18 +46,18 @@ conn.close()
 
 ---
 
-## **2. Dane grafowe**  
+## Dane grafowe  
 Wraz z rozwojem potrzeb biznesowych pojawiły się **dane grafowe**, w których relacje między obiektami są reprezentowane jako **wierzchołki i krawędzie**.  
 
-### 📌 **Cechy:**  
+### 📌 Cechy:  
 ✅ Dane opisujące relacje i powiązania.  
 ✅ Elastyczna struktura (grafy zamiast tabel).  
 ✅ Możliwość analizy połączeń (np. algorytmy PageRank, centralność).  
 
-### 📌 **Przykłady:**  
+### 📌 Przykłady:  
 ➡️ Sieci społecznościowe (Facebook, LinkedIn), wyszukiwarki (Google), systemy rekomendacji (Netflix, Amazon).  
 
-### 🖥️ **Przykładowy kod w Pythonie (Graf Karate - NetworkX):**  
+### 🖥️ Przykładowy kod w Pythonie (Graf Karate - NetworkX): 
 ```{python}
 import networkx as nx
 G = nx.karate_club_graph()
@@ -66,18 +66,18 @@ nx.draw(G, with_labels=True)
 
 ---
 
-## **3. Dane półstrukturyzowane (JSON, XML, YAML)**  
+## Dane półstrukturyzowane (JSON, XML, YAML)  
 Dane te nie są w pełni ustrukturyzowane jak w bazach SQL, ale mają pewien schemat.  
 
-### 📌 **Cechy:**  
+### 📌 Cechy:  
 ✅ Hierarchiczna struktura (np. klucz-wartość, obiekty zagnieżdżone).  
 ✅ Brak ścisłego schematu (możliwość dodawania nowych pól).  
 ✅ Popularność w systemach NoSQL i API.  
 
-### 📌 **Przykłady:**  
+### 📌 Przykłady:  
 ➡️ Dokumenty w MongoDB, pliki konfiguracyjne, REST API, pliki logów.  
 
-### 🖥️ **Przykładowy kod w Pythonie (JSON):**  
+### 🖥️ Przykładowy kod w Pythonie (JSON):  
 ```{python}
 import json
 data = {'name': 'Alice', 'age': 30, 'city': 'New York'}
@@ -87,18 +87,18 @@ print(json.loads(json_str))
 
 ---
 
-## **4. Dane tekstowe (NLP)**  
+## Dane tekstowe (NLP) 
 Tekst stał się kluczowym źródłem informacji, szczególnie w analizie opinii, chatbotach czy wyszukiwarkach.  
 
-### 📌 **Cechy:**  
+### 📌 Cechy:
 ✅ Nieustrukturyzowane dane wymagające przekształcenia.  
 ✅ Stosowanie **embeddingów** (np. Word2Vec, BERT, GPT).  
 ✅ Duże zastosowanie w analizie sentymentu i chatbotach.  
 
-### 📌 **Przykłady:**  
+### 📌 Przykłady:  
 ➡️ Media społecznościowe, e-maile, chatboty, tłumaczenie maszynowe.  
 
-### 🖥️ **Przykładowy kod w Pythonie:**  
+### 🖥️ Przykładowy kod w Pythonie:  
 ```{python}
 import ollama
 
@@ -111,17 +111,17 @@ print(embedding[:4])
 
 ---
 
-## **5. Dane multimedialne (obrazy, dźwięk, wideo)**  
+## Dane multimedialne (obrazy, dźwięk, wideo)
 Nowoczesne systemy analizy danych wykorzystują również obrazy i dźwięk.  
 
-### 📌 **Cechy:**  
+### 📌 Cechy:  
 ✅ Wymagają dużej mocy obliczeniowej (sztuczna inteligencja, deep learning).  
 ✅ Przetwarzane przez modele CNN (obrazy) i RNN/Transformers (dźwięk).  
 
-### 📌 **Przykłady:**  
+### 📌 Przykłady:  
 ➡️ Rozpoznawanie twarzy, analiza mowy, biometria, analiza treści wideo.  
 
-### 🖥️ **Przykładowy kod w Pythonie (Obraz - OpenCV):**  
+### 🖥️ Przykładowy kod w Pythonie (Obraz - OpenCV):  
 ```python
 import cv2
 image = cv2.imread('cloud.jpeg')
@@ -130,17 +130,17 @@ cv2.destroyAllWindows()
 ```
 ---
 
-## **6. Dane strumieniowe**  
+## Dane strumieniowe
 Obecnie najbardziej dynamicznie rozwija się analiza **danych strumieniowych**, gdzie dane są analizowane na bieżąco, w miarę ich napływania.  
 
-### 📌 **Cechy:**  
+### 📌 Cechy:  
 ✅ Przetwarzanie w czasie rzeczywistym.  
 ✅ Wykorzystanie technologii takich jak Apache Kafka, Flink, Spark Streaming.  
 
-### 📌 **Przykłady:**  
+### 📌 Przykłady:  
 ➡️ Transakcje bankowe (detekcja oszustw), analiza social media, IoT.  
 
-### 🖥️ **Przykładowy kod w Pythonie (Strumieniowe transakcje bankowe):**  
+### 🖥️ Przykładowy kod w Pythonie (Strumieniowe transakcje bankowe):  
 ```{python}
 import time
 transactions = [{'id': 1, 'amount': 100}, {'id': 2, 'amount': 200}]
@@ -151,17 +151,17 @@ for transaction in transactions:
 
 ---
 
-## **7. Dane sensoryczne i IoT**  
+## Dane sensoryczne i IoT 
 Dane z czujników i urządzeń IoT są kolejnym krokiem w ewolucji.  
 
-### 📌 **Cechy:**  
+### 📌 Cechy:  
 ✅ Często pochodzą z miliardów urządzeń (big data).  
 ✅ Wymagają analizy brzegowej (_edge computing_).  
 
-### 📌 **Przykłady:**  
+### 📌 Przykłady:  
 ➡️ Smart home, wearables, samochody autonomiczne, systemy przemysłowe.  
 
-### 🖥️ **Przykładowy kod w Pythonie (Sensor - temperatura):**  
+### 🖥️ Przykładowy kod w Pythonie (Sensor - temperatura):  
 ```{python}
 import random
 def get_temperature():
@@ -206,48 +206,48 @@ Kiedy podjąć decyzję biznesową ?
 
 <img alt="Batch Processing" src="img/batch0.png" class="center" />
 
-## **Hadoop Map-Reduce – Skalowanie obliczeń na Big Data**
+## Hadoop Map-Reduce – Skalowanie obliczeń na Big Data
 
-Kiedy mówimy o **skalowalnym przetwarzaniu danych**, pierwszym skojarzeniem może być **Google**.  
+Kiedy mówimy o skalowalnym przetwarzaniu danych, pierwszym skojarzeniem może być Google.  
 Ale co tak naprawdę sprawia, że możemy wyszukiwać informacje w ułamku sekundy, przetwarzając petabajty danych?  
 
-👉 **Czy wiesz, że nazwa "Google" pochodzi od słowa "Googol", czyli liczby równej 10¹⁰⁰?**  
+👉 Czy wiesz, że nazwa "Google" pochodzi od słowa "Googol", czyli liczby równej 10¹⁰⁰?  
 To więcej niż liczba atomów w znanym Wszechświecie! 🌌  
 
-### **🔥 Wyzwanie: Czy uda Ci się zapisać liczbę Googol do końca zajęć?**  
+### 🔥 Wyzwanie: Czy uda Ci się zapisać liczbę Googol do końca zajęć?  
 
 ---  
 
-## **🔍 Dlaczego SQL i klasyczne algorytmy nie wystarczają?**  
+## 🔍 Dlaczego SQL i klasyczne algorytmy nie wystarczają? 
 
 Tradycyjne **bazy danych SQL** czy **jednowątkowe algorytmy** zawodzą, gdy skala danych przekracza pojedynczy komputer.  
 W tym miejscu pojawia się **MapReduce** – rewolucyjny model obliczeniowy stworzony przez Google.  
 
-### **🛠️ Rozwiązania Google dla Big Data:**  
+### 🛠️ Rozwiązania Google dla Big Data:  
 ✅ **Google File System (GFS)** – rozproszony system plików.  
 ✅ **Bigtable** – system do przechowywania ogromnych ilości ustrukturyzowanych danych.  
 ✅ **MapReduce** – algorytm podziału pracy na wiele maszyn.  
 
-## **🖼️ Graficzne przedstawienie MapReduce**  
+## Graficzne przedstawienie MapReduce
 
-### **1. Mapowanie rozdziela zadania (Map)**  
+###  Mapowanie rozdziela zadania (Map)
 Każde wejście dzielone jest na mniejsze części i przetwarzane równolegle.  
 
 🌍 Wyobraź sobie, że masz **książkę telefoniczną** i chcesz znaleźć wszystkie osoby o nazwisku "Nowak".  
 ➡️ **Podziel książkę na fragmenty i daj każdemu do przeanalizowania jeden fragment.**  
 
-### **2. Redukcja zbiera wyniki (Reduce)**  
+### Redukcja zbiera wyniki (Reduce)  
 Wszystkie częściowe wyniki są łączone w jedną, końcową odpowiedź.  
 
-🔄 **Wszyscy uczniowie zgłaszają swoje wyniki, a jeden student zbiera i podsumowuje odpowiedź.**  
+🔄 Wszyscy uczniowie zgłaszają swoje wyniki, a jeden student zbiera i podsumowuje odpowiedź.  
 
 <img alt="MapReduce w działaniu – rozdzielanie i agregowanie danych" src="img/mapreduce_flow.png" class="center" />
 ---  
 
-## **💡 Klasyczny przykład: Liczenie słów w tekście**  
+## 💡 Klasyczny przykład: Liczenie słów w tekście  
 Załóżmy, że mamy miliony książek i chcemy policzyć, ile razy występuje każde słowo.  
 
-### **🖥️ Kod MapReduce w Pythonie (z użyciem multiprocessing)**  
+### 🖥️ Kod MapReduce w Pythonie (z użyciem multiprocessing)  
 
 ```python
 from multiprocessing import Pool
@@ -280,26 +280,26 @@ if __name__ == '__main__':
 # Counter({'data': 4, 'big': 3, 'is': 2, 'amazing': 1, 'science': 1, 'and': 1, 'everywhere': 1})
 ```
 
-### **🔹 Co tu się dzieje?**  
+### 🔹 Co tu się dzieje?  
 ✅ Każdy fragment tekstu jest przetwarzany niezależnie (**map**).  
 ✅ Wyniki są zbierane i sumowane (**reduce**).  
 ✅ **Efekt:** Możemy przetwarzać **terabajty tekstu równolegle**!  
 
-<img alt="Batch Processing" src="img/batch3.png" class="center" />
+<img alt="Batch Processing" src="../img/batch3.png" class="center" />
 
 ---  
 
-## **🎨 Wizualizacja – Porównanie klasycznego podejścia i MapReduce**  
+## 🎨 Wizualizacja – Porównanie klasycznego podejścia i MapReduce  
 
 📊 **Stare podejście** – Jeden komputer wykonuje wszystko sekwencyjnie.  
 📊 **Nowe podejście (MapReduce)** – Każda maszyna liczy fragment i wyniki są agregowane.  
 
 
-<img alt="MapReduce Processing" src="img/mapreduce_vs_classic.png" class="center" />
+<img alt="MapReduce Processing" src="../img/mapreduce_vs_classic.png" class="center" />
 
 ---  
 
-## **🚀 Wyzwanie dla Ciebie!**  
+## 🚀 Wyzwanie dla Ciebie! 
 
 🔹 **Znajdź i uruchom swój własny algorytm MapReduce w dowolnym języku!**  
 🔹 **Czy potrafisz zaimplementować własny MapReduce do innego zadania?** (np. analiza logów, zliczanie kliknięć na stronie)  
@@ -363,7 +363,7 @@ Najczęściej używane są dwie implementacje:
 Świetnie sprawdza się w przypadku obsługi bieżącej np. obsługa klienta, rejestr zamówień, obsługa sprzedaży itp.
 Wykorzystywany w systemach Enterprise Resource Planning (ERP) Systems, Customer Relationship Management (CRM) software, and web-based applications.
 
-![](img/baza1.png){.center}
+![](../img/baza1.png){.center}
 
 Model ten dostarcza efektywnych rozwiązań m.in do:
 
@@ -408,5 +408,5 @@ W ramach Hurtowni Danych najczęściej wykonuje się dwa rodzaje zapytań(oba w 
 1. Wykonywane okresowo w czasie zapytania raportowe obliczające biznesowe statystyki
 2. Wykonywane ad-hoc zapytania wspomagające krytyczne decyzje biznesowe.
 
-![](img/baza2.png){.center}
+![](../img/baza2.png){.center}
 

@@ -215,19 +215,19 @@ if __name__ == "__main__":
 ### Zapytanie - Request
 
 1.  Adres URL (np. _http://mydomain:8000/getapi?&val1=43&val2=3_) zawiera: 
+- domenę, 
+- port, 
+- dodatkowe ścieżki, 
+- zapytanie
 
-        - domenę, 
-        - port, 
-        - dodatkowe ścieżki, 
-        - zapytanie
 2.  Metody HTTP:
+- GET, 
+- POST
 
-        - GET, 
-        - POST
 3.  Nagłówki HTTP zawierają:
 
-        - informacje o autoryzacji, 
-        - cookies metadata
+- informacje o autoryzacji, 
+- cookies metadata
 
 Cała informacja zawarta jest w _Content-Type: application/json, text ... Accept: application/json, Authorization: Basic abase64string, Tokens_ 
 4.  Ciało zapytania
@@ -260,6 +260,7 @@ Path=/;
 2. np.: "_Content-Type" => "application/json; charset=utf-8", "Server" => "Genie/Julia/1.8.5_"
 
 3. Treść (ciało) odpowiedzi: 
+
 ```json
 {":input":{"RAD":1,"PTRATIO":15.3,"INDUS":2.31,.....}}, {":prediction":[29.919737211857683]}
 ```
@@ -321,7 +322,7 @@ którzy działają w podobny sposób jak w klasycznych systemach kolejkowych, pr
 
 <br>
 
-<img src="img/kafka1.png" class="center" />
+<img src="../img/kafka1.png" class="center" />
 
 Jak widać, Kafka przypomina klasyczny system przesyłania wiadomości, jednak w odróżnieniu od tradycyjnych kolejek,  
 zamiast pojęcia **kolejki** (*queue*) mamy **Tematy** (*Topics*).
@@ -346,7 +347,7 @@ Podczas tworzenia tematu określamy liczbę partycji.
 
 <br>
 
-<img src="img/kafka2.png" class="center" />
+<img src="../img/kafka2.png" class="center" />
 
 
 ### Brokerzy (Brokers) i Klaster Kafka
@@ -356,7 +357,7 @@ które współpracują jako jeden klaster.
 
 <br>
 
-<img src="img/kafka3.png" class="center" />
+<img src="../img/kafka3.png" class="center" />
 
 #### Kluczowe informacje o brokerach
 
@@ -384,6 +385,7 @@ Działa to podobnie do systemów kolejkowych, z tą różnicą, że Kafka zapisu
   liczba partycji nie może być zmieniona bez zakłócenia tego mechanizmu.
 
 **Przykład przypisania wiadomości do partycji:**
+
 - Wiadomość **01** trafia do **partycji 0** tematu **Topic_1**.
 - Wiadomość **02** trafia do **partycji 1** tego samego tematu.
 - Kolejna wiadomość może ponownie trafić do **partycji 0**, jeśli stosujemy przypisanie *round-robin*.
@@ -434,4 +436,4 @@ Ideałem jest posiadanie takiej samej liczby konsumentów w grupie, jaką mamy j
 Podczas dodawania konsumentów do grupy należy uważać, jeśli liczba konsumentów jest większa niż liczba partycji, niektórzy konsumenci nie będą czytać z żadnego tematu i pozostaną bezczynni.
 
 </br>
-<img src="img/kafka4.png" class="center" /> 
+<img src="../img/kafka4.png" class="center" /> 

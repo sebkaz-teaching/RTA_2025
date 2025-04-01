@@ -21,7 +21,7 @@ Podobna koncepcja dotyczy danych strumieniowych. Przesyłane porcje nie muszą m
 
 Kluczowe jest to, że masz do czynienia z nieprzerwanym strumieniem danych, które musisz przetwarzać w czasie rzeczywistym. Nie możesz czekać na zatrzymanie linii produkcyjnej, aby przeprowadzić analizę – wszelkie pojawiające się problemy powinny być rejestrowane natychmiast, aby szybko na nie reagować.
 
-	Analiza strumieniowa to ciągłe przetwarzanie i analiza dużych zbiorów danych w ruchu.
+> Analiza strumieniowa to ciągłe przetwarzanie i analiza dużych zbiorów danych w ruchu.
 
 Można to porównać do innych aspektów Big Data. Przetwarzanie wsadowe (batchowe) to przeciwieństwo przetwarzania strumieniowego – najpierw gromadzisz duże ilości danych, a dopiero potem je analizujesz. Oczywiście, możesz pobrać całe wideo przed obejrzeniem, ale czy miałoby to sens?
 
@@ -36,6 +36,7 @@ Istnieją sytuacje, w których podejście wsadowe jest wystarczające, ale już 
 Analiza strumieniowa polega na przetwarzaniu danych w ruchu, natomiast analityka w czasie rzeczywistym odnosi się do każdej metody przetwarzania danych, w której opóźnienie jest na tyle krótkie, że spełnia określone wymagania biznesowe dotyczące „czasu rzeczywistego”.
 
 Zazwyczaj systemy analizy w czasie rzeczywistym dzieli się na twarde i miękkie systemy czasu rzeczywistego:
+
 -	Twarde systemy czasu rzeczywistego (np. systemy sterujące w samolotach) wymagają ścisłego dotrzymania terminów – każde opóźnienie może mieć katastrofalne skutki.
 -	Miękkie systemy czasu rzeczywistego (np. stacje pogodowe) mogą tolerować pewne opóźnienia, choć w skrajnych przypadkach może to prowadzić do utraty wartości danych.
 
@@ -44,14 +45,15 @@ Co więcej, podczas gdy analiza strumieniowa zakłada istnienie dedykowanej arch
 Kluczowe jest to, że analityka w czasie rzeczywistym oznacza przetwarzanie danych w okresie, który dana firma uznaje za „czas rzeczywisty” – może to być zarówno kilka milisekund, jak i kilka sekund, w zależności od potrzeb biznesowych.
 
 ### Źródła danych przesyłanych strumieniowo obejmują:
-	•	czujniki sprzętu,
-	•	strumienie kliknięć,
-	•	śledzenie lokalizacji,
-	•	interakcję z użytkownikiem (np. działania użytkowników na Twojej witrynie),
-	•	kanały mediów społecznościowych,
-	•	notowania giełdowe,
-	•	aktywność w aplikacjach,
-	•	inne.
+
+- czujniki sprzętu,
+- strumienie kliknięć,
+- śledzenie lokalizacji,
+- interakcję z użytkownikiem,
+- kanały mediów społecznościowych,
+- notowania giełdowe,
+- aktywność w aplikacjach,
+- inne.
 
 Firmy wykorzystują analitykę strumieniową do wykrywania i interpretowania wzorców, tworzenia wizualizacji, generowania spostrzeżeń i alertów oraz uruchamiania procesów w czasie rzeczywistym lub bliskim rzeczywistemu.
 
@@ -91,11 +93,12 @@ Twitter generuje ponad 500 milionów tweetów dziennie, a według prognoz IDC do
 
 ---
 
-### **Analityka strumieniowa**  
+### Analityka strumieniowa  
 
 **Analityka strumieniowa** (ang. _stream analytics_) nazywana jest również **przetwarzaniem strumieniowym zdarzeń** (ang. _event stream processing_) – czyli przetwarzaniem dużych ilości danych już na etapie ich generowania.  
 
-Niezależnie od zastosowanej technologii, wszystkie dane powstają jako **ciągły strumień zdarzeń** – obejmuje to m.in.:  
+Niezależnie od zastosowanej technologii, wszystkie dane powstają jako **ciągły strumień zdarzeń** – obejmuje to m.in.:
+
 - działania użytkowników na stronach internetowych,  
 - logi systemowe,  
 - pomiary z sensorów.  
@@ -105,6 +108,7 @@ Niezależnie od zastosowanej technologii, wszystkie dane powstają jako **ciąg�
 W przypadku przetwarzania wsadowego analizujemy dane historyczne, a czas uruchomienia procesu nie ma żadnego związku z momentem wystąpienia analizowanych zdarzeń.
 
 Natomiast w przetwarzaniu strumieniowym wyróżniamy dwie koncepcje czasu:
+
 1.	Czas zdarzenia (event time) – moment, w którym zdarzenie faktycznie miało miejsce.
 2.	Czas przetwarzania (processing time) – moment, w którym system przetwarza zdarzenie.
 
@@ -112,13 +116,13 @@ Idealne przetwarzanie danych
 
 W idealnej sytuacji przetwarzanie następuje natychmiast po wystąpieniu zdarzenia:
 
-<img alt="Batch Processing" src="img/rys2_1.png" class="center" />
+<img alt="Batch Processing" src="../img/rys2_1.png" class="center" />
 
 Rzeczywiste przetwarzanie danych
 
 W praktyce przetwarzanie danych zawsze odbywa się z pewnym opóźnieniem, co jest widoczne jako punkty poniżej linii idealnego przetwarzania (poniżej przekątnej na wykresie).
 
-<img alt="Batch Processing" src="img/rys2_2.png" class="center" />
+<img alt="Batch Processing" src="../img/rys2_2.png" class="center" />
 
 W aplikacjach przetwarzania strumieniowego istotna jest różnica między czasem powstania zdarzenia a czasem jego przetwarzania. Do najczęstszych przyczyn opóźnień należą:
 
@@ -130,75 +134,80 @@ Przykładem jest śledzenie położenia samochodu przez aplikację GPS – przej
 Obsługa opóźnień w przetwarzaniu strumieniowym
 
 Opóźnienia w przetwarzaniu zdarzeń można obsłużyć na dwa sposoby:
+
 1.	Monitorowanie liczby pominiętych zdarzeń i wyzwalanie alarmu w przypadku zbyt dużej liczby odrzuceń.
 2.	Zastosowanie korekty za pomocą watermarkingu, czyli dodatkowego mechanizmu uwzględniającego opóźnione zdarzenia.
 
 Proces przetwarzania zdarzeń w czasie rzeczywistym można przedstawić jako funkcję schodkową:
 
-<img alt="Batch Processing" src="img/rys2_3.png" class="center" />
+<img alt="Batch Processing" src="../img/rys2_3.png" class="center" />
 
 Nie wszystkie zdarzenia wnoszą wkład do analizy – niektóre mogą zostać odrzucone ze względu na zbyt duże opóźnienie.
 
 Wykorzystanie watermarkingu pozwala na uwzględnienie dodatkowego czasu na pojawienie się opóźnionych zdarzeń. Proces ten obejmuje wszystkie zdarzenia powyżej przerywanej linii. Mimo to nadal mogą zdarzyć się przypadki, w których niektóre punkty zostaną pominięte.
 
-<img alt="Batch Processing" src="img/rys2_4.png" class="center" />
+<img alt="Batch Processing" src="../img/rys2_4.png" class="center" />
 
 
 Przedstawione na wykresach sytuacje jawnie wskazują dlaczego pojęcie czasu jest istotnym czynnikiem i wymaga ścisłego określenia już na poziomie definiowania potrzeb biznesowych.
 Przypisywanie znaczników czasu do danych (zdarzeń) to trudne zadanie. 
 
-## **Okna czasowe w analizie strumieniowej**  
+## Okna czasowe w analizie strumieniowej 
 
 W przetwarzaniu strumieniowym **okna czasowe** pozwalają na grupowanie danych w ograniczone czasowo segmenty, co umożliwia analizę zdarzeń w określonych przedziałach czasowych. W zależności od zastosowania stosuje się różne typy okien, dostosowane do charakterystyki danych i wymagań analitycznych.  
 
 ---
 
-### **1. Okno rozłączne (_Tumbling Window_)**  
+###  Okno rozłączne (_Tumbling Window_)  
 Jest to okno o stałej długości, które **nie nakłada się na siebie** – każde zdarzenie należy tylko do jednego okna.  
 
-✅ **Charakterystyka:**  
+✅ **Charakterystyka:** 
+
 - Stała długość okna  
 - Brak nakładania się na siebie  
 - Idealne do podziału danych na równe segmenty czasowe  
 
 📌 **Przykład:** Analiza liczby zamówień w sklepie internetowym co 5 minut.  
 
-<img alt="Tumbling Window" src="img/rys2_5.png" class="center" />  
+<img alt="Tumbling Window" src="../img/rys2_5.png" class="center" />  
 
 ---
 
-### **2. Okno przesuwne (_Sliding Window_)**  
+### Okno przesuwne (_Sliding Window_)  
 Obejmuje wszystkie zdarzenia następujące w określonym przedziale czasu, gdzie okno **przesuwa się w sposób ciągły**.  
 
-✅ **Charakterystyka:**  
+✅ **Charakterystyka:**
+
 - Każde zdarzenie może należeć do kilku okien  
 - Okno przesuwa się o zadany interwał  
 - Przydatne do wykrywania trendów i anomalii  
 
 📌 **Przykład:** Śledzenie średniej temperatury w ciągu ostatnich 10 minut, aktualizowane co 2 minuty.  
 
-<img alt="Sliding Window" src="img/rys2_6.png" class="center" />  
+<img alt="Sliding Window" src="../img/rys2_6.png" class="center" />  
 
 ---
 
-### **3. Okno skokowe (_Hopping Window_)**  
+### Okno skokowe (_Hopping Window_)  
 Jest podobne do okna rozłącznego, ale pozwala na **nakładanie się okien** na siebie, dzięki czemu jedno zdarzenie może należeć do kilku okien. Jest stosowane do wygładzania danych.  
 
-✅ **Charakterystyka:**  
+✅ **Charakterystyka:** 
+
 - Stała długość okna  
 - Możliwość nakładania się na siebie  
 - Przydatne do redukcji szumów w danych  
 
 📌 **Przykład:** Analiza liczby odwiedzających stronę co 10 minut, ale aktualizowana co 5 minut, aby lepiej wychwytywać trendy.  
 
-<img alt="Hopping Window" src="img/rys2_7.png" class="center" />  
+<img alt="Hopping Window" src="../img/rys2_7.png" class="center" />  
 
 ---
 
-### **4. Okno sesyjne (_Session Window_)**  
+### Okno sesyjne (_Session Window_) 
 Okno sesyjne grupuje zdarzenia na podstawie **okresów aktywności** i zamyka się po określonym czasie braku aktywności.  
 
-✅ **Charakterystyka:**  
+✅ **Charakterystyka:**
+
 - Dynamiczna długość okna  
 - Definiowane przez aktywność użytkownika  
 - Stosowane w analizie sesji użytkowników  
@@ -206,7 +215,7 @@ Okno sesyjne grupuje zdarzenia na podstawie **okresów aktywności** i zamyka si
 📌 **Przykład:** Analiza sesji użytkowników na stronie internetowej – sesja trwa tak długo, jak długo użytkownik wykonuje akcje, ale kończy się po 15 minutach braku aktywności.  
 ---
 
-### **Podsumowanie**  
+### Podsumowanie  
 Różne rodzaje okien czasowych są stosowane w zależności od specyfiki danych i celów analizy. Wybór odpowiedniego okna wpływa na dokładność wyników i efektywność systemu analitycznego.  
 
 | Typ okna | Charakterystyka | Zastosowanie |
@@ -220,6 +229,7 @@ Każdy typ okna ma swoje unikalne zastosowania i pomaga w lepszej interpretacji 
 
 
 W analizie danych strumieniowych interpretacja czasu jest złożonym zagadnieniem, ponieważ:
+
 1. Różne systemy mają różne zegary, co może prowadzić do niespójności,
 2. Dane mogą docierać z opóźnieniem, co wymaga technik watermarkingu i okien czasowych,
 3. Różne podejścia do analizy czasu zdarzenia i czasu przetwarzania wpływają na dokładność wyników.

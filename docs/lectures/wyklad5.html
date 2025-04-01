@@ -72,7 +72,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-9a023c9ade86a60361e96e3e3f11bc54.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-c4b40d80f3775827f3eec312850474a7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-d218d465d676f63e35746811398acdfc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -104,11 +104,40 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../style.css">
 </head>
 
-<body class="nav-sidebar floating nav-fixed">
+<body class="nav-sidebar docked nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -125,10 +154,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
-<span class="menu-text">222890-D</span></a>
-  </li>  
   <li class="nav-item">
     <a class="nav-link" href="../indexS.html"> 
 <span class="menu-text">222890-S</span></a>
@@ -165,9 +190,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Informacje ogólne</span></a>
+  </div>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
@@ -212,35 +243,58 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">Apache Kafka</span></a>
+ <span class="menu-text">Laboratoria</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">Apache Kafka</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../kafka_codes/kafka1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Apache kafka - wprowadzenie</span></a>
+ <span class="menu-text">Apache Kafka - Wprowadzenie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../kafka_codes/kafka2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Producent w środowisku python</span></a>
   </div>
 </li>
       </ul>
   </li>
-        <li class="sidebar-item sidebar-item-section">
+          <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
  <span class="menu-text">Python</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../cw1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">REST API z wykorzystaniem biblioteki Flask</span></a>
+  <a href="../labs/lab1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Środowisko produkcyjne z modelem ML</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../labs/lab2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tworzenie API we Flasku – Wprowadzenie</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
       </ul>
   </li>
     </ul>
@@ -286,9 +340,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Zanim zaprojektujesz rozwiązanie problemu biznesowego, warto zastanowić się nad złożonością Twojego problemu.</p>
 <section id="klasyfikacja-algorytmów" class="level3">
 <h3 class="anchored" data-anchor-id="klasyfikacja-algorytmów">Klasyfikacja algorytmów</h3>
-<ol type="1">
-<li><strong>Algorytmy przetwarzające duże ilości danych</strong></li>
-</ol>
+<p><strong>1. Algorytmy przetwarzające duże ilości danych</strong></p>
 <p>Przetwarzanie ogromnych zbiorów danych wymaga odpowiedniego podejścia do ich organizacji i analizy. W sytuacji, gdy ilość danych przekracza dostępną pamięć jednostki obliczeniowej, często stosuje się iteracyjne sposoby ich przetwarzania.</p>
 <p>🔹 Przykład: System rekomendacji w e-commerce (np. Amazon, Netflix)</p>
 <ul>
@@ -296,19 +348,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Przetwarza dane w sposób iteracyjny (np. strumieniowe przetwarzanie w Apache Spark).</li>
 <li>Wykorzystuje algorytmy filtracji kolaboratywnej lub algorytmy grafowe do przewidywania preferencji użytkownika.</li>
 </ul>
-<p>🔹 Inne zastosowania: - Analiza logów serwerowych w czasie rzeczywistym (np. wykrywanie ataków DDoS). - Monitoring sieci IoT (np. analiza danych z sensorów w inteligentnym mieście).</p>
-<ol start="2" type="1">
-<li><strong>Algorytmy dokonujące wielu obliczeń</strong></li>
-</ol>
+<p>🔹 Inne zastosowania:</p>
+<ul>
+<li>Analiza logów serwerowych w czasie rzeczywistym (np. wykrywanie ataków DDoS).</li>
+<li>Monitoring sieci IoT (np. analiza danych z sensorów w inteligentnym mieście).</li>
+</ul>
+<p><strong>2. Algorytmy dokonujące wielu obliczeń</strong></p>
 <p>Wymagają dużej mocy obliczeniowej, ale zazwyczaj nie operują na wielkich zbiorach danych. Przykładem może być algorytm wyszukujący dużą liczbę pierwszą. Często wykorzystuje się tutaj podział obliczeń na równoległe procesy w celu optymalizacji wydajności.</p>
-<p>🔹 Przykład: Kryptografia i znalezienie dużej liczby pierwszej (np. RSA) - Algorytm generuje bardzo duże liczby pierwsze, które są podstawą dla szyfrowania RSA. - Proces wymaga intensywnych obliczeń, ale nie operuje na ogromnych zbiorach danych. - Często wykorzystywane są metody równoległe, np. algorytm probabilistyczny Millera-Rabina do testowania pierwszości.</p>
-<p>🔹 Inne zastosowania: - Symulacje fizyczne (np. prognozowanie pogody, modele klimatyczne). - Algorytmy optymalizacyjne (np. znajdowanie najkrótszej trasy w problemie komiwojażera).</p>
-<ol start="3" type="1">
-<li><strong>Algorytmy przetwarzające duże ilości danych i dokonujące wielu obliczeń</strong></li>
-</ol>
+<p>🔹 Przykład: Kryptografia i znalezienie dużej liczby pierwszej (np. RSA)</p>
+<ul>
+<li>Algorytm generuje bardzo duże liczby pierwsze, które są podstawą dla szyfrowania RSA.</li>
+<li>Proces wymaga intensywnych obliczeń, ale nie operuje na ogromnych zbiorach danych.</li>
+<li>Często wykorzystywane są metody równoległe, np. algorytm probabilistyczny Millera-Rabina do testowania pierwszości.</li>
+</ul>
+<p>🔹 Inne zastosowania:</p>
+<ul>
+<li>Symulacje fizyczne (np. prognozowanie pogody, modele klimatyczne).</li>
+<li>Algorytmy optymalizacyjne (np. znajdowanie najkrótszej trasy w problemie komiwojażera).</li>
+</ul>
+<p><strong>3. Algorytmy przetwarzające duże ilości danych i dokonujące wielu obliczeń</strong></p>
 <p>Łączą wymagania obu poprzednich typów, potrzebując zarówno dużych zasobów obliczeniowych, jak i obsługi dużych zbiorów danych. Przykładem może być analiza sentymentu w transmisjach wideo na żywo.</p>
-<p>🔹 Przykład: Analiza sentymentu w transmisjach wideo na żywo (np. YouTube, Twitch) - Algorytm analizuje zarówno tekst (czat), jak i obraz/wideo w czasie rzeczywistym. - Wymaga zarówno dużych zasobów obliczeniowych (przetwarzanie NLP i CV), jak i obsługi dużej ilości danych. - Może wykorzystywać modele Transformer (np. BERT) do analizy tekstu oraz CNN/RNN do analizy obrazu i dźwięku.</p>
-<p>🔹 Inne zastosowania: - Autonomiczne pojazdy (analiza obrazu i decyzje w czasie rzeczywistym). - Wyszukiwanie anomalii w ogromnych zbiorach danych finansowych (np. wykrywanie oszustw bankowych).</p>
+<p>🔹 Przykład: Analiza sentymentu w transmisjach wideo na żywo (np. YouTube, Twitch)</p>
+<ul>
+<li>Algorytm analizuje zarówno tekst (czat), jak i obraz/wideo w czasie rzeczywistym.</li>
+<li>Wymaga zarówno dużych zasobów obliczeniowych (przetwarzanie NLP i CV), jak i obsługi dużej ilości danych.</li>
+<li>Może wykorzystywać modele Transformer (np. BERT) do analizy tekstu oraz CNN/RNN do analizy obrazu i dźwięku.</li>
+</ul>
+<p>🔹 Inne zastosowania:</p>
+<ul>
+<li>Autonomiczne pojazdy (analiza obrazu i decyzje w czasie rzeczywistym).</li>
+<li>Wyszukiwanie anomalii w ogromnych zbiorach danych finansowych (np. wykrywanie oszustw bankowych).</li>
+</ul>
 </section>
 <section id="wymiar-danych" class="level3">
 <h3 class="anchored" data-anchor-id="wymiar-danych">Wymiar danych</h3>
@@ -330,7 +400,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Zdolność algorytmu do wskazania mechanizmów generujących wyniki nazywamy <strong>możliwością wyjaśnienia</strong>. Analiza etyczna stanowi standardowy element procesu walidacji algorytmu.</p>
 <p>Uzyskanie wysokiej wyjaśnialności jest szczególnie trudne w przypadku algorytmów uczenia maszynowego (ML) i głębokiego uczenia (DL). Na przykład banki korzystające z algorytmów do podejmowania decyzji kredytowych muszą zapewnić transparentność i wskazać powody wydanej decyzji.</p>
 <p>Jedną z metod poprawy wyjaśnialności algorytmów jest <strong>LIME</strong> (<em>Local Interpretable Model-Agnostic Explanations</em>), opublikowana w 2016 roku. Metoda ta polega na wprowadzaniu niewielkich zmian w danych wejściowych i analizowaniu ich wpływu na wynik, co pozwala określić lokalne zasady podejmowania decyzji przez model.</p>
-<div id="8dfc9916" class="cell" data-execution_count="1">
+<div id="e552f184" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -37454,57 +37524,77 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script>
-        <div class="lime top_div" id="top_divBRHJA4EZVTCO3BJ"></div>
+        <div class="lime top_div" id="top_divJXEV2V06FXCUIFE"></div>
         
         <script>
-        var top_div = d3.select('#top_divBRHJA4EZVTCO3BJ').classed('lime top_div', true);
+        var top_div = d3.select('#top_divJXEV2V06FXCUIFE').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["setosa", "versicolor", "virginica"], [0.94, 0.06, 0.0]);
+            var pp = new lime.PredictProba(pp_svg, ["setosa", "versicolor", "virginica"], [0.0, 0.86, 0.14]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["setosa", "versicolor", "virginica"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["petal width (cm) <= 0.30", -0.20017406943538926], ["petal length (cm) <= 1.50", -0.19247283092736206], ["5.10 < sepal length (cm) <= 5.75", 0.020793927539206194], ["sepal width (cm) > 3.40", 0.004300153655517164]], 1, exp_div);
+                exp.show([["4.25 < petal length (cm) <= 5.10", 0.22005340794207676], ["1.30 < petal width (cm) <= 1.80", 0.2190976093039543], ["5.75 < sepal length (cm) <= 6.40", 0.016592459889481916], ["sepal width (cm) <= 2.80", -0.007360958040086317]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_tabular([["petal width (cm)", "0.20", -0.20017406943538926], ["petal length (cm)", "1.30", -0.19247283092736206], ["sepal length (cm)", "5.50", 0.020793927539206194], ["sepal width (cm)", "3.50", 0.004300153655517164]], 1, raw_div);
+            exp.show_raw_tabular([["petal length (cm)", "4.50", 0.22005340794207676], ["petal width (cm)", "1.50", 0.2190976093039543], ["sepal length (cm)", "6.20", 0.016592459889481916], ["sepal width (cm)", "2.20", -0.007360958040086317]], 1, raw_div);
         
         </script>
         
 </div>
 </div>
-<p>Jak działa ten kod? 1. Ładowanie danych i trenowanie modelu - Używamy zbioru Iris, który zawiera 150 przykładów kwiatów z trzema gatunkami: - Setosa - Versicolor - Virginica - Model RandomForestClassifier trenuje się na tych danych.</p>
+<p>Jak działa ten kod? 1. Ładowanie danych i trenowanie modelu</p>
+<ul>
+<li>Używamy zbioru Iris, który zawiera 150 przykładów kwiatów z trzema gatunkami:</li>
+<li>Setosa</li>
+<li>Versicolor</li>
+<li>Virginica</li>
+<li>Model RandomForestClassifier trenuje się na tych danych.</li>
+</ul>
 <ol start="2" type="1">
-<li>Tworzenie interpretowalnego modelu za pomocą LIME
+<li>Tworzenie interpretowalnego modelu za pomocą LIME</li>
+</ol>
 <ul>
 <li>LIME generuje lokalne wyjaśnienia, czyli interpretuje model dla pojedynczych predykcji.</li>
 <li>Wybieramy losowy przykład z danych testowych.</li>
-</ul></li>
-<li>Eksploracja wyniku dla jednego przykładu
+</ul>
+<ol start="3" type="1">
+<li>Eksploracja wyniku dla jednego przykładu</li>
+</ol>
 <ul>
 <li>LIME modyfikuje lekko wartości wejściowe i obserwuje, jak zmienia się wynik predykcji.</li>
 <li>Tworzy „lokalny” model liniowy, który pokazuje, które cechy miały największy wpływ na decyzję.</li>
-</ul></li>
-</ol>
+</ul>
 <p>Załóżmy, że nasz model wybrał przykładową roślinę i sklasyfikował ją jako Virginica.</p>
-<p>Oto interpretacja wyników: 1. Najważniejsze cechy wpływające na decyzję modelu: - Długość płatka (petal length): największy wpływ na predykcję (np. im większa, tym większe prawdopodobieństwo, że to Virginica). - Szerokość płatka (petal width): również istotny czynnik (np. powyżej pewnej wartości sugeruje Virginica). - Długość kielicha (sepal length): mniejszy wpływ, ale nadal istotny. - Szerokość kielicha (sepal width): zwykle najmniej istotna cecha.</p>
+<p>Oto interpretacja wyników:</p>
+<ol type="1">
+<li>Najważniejsze cechy wpływające na decyzję modelu:</li>
+</ol>
+<ul>
+<li>Długość płatka (petal length): największy wpływ na predykcję (np. im większa, tym większe prawdopodobieństwo, że to Virginica).</li>
+<li>Szerokość płatka (petal width): również istotny czynnik (np. powyżej pewnej wartości sugeruje Virginica).</li>
+<li>Długość kielicha (sepal length): mniejszy wpływ, ale nadal istotny.</li>
+<li>Szerokość kielicha (sepal width): zwykle najmniej istotna cecha.</li>
+</ul>
 <ol start="2" type="1">
-<li>Wizualizacja wyników
+<li>Wizualizacja wyników</li>
+</ol>
 <ul>
 <li>LIME generuje wykres słupkowy, który pokazuje wpływ każdej cechy na klasyfikację.</li>
 <li>Na wykresie widać, które cechy zwiększały, a które zmniejszały prawdopodobieństwo przypisania do danej klasy.</li>
-</ul></li>
-<li>Co oznacza wynik?
+</ul>
+<ol start="3" type="1">
+<li>Co oznacza wynik?</li>
+</ol>
 <ul>
 <li>Jeśli model przewidział klasę Virginica z wysokim prawdopodobieństwem, oznacza to, że kluczowe cechy (np. długi płatek) mocno wskazują na ten gatunek.</li>
 <li>Jeśli cechy miały zróżnicowany wpływ, oznacza to, że model miał pewne trudności w klasyfikacji (np. szerokość płatka nie była jednoznaczna).</li>
-</ul></li>
-</ol>
+</ul>
 </section>
 <section id="detekcja-anomalii" class="level2">
 <h2 class="anchored" data-anchor-id="detekcja-anomalii">Detekcja anomalii</h2>
@@ -37513,41 +37603,61 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>Wartość odstająca</strong> (ang. <em>outlier</em>) to obserwacja (wiersz w tabeli danych), która jest znacznie oddalona od pozostałych elementów próbki. Oznacza to, że zależność między zmiennymi niezależnymi i zależnymi dla tej obserwacji może różnić się od pozostałych przypadków.</p>
 <p>Dla pojedynczych zmiennych wartości odstające można określić, korzystając z wykresu pudełkowego (<em>box plot</em>). Wykres ten bazuje na kwartylach:</p>
 <ul>
-<li><strong>Pierwszy kwartyl</strong> ( Q_1 ) i <strong>trzeci kwartyl</strong> ( Q_3 ) wyznaczają boki pudełka,</li>
-<li><strong>Drugi kwartyl</strong> ( Q_2 ) (mediana) jest zaznaczony wewnątrz pudełka,</li>
+<li><strong>Pierwszy kwartyl</strong> <span class="math inline">\(Q_1\)</span> i <strong>trzeci kwartyl</strong> <span class="math inline">\(Q_3\)</span> wyznaczają boki pudełka,</li>
+<li><strong>Drugi kwartyl</strong> <span class="math inline">\(Q_2\)</span> (mediana) jest zaznaczony wewnątrz pudełka,</li>
 </ul>
 <p>Wartości odstające spełniają zależność:</p>
-<p>[ x_{out} &lt; Q_1 - 1.5 IQR x_{out} &gt; Q_3 + 1.5 IQR ]</p>
-<p>Gdzie: [ IQR = Q_3 - Q_1 ]</p>
+<p><span class="math display">\[
+x_{out} &lt; Q_1 - 1.5 \times IQR \quad \text{lub} \quad x_{out} &gt; Q_3 + 1.5 \times IQR
+\]</span></p>
+<p>Gdzie: <span class="math display">\[
+IQR = Q_3 - Q_1
+\]</span></p>
 <p>Przykładem wartości odstającej może być bolid Formuły 1 – pod względem prędkości jest on anomalią wśród zwykłych samochodów.</p>
 </section>
 <section id="wykorzystanie-detekcji-anomalii" class="level3">
 <h3 class="anchored" data-anchor-id="wykorzystanie-detekcji-anomalii">Wykorzystanie detekcji anomalii</h3>
-<p>Wykrywanie wartości odstających ma szerokie zastosowanie, np.: - <strong>Finanse</strong> – wykrywanie transakcji fraudowych w analizie danych bankowych, - <strong>Cyberbezpieczeństwo</strong> – identyfikacja intruzów w sieci na podstawie zachowań użytkowników, - <strong>Medycyna</strong> – monitorowanie parametrów zdrowotnych i wykrywanie nieprawidłowości, - <strong>Przemysł</strong> – wykrywanie wadliwych komponentów poprzez analizę obrazu.</p>
+<p>Wykrywanie wartości odstających ma szerokie zastosowanie, np.:</p>
+<ul>
+<li><strong>Finanse</strong> – wykrywanie transakcji fraudowych w analizie danych bankowych,</li>
+<li><strong>Cyberbezpieczeństwo</strong> – identyfikacja intruzów w sieci na podstawie zachowań użytkowników,</li>
+<li><strong>Medycyna</strong> – monitorowanie parametrów zdrowotnych i wykrywanie nieprawidłowości,</li>
+<li><strong>Przemysł</strong> – wykrywanie wadliwych komponentów poprzez analizę obrazu.</li>
+</ul>
 </section>
 <section id="metody-wykrywania-anomalii" class="level3">
 <h3 class="anchored" data-anchor-id="metody-wykrywania-anomalii">Metody wykrywania anomalii</h3>
 <section id="metody-nadzorowane-supervised-learning" class="level4">
 <h4 class="anchored" data-anchor-id="metody-nadzorowane-supervised-learning">1. Metody nadzorowane (supervised learning)</h4>
-<p>Stosowane, gdy mamy oznaczone dane (np. przypadki oszustw w transakcjach). - Sieci neuronowe, - Algorytm K-najbliższych sąsiadów (KNN), - Sieci Bayesowskie.</p>
+<p>Stosowane, gdy mamy oznaczone dane (np. przypadki oszustw w transakcjach).</p>
+<ul>
+<li>Sieci neuronowe,</li>
+<li>Algorytm K-najbliższych sąsiadów (KNN),</li>
+<li>Sieci Bayesowskie.</li>
+</ul>
 </section>
 <section id="metody-nienadzorowane-unsupervised-learning" class="level4">
 <h4 class="anchored" data-anchor-id="metody-nienadzorowane-unsupervised-learning">2. Metody nienadzorowane (unsupervised learning)</h4>
-<p>Zakładają, że większość danych jest poprawna, a anomalie to niewielki odsetek przypadków. - Klasteryzacja metodą K-średnich (<em>K-Means</em>), - Autoenkodery w sieciach neuronowych, - Testy statystyczne.</p>
+<p>Zakładają, że większość danych jest poprawna, a anomalie to niewielki odsetek przypadków.</p>
+<ul>
+<li>Klasteryzacja metodą K-średnich (<em>K-Means</em>),</li>
+<li>Autoenkodery w sieciach neuronowych,</li>
+<li>Testy statystyczne.</li>
+</ul>
 </section>
 </section>
 <section id="metoda-klasyczna-detekcja-na-podstawie-prawdopodobieństwa" class="level3">
 <h3 class="anchored" data-anchor-id="metoda-klasyczna-detekcja-na-podstawie-prawdopodobieństwa">Metoda klasyczna – detekcja na podstawie prawdopodobieństwa</h3>
-<p>Aby określić, czy dana obserwacja jest anomalią, można użyć prawdopodobieństwa ( p(x) ):</p>
+<p>Aby określić, czy dana obserwacja jest anomalią, można użyć prawdopodobieństwa <span class="math inline">\(p(x)\)</span>:</p>
 <ul>
-<li>Jeśli ( p(x) &lt; ), uznajemy wartość za odstającą.</li>
-<li>W praktyce zakładamy, że dane mają <strong>rozkład normalny</strong> ( N(, ) ).</li>
-<li>Szacujemy parametry ( ) (średnia) i ( ^2 ) (wariancja) na podstawie próbki.</li>
-<li>Następnie dla każdej wartości obliczamy prawdopodobieństwo jej wystąpienia i porównujemy z ( ).</li>
+<li>Jeśli <span class="math inline">\(p(x) &lt; \epsilon\)</span>, uznajemy wartość za odstającą.</li>
+<li>W praktyce zakładamy, że dane mają <strong>rozkład normalny</strong> <span class="math inline">\(N(\mu, \sigma)\)</span>.</li>
+<li>Szacujemy parametry <span class="math inline">\(\mu\)</span> (średnia) i <span class="math inline">\(\sigma^2\)</span> (wariancja) na podstawie próbki.</li>
+<li>Następnie dla każdej wartości obliczamy prawdopodobieństwo jej wystąpienia i porównujemy z <span class="math inline">\(\epsilon\)</span>.</li>
 </ul>
 <p><strong>Przykład: Analiza wynagrodzeń w firmie</strong></p>
 <p>Wykrywamy, czy w danej firmie są osoby o wynagrodzeniach znacznie odbiegających od średniej.</p>
-<div id="5c30368c" class="cell" data-execution_count="2">
+<div id="60e1fd5e" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -37601,7 +37711,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><a href="https://scikit-learn.org/0.20/auto_examples/plot_anomaly_comparison.html">Metody detekcji anomalii sklearn</a></p>
 <p><strong>Przykład: Wykrywanie oszustw bankowych</strong></p>
 <p>Bank analizuje transakcje kartą kredytową i wykrywa te, które mogą być nieautoryzowane.</p>
-<div id="589367a3" class="cell" data-execution_count="3">
+<div id="4a4ef627" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>

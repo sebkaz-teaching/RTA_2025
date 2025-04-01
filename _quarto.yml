@@ -7,25 +7,29 @@ website:
   description: "Kurs analizy danych dla studentów SGH w Warszawie"
   site-url: https://sebkaz-teaching.github.io/RTA_2025
   sidebar:
+    style: "docked"
     contents:
+      - index.qmd
       - section : "Wykłady"
         contents:
-        - href: lectures/wyklad1.qmd
-        - href: lectures/wyklad2.qmd
-        - href: lectures/wyklad3.qmd
-        - href: lectures/wyklad4.qmd
-        - href: lectures/wyklad5.qmd
-      - section : "Apache Kafka"
+        - lectures/wyklad1.qmd
+        - lectures/wyklad2.qmd
+        - lectures/wyklad3.qmd
+        - lectures/wyklad4.qmd
+        - lectures/wyklad5.qmd
+      - section : "Laboratoria"
         contents:
-        - href: kafka_codes/kafka1.ipynb
-      - section : "Python"
-        contents:
-        - href: cw1.ipynb
+        - section: "Apache Kafka"
+          contents:
+            - kafka_codes/kafka1.ipynb
+            - kafka_codes/kafka2.ipynb
+        - section : "Python"
+          contents:
+          - href: labs/lab1.ipynb
+          - href: labs/lab2.ipynb
         
   navbar:
     left: 
-          - href: index.qmd
-            text: 222890-D
           - href: indexS.qmd
             text: 222890-S
           - href: sylabus.qmd
