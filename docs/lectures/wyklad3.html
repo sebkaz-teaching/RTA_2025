@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Informacje ogólne – Analiza danych w czasie rzeczywistym</title>
+<title>Wykład 3 – Analiza danych w czasie rzeczywistym</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,22 +23,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-9a023c9ade86a60361e96e3e3f11bc54.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-d218d465d676f63e35746811398acdfc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-9a023c9ade86a60361e96e3e3f11bc54.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-d218d465d676f63e35746811398acdfc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,7 +68,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="../style.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed">
@@ -78,7 +78,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Analiza danych w czasie rzeczywistym</span>
     </a>
   </div>
@@ -89,19 +89,19 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./indexS.html" aria-current="page"> 
+    <a class="nav-link" href="../indexS.html"> 
 <span class="menu-text">222890-S</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./sylabus.html"> 
+    <a class="nav-link" href="../sylabus.html"> 
 <span class="menu-text">Sylabus</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./info.html"> 
+    <a class="nav-link" href="../info.html"> 
 <span class="menu-text">Narzędzia</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./ksiazki.html"> 
+    <a class="nav-link" href="../ksiazki.html"> 
 <span class="menu-text">Książki</span></a>
   </li>  
 </ul>
@@ -115,7 +115,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Informacje ogólne</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../lectures/wyklad1.html">Wykłady</a></li><li class="breadcrumb-item"><a href="../lectures/wyklad3.html">Wykład 3</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -129,7 +129,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Informacje ogólne</span></a>
   </div>
 </li>
@@ -144,31 +144,31 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lectures/wyklad1.html" class="sidebar-item-text sidebar-link">
+  <a href="../lectures/wyklad1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Wykład 1</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lectures/wyklad2.html" class="sidebar-item-text sidebar-link">
+  <a href="../lectures/wyklad2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Wykład 2</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lectures/wyklad3.html" class="sidebar-item-text sidebar-link">
+  <a href="../lectures/wyklad3.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Wykład 3</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lectures/wyklad4.html" class="sidebar-item-text sidebar-link">
+  <a href="../lectures/wyklad4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Wykład 4</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lectures/wyklad5.html" class="sidebar-item-text sidebar-link">
+  <a href="../lectures/wyklad5.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Wykład 5</span></a>
   </div>
 </li>
@@ -194,19 +194,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./kafka_codes/kafka1.html" class="sidebar-item-text sidebar-link">
+  <a href="../kafka_codes/kafka1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Wprowadzenie</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./kafka_codes/kafka2.html" class="sidebar-item-text sidebar-link">
+  <a href="../kafka_codes/kafka2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Producent w środowisku python</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./kafka_codes/kafka3.html" class="sidebar-item-text sidebar-link">
+  <a href="../kafka_codes/kafka3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Consumer w środowisku Python</span></a>
   </div>
 </li>
@@ -223,19 +223,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab1.html" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Środowisko produkcyjne z modelem ML</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab2.html" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Tworzenie API we Flasku – Wprowadzenie</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab3.html" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Dane ustrukturyzowane</span></a>
   </div>
 </li>
@@ -253,18 +253,21 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title"><strong>Sections</strong></h2>
    
   <ul class="collapse">
-  <li><a href="#analiza-danych-w-czasie-rzeczywistym" id="toc-analiza-danych-w-czasie-rzeczywistym" class="nav-link active" data-scroll-target="#analiza-danych-w-czasie-rzeczywistym">Analiza danych w czasie rzeczywistym</a></li>
-  <li><a href="#kalendarz" id="toc-kalendarz" class="nav-link" data-scroll-target="#kalendarz">Kalendarz</a></li>
-  <li><a href="#technologie" id="toc-technologie" class="nav-link" data-scroll-target="#technologie">Technologie</a></li>
+  <li><a href="#strumienie-danych" id="toc-strumienie-danych" class="nav-link active" data-scroll-target="#strumienie-danych">Strumienie danych</a>
+  <ul class="collapse">
+  <li><a href="#definicje" id="toc-definicje" class="nav-link" data-scroll-target="#definicje">Definicje</a></li>
+  <li><a href="#czas-w-analizie-danych-w-czasie-rzeczywistym" id="toc-czas-w-analizie-danych-w-czasie-rzeczywistym" class="nav-link" data-scroll-target="#czas-w-analizie-danych-w-czasie-rzeczywistym">Czas w analizie danych w czasie rzeczywistym</a></li>
+  <li><a href="#okna-czasowe-w-analizie-strumieniowej" id="toc-okna-czasowe-w-analizie-strumieniowej" class="nav-link" data-scroll-target="#okna-czasowe-w-analizie-strumieniowej">Okna czasowe w analizie strumieniowej</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../lectures/wyklad1.html">Wykłady</a></li><li class="breadcrumb-item"><a href="../lectures/wyklad3.html">Wykład 3</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Informacje ogólne</h1>
+<h1 class="title">Wykład 3</h1>
 </div>
 
 
@@ -281,83 +284,234 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="analiza-danych-w-czasie-rzeczywistym" class="level2">
-<h2 class="anchored" data-anchor-id="analiza-danych-w-czasie-rzeczywistym">Analiza danych w czasie rzeczywistym</h2>
-<p>Kod: 222890-S</p>
-<p>Semestr zimowy 2024/2025, SGH Szkoła Główna Handlowa w Warszawie</p>
-<p>Szczegółowy opis znajdziesz w <a href="./sylabus">sylabusie</a>. Znajdziesz w nim opis wszystkich wykładów i ćwiczeń oraz proponowaną literaturę.</p>
-<p>Inne książki zamieszczone zostały w zakładce <a href="./ksiazki">książki</a></p>
-</section>
-<section id="kalendarz" class="level2">
-<h2 class="anchored" data-anchor-id="kalendarz">Kalendarz</h2>
-<section id="wykład" class="level3">
-<h3 class="anchored" data-anchor-id="wykład">Wykład</h3>
-<p>Wykład jest realizowany w trybie stacjonarnym. Jest on NIEOBOWIĄZKOWY i odbywa się w Auli III bud G</p>
-<ol type="1">
-<li>22-02-2025 (sobota) 08:00-09:30 - Wykład 1</li>
-<li>08-03-2025 (sobota) 08:00-09:30 - Wykład 2</li>
-</ol>
-</section>
-<section id="laboratoria" class="level3">
-<h3 class="anchored" data-anchor-id="laboratoria">Laboratoria</h3>
-<section id="lab1" class="level4">
-<h4 class="anchored" data-anchor-id="lab1">Lab1</h4>
-<p>22-03-2025 (sobota) 08:00-13:20 - G-210 grupy 11, 17, 18</p>
-<p>23-03-2025 (niedziela) 13:30-17:00 - G-116 grupy 15, 16</p>
-</section>
-<section id="lab2" class="level4">
-<h4 class="anchored" data-anchor-id="lab2">Lab2</h4>
-<p>05-04-2025 (sobota) 08:00-13:20 - G-210 grupy 11, 17, 18</p>
-<p>06-04-2025 (niedziela) 13:30-17:00 - G-116 grupy 15, 16</p>
-</section>
-<section id="lab3" class="level4">
-<h4 class="anchored" data-anchor-id="lab3">Lab3</h4>
-<p>26-04-2025 (sobota) 08:00-13:20 - G-210 grupy 11, 17, 18</p>
-<p>27-04-2025 (niedziela) 13:30-17:00 - G-116 grupy 15, 16</p>
-</section>
-<section id="lab4" class="level4">
-<h4 class="anchored" data-anchor-id="lab4">Lab4</h4>
-<p>17-05-2025 (sobota) 08:00-13:20 - G-210 grupy 11, 17, 18</p>
-<p>18-05-2025 (niedziela) 13:30-17:00 - G-116 grupy 15, 16</p>
-</section>
-<section id="lab5" class="level4">
-<h4 class="anchored" data-anchor-id="lab5">Lab5</h4>
-<p>31-05-2025 (sobota) 08:00-13:20 - G-210 grupy 11, 17, 18</p>
-<p>01-06-2025 (niedziela) 13:30-17:00 - G-116 grupy 15, 16</p>
-</section>
-</section>
-<section id="zaliczenie-i-egzamin" class="level3">
-<h3 class="anchored" data-anchor-id="zaliczenie-i-egzamin">Zaliczenie i Egzamin</h3>
-<p>Wykłady zakończą się testem (podczas ostatnich zajęć) 20 pytań.</p>
-<p>Aby zaliczyć test, należy zdobyć więcej niż 13 punktów – jest to warunek konieczny do uczestnictwa w ćwiczeniach.</p>
-<p>Laboratoria</p>
-<p>Podczas laboratoriów będą zadawane prace domowe, które należy przesyłać za pośrednictwem MS Teams. Każdy brak pracy domowej obniża końcową ocenę o 0,5 stopnia.</p>
-<section id="projekt" class="level4">
-<h4 class="anchored" data-anchor-id="projekt">Projekt</h4>
-<p>Projekty należy realizować w grupach maksymalnie 5-osobowych.</p>
-<p>Wymagania projektu</p>
+<p>⏳ Czas trwania: 1,5h <em>🎯 Cel wykładu</em></p>
+<p>zrozumienie, podstawowych sposobów przetwarzania i analizowania danych strumieniowych.</p>
+<hr>
+<section id="strumienie-danych" class="level1">
+<h1>Strumienie danych</h1>
+<p>Strumieniowanie możesz kojarzyć z serwisów przesyłających wideo online. Gdy oglądasz swój ulubiony serial (tak jak teraz na zajęciach), platforma streamingowa w sposób nieprzerwany dostarcza do Ciebie kolejne „porcje” wideo.</p>
+<p>Podobna koncepcja dotyczy danych strumieniowych. Przesyłane porcje nie muszą mieć formatu wideo – wszystko zależy od celu biznesowego. Przykładem może być ciągły pomiar z czujników w fabrykach, elektrowniach czy innych systemach monitorujących.</p>
+<p>Kluczowe jest to, że masz do czynienia z nieprzerwanym strumieniem danych, które musisz przetwarzać w czasie rzeczywistym. Nie możesz czekać na zatrzymanie linii produkcyjnej, aby przeprowadzić analizę – wszelkie pojawiające się problemy powinny być rejestrowane natychmiast, aby szybko na nie reagować.</p>
+<blockquote class="blockquote">
+<p>Analiza strumieniowa to ciągłe przetwarzanie i analiza dużych zbiorów danych w ruchu.</p>
+</blockquote>
+<p>Można to porównać do innych aspektów Big Data. Przetwarzanie wsadowe (batchowe) to przeciwieństwo przetwarzania strumieniowego – najpierw gromadzisz duże ilości danych, a dopiero potem je analizujesz. Oczywiście, możesz pobrać całe wideo przed obejrzeniem, ale czy miałoby to sens?</p>
+<p>Istnieją sytuacje, w których podejście wsadowe jest wystarczające, ale już teraz widzisz, że przetwarzanie strumieniowe może dostarczyć biznesowi dodatkową wartość, której trudno oczekiwać przy klasycznym przetwarzaniu wsadowym.</p>
+<p><a href="https://aws.amazon.com/streaming-data/">ciekawe informacje</a></p>
+<section id="analiza-danych-w-czasie-rzeczywistym-a-przetwarzanie-strumienia-zdarzeń" class="level3">
+<h3 class="anchored" data-anchor-id="analiza-danych-w-czasie-rzeczywistym-a-przetwarzanie-strumienia-zdarzeń">Analiza danych w czasie rzeczywistym a przetwarzanie strumienia zdarzeń</h3>
+<p>Łatwo jest połączyć analizę w czasie rzeczywistym z analizą strumieniową (lub przetwarzaniem strumienia zdarzeń). Choć technologie analizy strumieniowej mogą umożliwiać analizę w czasie rzeczywistym, to nie to samo!</p>
+<p>Analiza strumieniowa polega na przetwarzaniu danych w ruchu, natomiast analityka w czasie rzeczywistym odnosi się do każdej metody przetwarzania danych, w której opóźnienie jest na tyle krótkie, że spełnia określone wymagania biznesowe dotyczące „czasu rzeczywistego”.</p>
+<p>Zazwyczaj systemy analizy w czasie rzeczywistym dzieli się na twarde i miękkie systemy czasu rzeczywistego:</p>
 <ul>
-<li>Projekt powinien rozwiązywać realny problem biznesowy, który można opracować przy użyciu danych przetwarzanych w trybie online. (Nie wyklucza to użycia przetwarzania wsadowego, np. do generowania modelu).</li>
-<li>Dane powinny być przesyłane do Apache Kafka, skąd będą poddawane dalszemu przetwarzaniu i analizie.</li>
-<li>Można używać dowolnego języka programowania w każdym komponencie projektu.</li>
-<li>Można wykorzystać narzędzia BI.</li>
-<li>Źródłem danych może być dowolne API, sztucznie generowane dane, IoT itp.</li>
+<li>Twarde systemy czasu rzeczywistego (np. systemy sterujące w samolotach) wymagają ścisłego dotrzymania terminów – każde opóźnienie może mieć katastrofalne skutki.</li>
+<li>Miękkie systemy czasu rzeczywistego (np. stacje pogodowe) mogą tolerować pewne opóźnienia, choć w skrajnych przypadkach może to prowadzić do utraty wartości danych.</li>
+</ul>
+<p>Co więcej, podczas gdy analiza strumieniowa zakłada istnienie dedykowanej architektury strumieniowej, analiza w czasie rzeczywistym nie jest powiązana z żadną konkretną architekturą.</p>
+<p>Kluczowe jest to, że analityka w czasie rzeczywistym oznacza przetwarzanie danych w okresie, który dana firma uznaje za „czas rzeczywisty” – może to być zarówno kilka milisekund, jak i kilka sekund, w zależności od potrzeb biznesowych.</p>
+</section>
+<section id="źródła-danych-przesyłanych-strumieniowo-obejmują" class="level3">
+<h3 class="anchored" data-anchor-id="źródła-danych-przesyłanych-strumieniowo-obejmują">Źródła danych przesyłanych strumieniowo obejmują:</h3>
+<ul>
+<li>czujniki sprzętu,</li>
+<li>strumienie kliknięć,</li>
+<li>śledzenie lokalizacji,</li>
+<li>interakcję z użytkownikiem,</li>
+<li>kanały mediów społecznościowych,</li>
+<li>notowania giełdowe,</li>
+<li>aktywność w aplikacjach,</li>
+<li>inne.</li>
+</ul>
+<p>Firmy wykorzystują analitykę strumieniową do wykrywania i interpretowania wzorców, tworzenia wizualizacji, generowania spostrzeżeń i alertów oraz uruchamiania procesów w czasie rzeczywistym lub bliskim rzeczywistemu.</p>
+</section>
+<section id="uzasadnienie-biznesowe" class="level3">
+<h3 class="anchored" data-anchor-id="uzasadnienie-biznesowe">Uzasadnienie biznesowe</h3>
+<p>Analityka służy do identyfikowania istotnych wzorców w danych i odkrywania nowej wiedzy – zarówno w przypadku transmisji strumieniowych, jak i tradycyjnych analiz.</p>
+<p>Jednak w dzisiejszym świecie natura „znajdowania sensownych wzorców w danych” uległa zmianie, ponieważ zmienił się charakter samych danych. Ich szybkość, objętość i różnorodność eksplodowały.</p>
+<p>Twitter generuje ponad 500 milionów tweetów dziennie, a według prognoz IDC do 2025 roku urządzenia IoT będą w stanie wytworzyć 79,4 zettabajta (ZB) danych. Trend ten wciąż przyspiesza.</p>
+</section>
+<section id="przykładowe-biznesowe-zastosowania" class="level3">
+<h3 class="anchored" data-anchor-id="przykładowe-biznesowe-zastosowania">Przykładowe biznesowe zastosowania</h3>
+<ol type="1">
+<li>Dane z sensorów IoT i detekcja anomalii</li>
+<li>Stock Trading (problemy regresyjne) - czas reagowania na zmiany i czas zakupy i sprzedaży akcji.</li>
+<li>Clickstream for websites (problem klasyfikacji) - śledzenie i analiza gości na stronie serwisu internetowego - personalizacja strony i treści.</li>
+</ol>
+<p><a href="https://www.linkedin.com/pulse/8-best-examples-real-time-data-analytics-bernard-marr/">8 najlepszych przykładów analizy w czasie rzeczywistym</a></p>
+<p><a href="https://www.forbes.com/sites/forbestechcouncil/2021/10/26/how-to-build-a-strong-business-case-for-streaming-analytics/?sh=eee8eaa465d0">Biznesowe zastosowania</a></p>
+</section>
+<section id="definicje" class="level2">
+<h2 class="anchored" data-anchor-id="definicje">Definicje</h2>
+<section id="zapoznaj-się-z-tematem-danych-strumieniowych" class="level3">
+<h3 class="anchored" data-anchor-id="zapoznaj-się-z-tematem-danych-strumieniowych">Zapoznaj się z tematem <a href="https://medium.com/cuelogic-technologies/analyzing-data-streaming-using-spark-vs-kafka-bcfdc33ac828">danych strumieniowych</a></h3>
+<blockquote class="blockquote">
+<p><strong>Definicja 1</strong> – <em>Zdarzenie</em> to wszystko, co można zaobserwować w danym momencie czasu. Jest generowane jako bezpośredni skutek działania.</p>
+<p><strong>Definicja 2</strong> – W kontekście danych <em>zdarzenie</em> to <strong>niezmienialny</strong> rekord w strumieniu danych, zakodowany jako JSON, XML, CSV lub w formacie binarnym.</p>
+<p><strong>Definicja 3</strong> – <em>Ciągły strumień zdarzeń</em> to nieskończony zbiór pojedynczych zdarzeń uporządkowanych w czasie, np. logi z urządzeń.</p>
+<p><strong>Definicja 4</strong> – <em>Strumień danych</em> to dane tworzone przyrostowo w czasie, generowane ze źródeł statycznych (baza danych, odczyt linii z pliku) lub dynamicznych (logi, sensory, funkcje).</p>
+<p><strong>Przedsiębiorstwo to organizacja, która generuje i odpowiada na ciągły strumień zdarzeń.</strong></p>
+</blockquote>
+<hr>
+</section>
+<section id="analityka-strumieniowa" class="level3">
+<h3 class="anchored" data-anchor-id="analityka-strumieniowa">Analityka strumieniowa</h3>
+<p><strong>Analityka strumieniowa</strong> (ang. <em>stream analytics</em>) nazywana jest również <strong>przetwarzaniem strumieniowym zdarzeń</strong> (ang. <em>event stream processing</em>) – czyli przetwarzaniem dużych ilości danych już na etapie ich generowania.</p>
+<p>Niezależnie od zastosowanej technologii, wszystkie dane powstają jako <strong>ciągły strumień zdarzeń</strong> – obejmuje to m.in.:</p>
+<ul>
+<li>działania użytkowników na stronach internetowych,<br>
+</li>
+<li>logi systemowe,<br>
+</li>
+<li>pomiary z sensorów.</li>
 </ul>
 </section>
 </section>
-</section>
-<section id="technologie" class="level2">
-<h2 class="anchored" data-anchor-id="technologie">Technologie</h2>
-<p>Uczestnicząc w zajęciach musisz opanować i przynajmniej w podstawowym zakresie posługiwać się następującymi technologiami informatycznymi:</p>
+<section id="czas-w-analizie-danych-w-czasie-rzeczywistym" class="level2">
+<h2 class="anchored" data-anchor-id="czas-w-analizie-danych-w-czasie-rzeczywistym">Czas w analizie danych w czasie rzeczywistym</h2>
+<p>W przypadku przetwarzania wsadowego analizujemy dane historyczne, a czas uruchomienia procesu nie ma żadnego związku z momentem wystąpienia analizowanych zdarzeń.</p>
+<p>Natomiast w przetwarzaniu strumieniowym wyróżniamy dwie koncepcje czasu:</p>
 <ol type="1">
-<li><a href="./info.html#git">GIT</a></li>
-<li>Python, Jupyter notebook, Jupyter lab, Colab</li>
-<li><a href="./info.html#docker">Docker</a></li>
-<li><strong>Apache Spark</strong>, <strong>Apache Kafka</strong></li>
-<li>Databricks Community edition <a href="https://community.cloud.databricks.com/login.html">Web page</a>.</li>
+<li>Czas zdarzenia (event time) – moment, w którym zdarzenie faktycznie miało miejsce.</li>
+<li>Czas przetwarzania (processing time) – moment, w którym system przetwarza zdarzenie.</li>
+</ol>
+<p>Idealne przetwarzanie danych</p>
+<p>W idealnej sytuacji przetwarzanie następuje natychmiast po wystąpieniu zdarzenia:</p>
+<p><img alt="Batch Processing" src="../img/rys2_1.png" class="center"></p>
+<p>Rzeczywiste przetwarzanie danych</p>
+<p>W praktyce przetwarzanie danych zawsze odbywa się z pewnym opóźnieniem, co jest widoczne jako punkty poniżej linii idealnego przetwarzania (poniżej przekątnej na wykresie).</p>
+<p><img alt="Batch Processing" src="../img/rys2_2.png" class="center"></p>
+<p>W aplikacjach przetwarzania strumieniowego istotna jest różnica między czasem powstania zdarzenia a czasem jego przetwarzania. Do najczęstszych przyczyn opóźnień należą:</p>
+<ul>
+<li>przesyłanie danych przez sieć,</li>
+<li>brak komunikacji między urządzeniem a siecią.</li>
+</ul>
+<p>Przykładem jest śledzenie położenia samochodu przez aplikację GPS – przejazd przez tunel może spowodować chwilową utratę danych.</p>
+<p>Obsługa opóźnień w przetwarzaniu strumieniowym</p>
+<p>Opóźnienia w przetwarzaniu zdarzeń można obsłużyć na dwa sposoby:</p>
+<ol type="1">
+<li>Monitorowanie liczby pominiętych zdarzeń i wyzwalanie alarmu w przypadku zbyt dużej liczby odrzuceń.</li>
+<li>Zastosowanie korekty za pomocą watermarkingu, czyli dodatkowego mechanizmu uwzględniającego opóźnione zdarzenia.</li>
+</ol>
+<p>Proces przetwarzania zdarzeń w czasie rzeczywistym można przedstawić jako funkcję schodkową:</p>
+<p><img alt="Batch Processing" src="../img/rys2_3.png" class="center"></p>
+<p>Nie wszystkie zdarzenia wnoszą wkład do analizy – niektóre mogą zostać odrzucone ze względu na zbyt duże opóźnienie.</p>
+<p>Wykorzystanie watermarkingu pozwala na uwzględnienie dodatkowego czasu na pojawienie się opóźnionych zdarzeń. Proces ten obejmuje wszystkie zdarzenia powyżej przerywanej linii. Mimo to nadal mogą zdarzyć się przypadki, w których niektóre punkty zostaną pominięte.</p>
+<p><img alt="Batch Processing" src="../img/rys2_4.png" class="center"></p>
+<p>Przedstawione na wykresach sytuacje jawnie wskazują dlaczego pojęcie czasu jest istotnym czynnikiem i wymaga ścisłego określenia już na poziomie definiowania potrzeb biznesowych. Przypisywanie znaczników czasu do danych (zdarzeń) to trudne zadanie.</p>
+</section>
+<section id="okna-czasowe-w-analizie-strumieniowej" class="level2">
+<h2 class="anchored" data-anchor-id="okna-czasowe-w-analizie-strumieniowej">Okna czasowe w analizie strumieniowej</h2>
+<p>W przetwarzaniu strumieniowym <strong>okna czasowe</strong> pozwalają na grupowanie danych w ograniczone czasowo segmenty, co umożliwia analizę zdarzeń w określonych przedziałach czasowych. W zależności od zastosowania stosuje się różne typy okien, dostosowane do charakterystyki danych i wymagań analitycznych.</p>
+<hr>
+<section id="okno-rozłączne-tumbling-window" class="level3">
+<h3 class="anchored" data-anchor-id="okno-rozłączne-tumbling-window">Okno rozłączne (<em>Tumbling Window</em>)</h3>
+<p>Jest to okno o stałej długości, które <strong>nie nakłada się na siebie</strong> – każde zdarzenie należy tylko do jednego okna.</p>
+<p>✅ <strong>Charakterystyka:</strong></p>
+<ul>
+<li>Stała długość okna<br>
+</li>
+<li>Brak nakładania się na siebie<br>
+</li>
+<li>Idealne do podziału danych na równe segmenty czasowe</li>
+</ul>
+<p>📌 <strong>Przykład:</strong> Analiza liczby zamówień w sklepie internetowym co 5 minut.</p>
+<p><img alt="Tumbling Window" src="../img/rys2_5.png" class="center"></p>
+<hr>
+</section>
+<section id="okno-przesuwne-sliding-window" class="level3">
+<h3 class="anchored" data-anchor-id="okno-przesuwne-sliding-window">Okno przesuwne (<em>Sliding Window</em>)</h3>
+<p>Obejmuje wszystkie zdarzenia następujące w określonym przedziale czasu, gdzie okno <strong>przesuwa się w sposób ciągły</strong>.</p>
+<p>✅ <strong>Charakterystyka:</strong></p>
+<ul>
+<li>Każde zdarzenie może należeć do kilku okien<br>
+</li>
+<li>Okno przesuwa się o zadany interwał<br>
+</li>
+<li>Przydatne do wykrywania trendów i anomalii</li>
+</ul>
+<p>📌 <strong>Przykład:</strong> Śledzenie średniej temperatury w ciągu ostatnich 10 minut, aktualizowane co 2 minuty.</p>
+<p><img alt="Sliding Window" src="../img/rys2_6.png" class="center"></p>
+<hr>
+</section>
+<section id="okno-skokowe-hopping-window" class="level3">
+<h3 class="anchored" data-anchor-id="okno-skokowe-hopping-window">Okno skokowe (<em>Hopping Window</em>)</h3>
+<p>Jest podobne do okna rozłącznego, ale pozwala na <strong>nakładanie się okien</strong> na siebie, dzięki czemu jedno zdarzenie może należeć do kilku okien. Jest stosowane do wygładzania danych.</p>
+<p>✅ <strong>Charakterystyka:</strong></p>
+<ul>
+<li>Stała długość okna<br>
+</li>
+<li>Możliwość nakładania się na siebie<br>
+</li>
+<li>Przydatne do redukcji szumów w danych</li>
+</ul>
+<p>📌 <strong>Przykład:</strong> Analiza liczby odwiedzających stronę co 10 minut, ale aktualizowana co 5 minut, aby lepiej wychwytywać trendy.</p>
+<p><img alt="Hopping Window" src="../img/rys2_7.png" class="center"></p>
+<hr>
+</section>
+<section id="okno-sesyjne-session-window" class="level3">
+<h3 class="anchored" data-anchor-id="okno-sesyjne-session-window">Okno sesyjne (<em>Session Window</em>)</h3>
+<p>Okno sesyjne grupuje zdarzenia na podstawie <strong>okresów aktywności</strong> i zamyka się po określonym czasie braku aktywności.</p>
+<p>✅ <strong>Charakterystyka:</strong></p>
+<ul>
+<li>Dynamiczna długość okna<br>
+</li>
+<li>Definiowane przez aktywność użytkownika<br>
+</li>
+<li>Stosowane w analizie sesji użytkowników</li>
+</ul>
+<p>📌 <strong>Przykład:</strong> Analiza sesji użytkowników na stronie internetowej – sesja trwa tak długo, jak długo użytkownik wykonuje akcje, ale kończy się po 15 minutach braku aktywności.</p>
+<hr>
+</section>
+<section id="podsumowanie" class="level3">
+<h3 class="anchored" data-anchor-id="podsumowanie">Podsumowanie</h3>
+<p>Różne rodzaje okien czasowych są stosowane w zależności od specyfiki danych i celów analizy. Wybór odpowiedniego okna wpływa na dokładność wyników i efektywność systemu analitycznego.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 38%">
+<col style="width: 35%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Typ okna</th>
+<th>Charakterystyka</th>
+<th>Zastosowanie</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Rozłączne (<em>Tumbling</em>)</strong></td>
+<td>Stała długość, brak nakładania</td>
+<td>Raporty okresowe</td>
+</tr>
+<tr class="even">
+<td><strong>Przesuwne (<em>Sliding</em>)</strong></td>
+<td>Stała długość, nakładające się okna</td>
+<td>Trendy, wykrywanie anomalii</td>
+</tr>
+<tr class="odd">
+<td><strong>Skokowe (<em>Hopping</em>)</strong></td>
+<td>Stała długość, częściowe nakładanie</td>
+<td>Wygładzanie danych</td>
+</tr>
+<tr class="even">
+<td><strong>Sesyjne (<em>Session</em>)</strong></td>
+<td>Dynamiczna długość, zależna od aktywności</td>
+<td>Analiza sesji użytkowników</td>
+</tr>
+</tbody>
+</table>
+<p>Każdy typ okna ma swoje unikalne zastosowania i pomaga w lepszej interpretacji danych strumieniowych. Wybór właściwej metody zależy od potrzeb biznesowych i charakterystyki analizowanych danych.</p>
+<p>W analizie danych strumieniowych interpretacja czasu jest złożonym zagadnieniem, ponieważ:</p>
+<ol type="1">
+<li>Różne systemy mają różne zegary, co może prowadzić do niespójności,</li>
+<li>Dane mogą docierać z opóźnieniem, co wymaga technik watermarkingu i okien czasowych,</li>
+<li>Różne podejścia do analizy czasu zdarzenia i czasu przetwarzania wpływają na dokładność wyników.</li>
 </ol>
 
 
+</section>
+</section>
 </section>
 
 </main> <!-- /main -->

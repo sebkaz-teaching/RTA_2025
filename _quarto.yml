@@ -21,14 +21,14 @@ website:
         contents:
         - section: "Apache Kafka"
           contents:
-            - kafka_codes/kafka1.ipynb
-            - kafka_codes/kafka2.ipynb
-            - kafka_codes/kafka3.ipynb
+            - href: kafka_codes/kafka1.ipynb
+            - href: kafka_codes/kafka2.ipynb
+            - href: kafka_codes/kafka3.ipynb
         - section : "Python"
           contents:
-          - labs/lab1.ipynb
-          - labs/lab2.ipynb
-          - labs/lab3.ipynb
+          - href: labs/lab1.ipynb
+          - href: labs/lab2.ipynb
+          - href: labs/lab3.ipynb
         
   navbar:
     left: 

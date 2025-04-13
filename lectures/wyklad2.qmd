@@ -204,7 +204,7 @@ Zdarzenia strumieniowe grupowane są w tzw. tematy (ang. topics).
 
 Kiedy podjąć decyzję biznesową ?
 
-<img alt="Batch Processing" src="img/batch0.png" class="center" />
+<img alt="Batch Processing" src="../img/batch0.png" class="center" />
 
 ## Hadoop Map-Reduce – Skalowanie obliczeń na Big Data
 
@@ -241,7 +241,7 @@ Wszystkie częściowe wyniki są łączone w jedną, końcową odpowiedź.
 
 🔄 Wszyscy uczniowie zgłaszają swoje wyniki, a jeden student zbiera i podsumowuje odpowiedź.  
 
-<img alt="MapReduce w działaniu – rozdzielanie i agregowanie danych" src="img/mapreduce_flow.png" class="center" />
+<img alt="MapReduce w działaniu – rozdzielanie i agregowanie danych" src="../img/mapreduce_flow.png" class="center" />
 ---  
 
 ## 💡 Klasyczny przykład: Liczenie słów w tekście  

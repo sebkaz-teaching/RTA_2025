@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Informacje ogólne – Analiza danych w czasie rzeczywistym</title>
+<title>Wprowadzenie – Analiza danych w czasie rzeczywistym</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,25 +20,59 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-9a023c9ade86a60361e96e3e3f11bc54.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-d218d465d676f63e35746811398acdfc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-9a023c9ade86a60361e96e3e3f11bc54.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-d218d465d676f63e35746811398acdfc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,7 +102,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="../style.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed">
@@ -78,7 +112,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Analiza danych w czasie rzeczywistym</span>
     </a>
   </div>
@@ -89,19 +123,19 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./indexS.html" aria-current="page"> 
+    <a class="nav-link" href="../indexS.html"> 
 <span class="menu-text">222890-S</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./sylabus.html"> 
+    <a class="nav-link" href="../sylabus.html"> 
 <span class="menu-text">Sylabus</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./info.html"> 
+    <a class="nav-link" href="../info.html"> 
 <span class="menu-text">Narzędzia</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./ksiazki.html"> 
+    <a class="nav-link" href="../ksiazki.html"> 
 <span class="menu-text">Książki</span></a>
   </li>  
 </ul>
@@ -115,7 +149,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Informacje ogólne</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Laboratoria</li><li class="breadcrumb-item"><a href="../kafka_codes/kafka1.html">Apache Kafka</a></li><li class="breadcrumb-item"><a href="../kafka_codes/kafka1.html">Wprowadzenie</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -129,7 +163,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Informacje ogólne</span></a>
   </div>
 </li>
@@ -144,31 +178,31 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lectures/wyklad1.html" class="sidebar-item-text sidebar-link">
+  <a href="../lectures/wyklad1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Wykład 1</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lectures/wyklad2.html" class="sidebar-item-text sidebar-link">
+  <a href="../lectures/wyklad2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Wykład 2</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lectures/wyklad3.html" class="sidebar-item-text sidebar-link">
+  <a href="../lectures/wyklad3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Wykład 3</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lectures/wyklad4.html" class="sidebar-item-text sidebar-link">
+  <a href="../lectures/wyklad4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Wykład 4</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lectures/wyklad5.html" class="sidebar-item-text sidebar-link">
+  <a href="../lectures/wyklad5.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Wykład 5</span></a>
   </div>
 </li>
@@ -185,28 +219,28 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
  <span class="menu-text">Apache Kafka</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./kafka_codes/kafka1.html" class="sidebar-item-text sidebar-link">
+  <a href="../kafka_codes/kafka1.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Wprowadzenie</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./kafka_codes/kafka2.html" class="sidebar-item-text sidebar-link">
+  <a href="../kafka_codes/kafka2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Producent w środowisku python</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./kafka_codes/kafka3.html" class="sidebar-item-text sidebar-link">
+  <a href="../kafka_codes/kafka3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Consumer w środowisku Python</span></a>
   </div>
 </li>
@@ -223,19 +257,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab1.html" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Środowisko produkcyjne z modelem ML</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab2.html" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Tworzenie API we Flasku – Wprowadzenie</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab3.html" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Dane ustrukturyzowane</span></a>
   </div>
 </li>
@@ -253,18 +287,21 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title"><strong>Sections</strong></h2>
    
   <ul class="collapse">
-  <li><a href="#analiza-danych-w-czasie-rzeczywistym" id="toc-analiza-danych-w-czasie-rzeczywistym" class="nav-link active" data-scroll-target="#analiza-danych-w-czasie-rzeczywistym">Analiza danych w czasie rzeczywistym</a></li>
-  <li><a href="#kalendarz" id="toc-kalendarz" class="nav-link" data-scroll-target="#kalendarz">Kalendarz</a></li>
-  <li><a href="#technologie" id="toc-technologie" class="nav-link" data-scroll-target="#technologie">Technologie</a></li>
+  <li><a href="#sprawdź-listę-topiców" id="toc-sprawdź-listę-topiców" class="nav-link active" data-scroll-target="#sprawdź-listę-topiców">1️⃣ Sprawdź listę topiców</a></li>
+  <li><a href="#utwórz-nowy-topic-o-nazwie-mytopic" id="toc-utwórz-nowy-topic-o-nazwie-mytopic" class="nav-link" data-scroll-target="#utwórz-nowy-topic-o-nazwie-mytopic">2️⃣ Utwórz nowy topic o nazwie <code>mytopic</code></a></li>
+  <li><a href="#utwórz-producenta-w-terminalu" id="toc-utwórz-producenta-w-terminalu" class="nav-link" data-scroll-target="#utwórz-producenta-w-terminalu">3️⃣ Utwórz producenta w terminalu</a></li>
+  <li><a href="#consumer-w-sparku" id="toc-consumer-w-sparku" class="nav-link" data-scroll-target="#consumer-w-sparku">4️⃣ Consumer w Sparku</a></li>
+  <li><a href="#przetestuj-przesyłanie-danych" id="toc-przetestuj-przesyłanie-danych" class="nav-link" data-scroll-target="#przetestuj-przesyłanie-danych">5️⃣ Przetestuj przesyłanie danych</a></li>
+  <li><a href="#zakończenie-procesu" id="toc-zakończenie-procesu" class="nav-link" data-scroll-target="#zakończenie-procesu">6️⃣ Zakończenie procesu</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Laboratoria</li><li class="breadcrumb-item"><a href="../kafka_codes/kafka1.html">Apache Kafka</a></li><li class="breadcrumb-item"><a href="../kafka_codes/kafka1.html">Wprowadzenie</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Informacje ogólne</h1>
+<h1 class="title">Wprowadzenie</h1>
 </div>
 
 
@@ -281,81 +318,66 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="analiza-danych-w-czasie-rzeczywistym" class="level2">
-<h2 class="anchored" data-anchor-id="analiza-danych-w-czasie-rzeczywistym">Analiza danych w czasie rzeczywistym</h2>
-<p>Kod: 222890-S</p>
-<p>Semestr zimowy 2024/2025, SGH Szkoła Główna Handlowa w Warszawie</p>
-<p>Szczegółowy opis znajdziesz w <a href="./sylabus">sylabusie</a>. Znajdziesz w nim opis wszystkich wykładów i ćwiczeń oraz proponowaną literaturę.</p>
-<p>Inne książki zamieszczone zostały w zakładce <a href="./ksiazki">książki</a></p>
+<p>Apache Kafka to system przetwarzania strumieniowego (event streaming), który działa jako rozproszony broker wiadomości. Pozwala na przesyłanie i przetwarzanie danych w czasie rzeczywistym.</p>
+<p>Domyślnym adresem naszego brokera jest <code>broker:9092</code>.</p>
+<p>W Apache Kafka dane są przechowywane w strukturach zwanych <strong>topicami</strong>, które pełnią funkcję kolejek komunikacyjnych.</p>
+<p>Zarządzanie Kafką odbywa się za pomocą skryptów. W naszym przypadku będą to skrypty <code>.sh</code>.</p>
+<section id="sprawdź-listę-topiców" class="level2">
+<h2 class="anchored" data-anchor-id="sprawdź-listę-topiców">1️⃣ Sprawdź listę topiców</h2>
+<p>Pamiętaj, aby przejść do katalogu domowego:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">kafka/bin/kafka-topics.sh</span> <span class="at">--list</span> <span class="at">--bootstrap-server</span> broker:9092</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="kalendarz" class="level2">
-<h2 class="anchored" data-anchor-id="kalendarz">Kalendarz</h2>
-<section id="wykład" class="level3">
-<h3 class="anchored" data-anchor-id="wykład">Wykład</h3>
-<p>Wykład jest realizowany w trybie stacjonarnym. Jest on NIEOBOWIĄZKOWY i odbywa się w Auli III bud G</p>
-<ol type="1">
-<li>22-02-2025 (sobota) 08:00-09:30 - Wykład 1</li>
-<li>08-03-2025 (sobota) 08:00-09:30 - Wykład 2</li>
-</ol>
+<section id="utwórz-nowy-topic-o-nazwie-mytopic" class="level2">
+<h2 class="anchored" data-anchor-id="utwórz-nowy-topic-o-nazwie-mytopic">2️⃣ Utwórz nowy topic o nazwie <code>mytopic</code></h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">kafka/bin/kafka-topics.sh</span> <span class="at">--create</span> <span class="at">--topic</span> mytopic <span class="at">--bootstrap-server</span> broker:9092</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="laboratoria" class="level3">
-<h3 class="anchored" data-anchor-id="laboratoria">Laboratoria</h3>
-<section id="lab1" class="level4">
-<h4 class="anchored" data-anchor-id="lab1">Lab1</h4>
-<p>22-03-2025 (sobota) 08:00-13:20 - G-210 grupy 11, 17, 18</p>
-<p>23-03-2025 (niedziela) 13:30-17:00 - G-116 grupy 15, 16</p>
+<section id="utwórz-producenta-w-terminalu" class="level2">
+<h2 class="anchored" data-anchor-id="utwórz-producenta-w-terminalu">3️⃣ Utwórz producenta w terminalu</h2>
+<p>Ten skrypt pozwoli Ci wprowadzać eventy ręcznie przez terminal. Opcje <code>--property</code> są dodatkowe i służą do analizy w tym przykładzie.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">kafka/bin/kafka-console-producer.sh</span> <span class="at">--bootstrap-server</span> broker:9092 <span class="at">--topic</span> mytopic <span class="at">--property</span> <span class="st">"parse.key=true"</span> <span class="at">--property</span> <span class="st">"key.separator=:"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="lab2" class="level4">
-<h4 class="anchored" data-anchor-id="lab2">Lab2</h4>
-<p>05-04-2025 (sobota) 08:00-13:20 - G-210 grupy 11, 17, 18</p>
-<p>06-04-2025 (niedziela) 13:30-17:00 - G-116 grupy 15, 16</p>
+<section id="consumer-w-sparku" class="level2">
+<h2 class="anchored" data-anchor-id="consumer-w-sparku">4️⃣ Consumer w Sparku</h2>
+<p>Otwórz nowy terminal w miejscu, gdzie znajduje się plik <code>test_key_value.py</code>, i uruchom program <strong>Consumer</strong>a w Sparku.</p>
+<div id="cell-2" class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span><span class="bu">file</span> test_key_value.py</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pyspark.sql <span class="im">import</span> SparkSession</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>KAFKA_BROKER <span class="op">=</span> <span class="st">'broker:9092'</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>KAFKA_TOPIC <span class="op">=</span> <span class="st">'mytopic'</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>spark <span class="op">=</span> SparkSession.builder.getOrCreate()</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>spark.sparkContext.setLogLevel(<span class="st">"WARN"</span>)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> (spark.readStream.<span class="bu">format</span>(<span class="st">"kafka"</span>)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>      .option(<span class="st">"kafka.bootstrap.servers"</span>, KAFKA_BROKER)</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>      .option(<span class="st">"subscribe"</span>, KAFKA_TOPIC)</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>      .option(<span class="st">"startingOffsets"</span>, <span class="st">"earliest"</span>)</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>      .load()</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>     )</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Konwersja danych binarnych na stringi</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>df.selectExpr(<span class="st">"CAST(key AS STRING)"</span>, <span class="st">"CAST(value AS STRING)"</span>) <span class="op">\</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a> .writeStream <span class="op">\</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a> .<span class="bu">format</span>(<span class="st">"console"</span>) <span class="op">\</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a> .outputMode(<span class="st">"append"</span>) <span class="op">\</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a> .start() <span class="op">\</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a> .awaitTermination()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Pamiętaj, że Apache Spark nie posiada domyślnego konektora do Kafki, dlatego uruchom proces za pomocą <code>spark-submit</code> i pobierz odpowiedni pakiet w Scali:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">spark-submit</span> <span class="at">--packages</span> org.apache.spark:spark-sql-kafka-0-10_2.12:3.3.0 test_key_value.py</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="lab3" class="level4">
-<h4 class="anchored" data-anchor-id="lab3">Lab3</h4>
-<p>26-04-2025 (sobota) 08:00-13:20 - G-210 grupy 11, 17, 18</p>
-<p>27-04-2025 (niedziela) 13:30-17:00 - G-116 grupy 15, 16</p>
+<section id="przetestuj-przesyłanie-danych" class="level2">
+<h2 class="anchored" data-anchor-id="przetestuj-przesyłanie-danych">5️⃣ Przetestuj przesyłanie danych</h2>
+<p>W terminalu z uruchomionym producentem wpisz tekst w postaci:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">jan:45</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">alicja:20</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Sprawdź, co pojawia się w oknie aplikacji Consumera.</p>
 </section>
-<section id="lab4" class="level4">
-<h4 class="anchored" data-anchor-id="lab4">Lab4</h4>
-<p>17-05-2025 (sobota) 08:00-13:20 - G-210 grupy 11, 17, 18</p>
-<p>18-05-2025 (niedziela) 13:30-17:00 - G-116 grupy 15, 16</p>
-</section>
-<section id="lab5" class="level4">
-<h4 class="anchored" data-anchor-id="lab5">Lab5</h4>
-<p>31-05-2025 (sobota) 08:00-13:20 - G-210 grupy 11, 17, 18</p>
-<p>01-06-2025 (niedziela) 13:30-17:00 - G-116 grupy 15, 16</p>
-</section>
-</section>
-<section id="zaliczenie-i-egzamin" class="level3">
-<h3 class="anchored" data-anchor-id="zaliczenie-i-egzamin">Zaliczenie i Egzamin</h3>
-<p>Wykłady zakończą się testem (podczas ostatnich zajęć) 20 pytań.</p>
-<p>Aby zaliczyć test, należy zdobyć więcej niż 13 punktów – jest to warunek konieczny do uczestnictwa w ćwiczeniach.</p>
-<p>Laboratoria</p>
-<p>Podczas laboratoriów będą zadawane prace domowe, które należy przesyłać za pośrednictwem MS Teams. Każdy brak pracy domowej obniża końcową ocenę o 0,5 stopnia.</p>
-<section id="projekt" class="level4">
-<h4 class="anchored" data-anchor-id="projekt">Projekt</h4>
-<p>Projekty należy realizować w grupach maksymalnie 5-osobowych.</p>
-<p>Wymagania projektu</p>
-<ul>
-<li>Projekt powinien rozwiązywać realny problem biznesowy, który można opracować przy użyciu danych przetwarzanych w trybie online. (Nie wyklucza to użycia przetwarzania wsadowego, np. do generowania modelu).</li>
-<li>Dane powinny być przesyłane do Apache Kafka, skąd będą poddawane dalszemu przetwarzaniu i analizie.</li>
-<li>Można używać dowolnego języka programowania w każdym komponencie projektu.</li>
-<li>Można wykorzystać narzędzia BI.</li>
-<li>Źródłem danych może być dowolne API, sztucznie generowane dane, IoT itp.</li>
-</ul>
-</section>
-</section>
-</section>
-<section id="technologie" class="level2">
-<h2 class="anchored" data-anchor-id="technologie">Technologie</h2>
-<p>Uczestnicząc w zajęciach musisz opanować i przynajmniej w podstawowym zakresie posługiwać się następującymi technologiami informatycznymi:</p>
-<ol type="1">
-<li><a href="./info.html#git">GIT</a></li>
-<li>Python, Jupyter notebook, Jupyter lab, Colab</li>
-<li><a href="./info.html#docker">Docker</a></li>
-<li><strong>Apache Spark</strong>, <strong>Apache Kafka</strong></li>
-<li>Databricks Community edition <a href="https://community.cloud.databricks.com/login.html">Web page</a>.</li>
-</ol>
+<section id="zakończenie-procesu" class="level2">
+<h2 class="anchored" data-anchor-id="zakończenie-procesu">6️⃣ Zakończenie procesu</h2>
+<p>Po zakończeniu pokazu użyj <code>Ctrl+C</code>, aby zamknąć zarówno okno producenta, jak i aplikację Spark.</p>
 
 
 </section>

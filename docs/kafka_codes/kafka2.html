@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Informacje ogólne – Analiza danych w czasie rzeczywistym</title>
+<title>Producent w środowisku python – Analiza danych w czasie rzeczywistym</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,25 +20,59 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-9a023c9ade86a60361e96e3e3f11bc54.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-d218d465d676f63e35746811398acdfc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-9a023c9ade86a60361e96e3e3f11bc54.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-d218d465d676f63e35746811398acdfc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,7 +102,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="../style.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed">
@@ -78,7 +112,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Analiza danych w czasie rzeczywistym</span>
     </a>
   </div>
@@ -89,19 +123,19 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./indexS.html" aria-current="page"> 
+    <a class="nav-link" href="../indexS.html"> 
 <span class="menu-text">222890-S</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./sylabus.html"> 
+    <a class="nav-link" href="../sylabus.html"> 
 <span class="menu-text">Sylabus</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./info.html"> 
+    <a class="nav-link" href="../info.html"> 
 <span class="menu-text">Narzędzia</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./ksiazki.html"> 
+    <a class="nav-link" href="../ksiazki.html"> 
 <span class="menu-text">Książki</span></a>
   </li>  
 </ul>
@@ -115,7 +149,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Informacje ogólne</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Laboratoria</li><li class="breadcrumb-item"><a href="../kafka_codes/kafka1.html">Apache Kafka</a></li><li class="breadcrumb-item"><a href="../kafka_codes/kafka2.html">Producent w środowisku python</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -129,7 +163,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Informacje ogólne</span></a>
   </div>
 </li>
@@ -144,31 +178,31 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lectures/wyklad1.html" class="sidebar-item-text sidebar-link">
+  <a href="../lectures/wyklad1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Wykład 1</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lectures/wyklad2.html" class="sidebar-item-text sidebar-link">
+  <a href="../lectures/wyklad2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Wykład 2</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lectures/wyklad3.html" class="sidebar-item-text sidebar-link">
+  <a href="../lectures/wyklad3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Wykład 3</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lectures/wyklad4.html" class="sidebar-item-text sidebar-link">
+  <a href="../lectures/wyklad4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Wykład 4</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lectures/wyklad5.html" class="sidebar-item-text sidebar-link">
+  <a href="../lectures/wyklad5.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Wykład 5</span></a>
   </div>
 </li>
@@ -185,28 +219,28 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
  <span class="menu-text">Apache Kafka</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./kafka_codes/kafka1.html" class="sidebar-item-text sidebar-link">
+  <a href="../kafka_codes/kafka1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Wprowadzenie</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./kafka_codes/kafka2.html" class="sidebar-item-text sidebar-link">
+  <a href="../kafka_codes/kafka2.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Producent w środowisku python</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./kafka_codes/kafka3.html" class="sidebar-item-text sidebar-link">
+  <a href="../kafka_codes/kafka3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Consumer w środowisku Python</span></a>
   </div>
 </li>
@@ -223,19 +257,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab1.html" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Środowisko produkcyjne z modelem ML</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab2.html" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Tworzenie API we Flasku – Wprowadzenie</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab3.html" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Dane ustrukturyzowane</span></a>
   </div>
 </li>
@@ -253,18 +287,22 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title"><strong>Sections</strong></h2>
    
   <ul class="collapse">
-  <li><a href="#analiza-danych-w-czasie-rzeczywistym" id="toc-analiza-danych-w-czasie-rzeczywistym" class="nav-link active" data-scroll-target="#analiza-danych-w-czasie-rzeczywistym">Analiza danych w czasie rzeczywistym</a></li>
-  <li><a href="#kalendarz" id="toc-kalendarz" class="nav-link" data-scroll-target="#kalendarz">Kalendarz</a></li>
-  <li><a href="#technologie" id="toc-technologie" class="nav-link" data-scroll-target="#technologie">Technologie</a></li>
+  <li><a href="#uruchomienie-środowiska" id="toc-uruchomienie-środowiska" class="nav-link active" data-scroll-target="#uruchomienie-środowiska">1️⃣ Uruchomienie środowiska</a></li>
+  <li><a href="#sprawdzenie-katalogów-i-dostępności-kafki" id="toc-sprawdzenie-katalogów-i-dostępności-kafki" class="nav-link" data-scroll-target="#sprawdzenie-katalogów-i-dostępności-kafki">2️⃣ Sprawdzenie katalogów i dostępności Kafki</a></li>
+  <li><a href="#sprawdzenie-listy-topiców" id="toc-sprawdzenie-listy-topiców" class="nav-link" data-scroll-target="#sprawdzenie-listy-topiców">3️⃣ Sprawdzenie listy topiców</a></li>
+  <li><a href="#dodanie-nowego-topicu" id="toc-dodanie-nowego-topicu" class="nav-link" data-scroll-target="#dodanie-nowego-topicu">4️⃣ Dodanie nowego topicu</a></li>
+  <li><a href="#uruchomienie-producenta-w-pythonie" id="toc-uruchomienie-producenta-w-pythonie" class="nav-link" data-scroll-target="#uruchomienie-producenta-w-pythonie">5️⃣ Uruchomienie producenta w Pythonie</a></li>
+  <li><a href="#uruchomienie-konsumenta-w-konsoli" id="toc-uruchomienie-konsumenta-w-konsoli" class="nav-link" data-scroll-target="#uruchomienie-konsumenta-w-konsoli">6️⃣ Uruchomienie konsumenta w konsoli</a></li>
+  <li><a href="#zakończenie-pracy" id="toc-zakończenie-pracy" class="nav-link" data-scroll-target="#zakończenie-pracy">7️⃣ Zakończenie pracy</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Laboratoria</li><li class="breadcrumb-item"><a href="../kafka_codes/kafka1.html">Apache Kafka</a></li><li class="breadcrumb-item"><a href="../kafka_codes/kafka2.html">Producent w środowisku python</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Informacje ogólne</h1>
+<h1 class="title">Producent w środowisku python</h1>
 </div>
 
 
@@ -281,81 +319,80 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="analiza-danych-w-czasie-rzeczywistym" class="level2">
-<h2 class="anchored" data-anchor-id="analiza-danych-w-czasie-rzeczywistym">Analiza danych w czasie rzeczywistym</h2>
-<p>Kod: 222890-S</p>
-<p>Semestr zimowy 2024/2025, SGH Szkoła Główna Handlowa w Warszawie</p>
-<p>Szczegółowy opis znajdziesz w <a href="./sylabus">sylabusie</a>. Znajdziesz w nim opis wszystkich wykładów i ćwiczeń oraz proponowaną literaturę.</p>
-<p>Inne książki zamieszczone zostały w zakładce <a href="./ksiazki">książki</a></p>
+<p>Tę wersję ćwiczeń można przejść, posiadając nowy obraz Dockerowy i uruchomiony Docker Desktop na własnym komputerze. Jak również na środowisku SGH.</p>
+<section id="uruchomienie-środowiska" class="level2">
+<h2 class="anchored" data-anchor-id="uruchomienie-środowiska">1️⃣ Uruchomienie środowiska</h2>
+<p>Przejdź do przeglądarki i otwórz stronę ze środowiskiem (w przypadku Dockera otwórz <code>localhost:8888</code>).</p>
+<p>Uruchom <strong>Jupyter Lab</strong>, a następnie otwórz nowy terminal (za pomocą ikony terminala).</p>
 </section>
-<section id="kalendarz" class="level2">
-<h2 class="anchored" data-anchor-id="kalendarz">Kalendarz</h2>
-<section id="wykład" class="level3">
-<h3 class="anchored" data-anchor-id="wykład">Wykład</h3>
-<p>Wykład jest realizowany w trybie stacjonarnym. Jest on NIEOBOWIĄZKOWY i odbywa się w Auli III bud G</p>
-<ol type="1">
-<li>22-02-2025 (sobota) 08:00-09:30 - Wykład 1</li>
-<li>08-03-2025 (sobota) 08:00-09:30 - Wykład 2</li>
-</ol>
+<section id="sprawdzenie-katalogów-i-dostępności-kafki" class="level2">
+<h2 class="anchored" data-anchor-id="sprawdzenie-katalogów-i-dostępności-kafki">2️⃣ Sprawdzenie katalogów i dostępności Kafki</h2>
+<p>Przejdź do katalogu głównego i wypisz listę wszystkich elementów. Sprawdź, czy na liście znajduje się katalog <code>kafka</code>.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-la</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="laboratoria" class="level3">
-<h3 class="anchored" data-anchor-id="laboratoria">Laboratoria</h3>
-<section id="lab1" class="level4">
-<h4 class="anchored" data-anchor-id="lab1">Lab1</h4>
-<p>22-03-2025 (sobota) 08:00-13:20 - G-210 grupy 11, 17, 18</p>
-<p>23-03-2025 (niedziela) 13:30-17:00 - G-116 grupy 15, 16</p>
+<section id="sprawdzenie-listy-topiców" class="level2">
+<h2 class="anchored" data-anchor-id="sprawdzenie-listy-topiców">3️⃣ Sprawdzenie listy topiców</h2>
+<p>Uruchom polecenie sprawdzające listę topiców serwera Kafki:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">kafka/bin/kafka-topics.sh</span> <span class="at">--list</span> <span class="at">--bootstrap-server</span> broker:9092</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="lab2" class="level4">
-<h4 class="anchored" data-anchor-id="lab2">Lab2</h4>
-<p>05-04-2025 (sobota) 08:00-13:20 - G-210 grupy 11, 17, 18</p>
-<p>06-04-2025 (niedziela) 13:30-17:00 - G-116 grupy 15, 16</p>
+<section id="dodanie-nowego-topicu" class="level2">
+<h2 class="anchored" data-anchor-id="dodanie-nowego-topicu">4️⃣ Dodanie nowego topicu</h2>
+<p>Dodaj topic o nazwie <code>streaming</code>:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">kafka/bin/kafka-topics.sh</span> <span class="at">--bootstrap-server</span> broker:9092 <span class="at">--create</span> <span class="at">--topic</span> streaming</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Sprawdź ponownie listę topiców, upewniając się, że <code>streaming</code> został dodany:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">kafka/bin/kafka-topics.sh</span> <span class="at">--list</span> <span class="at">--bootstrap-server</span> broker:9092 <span class="kw">|</span> <span class="fu">grep</span> streaming</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="lab3" class="level4">
-<h4 class="anchored" data-anchor-id="lab3">Lab3</h4>
-<p>26-04-2025 (sobota) 08:00-13:20 - G-210 grupy 11, 17, 18</p>
-<p>27-04-2025 (niedziela) 13:30-17:00 - G-116 grupy 15, 16</p>
+<section id="uruchomienie-producenta-w-pythonie" class="level2">
+<h2 class="anchored" data-anchor-id="uruchomienie-producenta-w-pythonie">5️⃣ Uruchomienie producenta w Pythonie</h2>
+<p>W nowym terminalu utwórz plik <code>stream.py</code> i wklej poniższy kod:</p>
+<div id="7be8cfe9-a6b4-4ee4-a104-1e790be9dccf" class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span><span class="bu">file</span> stream.py</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datetime <span class="im">import</span> datetime</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> time <span class="im">import</span> sleep</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> kafka <span class="im">import</span> KafkaProducer</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>SERVER <span class="op">=</span> <span class="st">"broker:9092"</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>TOPIC <span class="op">=</span> <span class="st">"streaming"</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    producer <span class="op">=</span> KafkaProducer(</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>        bootstrap_servers<span class="op">=</span>[SERVER],</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>        value_serializer<span class="op">=</span><span class="kw">lambda</span> x: json.dumps(x).encode(<span class="st">"utf-8"</span>)</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>        <span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>            message <span class="op">=</span> {</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>                <span class="st">"time"</span>: <span class="bu">str</span>(datetime.now()),</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>                <span class="st">"id"</span>: random.choice([<span class="st">'a'</span>,<span class="st">'b'</span>,<span class="st">'c'</span>,<span class="st">'d'</span>]),</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>                <span class="st">"value"</span>: random.randint(<span class="dv">0</span>,<span class="dv">100</span>)</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>            }</span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>            producer.send(TOPIC, value<span class="op">=</span>message)</span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>            sleep(<span class="dv">1</span>)</span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">KeyboardInterrupt</span>:</span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>        producer.close()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Writing stream.py</code></pre>
+</div>
+</div>
 </section>
-<section id="lab4" class="level4">
-<h4 class="anchored" data-anchor-id="lab4">Lab4</h4>
-<p>17-05-2025 (sobota) 08:00-13:20 - G-210 grupy 11, 17, 18</p>
-<p>18-05-2025 (niedziela) 13:30-17:00 - G-116 grupy 15, 16</p>
+<section id="uruchomienie-konsumenta-w-konsoli" class="level2">
+<h2 class="anchored" data-anchor-id="uruchomienie-konsumenta-w-konsoli">6️⃣ Uruchomienie konsumenta w konsoli</h2>
+<p>Aby sprawdzić, czy wysyłanie wiadomości działa, otwórz kolejne okno terminala i uruchom konsumenta:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">kafka/bin/kafka-console-consumer.sh</span> <span class="at">--bootstrap-server</span> broker:9092 <span class="at">--topic</span> streaming <span class="at">--from-beginning</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Teraz wszystkie wiadomości wysłane przez producenta powinny pojawić się w konsoli konsumenta.</p>
 </section>
-<section id="lab5" class="level4">
-<h4 class="anchored" data-anchor-id="lab5">Lab5</h4>
-<p>31-05-2025 (sobota) 08:00-13:20 - G-210 grupy 11, 17, 18</p>
-<p>01-06-2025 (niedziela) 13:30-17:00 - G-116 grupy 15, 16</p>
-</section>
-</section>
-<section id="zaliczenie-i-egzamin" class="level3">
-<h3 class="anchored" data-anchor-id="zaliczenie-i-egzamin">Zaliczenie i Egzamin</h3>
-<p>Wykłady zakończą się testem (podczas ostatnich zajęć) 20 pytań.</p>
-<p>Aby zaliczyć test, należy zdobyć więcej niż 13 punktów – jest to warunek konieczny do uczestnictwa w ćwiczeniach.</p>
-<p>Laboratoria</p>
-<p>Podczas laboratoriów będą zadawane prace domowe, które należy przesyłać za pośrednictwem MS Teams. Każdy brak pracy domowej obniża końcową ocenę o 0,5 stopnia.</p>
-<section id="projekt" class="level4">
-<h4 class="anchored" data-anchor-id="projekt">Projekt</h4>
-<p>Projekty należy realizować w grupach maksymalnie 5-osobowych.</p>
-<p>Wymagania projektu</p>
-<ul>
-<li>Projekt powinien rozwiązywać realny problem biznesowy, który można opracować przy użyciu danych przetwarzanych w trybie online. (Nie wyklucza to użycia przetwarzania wsadowego, np. do generowania modelu).</li>
-<li>Dane powinny być przesyłane do Apache Kafka, skąd będą poddawane dalszemu przetwarzaniu i analizie.</li>
-<li>Można używać dowolnego języka programowania w każdym komponencie projektu.</li>
-<li>Można wykorzystać narzędzia BI.</li>
-<li>Źródłem danych może być dowolne API, sztucznie generowane dane, IoT itp.</li>
-</ul>
-</section>
-</section>
-</section>
-<section id="technologie" class="level2">
-<h2 class="anchored" data-anchor-id="technologie">Technologie</h2>
-<p>Uczestnicząc w zajęciach musisz opanować i przynajmniej w podstawowym zakresie posługiwać się następującymi technologiami informatycznymi:</p>
-<ol type="1">
-<li><a href="./info.html#git">GIT</a></li>
-<li>Python, Jupyter notebook, Jupyter lab, Colab</li>
-<li><a href="./info.html#docker">Docker</a></li>
-<li><strong>Apache Spark</strong>, <strong>Apache Kafka</strong></li>
-<li>Databricks Community edition <a href="https://community.cloud.databricks.com/login.html">Web page</a>.</li>
-</ol>
+<section id="zakończenie-pracy" class="level2">
+<h2 class="anchored" data-anchor-id="zakończenie-pracy">7️⃣ Zakończenie pracy</h2>
+<p>Pamiętaj, aby uruchamiać komendy z odpowiedniego katalogu. Po zakończeniu ćwiczeń użyj <code>Ctrl+C</code>, aby zatrzymać zarówno producenta, jak i konsumenta.</p>
 
 
 </section>
