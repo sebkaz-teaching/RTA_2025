@@ -23,10 +23,12 @@ website:
           contents:
             - kafka_codes/kafka1.ipynb
             - kafka_codes/kafka2.ipynb
+            - kafka_codes/kafka3.ipynb
         - section : "Python"
           contents:
-          - href: labs/lab1.ipynb
-          - href: labs/lab2.ipynb
+          - labs/lab1.ipynb
+          - labs/lab2.ipynb
+          - labs/lab3.ipynb
         
   navbar:
     left: 

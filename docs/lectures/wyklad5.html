@@ -270,6 +270,12 @@ window.Quarto = {
  <span class="menu-text">Producent w środowisku python</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../kafka_codes/kafka3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Kafka Consumer w środowisku Python</span></a>
+  </div>
+</li>
       </ul>
   </li>
           <li class="sidebar-item sidebar-item-section">
@@ -291,6 +297,12 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="../labs/lab2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Tworzenie API we Flasku – Wprowadzenie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../labs/lab3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Dane ustrukturyzowane</span></a>
   </div>
 </li>
       </ul>
@@ -400,7 +412,7 @@ window.Quarto = {
 <p>Zdolność algorytmu do wskazania mechanizmów generujących wyniki nazywamy <strong>możliwością wyjaśnienia</strong>. Analiza etyczna stanowi standardowy element procesu walidacji algorytmu.</p>
 <p>Uzyskanie wysokiej wyjaśnialności jest szczególnie trudne w przypadku algorytmów uczenia maszynowego (ML) i głębokiego uczenia (DL). Na przykład banki korzystające z algorytmów do podejmowania decyzji kredytowych muszą zapewnić transparentność i wskazać powody wydanej decyzji.</p>
 <p>Jedną z metod poprawy wyjaśnialności algorytmów jest <strong>LIME</strong> (<em>Local Interpretable Model-Agnostic Explanations</em>), opublikowana w 2016 roku. Metoda ta polega na wprowadzaniu niewielkich zmian w danych wejściowych i analizowaniu ich wpływu na wynik, co pozwala określić lokalne zasady podejmowania decyzji przez model.</p>
-<div id="623184c9" class="cell" data-execution_count="1">
+<div id="1c084e31" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -37524,25 +37536,25 @@ window.Quarto = {
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script>
-        <div class="lime top_div" id="top_divJGUH99A3ZFBLGBQ"></div>
+        <div class="lime top_div" id="top_divUCC2FHPEXY8MA9W"></div>
         
         <script>
-        var top_div = d3.select('#top_divJGUH99A3ZFBLGBQ').classed('lime top_div', true);
+        var top_div = d3.select('#top_divUCC2FHPEXY8MA9W').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["setosa", "versicolor", "virginica"], [0.0, 1.0, 0.0]);
+            var pp = new lime.PredictProba(pp_svg, ["setosa", "versicolor", "virginica"], [1.0, 0.0, 0.0]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["setosa", "versicolor", "virginica"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["1.50 < petal length (cm) <= 4.25", 0.20668434555821832], ["0.30 < petal width (cm) <= 1.30", 0.16445419481595508], ["2.80 < sepal width (cm) <= 3.00", -0.020299805595133426], ["5.10 < sepal length (cm) <= 5.75", 0.014764584601683934]], 1, exp_div);
+                exp.show([["petal width (cm) <= 0.30", -0.1989052723114325], ["petal length (cm) <= 1.50", -0.1962655244120062], ["sepal length (cm) <= 5.10", -0.041765563581938905], ["sepal width (cm) > 3.40", -0.004549435971680967]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_tabular([["petal length (cm)", "3.60", 0.20668434555821832], ["petal width (cm)", "1.30", 0.16445419481595508], ["sepal width (cm)", "2.90", -0.020299805595133426], ["sepal length (cm)", "5.60", 0.014764584601683934]], 1, raw_div);
+            exp.show_raw_tabular([["petal width (cm)", "0.30", -0.1989052723114325], ["petal length (cm)", "1.50", -0.1962655244120062], ["sepal length (cm)", "5.10", -0.041765563581938905], ["sepal width (cm)", "3.80", -0.004549435971680967]], 1, raw_div);
         
         </script>
         
@@ -37657,7 +37669,7 @@ IQR = Q_3 - Q_1
 </ul>
 <p><strong>Przykład: Analiza wynagrodzeń w firmie</strong></p>
 <p>Wykrywamy, czy w danej firmie są osoby o wynagrodzeniach znacznie odbiegających od średniej.</p>
-<div id="4211a63b" class="cell" data-execution_count="2">
+<div id="b12a9820" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -37711,7 +37723,7 @@ IQR = Q_3 - Q_1
 <p><a href="https://scikit-learn.org/0.20/auto_examples/plot_anomaly_comparison.html">Metody detekcji anomalii sklearn</a></p>
 <p><strong>Przykład: Wykrywanie oszustw bankowych</strong></p>
 <p>Bank analizuje transakcje kartą kredytową i wykrywa te, które mogą być nieautoryzowane.</p>
-<div id="ca5f0feb" class="cell" data-execution_count="3">
+<div id="5f0480cd" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
