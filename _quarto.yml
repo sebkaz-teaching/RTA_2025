@@ -12,11 +12,11 @@ website:
       - index.qmd
       - section : "Wykłady"
         contents:
-        - lectures/wyklad1.qmd
-        - lectures/wyklad2.qmd
-        - lectures/wyklad3.qmd
-        - lectures/wyklad4.qmd
-        - lectures/wyklad5.qmd
+        - href: lectures/wyklad1.qmd
+        - href: lectures/wyklad2.qmd
+        - href: lectures/wyklad3.qmd
+        - href: lectures/wyklad4.qmd
+        - href: lectures/wyklad5.qmd
       - section : "Laboratoria"
         contents:
         - section: "Apache Kafka"
