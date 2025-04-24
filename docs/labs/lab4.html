@@ -297,6 +297,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul class="collapse">
   <li><a href="#pytorch---pretrenowane-modele-klasyfikujące" id="toc-pytorch---pretrenowane-modele-klasyfikujące" class="nav-link active" data-scroll-target="#pytorch---pretrenowane-modele-klasyfikujące">PyTorch - pretrenowane modele klasyfikujące</a></li>
+  <li><a href="#model-alexnet" id="toc-model-alexnet" class="nav-link" data-scroll-target="#model-alexnet">Model alexnet</a></li>
   <li><a href="#model-resnet" id="toc-model-resnet" class="nav-link" data-scroll-target="#model-resnet">Model resnet</a></li>
   <li><a href="#własny-model-dla-danych-graficznych" id="toc-własny-model-dla-danych-graficznych" class="nav-link" data-scroll-target="#własny-model-dla-danych-graficznych">własny model dla danych graficznych</a></li>
   <li><a href="#dane-tekstowe-i-model-worka-słów" id="toc-dane-tekstowe-i-model-worka-słów" class="nav-link" data-scroll-target="#dane-tekstowe-i-model-worka-słów">Dane tekstowe i model Worka słów</a></li>
@@ -435,7 +436,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  'convnext_tiny']</code></pre>
 </div>
 </div>
-<p>Załadujmy gotowy model ## Model alexnet</p>
+</section>
+<section id="model-alexnet" class="level2">
+<h2 class="anchored" data-anchor-id="model-alexnet">Model alexnet</h2>
 <div id="249295c9-f97b-4758-bf13-f26f1b233b8a" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>alexnet <span class="op">=</span> models.alexnet(pretrained<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -1981,6 +1984,53 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
                 ('classifier', LogisticRegression())])</code></pre>
 </div>
 </div>
+<p>🔍 Analiza zawartości laboratorium 4</p>
+<ol type="1">
+<li>Wprowadzenie do danych nieustrukturyzowanych</li>
+</ol>
+<p>Laboratorium rozpoczyna się od przedstawienia danych nieustrukturyzowanych, takich jak obrazy, teksty, dźwięki czy wideo. Podkreślono, że niezależnie od typu danych, wszystko przetwarzane jest w tensorach (macierzach wielowymiarowych), co umożliwia wykorzystanie modeli uczenia maszynowego i sieci neuronowych do ich analizy.</p>
+<ol start="2" type="1">
+<li>Praca z obrazami</li>
+</ol>
+<p>Ćwiczenia pokazują, jak za pomocą bibliotek NumPy i Matplotlib generować i wizualizować obrazy dwuwymiarowe. Następnie wprowadzono bibliotekę PyTorch i jej moduł torchvision do przetwarzania obrazów, w tym: • Pobieranie i wczytywanie obrazów z internetu • Transformacje obrazów (zmiana rozmiaru, przycinanie, normalizacja) • Konwersja obrazów do tensorów • Tworzenie batchy danych</p>
+<ol start="3" type="1">
+<li>Wykorzystanie pretrenowanych modeli</li>
+</ol>
+<p>Laboratorium demonstruje, jak załadować i wykorzystać pretrenowany model AlexNet z biblioteki torchvision.models do klasyfikacji obrazów. Pokazano również, jak przygotować dane wejściowe i uzyskać predykcje z modelu.</p>
+<ol start="4" type="1">
+<li>Praca z danymi tekstowymi</li>
+</ol>
+<p>W dalszej części laboratorium wprowadzono analizę danych tekstowych za pomocą modelu worka słów (bag-of-words). Pokazano, jak przekształcić teksty na reprezentacje numeryczne, które mogą być wykorzystane w modelach uczenia maszynowego.</p>
+<ol start="5" type="1">
+<li>Obiektowe podejście do modelowania</li>
+</ol>
+<p>Na koniec laboratorium przedstawiono obiektowe podejście do tworzenia modeli w PyTorch, co jest istotne przy budowie bardziej złożonych architektur sieci neuronowych.</p>
+<p>⸻</p>
+<p>💡 Propozycje rozszerzeń</p>
+<p>Aby jeszcze bardziej wzbogacić laboratorium 4, można rozważyć dodanie następujących elementów:</p>
+<ol type="1">
+<li>Wykorzystanie innych pretrenowanych modeli</li>
+</ol>
+<p>Dodanie przykładów z wykorzystaniem innych pretrenowanych modeli, takich jak ResNet czy VGG, pozwoliłoby studentom porównać różne architektury i ich zastosowania.</p>
+<ol start="2" type="1">
+<li>Finałowy projekt integrujący obrazy i tekst</li>
+</ol>
+<p>Zaproponowanie projektu, w którym studenci łączą analizę obrazów i tekstów (np. klasyfikacja memów), umożliwiłoby praktyczne zastosowanie zdobytej wiedzy.</p>
+<ol start="3" type="1">
+<li>Wprowadzenie do transfer learningu</li>
+</ol>
+<p>Pokazanie, jak dostosować pretrenowane modele do nowych zadań poprzez transfer learning, przygotowałoby studentów do pracy z ograniczonymi zbiorami danych.</p>
+<ol start="4" type="1">
+<li>Analiza danych dźwiękowych</li>
+</ol>
+<p>Dodanie sekcji dotyczącej analizy danych dźwiękowych (np. rozpoznawanie mowy) rozszerzyłoby zakres omawianych danych nieustrukturyzowanych.</p>
+<ol start="5" type="1">
+<li>Wykorzystanie bibliotek NLP</li>
+</ol>
+<p>Wprowadzenie bibliotek takich jak spaCy czy Hugging Face Transformers do analizy tekstu pozwoliłoby na bardziej zaawansowane przetwarzanie języka naturalnego.</p>
+<p>⸻</p>
+<p>✅ Podsumowanie</p>
+<p>Laboratorium 4 stanowi solidne wprowadzenie do analizy danych nieustrukturyzowanych z wykorzystaniem bibliotek NumPy i PyTorch. Dodanie powyższych rozszerzeń mogłoby jeszcze bardziej zwiększyć wartość edukacyjną zajęć, przygotowując studentów do realnych wyzwań w pracy z różnorodnymi danymi w kontekście Big Data.</p>
 
 
 </section>
