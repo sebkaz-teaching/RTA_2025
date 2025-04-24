@@ -418,7 +418,7 @@ window.Quarto = {
 <p>Zdolność algorytmu do wskazania mechanizmów generujących wyniki nazywamy <strong>możliwością wyjaśnienia</strong>. Analiza etyczna stanowi standardowy element procesu walidacji algorytmu.</p>
 <p>Uzyskanie wysokiej wyjaśnialności jest szczególnie trudne w przypadku algorytmów uczenia maszynowego (ML) i głębokiego uczenia (DL). Na przykład banki korzystające z algorytmów do podejmowania decyzji kredytowych muszą zapewnić transparentność i wskazać powody wydanej decyzji.</p>
 <p>Jedną z metod poprawy wyjaśnialności algorytmów jest <strong>LIME</strong> (<em>Local Interpretable Model-Agnostic Explanations</em>), opublikowana w 2016 roku. Metoda ta polega na wprowadzaniu niewielkich zmian w danych wejściowych i analizowaniu ich wpływu na wynik, co pozwala określić lokalne zasady podejmowania decyzji przez model.</p>
-<div id="bd570548" class="cell" data-execution_count="1">
+<div id="39dd8224" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -37542,25 +37542,25 @@ window.Quarto = {
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script>
-        <div class="lime top_div" id="top_div0Z1H66ZGZGLQTIJ"></div>
+        <div class="lime top_div" id="top_div1IW5B2KBC5WSVIK"></div>
         
         <script>
-        var top_div = d3.select('#top_div0Z1H66ZGZGLQTIJ').classed('lime top_div', true);
+        var top_div = d3.select('#top_div1IW5B2KBC5WSVIK').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["setosa", "versicolor", "virginica"], [0.0, 1.0, 0.0]);
+            var pp = new lime.PredictProba(pp_svg, ["setosa", "versicolor", "virginica"], [0.0, 0.01, 0.99]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["setosa", "versicolor", "virginica"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["1.50 < petal length (cm) <= 4.25", 0.19987191439966104], ["0.30 < petal width (cm) <= 1.30", 0.17308608218972066], ["5.75 < sepal length (cm) <= 6.40", 0.024586836228381478], ["sepal width (cm) <= 2.80", -0.008469121941473827]], 1, exp_div);
+                exp.show([["petal length (cm) > 5.10", -0.2489494456873254], ["petal width (cm) > 1.80", -0.19334834101860515], ["sepal width (cm) <= 2.80", -0.011418966306863591], ["5.75 < sepal length (cm) <= 6.40", 0.0018773673348971016]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_tabular([["petal length (cm)", "3.90", 0.19987191439966104], ["petal width (cm)", "1.20", 0.17308608218972066], ["sepal length (cm)", "5.80", 0.024586836228381478], ["sepal width (cm)", "2.70", -0.008469121941473827]], 1, raw_div);
+            exp.show_raw_tabular([["petal length (cm)", "5.60", -0.2489494456873254], ["petal width (cm)", "2.20", -0.19334834101860515], ["sepal width (cm)", "2.80", -0.011418966306863591], ["sepal length (cm)", "6.40", 0.0018773673348971016]], 1, raw_div);
         
         </script>
         
@@ -37675,7 +37675,7 @@ IQR = Q_3 - Q_1
 </ul>
 <p><strong>Przykład: Analiza wynagrodzeń w firmie</strong></p>
 <p>Wykrywamy, czy w danej firmie są osoby o wynagrodzeniach znacznie odbiegających od średniej.</p>
-<div id="b6735df5" class="cell" data-execution_count="2">
+<div id="d98a1387" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -37729,7 +37729,7 @@ IQR = Q_3 - Q_1
 <p><a href="https://scikit-learn.org/0.20/auto_examples/plot_anomaly_comparison.html">Metody detekcji anomalii sklearn</a></p>
 <p><strong>Przykład: Wykrywanie oszustw bankowych</strong></p>
 <p>Bank analizuje transakcje kartą kredytową i wykrywa te, które mogą być nieautoryzowane.</p>
-<div id="d1dca0b9" class="cell" data-execution_count="3">
+<div id="988ad53b" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
