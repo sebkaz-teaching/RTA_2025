@@ -676,6 +676,32 @@
     ]
   },
   {
+    "objectID": "labs/lab6.html",
+    "href": "labs/lab6.html",
+    "title": "Wprowadzenie do Apache Spark",
+    "section": "",
+    "text": "from pyspark.sql import SparkSession\nspark = SparkSession.builder.appName(\"Lab6\").getOrCreate()",
+    "crumbs": [
+      "222890-S",
+      "Laboratoria",
+      "Apache Spark",
+      "Wprowadzenie do Apache Spark"
+    ]
+  },
+  {
+    "objectID": "labs/lab6.html#przykład-1---dane-ralizujące-szereg-czasowy",
+    "href": "labs/lab6.html#przykład-1---dane-ralizujące-szereg-czasowy",
+    "title": "Wprowadzenie do Apache Spark",
+    "section": "Przykład 1 - dane ralizujące szereg czasowy",
+    "text": "Przykład 1 - dane ralizujące szereg czasowy\nczujnik_temperatury = ((12.5, \"2019-01-02 12:00:00\"),\n(17.6, \"2019-01-02 12:00:20\"),\n(14.6,  \"2019-01-02 12:00:30\"),\n(22.9,  \"2019-01-02 12:01:15\"),\n(17.4,  \"2019-01-02 12:01:30\"),\n(25.8,  \"2019-01-02 12:03:25\"),\n(27.1,  \"2019-01-02 12:02:40\"),\n)\nDane realizujące pomiar temperatury w czasie.\nAby wygenerować DataFrame należy użyć metod createDataFrame. Jednak należy pamiętać aby zdefiniować typy danych.\nW następnych laboratoriach szerzej opiszemy typy danych w Sparku.\nZdefiuniujmy schemat naszych danych.\nfrom pyspark.sql.functions import to_timestamp\nfrom pyspark.sql.types import StructType, StructField, StringType, DoubleType\n\nschema = StructType([\n    StructField(\"temperatura\", DoubleType(), True),\n    StructField(\"czas\", StringType(), True),\n])\nJak widać praktycznie wszystkie elementy poza nazwą kolumny oraz parametrem True są przedstawione jako obiekty.\ndf = (spark.createDataFrame(czujnik_temperatury, schema=schema)\n      .withColumn(\"czas\", to_timestamp(\"czas\")))\nSprawdźmy jak wygląda schemat utworzonej tabeli.\ndf.printSchema()\n\nroot\n |-- temperatura: double (nullable = true)\n |-- czas: timestamp (nullable = true)\n\nNastępnie możemy sprawdzić jak przedstawia się sama tabela.\ndf.show()\n+-----------+-------------------+\n|temperatura|               czas|\n+-----------+-------------------+\n|       12.5|2019-01-02 12:00:00|\n|       17.6|2019-01-02 12:00:20|\n|       14.6|2019-01-02 12:00:30|\n|       22.9|2019-01-02 12:01:15|\n|       17.4|2019-01-02 12:01:30|\n|       25.8|2019-01-02 12:03:25|\n|       27.1|2019-01-02 12:02:40|\n+-----------+-------------------+\n\nSpark jako SQL\nRamki danych w sparku pozwalają wykorzystać język sql:\ndf.createOrReplaceTempView(\"czujnik_temperatury\")\nspark.sql(\"SELECT * FROM czujnik_temperatury where temperatura &gt; 21\").show()\n+-------------------+-----------+\n|               czas|temperatura|\n+-------------------+-----------+\n|2019-01-02 12:01:15|       22.9|\n|2019-01-02 12:03:25|       25.8|\n|2019-01-02 12:02:40|       27.1|\n+-------------------+-----------+\n\n\nGrupowanie danych\nStandardowy grupowanie danych w sparku po zmiennej “czas” wygeneruje nam liczbę wierszy w każdym grupie. Ze względu, iż zmienne czasowe mają różne wartości, ilość otrzymanych grup będzie równa ilości wierszy w tabeli.\ndf2 = df.groupBy(\"czas\").count()\ndf2.show()\nWykorzystując funkcję window możemy wygenerować grupy czasowe w zależności od wybranego okna czasowego.\n# Thumbling window\n\nimport pyspark.sql.functions as F\n\ndf2 = df.groupBy(F.window(\"czas\",\"30 seconds\")).count()\ndf2.show(truncate=False)\n\n+------------------------------------------+-----+\n|window                                    |count|\n+------------------------------------------+-----+\n|{2019-01-02 12:00:00, 2019-01-02 12:00:30}|2    |\n|{2019-01-02 12:00:30, 2019-01-02 12:01:00}|1    |\n|{2019-01-02 12:01:00, 2019-01-02 12:01:30}|1    |\n|{2019-01-02 12:01:30, 2019-01-02 12:02:00}|1    |\n|{2019-01-02 12:03:00, 2019-01-02 12:03:30}|1    |\n|{2019-01-02 12:02:30, 2019-01-02 12:03:00}|1    |\n+------------------------------------------+-----+\nSprawdźmy schemat\ndf2.printSchema()\nroot\n |-- window: struct (nullable = false)\n |    |-- start: timestamp (nullable = true)\n |    |-- end: timestamp (nullable = true)\n |-- count: long (nullable = false)\nPodstawowa różnica między pandasowymi ramkami danych i sparkowymi jest taka, że w komórce danych sparkowych można używać typów złożonych - np struct.",
+    "crumbs": [
+      "222890-S",
+      "Laboratoria",
+      "Apache Spark",
+      "Wprowadzenie do Apache Spark"
+    ]
+  },
+  {
     "objectID": "labs/lab3.html",
     "href": "labs/lab3.html",
     "title": "Dane ustrukturyzowane",
@@ -954,7 +980,7 @@
     "href": "lectures/wyklad2.html#dane-sensoryczne-i-iot",
     "title": "Wykład 2",
     "section": "Dane sensoryczne i IoT",
-    "text": "Dane sensoryczne i IoT\nDane z czujników i urządzeń IoT są kolejnym krokiem w ewolucji.\n\n📌 Cechy:\n✅ Często pochodzą z miliardów urządzeń (big data).\n✅ Wymagają analizy brzegowej (edge computing).\n\n\n📌 Przykłady:\n➡️ Smart home, wearables, samochody autonomiczne, systemy przemysłowe.\n\n\n🖥️ Przykładowy kod w Pythonie (Sensor - temperatura):\n\n\nCode\nimport random\ndef get_temperature():\n    return round(random.uniform(20.0, 25.0), 2)\nprint(f\"Current temperature: {get_temperature()}°C\")\n\n\nCurrent temperature: 23.91°C",
+    "text": "Dane sensoryczne i IoT\nDane z czujników i urządzeń IoT są kolejnym krokiem w ewolucji.\n\n📌 Cechy:\n✅ Często pochodzą z miliardów urządzeń (big data).\n✅ Wymagają analizy brzegowej (edge computing).\n\n\n📌 Przykłady:\n➡️ Smart home, wearables, samochody autonomiczne, systemy przemysłowe.\n\n\n🖥️ Przykładowy kod w Pythonie (Sensor - temperatura):\n\n\nCode\nimport random\ndef get_temperature():\n    return round(random.uniform(20.0, 25.0), 2)\nprint(f\"Current temperature: {get_temperature()}°C\")\n\n\nCurrent temperature: 23.3°C",
     "crumbs": [
       "222890-S",
       "Wykłady",
