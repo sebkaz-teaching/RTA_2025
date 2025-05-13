@@ -589,7 +589,7 @@
     "href": "labs/lab8.html#rdd",
     "title": "Apache Spark z plikami RDD",
     "section": "RDD",
-    "text": "RDD\n\nResilient Distributed Dataset\nPodstawowa abstrakcja oraz rdzeń Sparka\nObsługiwane przez dwa rodzaje operacji:\n\nAkcje:\n\noperacje uruchamiająceegzekucję transformacji na RDD\nprzyjmują RDD jako input i zwracają wynik NIE będący RDD\n\nTransformacje:\n\nleniwe operacje\nprzyjmują RDD i zwracają RDD\n\n\nIn-Memory - dane RDD przechowywane w pamięci\nImmutable\nLazy evaluated\nParallel - przetwarzane równolegle\nPartitioned - rozproszone",
+    "text": "RDD\n\nResilient Distributed Dataset\nPodstawowa abstrakcja oraz rdzeń Sparka\nObsługiwane przez dwa rodzaje operacji:\n\nAkcje:\n\noperacje uruchamiające egzekucję transformacji na RDD\nprzyjmują RDD jako input i zwracają wynik NIE będący RDD\n\nTransformacje:\n\nleniwe operacje\nprzyjmują RDD i zwracają RDD\n\n\nIn-Memory - dane RDD przechowywane w pamięci\nImmutable\nLazy evaluated\nParallel - przetwarzane równolegle\nPartitioned - rozproszone",
     "crumbs": [
       "222890-S",
       "Laboratoria",
@@ -1318,7 +1318,7 @@
     "href": "lectures/wyklad2.html#dane-sensoryczne-i-iot",
     "title": "Wykład 2",
     "section": "Dane sensoryczne i IoT",
-    "text": "Dane sensoryczne i IoT\nDane z czujników i urządzeń IoT są kolejnym krokiem w ewolucji.\n\n📌 Cechy:\n✅ Często pochodzą z miliardów urządzeń (big data).\n✅ Wymagają analizy brzegowej (edge computing).\n\n\n📌 Przykłady:\n➡️ Smart home, wearables, samochody autonomiczne, systemy przemysłowe.\n\n\n🖥️ Przykładowy kod w Pythonie (Sensor - temperatura):\n\n\nCode\nimport random\ndef get_temperature():\n    return round(random.uniform(20.0, 25.0), 2)\nprint(f\"Current temperature: {get_temperature()}°C\")\n\n\nCurrent temperature: 22.67°C",
+    "text": "Dane sensoryczne i IoT\nDane z czujników i urządzeń IoT są kolejnym krokiem w ewolucji.\n\n📌 Cechy:\n✅ Często pochodzą z miliardów urządzeń (big data).\n✅ Wymagają analizy brzegowej (edge computing).\n\n\n📌 Przykłady:\n➡️ Smart home, wearables, samochody autonomiczne, systemy przemysłowe.\n\n\n🖥️ Przykładowy kod w Pythonie (Sensor - temperatura):\n\n\nCode\nimport random\ndef get_temperature():\n    return round(random.uniform(20.0, 25.0), 2)\nprint(f\"Current temperature: {get_temperature()}°C\")\n\n\nCurrent temperature: 22.14°C",
     "crumbs": [
       "222890-S",
       "Wykłady",

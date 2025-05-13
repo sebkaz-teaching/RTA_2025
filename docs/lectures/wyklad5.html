@@ -459,7 +459,7 @@ window.Quarto = {
 <p>Zdolność algorytmu do wskazania mechanizmów generujących wyniki nazywamy <strong>możliwością wyjaśnienia</strong>. Analiza etyczna stanowi standardowy element procesu walidacji algorytmu.</p>
 <p>Uzyskanie wysokiej wyjaśnialności jest szczególnie trudne w przypadku algorytmów uczenia maszynowego (ML) i głębokiego uczenia (DL). Na przykład banki korzystające z algorytmów do podejmowania decyzji kredytowych muszą zapewnić transparentność i wskazać powody wydanej decyzji.</p>
 <p>Jedną z metod poprawy wyjaśnialności algorytmów jest <strong>LIME</strong> (<em>Local Interpretable Model-Agnostic Explanations</em>), opublikowana w 2016 roku. Metoda ta polega na wprowadzaniu niewielkich zmian w danych wejściowych i analizowaniu ich wpływu na wynik, co pozwala określić lokalne zasady podejmowania decyzji przez model.</p>
-<div id="a1979b20" class="cell" data-execution_count="1">
+<div id="8edaa556" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -37583,10 +37583,10 @@ window.Quarto = {
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script>
-        <div class="lime top_div" id="top_divHSHCLAE12O5WSU5"></div>
+        <div class="lime top_div" id="top_div3ELJG711N52E6PQ"></div>
         
         <script>
-        var top_div = d3.select('#top_divHSHCLAE12O5WSU5').classed('lime top_div', true);
+        var top_div = d3.select('#top_div3ELJG711N52E6PQ').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
@@ -37598,10 +37598,10 @@ window.Quarto = {
             var exp = new lime.Explanation(["setosa", "versicolor", "virginica"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["1.30 < petal width (cm) <= 1.80", 0.22328480870232204], ["4.25 < petal length (cm) <= 5.10", 0.21022396617594427], ["2.80 < sepal width (cm) <= 3.00", -0.018541039925703433], ["5.75 < sepal length (cm) <= 6.40", 0.013826139131401741]], 1, exp_div);
+                exp.show([["4.25 < petal length (cm) <= 5.10", 0.22172987558132226], ["petal width (cm) > 1.80", -0.1915354912279014], ["3.00 < sepal width (cm) <= 3.40", 0.03346793998282072], ["sepal length (cm) > 6.40", -0.0025464480388078673]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_tabular([["petal width (cm)", "1.80", 0.22328480870232204], ["petal length (cm)", "4.90", 0.21022396617594427], ["sepal width (cm)", "3.00", -0.018541039925703433], ["sepal length (cm)", "6.10", 0.013826139131401741]], 1, raw_div);
+            exp.show_raw_tabular([["petal length (cm)", "5.10", 0.22172987558132226], ["petal width (cm)", "2.30", -0.1915354912279014], ["sepal width (cm)", "3.10", 0.03346793998282072], ["sepal length (cm)", "6.90", -0.0025464480388078673]], 1, raw_div);
         
         </script>
         
@@ -37716,7 +37716,7 @@ IQR = Q_3 - Q_1
 </ul>
 <p><strong>Przykład: Analiza wynagrodzeń w firmie</strong></p>
 <p>Wykrywamy, czy w danej firmie są osoby o wynagrodzeniach znacznie odbiegających od średniej.</p>
-<div id="dac052e7" class="cell" data-execution_count="2">
+<div id="0c5bf853" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -37770,7 +37770,7 @@ IQR = Q_3 - Q_1
 <p><a href="https://scikit-learn.org/0.20/auto_examples/plot_anomaly_comparison.html">Metody detekcji anomalii sklearn</a></p>
 <p><strong>Przykład: Wykrywanie oszustw bankowych</strong></p>
 <p>Bank analizuje transakcje kartą kredytową i wykrywa te, które mogą być nieautoryzowane.</p>
-<div id="6308e5bc" class="cell" data-execution_count="3">
+<div id="e85309e0" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>

@@ -382,7 +382,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li>Akcje:
 <ul>
-<li>operacje uruchamiająceegzekucję transformacji na RDD</li>
+<li>operacje uruchamiające egzekucję transformacji na RDD</li>
 <li>przyjmują RDD jako input i zwracają wynik NIE będący RDD</li>
 </ul></li>
 <li>Transformacje:
@@ -752,12 +752,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="przetwarzanie-danych-strumieniowych" class="level1">
 <h1>Przetwarzanie danych strumieniowych</h1>
 <ol type="1">
-<li>Sprawdź czy serwer Kafki posiada jakieś zdefiniowane topici:
-<ul>
-<li>w dodatkowym oknie termianala wpisz polecenie:</li>
-</ul>
+<li>Sprawdź czy serwer Kafki posiada jakieś zdefiniowane topici:</li>
+</ol>
 <div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~ </span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="ex">kafka/bin/kafka-topics.sh</span> <span class="at">--list</span> <span class="at">--bootstrap-server</span> broker:9092</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="ex">kafka/bin/kafka-topics.sh</span> <span class="at">--list</span> <span class="at">--bootstrap-server</span> broker:9092</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="2" type="1">
 <li>dodaj topic o nazwie <code>streamXX</code> Gdzie za <code>X</code> wstaw nr grupy a za <code>xx</code> nr swojego serwera</li>
 </ol>
 <div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~ </span>
